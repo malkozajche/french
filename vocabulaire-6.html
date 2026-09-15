@@ -500,10 +500,163 @@
       .card { min-height: 130px; }
       .brand { font-size: 2rem; }
     }
+
+    /* —— Gamification —— */
+    .hud {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.55rem;
+      margin: 1rem auto 0;
+      max-width: 720px;
+    }
+    .hud-card {
+      background: rgba(255,255,255,0.92);
+      border-radius: 16px;
+      padding: 0.65rem 0.75rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 2px solid rgba(255,255,255,0.95);
+    }
+    .hud-card .k { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #5a7368; }
+    .hud-card .v { font-family: var(--font-display); font-size: 1.35rem; color: #164836; line-height: 1.1; }
+    .xp-wrap { margin: 0.85rem auto 0; max-width: 520px; text-align: left; }
+    .xp-label { display: flex; justify-content: space-between; font-weight: 800; font-size: 0.85rem; color: #24553f; margin-bottom: 0.3rem; }
+    .xp-track { height: 14px; background: rgba(30,47,40,0.12); border-radius: 999px; overflow: hidden; }
+    .xp-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ff9f1c, #2f9e6b 70%, #3d9fd9); border-radius: 999px; transition: width 0.45s ease; }
+
+    .toast {
+      position: fixed; left: 50%; bottom: 1.4rem; transform: translateX(-50%) translateY(120%);
+      background: linear-gradient(135deg, #164836, #1f7a52); color: white;
+      padding: 0.85rem 1.2rem; border-radius: 16px; font-weight: 800; z-index: 80;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25); transition: transform 0.35s ease; max-width: 92vw; text-align: center;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast .big { font-family: var(--font-display); font-size: 1.15rem; display: block; }
+
+    .game-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .game-card {
+      background: rgba(255,254,247,0.95);
+      border: 3px solid white;
+      border-radius: 22px;
+      padding: 1.1rem 1rem;
+      box-shadow: var(--shadow);
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .game-card:hover { transform: translateY(-3px) rotate(-0.4deg); }
+    .game-card h3 { font-family: var(--font-display); font-size: 1.35rem; color: #164836; margin-bottom: 0.25rem; }
+    .game-card p { font-weight: 700; color: #3a6a58; font-size: 0.92rem; margin-bottom: 0.7rem; }
+    .game-card .play {
+      display: inline-block; font-weight: 800; background: linear-gradient(180deg, #ff9f1c, #e07a00);
+      color: white; border: none; border-radius: 999px; padding: 0.45rem 0.9rem; font-family: inherit; cursor: pointer;
+      box-shadow: 0 4px 0 #b86200;
+    }
+
+    .game-stage {
+      background: rgba(255,254,247,0.96);
+      border-radius: 24px;
+      border: 3px solid white;
+      box-shadow: var(--shadow);
+      padding: 1.2rem;
+      max-width: 720px;
+      margin: 0 auto;
+      display: none;
+    }
+    .game-stage.on { display: block; animation: rise 0.35s ease both; }
+    .game-top { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; }
+    .game-top .title { font-family: var(--font-display); font-size: 1.4rem; color: #164836; }
+    .timer {
+      font-family: var(--font-display); font-size: 1.5rem; background: #ffe2a8; color: #7a4a00;
+      padding: 0.25rem 0.7rem; border-radius: 12px; min-width: 3.2rem; text-align: center;
+    }
+    .timer.danger { background: #ffd0c8; color: #a32a1d; animation: wiggle 0.4s ease infinite; }
+
+    .match-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    @media (max-width: 640px) { .match-board { grid-template-columns: 1fr; } }
+    .match-col h4 { font-family: var(--font-display); margin-bottom: 0.45rem; color: #24553f; }
+    .match-item {
+      display: block; width: 100%; text-align: left; margin-bottom: 0.4rem;
+      font-weight: 800; padding: 0.7rem 0.8rem; border-radius: 14px; border: 3px solid transparent;
+      background: #eef8f2; cursor: pointer; font-family: inherit;
+    }
+    .match-item.selected { border-color: #3d9fd9; background: #e3f3fb; }
+    .match-item.matched { opacity: 0.45; background: #d4f8de; border-color: #2f9e6b; pointer-events: none; }
+    .match-item.shake { animation: wiggle 0.35s ease; background: #ffe0db; border-color: #e85d4c; }
+
+    .memory-board {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+    }
+    @media (max-width: 520px) { .memory-board { grid-template-columns: repeat(3, 1fr); } }
+    .mem-card {
+      aspect-ratio: 1;
+      border: none; border-radius: 14px; cursor: pointer;
+      background: linear-gradient(145deg, #3d9fd9, #1f6fa0);
+      color: white; font-size: 1.6rem; font-weight: 800;
+      box-shadow: 0 4px 0 #155578; font-family: inherit;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.3rem; transition: transform 0.15s;
+    }
+    .mem-card:hover { transform: scale(1.03); }
+    .mem-card.face {
+      background: #fffef7; color: #164836; box-shadow: 0 4px 0 #c8d8ce;
+      font-size: clamp(0.65rem, 2.4vw, 0.85rem); text-align: center; line-height: 1.15;
+    }
+    .mem-card.done { opacity: 0.4; pointer-events: none; background: #d4f8de; color: #1c6b3a; box-shadow: none; }
+
+    .speed-prompt {
+      font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.1rem);
+      color: #164836; margin: 0.6rem 0 0.9rem; line-height: 1.15;
+    }
+    .combo {
+      font-weight: 800; color: #e07a00; min-height: 1.3rem; margin-bottom: 0.4rem;
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.75rem;
+    }
+    .badge-item {
+      background: rgba(255,254,247,0.9);
+      border-radius: 18px; padding: 1rem; box-shadow: var(--shadow);
+      border: 3px solid white; text-align: center; opacity: 0.42; filter: grayscale(0.8);
+      transition: opacity 0.3s, filter 0.3s, transform 0.2s;
+    }
+    .badge-item.earned { opacity: 1; filter: none; transform: scale(1.02); border-color: #ffd166; }
+    .badge-item .emoji { font-size: 2.2rem; display: block; margin-bottom: 0.3rem; }
+    .badge-item h3 { font-family: var(--font-display); font-size: 1.15rem; color: #164836; }
+    .badge-item p { font-size: 0.85rem; font-weight: 700; color: #3a6a58; margin-top: 0.25rem; }
+
+    .level-up-flash {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+      background: rgba(22,72,54,0.45); z-index: 90; pointer-events: none;
+    }
+    .level-up-flash.on { display: flex; }
+    .level-up-flash .box {
+      background: white; border-radius: 24px; padding: 1.5rem 2rem; text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3); animation: rise 0.4s ease;
+    }
+    .level-up-flash .box h2 { font-family: var(--font-display); font-size: 2rem; color: #e07a00; }
+
   </style>
 </head>
 <body>
   <div id="confetti-layer" aria-hidden="true"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="level-flash" class="level-up-flash" aria-hidden="true"><div class="box"><h2>Level up!</h2><p id="level-flash-text" style="font-weight:800;color:#24553f;"></p></div></div>
+
 
   <div class="wrap">
     <div class="top-nav">
@@ -520,14 +673,26 @@
       <div class="stats">
         <span class="stat" id="stat-total">0 words</span>
         <span class="stat">🔊 FR · DE · EN</span>
-        <span class="stat">📝 Quiz up to 25</span>
+        <span class="stat">🎮 Games + badges</span>
+      </div>
+      <div class="hud" aria-label="Player progress">
+        <div class="hud-card"><div class="k">Level</div><div class="v" id="hud-level">1</div></div>
+        <div class="hud-card"><div class="k">Stars</div><div class="v" id="hud-xp">0</div></div>
+        <div class="hud-card"><div class="k">Streak</div><div class="v" id="hud-streak">0🔥</div></div>
+        <div class="hud-card"><div class="k">Badges</div><div class="v" id="hud-badges">0</div></div>
+      </div>
+      <div class="xp-wrap">
+        <div class="xp-label"><span id="xp-level-label">Level 1</span><span id="xp-next-label">0 / 100 XP</span></div>
+        <div class="xp-track"><div class="xp-fill" id="xp-fill"></div></div>
       </div>
     </header>
 
     <nav class="tabs" role="tablist">
       <button class="tab-btn active" data-tab="learn" type="button">📚 Learn all</button>
       <button class="tab-btn" data-tab="practice" type="button">🎧 Listen</button>
+      <button class="tab-btn" data-tab="games" type="button">🎮 Games</button>
       <button class="tab-btn" data-tab="quiz" type="button">⭐ Big quiz</button>
+      <button class="tab-btn" data-tab="badges" type="button">🏅 Badges</button>
     </nav>
 
     <section id="panel-learn" class="panel active">
@@ -597,6 +762,74 @@
           <button class="btn coral" id="quiz-again" type="button">Try again</button>
           <button class="btn secondary" id="back-learn" type="button">Back to Learn</button>
         </div>
+      </div>
+    </section>
+
+
+    <section id="panel-games" class="panel">
+      <div class="howto">
+        <h2>Play to learn 🎮</h2>
+        <ol>
+          <li>Earn <strong>stars (XP)</strong> by flipping cards, answering quizzes, and winning games.</li>
+          <li>Keep a streak of correct answers for bonus points.</li>
+          <li>Unlock shiny badges — check the Badges tab!</li>
+        </ol>
+      </div>
+
+      <div id="game-menu" class="game-menu">
+        <article class="game-card" data-start-game="match">
+          <h3>🦜 Match Madness</h3>
+          <p>Tap a French word, then its English twin. Clear the board!</p>
+          <button class="play" type="button">Play</button>
+        </article>
+        <article class="game-card" data-start-game="memory">
+          <h3>🃏 Memory Flip</h3>
+          <p>Find FR ↔ EN pairs. Train your brain like a parrot!</p>
+          <button class="play" type="button">Play</button>
+        </article>
+        <article class="game-card" data-start-game="speed">
+          <h3>⚡ Speed Round</h3>
+          <p>60 seconds. As many correct answers as you can. Combos pay extra!</p>
+          <button class="play" type="button">Play</button>
+        </article>
+        <article class="game-card" data-start-game="weather">
+          <h3>⛅ Weather Boss</h3>
+          <p>Only weather words. Beat 8 questions fast for a special badge.</p>
+          <button class="play" type="button">Play</button>
+        </article>
+      </div>
+
+      <div id="game-stage" class="game-stage">
+        <div class="game-top">
+          <div class="title" id="game-title">Game</div>
+          <div style="display:flex;gap:0.45rem;align-items:center;flex-wrap:wrap;">
+            <span class="timer" id="game-timer">--</span>
+            <button class="btn secondary" id="game-quit" type="button">Quit</button>
+          </div>
+        </div>
+        <p class="combo" id="game-combo"></p>
+        <p class="q-meta" id="game-meta"></p>
+        <div id="game-body"></div>
+        <p class="feedback" id="game-feedback"></p>
+        <div class="cta-row" id="game-cta" style="display:none">
+          <button class="btn mango" id="game-again" type="button">Play again</button>
+          <button class="btn secondary" id="game-menu-btn" type="button">All games</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-badges" class="panel">
+      <div class="howto">
+        <h2>Badge collection 🏅</h2>
+        <ol>
+          <li>Badges unlock automatically when you hit goals.</li>
+          <li>Your progress is saved on this device.</li>
+          <li>Can you collect them all?</li>
+        </ol>
+      </div>
+      <div class="badge-grid" id="badge-grid"></div>
+      <div class="cta-row" style="margin-top:1.2rem;">
+        <button class="btn secondary" id="reset-progress" type="button">Reset my progress</button>
       </div>
     </section>
 
@@ -869,7 +1102,10 @@
       card.setAttribute("aria-expanded", open ? "true" : "false");
       if (open) {
         const word = VOCAB.find(v => v.id === card.dataset.id);
-        if (word) speak(word.fr, "fr");
+        if (word) {
+          speak(word.fr, "fr");
+          if (window.GameSave) GameSave.onFlip(word.id);
+        }
       }
     }
     renderCards();
@@ -880,6 +1116,8 @@
       document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === "panel-" + name));
       if (name === "practice") startPractice();
       if (name === "quiz") resetQuizUI();
+      if (name === "games") showGameMenu();
+      if (name === "badges") renderBadges();
     }
     document.querySelectorAll(".tab-btn").forEach(btn => {
       btn.addEventListener("click", () => showTab(btn.dataset.tab));
@@ -946,11 +1184,13 @@
         fb.textContent = "Bravo! 🎉 " + item.fr;
         fb.className = "feedback good";
         document.getElementById("practice-icon").textContent = item.icon;
+        if (window.GameSave) GameSave.onListenCorrect();
       } else {
         btn.classList.add("wrong");
         fb.textContent = "Correct: " + item.fr + " = " + item.en;
         fb.className = "feedback bad";
         speak(item.fr, "fr");
+        if (window.GameSave) GameSave.onListenWrong();
       }
       document.getElementById("practice-next").disabled = false;
       document.getElementById("practice-progress").style.width = `${((practiceIndex + 1) / practiceQueue.length) * 100}%`;
@@ -1057,12 +1297,14 @@
         fb.textContent = "Super! ✅ " + word.fr + " — " + word.de;
         fb.className = "feedback good";
         speak(word.fr, "fr");
+        if (window.GameSave) GameSave.onQuizAnswer(true);
       } else {
         btn.classList.add("wrong");
         missed.push(word);
         fb.textContent = "→ " + word.fr + " = " + word.en + " / " + word.de;
         fb.className = "feedback bad";
         speak(word.fr, "fr");
+        if (window.GameSave) GameSave.onQuizAnswer(false);
       }
       document.getElementById("quiz-next").disabled = false;
       document.getElementById("quiz-progress").style.width = `${((quizIndex + 1) / quizQueue.length) * 100}%`;
@@ -1077,6 +1319,7 @@
     document.getElementById("quiz-again").addEventListener("click", () => startQuiz(lastQuizSize));
 
     function showResults() {
+      if (window.GameSave) GameSave.onQuizDone(quizScore, quizQueue.length);
       document.getElementById("quiz-stage").style.display = "none";
       document.getElementById("quiz-results").style.display = "block";
       const total = quizQueue.length;
@@ -1111,6 +1354,457 @@
         setTimeout(() => bit.remove(), 3800);
       }
     }
+
+    /* ========== GAMIFICATION ========== */
+    const SAVE_KEY = "maya-french-vocab6-save-v1";
+    const XP_PER_LEVEL = 100;
+
+    const BADGE_DEFS = [
+      { id: "first-flip", emoji: "📖", name: "Curious Explorer", desc: "Flip your first card", check: s => s.flips >= 1 },
+      { id: "flip-20", emoji: "🔍", name: "Card Collector", desc: "Flip 20 different cards", check: s => Object.keys(s.flippedIds || {}).length >= 20 },
+      { id: "flip-all", emoji: "📚", name: "Book Worm", desc: "Flip every word at least once", check: s => Object.keys(s.flippedIds || {}).length >= VOCAB.length },
+      { id: "listen-10", emoji: "🎧", name: "Ear for French", desc: "Get 10 listen answers right", check: s => s.listenCorrect >= 10 },
+      { id: "quiz-15", emoji: "⭐", name: "Quiz Rookie", desc: "Finish a 15-question quiz", check: s => s.quizzesFinished >= 1 },
+      { id: "quiz-ace", emoji: "👑", name: "Quiz Queen", desc: "Score 90%+ on any quiz", check: s => s.bestQuizRatio >= 0.9 },
+      { id: "streak-5", emoji: "🔥", name: "On Fire", desc: "Get a streak of 5", check: s => s.bestStreak >= 5 },
+      { id: "streak-10", emoji: "☄️", name: "Unstoppable", desc: "Get a streak of 10", check: s => s.bestStreak >= 10 },
+      { id: "match-win", emoji: "🦜", name: "Match Master", desc: "Win Match Madness", check: s => s.games.matchWins >= 1 },
+      { id: "memory-win", emoji: "🧠", name: "Memory Champ", desc: "Win Memory Flip", check: s => s.games.memoryWins >= 1 },
+      { id: "speed-15", emoji: "⚡", name: "Speed Demon", desc: "Score 15+ in Speed Round", check: s => s.games.bestSpeed >= 15 },
+      { id: "weather-boss", emoji: "⛈️", name: "Weather Boss", desc: "Beat the Weather Boss", check: s => s.games.weatherWins >= 1 },
+      { id: "level-5", emoji: "🌴", name: "Nice Regular", desc: "Reach level 5", check: s => levelFromXp(s.xp) >= 5 },
+      { id: "level-10", emoji: "🏆", name: "Riviera Legend", desc: "Reach level 10", check: s => levelFromXp(s.xp) >= 10 },
+      { id: "stars-500", emoji: "✨", name: "Star Hoarder", desc: "Earn 500 total stars", check: s => s.xp >= 500 }
+    ];
+
+    function defaultSave() {
+      return {
+        xp: 0,
+        streak: 0,
+        bestStreak: 0,
+        flips: 0,
+        flippedIds: {},
+        listenCorrect: 0,
+        quizzesFinished: 0,
+        bestQuizRatio: 0,
+        badges: {},
+        games: { matchWins: 0, memoryWins: 0, bestSpeed: 0, weatherWins: 0 }
+      };
+    }
+
+    function loadSave() {
+      try {
+        const raw = localStorage.getItem(SAVE_KEY);
+        if (!raw) return defaultSave();
+        return { ...defaultSave(), ...JSON.parse(raw), games: { ...defaultSave().games, ...(JSON.parse(raw).games || {}) } };
+      } catch { return defaultSave(); }
+    }
+
+    function persist() {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+      renderHUD();
+      checkBadges();
+    }
+
+    let state = loadSave();
+
+    function levelFromXp(xp) { return Math.floor(xp / XP_PER_LEVEL) + 1; }
+    function xpIntoLevel(xp) { return xp % XP_PER_LEVEL; }
+
+    function renderHUD() {
+      const level = levelFromXp(state.xp);
+      const into = xpIntoLevel(state.xp);
+      document.getElementById("hud-level").textContent = level;
+      document.getElementById("hud-xp").textContent = state.xp;
+      document.getElementById("hud-streak").textContent = state.streak + "🔥";
+      document.getElementById("hud-badges").textContent = Object.keys(state.badges).length;
+      document.getElementById("xp-level-label").textContent = "Level " + level;
+      document.getElementById("xp-next-label").textContent = into + " / " + XP_PER_LEVEL + " XP";
+      document.getElementById("xp-fill").style.width = (into / XP_PER_LEVEL * 100) + "%";
+    }
+
+    function showToast(title, sub) {
+      const el = document.getElementById("toast");
+      el.innerHTML = `<span class="big">${title}</span>${sub || ""}`;
+      el.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => el.classList.remove("show"), 2600);
+    }
+
+    function flashLevel(level) {
+      const flash = document.getElementById("level-flash");
+      document.getElementById("level-flash-text").textContent = "You're now Level " + level + "!";
+      flash.classList.add("on");
+      burstConfetti();
+      setTimeout(() => flash.classList.remove("on"), 1800);
+    }
+
+    function addXp(amount, reason) {
+      const before = levelFromXp(state.xp);
+      state.xp += amount;
+      const after = levelFromXp(state.xp);
+      persist();
+      if (reason) showToast("+" + amount + " ⭐", reason);
+      if (after > before) flashLevel(after);
+    }
+
+    function bumpStreak(correct) {
+      if (correct) {
+        state.streak += 1;
+        if (state.streak > state.bestStreak) state.bestStreak = state.streak;
+        if (state.streak > 0 && state.streak % 5 === 0) addXp(15, "Streak x" + state.streak + "!");
+      } else {
+        state.streak = 0;
+      }
+      persist();
+    }
+
+    function checkBadges() {
+      let unlocked = [];
+      BADGE_DEFS.forEach(b => {
+        if (!state.badges[b.id] && b.check(state)) {
+          state.badges[b.id] = Date.now();
+          unlocked.push(b);
+        }
+      });
+      if (unlocked.length) {
+        localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+        renderHUD();
+        unlocked.forEach((b, i) => setTimeout(() => {
+          showToast(b.emoji + " Badge unlocked!", b.name);
+          burstConfetti();
+        }, i * 700));
+        if (document.getElementById("panel-badges").classList.contains("active")) renderBadges();
+      }
+    }
+
+    function renderBadges() {
+      const grid = document.getElementById("badge-grid");
+      grid.innerHTML = BADGE_DEFS.map(b => {
+        const earned = !!state.badges[b.id];
+        return `<article class="badge-item${earned ? " earned" : ""}">
+          <span class="emoji">${b.emoji}</span>
+          <h3>${escapeHtml(b.name)}</h3>
+          <p>${escapeHtml(b.desc)}</p>
+          <p style="margin-top:0.4rem;font-size:0.75rem;opacity:0.8;">${earned ? "✅ Unlocked" : "🔒 Locked"}</p>
+        </article>`;
+      }).join("");
+    }
+
+    window.GameSave = {
+      onFlip(id) {
+        state.flips += 1;
+        const wasNew = !state.flippedIds[id];
+        state.flippedIds[id] = true;
+        persist();
+        if (wasNew) addXp(3, "New card discovered");
+      },
+      onListenCorrect() {
+        state.listenCorrect += 1;
+        bumpStreak(true);
+        addXp(5, "Nice listen!");
+      },
+      onListenWrong() { bumpStreak(false); },
+      onQuizAnswer(correct) {
+        bumpStreak(correct);
+        if (correct) addXp(6, "Quiz hit!");
+      },
+      onQuizDone(score, total) {
+        state.quizzesFinished += 1;
+        const ratio = total ? score / total : 0;
+        if (ratio > state.bestQuizRatio) state.bestQuizRatio = ratio;
+        addXp(20 + Math.round(ratio * 30), "Quiz finished!");
+        persist();
+      }
+    };
+
+    document.getElementById("reset-progress")?.addEventListener("click", () => {
+      if (!confirm("Reset all stars, badges, and streaks on this device?")) return;
+      state = defaultSave();
+      persist();
+      renderBadges();
+      showToast("Progress reset", "Fresh start!");
+    });
+
+    /* —— Games —— */
+    let activeGame = null;
+    let gameTimerId = null;
+    let gameAgainFn = null;
+
+    function showGameMenu() {
+      stopGameTimer();
+      activeGame = null;
+      document.getElementById("game-menu").style.display = "grid";
+      document.getElementById("game-stage").classList.remove("on");
+      document.getElementById("game-cta").style.display = "none";
+    }
+
+    function openGameStage(title) {
+      document.getElementById("game-menu").style.display = "none";
+      document.getElementById("game-stage").classList.add("on");
+      document.getElementById("game-title").textContent = title;
+      document.getElementById("game-feedback").textContent = "";
+      document.getElementById("game-combo").textContent = "";
+      document.getElementById("game-cta").style.display = "none";
+      document.getElementById("game-timer").textContent = "--";
+      document.getElementById("game-timer").classList.remove("danger");
+    }
+
+    function stopGameTimer() {
+      if (gameTimerId) { clearInterval(gameTimerId); gameTimerId = null; }
+    }
+
+    function endGame(msg, xp, winKey) {
+      stopGameTimer();
+      document.getElementById("game-feedback").textContent = msg;
+      document.getElementById("game-feedback").className = "feedback good";
+      document.getElementById("game-cta").style.display = "flex";
+      if (winKey === "match") state.games.matchWins += 1;
+      if (winKey === "memory") state.games.memoryWins += 1;
+      if (winKey === "weather") state.games.weatherWins += 1;
+      persist();
+      if (xp) addXp(xp, "Game reward!");
+      burstConfetti();
+    }
+
+    document.getElementById("game-menu").addEventListener("click", e => {
+      const card = e.target.closest("[data-start-game]");
+      if (!card) return;
+      const g = card.dataset.startGame;
+      if (g === "match") startMatchGame();
+      if (g === "memory") startMemoryGame();
+      if (g === "speed") startSpeedGame();
+      if (g === "weather") startWeatherBoss();
+    });
+    document.getElementById("game-quit").addEventListener("click", showGameMenu);
+    document.getElementById("game-menu-btn").addEventListener("click", showGameMenu);
+    document.getElementById("game-again").addEventListener("click", () => { if (gameAgainFn) gameAgainFn(); });
+
+    /* Match Madness */
+    function startMatchGame() {
+      gameAgainFn = startMatchGame;
+      openGameStage("🦜 Match Madness");
+      activeGame = "match";
+      const words = shuffle(VOCAB).slice(0, 6);
+      const left = shuffle(words);
+      const right = shuffle(words);
+      let selected = null;
+      let matched = 0;
+      document.getElementById("game-meta").textContent = "Match French ↔ English";
+      document.getElementById("game-body").innerHTML = `
+        <div class="match-board">
+          <div class="match-col" id="match-left"><h4>Français</h4>${left.map(w => `<button type="button" class="match-item" data-side="fr" data-id="${w.id}">${w.icon} ${escapeHtml(w.fr)}</button>`).join("")}</div>
+          <div class="match-col" id="match-right"><h4>English</h4>${right.map(w => `<button type="button" class="match-item" data-side="en" data-id="${w.id}">${escapeHtml(w.en)}</button>`).join("")}</div>
+        </div>`;
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".match-item");
+        if (!btn || btn.classList.contains("matched")) return;
+        if (!selected) {
+          selected = btn;
+          btn.classList.add("selected");
+          return;
+        }
+        if (selected === btn) { btn.classList.remove("selected"); selected = null; return; }
+        if (selected.dataset.side === btn.dataset.side) {
+          selected.classList.remove("selected");
+          selected = btn;
+          btn.classList.add("selected");
+          return;
+        }
+        const a = selected, b = btn;
+        a.classList.remove("selected");
+        if (a.dataset.id === b.dataset.id) {
+          a.classList.add("matched");
+          b.classList.add("matched");
+          matched++;
+          bumpStreak(true);
+          addXp(8, "Match!");
+          const word = VOCAB.find(v => v.id === a.dataset.id);
+          if (word) speak(word.fr, "fr");
+          selected = null;
+          if (matched >= words.length) endGame("Board cleared — super matching!", 40, "match");
+        } else {
+          a.classList.add("shake");
+          b.classList.add("shake");
+          bumpStreak(false);
+          setTimeout(() => { a.classList.remove("shake"); b.classList.remove("shake"); }, 400);
+          selected = null;
+        }
+      };
+    }
+
+    /* Memory Flip */
+    function startMemoryGame() {
+      gameAgainFn = startMemoryGame;
+      openGameStage("🃏 Memory Flip");
+      activeGame = "memory";
+      const words = shuffle(VOCAB).slice(0, 6);
+      const tiles = shuffle([
+        ...words.map(w => ({ id: w.id, kind: "fr", label: w.fr, icon: w.icon })),
+        ...words.map(w => ({ id: w.id, kind: "en", label: w.en, icon: w.icon }))
+      ]);
+      let open = [];
+      let locked = false;
+      let matched = 0;
+      document.getElementById("game-meta").textContent = "Find the pairs";
+      document.getElementById("game-body").innerHTML = `<div class="memory-board" id="mem-board">${tiles.map((t,i) =>
+        `<button type="button" class="mem-card" data-i="${i}" data-id="${t.id}" data-kind="${t.kind}" data-label="${escapeAttr(t.icon + " " + t.label)}">?</button>`
+      ).join("")}</div>`;
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".mem-card");
+        if (!btn || locked || btn.classList.contains("done") || btn.classList.contains("face")) return;
+        btn.classList.add("face");
+        btn.textContent = btn.dataset.label;
+        open.push(btn);
+        if (open.length < 2) return;
+        locked = true;
+        const [a, b] = open;
+        if (a.dataset.id === b.dataset.id && a.dataset.kind !== b.dataset.kind) {
+          a.classList.add("done");
+          b.classList.add("done");
+          matched++;
+          bumpStreak(true);
+          addXp(10, "Pair found!");
+          const word = VOCAB.find(v => v.id === a.dataset.id);
+          if (word) speak(word.fr, "fr");
+          open = [];
+          locked = false;
+          if (matched >= words.length) endGame("Memory mastered!", 50, "memory");
+        } else {
+          bumpStreak(false);
+          setTimeout(() => {
+            a.classList.remove("face");
+            b.classList.remove("face");
+            a.textContent = "?";
+            b.textContent = "?";
+            open = [];
+            locked = false;
+          }, 700);
+        }
+      };
+    }
+
+    /* Speed Round */
+    function startSpeedGame() {
+      gameAgainFn = startSpeedGame;
+      openGameStage("⚡ Speed Round");
+      activeGame = "speed";
+      let timeLeft = 60;
+      let score = 0;
+      let combo = 0;
+      let current = null;
+      document.getElementById("game-meta").textContent = "Score: 0";
+      const timerEl = document.getElementById("game-timer");
+      timerEl.textContent = timeLeft;
+
+      function nextQ() {
+        current = shuffle(VOCAB)[0];
+        const opts = shuffle([current, ...wrongChoices(current)]);
+        document.getElementById("game-body").innerHTML = `
+          <div class="speed-prompt">${current.icon} What is: “${escapeHtml(current.en)}”?</div>
+          <div class="choices">${opts.map(o => `<button type="button" class="choice" data-id="${o.id}">${o.icon} ${escapeHtml(o.fr)}</button>`).join("")}</div>`;
+      }
+      nextQ();
+
+      stopGameTimer();
+      gameTimerId = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+        if (timeLeft <= 10) timerEl.classList.add("danger");
+        if (timeLeft <= 0) {
+          stopGameTimer();
+          if (score > state.games.bestSpeed) state.games.bestSpeed = score;
+          persist();
+          endGame(`Time! You scored ${score} ⚡`, 25 + score * 2, null);
+          document.getElementById("game-body").onclick = null;
+        }
+      }, 1000);
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".choice");
+        if (!btn || timeLeft <= 0) return;
+        if (btn.dataset.id === current.id) {
+          combo++;
+          score += 1 + Math.floor(combo / 3);
+          bumpStreak(true);
+          document.getElementById("game-combo").textContent = combo >= 3 ? `Combo x${combo}!` : "";
+          document.getElementById("game-meta").textContent = "Score: " + score;
+          speak(current.fr, "fr");
+          nextQ();
+        } else {
+          combo = 0;
+          bumpStreak(false);
+          document.getElementById("game-combo").textContent = "Combo broken";
+          btn.classList.add("wrong");
+          setTimeout(() => nextQ(), 350);
+        }
+      };
+    }
+
+    /* Weather Boss */
+    function startWeatherBoss() {
+      gameAgainFn = startWeatherBoss;
+      openGameStage("⛅ Weather Boss");
+      activeGame = "weather";
+      const pool = VOCAB.filter(v => v.category === "weather");
+      const queue = shuffle(pool).slice(0, Math.min(8, pool.length));
+      let i = 0, score = 0;
+      document.getElementById("game-timer").textContent = "BOSS";
+
+      function render() {
+        const word = queue[i];
+        document.getElementById("game-meta").textContent = `Boss fight ${i + 1} / ${queue.length}`;
+        const opts = shuffle([word, ...wrongChoices(word)]);
+        document.getElementById("game-body").innerHTML = `
+          <div class="speed-prompt">${word.icon}<br>French for “${escapeHtml(word.en)}”?</div>
+          <div class="choices">${opts.map(o => `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.fr)}</button>`).join("")}</div>`;
+      }
+      render();
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".choice");
+        if (!btn) return;
+        const word = queue[i];
+        [...document.querySelectorAll("#game-body .choice")].forEach(b => b.disabled = true);
+        if (btn.dataset.id === word.id) {
+          score++;
+          bumpStreak(true);
+          addXp(8, "Weather hit!");
+          speak(word.fr, "fr");
+          document.getElementById("game-feedback").textContent = "Yes! " + word.fr;
+          document.getElementById("game-feedback").className = "feedback good";
+        } else {
+          bumpStreak(false);
+          btn.classList.add("wrong");
+          document.getElementById("game-feedback").textContent = "It was " + word.fr;
+          document.getElementById("game-feedback").className = "feedback bad";
+          speak(word.fr, "fr");
+        }
+        setTimeout(() => {
+          if (i < queue.length - 1) {
+            i++;
+            document.getElementById("game-feedback").textContent = "";
+            render();
+          } else {
+            const won = score >= Math.ceil(queue.length * 0.75);
+            if (won) endGame(`Weather Boss defeated! ${score}/${queue.length}`, 60, "weather");
+            else {
+              stopGameTimer();
+              document.getElementById("game-feedback").textContent = `Boss wins this time (${score}/${queue.length}). Try again!`;
+              document.getElementById("game-feedback").className = "feedback bad";
+              document.getElementById("game-cta").style.display = "flex";
+              addXp(15, "Boss practice");
+            }
+          }
+        }, 650);
+      };
+    }
+
+    renderHUD();
+    renderBadges();
+
   </script>
 </body>
 </html>

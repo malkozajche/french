@@ -14,6 +14,8 @@ https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/v
 
 **80+ words** from every uploaded page: weather, places, verbs, adjectives, colors, prepositions (“C’est où?”), shopping phrases — with examples, search/filters, listen practice, and a 15 or 25 question quiz.
 
+**Gamification:** XP/levels, streaks, 4 mini-games (Match, Memory, Speed, Weather Boss), and unlockable badges (saved on the device).
+
 ## Files
 
 - [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
