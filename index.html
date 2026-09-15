@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maya’s French Adventure — Trois jours à Nice!</title>
+  <meta name="description" content="Kid-friendly French vocabulary practice with pronunciation, examples, and a 15-word quiz. Weather expressions included!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sky-top: #7ec8f5;
+      --sky-mid: #b8e4ff;
+      --sea: #1f8fbf;
+      --sea-deep: #0d6a94;
+      --sand: #ffe8b8;
+      --sun-real: #ffb347;
+      --coral: #ff6b57;
+      --coral-deep: #e84a38;
+      --leaf: #3cb878;
+      --ink: #1a3a4a;
+      --paper: #fffdf8;
+      --card: rgba(255, 253, 248, 0.92);
+      --shadow: 0 12px 28px rgba(13, 106, 148, 0.18);
+      --radius: 22px;
+      --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+      --font-body: "Nunito", "Trebuchet MS", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 120% 80% at 50% -10%, #fff6c8 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(255, 179, 71, 0.45) 0%, transparent 28%),
+        linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 38%, #9ad4ef 58%, var(--sea) 78%, var(--sea-deep) 100%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(2px 2px at 12% 22%, rgba(255,255,255,.55) 50%, transparent 51%),
+        radial-gradient(2px 2px at 28% 48%, rgba(255,255,255,.4) 50%, transparent 51%),
+        radial-gradient(3px 3px at 72% 18%, rgba(255,255,255,.5) 50%, transparent 51%),
+        radial-gradient(2px 2px at 88% 42%, rgba(255,255,255,.35) 50%, transparent 51%);
+      opacity: 0.7;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1080px, 94vw);
+      margin: 0 auto;
+      padding: 1.25rem 0 3.5rem;
+    }
+
+    /* Floating décor */
+    .float-sun {
+      position: fixed;
+      top: 1.2rem;
+      right: 4vw;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff5c0, var(--sun-real) 55%, #ff8c2a);
+      box-shadow: 0 0 0 10px rgba(255, 179, 71, 0.25), 0 0 40px rgba(255, 179, 71, 0.45);
+      animation: spin-slow 28s linear infinite, bob 4s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .wave-band {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 90px;
+      background:
+        radial-gradient(ellipse 60% 100% at 10% 100%, rgba(255,255,255,.2), transparent 60%),
+        linear-gradient(180deg, transparent, rgba(13, 106, 148, 0.35));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    @keyframes spin-slow {
+      from { filter: brightness(1); }
+      50% { filter: brightness(1.08); }
+      to { filter: brightness(1); }
+    }
+    @keyframes pop-in {
+      from { opacity: 0; transform: translateY(18px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-4deg); }
+      75% { transform: rotate(4deg); }
+    }
+    @keyframes confetti-fall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    @keyframes pulse-soft {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    header.hero {
+      text-align: center;
+      padding: 1.5rem 1rem 1rem;
+      animation: pop-in 0.7s ease both;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      color: #0b4f6c;
+      text-shadow: 0 3px 0 rgba(255,255,255,0.45);
+    }
+
+    .brand span {
+      display: block;
+      font-size: 0.42em;
+      font-weight: 700;
+      color: var(--coral-deep);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 0.35rem;
+    }
+
+    .tagline {
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1f5a72;
+      max-width: 34rem;
+      margin-inline: auto;
+    }
+
+    nav.tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+      margin: 1.5rem 0 1.25rem;
+      animation: pop-in 0.8s ease 0.1s both;
+    }
+
+    .tab-btn {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      border: none;
+      cursor: pointer;
+      padding: 0.7rem 1.35rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      color: var(--ink);
+      box-shadow: 0 4px 0 rgba(13, 106, 148, 0.15);
+      transition: transform 0.15s ease, background 0.2s, color 0.2s;
+    }
+
+    .tab-btn:hover { transform: translateY(-2px); }
+    .tab-btn:active { transform: translateY(2px); box-shadow: none; }
+    .tab-btn.active {
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep));
+      color: white;
+      box-shadow: 0 5px 0 #b83428;
+    }
+
+    .panel { display: none; animation: pop-in 0.45s ease both; }
+    .panel.active { display: block; }
+
+    .hint {
+      text-align: center;
+      font-weight: 700;
+      color: #1f5a72;
+      margin-bottom: 1rem;
+      font-size: 1.02rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.15rem 1.2rem;
+      box-shadow: var(--shadow);
+      border: 3px solid rgba(255,255,255,0.8);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+      min-height: 168px;
+    }
+
+    .card:hover {
+      transform: translateY(-4px) rotate(-0.4deg);
+      box-shadow: 0 16px 32px rgba(13, 106, 148, 0.25);
+    }
+
+    .card.flipped {
+      background: linear-gradient(160deg, #fff 0%, #e8f7ff 100%);
+      border-color: #7ec8f5;
+    }
+
+    .card .icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 0.45rem;
+      display: inline-block;
+      animation: pulse-soft 3s ease-in-out infinite;
+    }
+
+    .card .fr {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: #0b4f6c;
+      line-height: 1.15;
+    }
+
+    .card .ipa {
+      font-size: 0.85rem;
+      color: #5a7a8a;
+      font-weight: 600;
+      margin-top: 0.15rem;
+    }
+
+    .card .reveal {
+      display: none;
+      margin-top: 0.7rem;
+      padding-top: 0.65rem;
+      border-top: 2px dashed rgba(13, 106, 148, 0.2);
+    }
+
+    .card.flipped .reveal { display: block; }
+
+    .lang-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .speak-btn {
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 0.78rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: transform 0.12s;
+    }
+
+    .speak-btn:hover { transform: scale(1.05); }
+    .speak-btn:active { transform: scale(0.96); }
+    .speak-btn.fr-btn { background: #ffd4cc; color: #a32a1d; }
+    .speak-btn.de-btn { background: #d4e8ff; color: #1a4f7a; }
+    .speak-btn.en-btn { background: #d8f5e0; color: #1c6b3a; }
+    .speak-btn.example-btn { background: #fff0c2; color: #8a5a00; width: 100%; justify-content: center; margin-top: 0.35rem; }
+
+    .trans {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin: 0.15rem 0;
+    }
+
+    .trans .label {
+      display: inline-block;
+      min-width: 2.1rem;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0.65;
+    }
+
+    .example {
+      margin-top: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.35;
+      color: #2a5568;
+      background: rgba(126, 200, 245, 0.18);
+      border-radius: 12px;
+      padding: 0.55rem 0.65rem;
+    }
+
+    .example .de-ex {
+      display: block;
+      margin-top: 0.25rem;
+      font-style: italic;
+      color: #4a6a7a;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.7rem;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--sun-real);
+      color: #5a3200;
+      padding: 0.25rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    .badge.weather { background: #9ad8ff; color: #0b4f6c; }
+
+    /* Practice / Quiz shared */
+    .stage {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 1.5rem 1.35rem 1.75rem;
+      box-shadow: var(--shadow);
+      border: 3px solid rgba(255,255,255,0.85);
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .progress-bar {
+      height: 14px;
+      background: rgba(13, 106, 148, 0.12);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0.85rem 0 1.25rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--leaf), #7ed957);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+    }
+
+    .q-meta {
+      font-weight: 800;
+      color: #3a6a80;
+      margin-bottom: 0.5rem;
+    }
+
+    .q-prompt {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      color: #0b4f6c;
+      margin: 0.5rem 0 0.35rem;
+      line-height: 1.15;
+    }
+
+    .q-icon { font-size: 3rem; margin: 0.4rem 0; display: block; }
+
+    .choices {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1.1rem;
+    }
+
+    .choice {
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 1.05rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      border: 3px solid transparent;
+      background: #f0f8fc;
+      color: var(--ink);
+      cursor: pointer;
+      transition: transform 0.12s, background 0.2s, border-color 0.2s;
+    }
+
+    .choice:hover:not(:disabled) {
+      transform: translateY(-2px);
+      background: #e3f3fb;
+    }
+
+    .choice.correct {
+      background: #d4f8de;
+      border-color: var(--leaf);
+      animation: wiggle 0.4s ease;
+    }
+
+    .choice.wrong {
+      background: #ffe0db;
+      border-color: var(--coral);
+    }
+
+    .choice:disabled { cursor: default; opacity: 0.95; }
+
+    .feedback {
+      min-height: 1.6rem;
+      margin-top: 0.9rem;
+      font-weight: 800;
+      font-size: 1.05rem;
+    }
+
+    .feedback.good { color: #1c6b3a; }
+    .feedback.bad { color: #a32a1d; }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+      margin-top: 1.1rem;
+    }
+
+    .btn {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(180deg, #3cb878, #2a9a60);
+      box-shadow: 0 5px 0 #1e7a4a;
+      transition: transform 0.12s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(3px); box-shadow: none; }
+    .btn.secondary {
+      background: linear-gradient(180deg, #5bb8e0, var(--sea));
+      box-shadow: 0 5px 0 var(--sea-deep);
+    }
+    .btn.coral {
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep));
+      box-shadow: 0 5px 0 #b83428;
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .score-big {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      color: var(--coral-deep);
+      line-height: 1;
+      margin: 0.5rem 0;
+    }
+
+    .stars { font-size: 2rem; letter-spacing: 0.15rem; margin: 0.5rem 0 1rem; }
+
+    .listen-big {
+      margin: 0.75rem auto;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep));
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #b83428;
+      animation: pulse-soft 2.2s ease-in-out infinite;
+    }
+
+    .listen-big:hover { transform: scale(1.06); }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .chip {
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 0.85rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      background: rgba(255,255,255,0.55);
+      color: var(--ink);
+    }
+
+    .chip.active {
+      background: #0b4f6c;
+      color: white;
+    }
+
+    .howto {
+      background: rgba(255,253,248,0.75);
+      border-radius: 18px;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.15rem;
+      text-align: left;
+      max-width: 640px;
+      margin-inline: auto;
+      border: 2px solid rgba(255,255,255,0.9);
+    }
+
+    .howto h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: #0b4f6c;
+      margin-bottom: 0.35rem;
+    }
+
+    .howto ol {
+      margin-left: 1.2rem;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    .voice-note {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #3a6a80;
+      margin-top: 1rem;
+      opacity: 0.9;
+    }
+
+    #confetti-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 50;
+    }
+
+    .confetti {
+      position: absolute;
+      top: -10px;
+      width: 10px;
+      height: 14px;
+      border-radius: 2px;
+      animation: confetti-fall 2.8s ease-in forwards;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 520px) {
+      .float-sun { width: 48px; height: 48px; top: 0.8rem; right: 3vw; }
+      .card { min-height: 140px; }
+      .brand { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="float-sun" aria-hidden="true"></div>
+  <div class="wave-band" aria-hidden="true"></div>
+  <div id="confetti-layer" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="hero">
+      <h1 class="brand">
+        Maya’s French Adventure
+        <span>Unité 6 · Trois jours à Nice!</span>
+      </h1>
+      <p class="tagline">Learn 15 French words with sunny weather phrases, tap to hear them, then take the quiz!</p>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Learning modes">
+      <button class="tab-btn active" data-tab="learn" type="button">📚 Learn</button>
+      <button class="tab-btn" data-tab="practice" type="button">🎧 Listen</button>
+      <button class="tab-btn" data-tab="quiz" type="button">⭐ Quiz (15)</button>
+    </nav>
+
+    <!-- LEARN -->
+    <section id="panel-learn" class="panel active" role="tabpanel">
+      <div class="howto">
+        <h2>How to study</h2>
+        <ol>
+          <li>Tap a card to flip it and see German + English.</li>
+          <li>Press <strong>FR</strong>, <strong>DE</strong>, or <strong>EN</strong> to hear the pronunciation.</li>
+          <li>Tap the yellow button to hear the French example sentence.</li>
+          <li>When you feel ready, try Listen mode — then the 15-question Quiz!</li>
+        </ol>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="Filter words">
+        <button class="chip active" data-filter="all" type="button">All 15</button>
+        <button class="chip" data-filter="weather" type="button">⛅ Weather</button>
+        <button class="chip" data-filter="places" type="button">🏖️ Places</button>
+      </div>
+
+      <p class="hint">Tip: click the French word buttons a few times — practice makes perfect!</p>
+      <div class="grid" id="vocab-grid"></div>
+      <p class="voice-note" id="voice-status">Loading voices…</p>
+    </section>
+
+    <!-- PRACTICE -->
+    <section id="panel-practice" class="panel" role="tabpanel">
+      <div class="stage">
+        <p class="q-meta" id="practice-meta">Listen &amp; choose</p>
+        <div class="progress-bar"><div class="progress-fill" id="practice-progress"></div></div>
+        <span class="q-icon" id="practice-icon">🔊</span>
+        <p class="q-prompt" id="practice-prompt">Tap the speaker, then pick the meaning</p>
+        <button class="listen-big" id="practice-listen" type="button" aria-label="Play French word">🔊</button>
+        <div class="choices" id="practice-choices"></div>
+        <p class="feedback" id="practice-feedback"></p>
+        <div class="cta-row">
+          <button class="btn secondary" id="practice-restart" type="button">Restart</button>
+          <button class="btn" id="practice-next" type="button" disabled>Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="panel-quiz" class="panel" role="tabpanel">
+      <div class="stage" id="quiz-stage">
+        <p class="q-meta" id="quiz-meta">Question 1 of 15</p>
+        <div class="progress-bar"><div class="progress-fill" id="quiz-progress"></div></div>
+        <span class="q-icon" id="quiz-icon">☀️</span>
+        <p class="q-prompt" id="quiz-prompt">What is the French for…?</p>
+        <button class="listen-big" id="quiz-listen" type="button" aria-label="Hear a hint in French" title="Hint: hear French" style="display:none">🔊</button>
+        <div class="choices" id="quiz-choices"></div>
+        <p class="feedback" id="quiz-feedback"></p>
+        <div class="cta-row">
+          <button class="btn coral" id="quiz-start" type="button">Start 15-word test!</button>
+          <button class="btn" id="quiz-next" type="button" disabled style="display:none">Next →</button>
+        </div>
+      </div>
+
+      <div class="stage" id="quiz-results" style="display:none">
+        <p class="q-meta">Quiz complete!</p>
+        <div class="score-big" id="final-score">0 / 15</div>
+        <div class="stars" id="final-stars">⭐⭐⭐</div>
+        <p id="final-message" style="font-weight:700;font-size:1.15rem;margin-bottom:0.5rem;"></p>
+        <p id="missed-list" style="font-weight:600;color:#3a6a80;margin-bottom:1rem;"></p>
+        <div class="cta-row">
+          <button class="btn coral" id="quiz-again" type="button">Try again</button>
+          <button class="btn secondary" id="back-learn" type="button">Back to Learn</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>Bon courage, Maya! 🌴 Nice is waiting for you.</footer>
+  </div>
+
+  <script>
+    /* ========== VOCABULARY (15 words — Unité 6 + weather) ========== */
+    const VOCAB = [
+      {
+        id: "beau",
+        category: "weather",
+        fr: "Il fait beau.",
+        ipa: "[il fɛ bo]",
+        de: "Es ist schönes Wetter.",
+        en: "The weather is nice.",
+        icon: "☀️",
+        exampleFr: "À Nice, il fait beau.",
+        exampleDe: "In Nizza ist schönes Wetter.",
+        exampleEn: "In Nice, the weather is nice."
+      },
+      {
+        id: "soleil",
+        category: "weather",
+        fr: "Il fait soleil.",
+        ipa: "[il fɛ sɔlɛj]",
+        de: "Die Sonne scheint.",
+        en: "It is sunny.",
+        icon: "🌞",
+        exampleFr: "Regarde, il fait soleil!",
+        exampleDe: "Schau, die Sonne scheint!",
+        exampleEn: "Look, it is sunny!"
+      },
+      {
+        id: "pleut",
+        category: "weather",
+        fr: "Il pleut.",
+        ipa: "[il plø]",
+        de: "Es regnet.",
+        en: "It is raining.",
+        icon: "🌧️",
+        exampleFr: "À Paris, il pleut.",
+        exampleDe: "In Paris regnet es.",
+        exampleEn: "In Paris, it is raining."
+      },
+      {
+        id: "chaud",
+        category: "weather",
+        fr: "Il fait chaud.",
+        ipa: "[il fɛ ʃo]",
+        de: "Es ist warm / heiß.",
+        en: "It is hot.",
+        icon: "🌡️",
+        exampleFr: "Il fait chaud! On mange une glace?",
+        exampleDe: "Es ist heiß! Essen wir ein Eis?",
+        exampleEn: "It is hot! Shall we eat an ice cream?"
+      },
+      {
+        id: "froid",
+        category: "weather",
+        fr: "Il fait froid.",
+        ipa: "[il fɛ frwa]",
+        de: "Es ist kalt.",
+        en: "It is cold.",
+        icon: "🥶",
+        exampleFr: "Il fait froid? — Oui, un peu.",
+        exampleDe: "Ist es kalt? — Ja, ein bisschen.",
+        exampleEn: "Is it cold? — Yes, a little."
+      },
+      {
+        id: "mauvais",
+        category: "weather",
+        fr: "Il fait mauvais.",
+        ipa: "[il fɛ movɛ]",
+        de: "Es ist schlechtes Wetter.",
+        en: "The weather is bad.",
+        icon: "☁️",
+        exampleFr: "Il fait mauvais. La mer est grise.",
+        exampleDe: "Es ist schlechtes Wetter. Das Meer ist grau.",
+        exampleEn: "The weather is bad. The sea is grey."
+      },
+      {
+        id: "vent",
+        category: "weather",
+        fr: "Il y a du vent.",
+        ipa: "[il ja dy vɑ̃]",
+        de: "Es ist windig.",
+        en: "It is windy.",
+        icon: "💨",
+        exampleFr: "Attention, il y a du vent!",
+        exampleDe: "Achtung, es ist windig!",
+        exampleEn: "Careful, it is windy!"
+      },
+      {
+        id: "neige",
+        category: "weather",
+        fr: "Il neige.",
+        ipa: "[il nɛʒ]",
+        de: "Es schneit.",
+        en: "It is snowing.",
+        icon: "❄️",
+        exampleFr: "Il neige sur la montagne.",
+        exampleDe: "Es schneit auf dem Berg.",
+        exampleEn: "It is snowing on the mountain."
+      },
+      {
+        id: "orage",
+        category: "weather",
+        fr: "Il y a un orage.",
+        ipa: "[il ja œ̃ nɔʁaʒ]",
+        de: "Es gibt ein Gewitter.",
+        en: "There is a thunderstorm.",
+        icon: "⛈️",
+        exampleFr: "Vite! Il y a un orage!",
+        exampleDe: "Schnell! Es gibt ein Gewitter!",
+        exampleEn: "Quick! There is a thunderstorm!"
+      },
+      {
+        id: "ville",
+        category: "places",
+        fr: "une ville",
+        ipa: "[yn vil]",
+        de: "eine Stadt",
+        en: "a city",
+        icon: "🏙️",
+        exampleFr: "Nice est une ville en France.",
+        exampleDe: "Nizza ist eine Stadt in Frankreich.",
+        exampleEn: "Nice is a city in France."
+      },
+      {
+        id: "mer",
+        category: "places",
+        fr: "la mer",
+        ipa: "[la mɛʁ]",
+        de: "das Meer",
+        en: "the sea",
+        icon: "🌊",
+        exampleFr: "On va à la mer!",
+        exampleDe: "Wir fahren ans Meer!",
+        exampleEn: "We're going to the sea!"
+      },
+      {
+        id: "montagne",
+        category: "places",
+        fr: "une montagne",
+        ipa: "[yn mɔ̃taɲ]",
+        de: "ein Gebirge / ein Berg",
+        en: "a mountain",
+        icon: "⛰️",
+        exampleFr: "On va à la montagne.",
+        exampleDe: "Wir fahren in die Berge.",
+        exampleEn: "We're going to the mountains."
+      },
+      {
+        id: "vacances",
+        category: "places",
+        fr: "les vacances",
+        ipa: "[le vakɑ̃s]",
+        de: "der Urlaub / die Ferien",
+        en: "the vacation / holidays",
+        icon: "🌴",
+        exampleFr: "C'est enfin les vacances!",
+        exampleDe: "Endlich sind Ferien!",
+        exampleEn: "It's finally vacation!"
+      },
+      {
+        id: "plage",
+        category: "places",
+        fr: "une plage",
+        ipa: "[yn plaʒ]",
+        de: "ein Strand",
+        en: "a beach",
+        icon: "🏖️",
+        exampleFr: "Il fait beau, on va à la plage!",
+        exampleDe: "Es ist schönes Wetter, wir gehen an den Strand!",
+        exampleEn: "The weather is nice, we're going to the beach!"
+      },
+      {
+        id: "bateau",
+        category: "places",
+        fr: "un bateau",
+        ipa: "[œ̃ bato]",
+        de: "ein Boot / Schiff",
+        en: "a boat / ship",
+        icon: "⛵",
+        exampleFr: "Les filles vont faire une sortie en bateau.",
+        exampleDe: "Die Mädchen machen einen Bootsausflug.",
+        exampleEn: "The girls are going on a boat trip."
+      }
+    ];
+
+    /* ========== SPEECH ========== */
+    let voices = [];
+    let voicesReady = false;
+
+    function loadVoices() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      voicesReady = voices.length > 0;
+      const el = document.getElementById("voice-status");
+      if (!window.speechSynthesis) {
+        el.textContent = "Speech is not available in this browser. Try Chrome or Edge for pronunciation.";
+        return;
+      }
+      const fr = pickVoice("fr");
+      const de = pickVoice("de");
+      const en = pickVoice("en");
+      el.textContent = voicesReady
+        ? `Pronunciation ready · FR: ${fr?.name || "default"} · DE: ${de?.name || "default"} · EN: ${en?.name || "default"}`
+        : "Tap any speaker button to unlock voices on this device.";
+    }
+
+    if (window.speechSynthesis) {
+      loadVoices();
+      speechSynthesis.onvoiceschanged = loadVoices;
+    } else {
+      loadVoices();
+    }
+
+    function pickVoice(langPrefix) {
+      const list = voices.filter(v => v.lang.toLowerCase().startsWith(langPrefix));
+      if (!list.length) return null;
+      // Prefer higher-quality / local voices when possible
+      const preferred = list.find(v => /google|apple|microsoft|natural|enhanced|premium/i.test(v.name));
+      return preferred || list[0];
+    }
+
+    function speak(text, lang) {
+      if (!window.speechSynthesis || !text) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang === "fr" ? "fr-FR" : lang === "de" ? "de-DE" : "en-US";
+      const voice = pickVoice(lang);
+      if (voice) u.voice = voice;
+      u.rate = lang === "fr" ? 0.88 : 0.92;
+      u.pitch = 1.05;
+      speechSynthesis.speak(u);
+      if (!voicesReady) setTimeout(loadVoices, 300);
+    }
+
+    /* ========== LEARN CARDS ========== */
+    const grid = document.getElementById("vocab-grid");
+    let filter = "all";
+
+    function renderCards() {
+      const items = VOCAB.filter(v => filter === "all" || v.category === filter);
+      grid.innerHTML = items.map(v => `
+        <article class="card" data-id="${v.id}" tabindex="0" role="button" aria-expanded="false">
+          <span class="badge ${v.category === "weather" ? "weather" : ""}">${v.category === "weather" ? "Weather" : "Places"}</span>
+          <div class="icon" aria-hidden="true">${v.icon}</div>
+          <div class="fr">${escapeHtml(v.fr)}</div>
+          <div class="ipa">${escapeHtml(v.ipa)}</div>
+          <div class="reveal">
+            <div class="lang-row">
+              <button type="button" class="speak-btn fr-btn" data-speak="fr" data-text="${escapeAttr(v.fr)}">🔊 FR</button>
+              <button type="button" class="speak-btn de-btn" data-speak="de" data-text="${escapeAttr(v.de)}">🔊 DE</button>
+              <button type="button" class="speak-btn en-btn" data-speak="en" data-text="${escapeAttr(v.en)}">🔊 EN</button>
+            </div>
+            <p class="trans"><span class="label">DE</span> ${escapeHtml(v.de)}</p>
+            <p class="trans"><span class="label">EN</span> ${escapeHtml(v.en)}</p>
+            <div class="example">
+              <strong>FR:</strong> ${escapeHtml(v.exampleFr)}
+              <span class="de-ex"><strong>DE:</strong> ${escapeHtml(v.exampleDe)}</span>
+              <span class="de-ex"><strong>EN:</strong> ${escapeHtml(v.exampleEn)}</span>
+            </div>
+            <button type="button" class="speak-btn example-btn" data-speak="fr" data-text="${escapeAttr(v.exampleFr)}">🔊 Hear the French example</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+    function escapeAttr(s) {
+      return escapeHtml(s).replace(/'/g, "&#39;");
+    }
+
+    grid.addEventListener("click", (e) => {
+      const speakBtn = e.target.closest("[data-speak]");
+      if (speakBtn) {
+        e.stopPropagation();
+        speak(speakBtn.dataset.text, speakBtn.dataset.speak);
+        return;
+      }
+      const card = e.target.closest(".card");
+      if (!card) return;
+      toggleCard(card);
+    });
+
+    grid.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const card = e.target.closest(".card");
+      if (!card) return;
+      e.preventDefault();
+      toggleCard(card);
+    });
+
+    function toggleCard(card) {
+      const open = card.classList.toggle("flipped");
+      card.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        const word = VOCAB.find(v => v.id === card.dataset.id);
+        if (word) speak(word.fr, "fr");
+      }
+    }
+
+    document.querySelectorAll(".chip").forEach(chip => {
+      chip.addEventListener("click", () => {
+        document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+        chip.classList.add("active");
+        filter = chip.dataset.filter;
+        renderCards();
+      });
+    });
+
+    renderCards();
+
+    /* ========== TABS ========== */
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("panel-" + btn.dataset.tab).classList.add("active");
+        if (btn.dataset.tab === "practice") startPractice();
+        if (btn.dataset.tab === "quiz") resetQuizUI();
+      });
+    });
+
+    /* ========== HELPERS ========== */
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function wrongChoices(correct, count = 3) {
+      return shuffle(VOCAB.filter(v => v.id !== correct.id)).slice(0, count);
+    }
+
+    /* ========== PRACTICE (listen → pick meaning) ========== */
+    let practiceQueue = [];
+    let practiceIndex = 0;
+    let practiceAnswered = false;
+
+    function startPractice() {
+      practiceQueue = shuffle(VOCAB);
+      practiceIndex = 0;
+      practiceAnswered = false;
+      document.getElementById("practice-next").disabled = true;
+      renderPractice();
+    }
+
+    function renderPractice() {
+      const item = practiceQueue[practiceIndex];
+      const total = practiceQueue.length;
+      document.getElementById("practice-meta").textContent = `Word ${practiceIndex + 1} of ${total} · Listen in French`;
+      document.getElementById("practice-progress").style.width = `${(practiceIndex / total) * 100}%`;
+      document.getElementById("practice-icon").textContent = "🔊";
+      document.getElementById("practice-prompt").textContent = "What does this French word mean?";
+      document.getElementById("practice-feedback").textContent = "";
+      document.getElementById("practice-feedback").className = "feedback";
+      document.getElementById("practice-next").disabled = true;
+      practiceAnswered = false;
+
+      const options = shuffle([item, ...wrongChoices(item)]);
+      const box = document.getElementById("practice-choices");
+      box.innerHTML = options.map(o => `
+        <button type="button" class="choice" data-id="${o.id}">
+          ${o.icon} ${escapeHtml(o.en)}
+          <div style="font-size:0.85rem;font-weight:700;opacity:0.75;margin-top:0.15rem;">${escapeHtml(o.de)}</div>
+        </button>
+      `).join("");
+
+      // Auto-play French once
+      setTimeout(() => speak(item.fr, "fr"), 250);
+    }
+
+    document.getElementById("practice-listen").addEventListener("click", () => {
+      const item = practiceQueue[practiceIndex];
+      if (item) speak(item.fr, "fr");
+    });
+
+    document.getElementById("practice-choices").addEventListener("click", (e) => {
+      const btn = e.target.closest(".choice");
+      if (!btn || practiceAnswered) return;
+      const item = practiceQueue[practiceIndex];
+      practiceAnswered = true;
+      const buttons = [...document.querySelectorAll("#practice-choices .choice")];
+      buttons.forEach(b => {
+        b.disabled = true;
+        if (b.dataset.id === item.id) b.classList.add("correct");
+      });
+      const fb = document.getElementById("practice-feedback");
+      if (btn.dataset.id === item.id) {
+        fb.textContent = "Bravo! 🎉 " + item.fr;
+        fb.className = "feedback good";
+        document.getElementById("practice-icon").textContent = item.icon;
+      } else {
+        btn.classList.add("wrong");
+        fb.textContent = "Almost! Correct: " + item.fr + " = " + item.en;
+        fb.className = "feedback bad";
+        speak(item.fr, "fr");
+      }
+      document.getElementById("practice-next").disabled = false;
+      document.getElementById("practice-progress").style.width = `${((practiceIndex + 1) / practiceQueue.length) * 100}%`;
+    });
+
+    document.getElementById("practice-next").addEventListener("click", () => {
+      if (practiceIndex < practiceQueue.length - 1) {
+        practiceIndex++;
+        renderPractice();
+      } else {
+        document.getElementById("practice-prompt").textContent = "You finished listening practice!";
+        document.getElementById("practice-choices").innerHTML = "";
+        document.getElementById("practice-feedback").textContent = "Ready for the Quiz? Tap Quiz (15) above!";
+        document.getElementById("practice-feedback").className = "feedback good";
+        document.getElementById("practice-next").disabled = true;
+        document.getElementById("practice-icon").textContent = "🌟";
+      }
+    });
+
+    document.getElementById("practice-restart").addEventListener("click", startPractice);
+
+    /* ========== QUIZ (15 questions, mixed types) ========== */
+    let quizQueue = [];
+    let quizIndex = 0;
+    let quizScore = 0;
+    let quizAnswered = false;
+    let missed = [];
+
+    function resetQuizUI() {
+      document.getElementById("quiz-stage").style.display = "block";
+      document.getElementById("quiz-results").style.display = "none";
+      document.getElementById("quiz-start").style.display = "inline-block";
+      document.getElementById("quiz-next").style.display = "none";
+      document.getElementById("quiz-next").disabled = true;
+      document.getElementById("quiz-choices").innerHTML = "";
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-meta").textContent = "15-word test · weather + Nice trip";
+      document.getElementById("quiz-prompt").textContent = "Ready when you are!";
+      document.getElementById("quiz-icon").textContent = "⭐";
+      document.getElementById("quiz-progress").style.width = "0%";
+      document.getElementById("quiz-listen").style.display = "none";
+    }
+
+    function buildQuiz() {
+      // One question per word (15), shuffled; alternating question styles
+      const words = shuffle(VOCAB);
+      return words.map((word, i) => {
+        const styles = ["enToFr", "deToFr", "frToEn", "iconToFr"];
+        const style = styles[i % styles.length];
+        return { word, style };
+      });
+    }
+
+    function startQuiz() {
+      quizQueue = buildQuiz();
+      quizIndex = 0;
+      quizScore = 0;
+      missed = [];
+      quizAnswered = false;
+      document.getElementById("quiz-start").style.display = "none";
+      document.getElementById("quiz-next").style.display = "inline-block";
+      document.getElementById("quiz-results").style.display = "none";
+      document.getElementById("quiz-stage").style.display = "block";
+      renderQuizQuestion();
+    }
+
+    function renderQuizQuestion() {
+      const { word, style } = quizQueue[quizIndex];
+      const total = quizQueue.length;
+      quizAnswered = false;
+
+      document.getElementById("quiz-meta").textContent = `Question ${quizIndex + 1} of ${total}`;
+      document.getElementById("quiz-progress").style.width = `${(quizIndex / total) * 100}%`;
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-feedback").className = "feedback";
+      document.getElementById("quiz-next").disabled = true;
+      document.getElementById("quiz-listen").style.display = "none";
+      document.getElementById("quiz-icon").textContent = word.icon;
+
+      let prompt = "";
+      let choices = [];
+      let labelFn = (w) => w.fr;
+
+      if (style === "enToFr") {
+        prompt = `What is French for: “${word.en}”?`;
+        choices = shuffle([word, ...wrongChoices(word)]);
+        labelFn = (w) => w.fr;
+      } else if (style === "deToFr") {
+        prompt = `Was heißt auf Französisch: „${word.de}“?`;
+        choices = shuffle([word, ...wrongChoices(word)]);
+        labelFn = (w) => w.fr;
+      } else if (style === "frToEn") {
+        prompt = `What does “${word.fr}” mean?`;
+        choices = shuffle([word, ...wrongChoices(word)]);
+        labelFn = (w) => `${w.en}`;
+        document.getElementById("quiz-listen").style.display = "inline-flex";
+        document.getElementById("quiz-listen").onclick = () => speak(word.fr, "fr");
+        setTimeout(() => speak(word.fr, "fr"), 200);
+      } else {
+        prompt = `Which French phrase matches this?`;
+        document.getElementById("quiz-icon").textContent = word.icon;
+        choices = shuffle([word, ...wrongChoices(word)]);
+        labelFn = (w) => w.fr;
+      }
+
+      document.getElementById("quiz-prompt").textContent = prompt;
+      const box = document.getElementById("quiz-choices");
+      box.innerHTML = choices.map(o => `
+        <button type="button" class="choice" data-id="${o.id}">${o.icon} ${escapeHtml(labelFn(o))}</button>
+      `).join("");
+    }
+
+    document.getElementById("quiz-choices").addEventListener("click", (e) => {
+      const btn = e.target.closest(".choice");
+      if (!btn || quizAnswered || !quizQueue.length) return;
+      const { word } = quizQueue[quizIndex];
+      quizAnswered = true;
+      const buttons = [...document.querySelectorAll("#quiz-choices .choice")];
+      buttons.forEach(b => {
+        b.disabled = true;
+        if (b.dataset.id === word.id) b.classList.add("correct");
+      });
+
+      const fb = document.getElementById("quiz-feedback");
+      if (btn.dataset.id === word.id) {
+        quizScore++;
+        fb.textContent = "Super! ✅ " + word.fr + " — " + word.de;
+        fb.className = "feedback good";
+        speak(word.fr, "fr");
+      } else {
+        btn.classList.add("wrong");
+        missed.push(word);
+        fb.textContent = "Not quite → " + word.fr + " = " + word.en + " / " + word.de;
+        fb.className = "feedback bad";
+        speak(word.fr, "fr");
+      }
+      document.getElementById("quiz-next").disabled = false;
+      document.getElementById("quiz-progress").style.width = `${((quizIndex + 1) / quizQueue.length) * 100}%`;
+    });
+
+    document.getElementById("quiz-next").addEventListener("click", () => {
+      if (quizIndex < quizQueue.length - 1) {
+        quizIndex++;
+        renderQuizQuestion();
+      } else {
+        showResults();
+      }
+    });
+
+    document.getElementById("quiz-start").addEventListener("click", startQuiz);
+    document.getElementById("quiz-again").addEventListener("click", startQuiz);
+    document.getElementById("back-learn").addEventListener("click", () => {
+      document.querySelector('[data-tab="learn"]').click();
+    });
+
+    function showResults() {
+      document.getElementById("quiz-stage").style.display = "none";
+      document.getElementById("quiz-results").style.display = "block";
+      document.getElementById("final-score").textContent = `${quizScore} / ${quizQueue.length}`;
+
+      let stars = "⭐";
+      let msg = "Keep practicing — you've got this!";
+      if (quizScore >= 14) { stars = "⭐⭐⭐⭐⭐"; msg = "Incroyable, Maya! You're quiz queen! 👑"; burstConfetti(); }
+      else if (quizScore >= 11) { stars = "⭐⭐⭐⭐"; msg = "Très bien! Almost perfect — try once more for 15/15!"; burstConfetti(); }
+      else if (quizScore >= 8) { stars = "⭐⭐⭐"; msg = "Bon travail! Review the Learn cards, then try again."; }
+      else { stars = "⭐⭐"; msg = "Nice start! Flip the weather cards and come back."; }
+
+      document.getElementById("final-stars").textContent = stars;
+      document.getElementById("final-message").textContent = msg;
+
+      const missedEl = document.getElementById("missed-list");
+      if (missed.length) {
+        const unique = [...new Map(missed.map(m => [m.id, m])).values()];
+        missedEl.innerHTML = "Practice these again: " + unique.map(m => `<strong>${escapeHtml(m.fr)}</strong>`).join(", ");
+      } else {
+        missedEl.textContent = "You got every word right. Bravo!";
+      }
+    }
+
+    function burstConfetti() {
+      const layer = document.getElementById("confetti-layer");
+      const colors = ["#ff6b57", "#ffb347", "#3cb878", "#7ec8f5", "#fff", "#ffd166"];
+      for (let i = 0; i < 48; i++) {
+        const bit = document.createElement("div");
+        bit.className = "confetti";
+        bit.style.left = Math.random() * 100 + "vw";
+        bit.style.background = colors[i % colors.length];
+        bit.style.animationDelay = (Math.random() * 0.6) + "s";
+        bit.style.animationDuration = (2.2 + Math.random() * 1.4) + "s";
+        layer.appendChild(bit);
+        setTimeout(() => bit.remove(), 4000);
+      }
+    }
+  </script>
+</body>
+</html>
