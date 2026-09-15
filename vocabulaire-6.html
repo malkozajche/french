@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vocabulaire 6 Complet — Maya’s French Book</title>
+  <meta name="description" content="Full Unité 6 French vocabulary from the textbook: weather, places, verbs, adjectives, colors, and prepositions — with pronunciation and a quiz." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1e2f28;
+      --paper: #fffef7;
+      --leaf: #2f9e6b;
+      --leaf-deep: #1f7a52;
+      --mango: #ff9f1c;
+      --mango-deep: #e07a00;
+      --sky: #3d9fd9;
+      --sky-deep: #1f6fa0;
+      --berry: #e85d4c;
+      --berry-deep: #c43d2e;
+      --shadow: 0 10px 26px rgba(30, 47, 40, 0.14);
+      --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+      --font-body: "Nunito", "Trebuchet MS", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255, 159, 28, 0.28), transparent 32%),
+        radial-gradient(circle at 88% 12%, rgba(61, 159, 217, 0.22), transparent 30%),
+        radial-gradient(circle at 70% 90%, rgba(47, 158, 107, 0.2), transparent 35%),
+        linear-gradient(165deg, #e8f7ee 0%, #fff8e8 42%, #e6f3fb 100%);
+      background-attachment: fixed;
+    }
+
+    .wrap {
+      width: min(1160px, 94vw);
+      margin: 0 auto;
+      padding: 1.1rem 0 3rem;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.85rem;
+    }
+
+    .top-nav a {
+      font-weight: 800;
+      text-decoration: none;
+      color: var(--sky-deep);
+      background: rgba(255,255,255,0.7);
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 2px solid rgba(61, 159, 217, 0.25);
+    }
+
+    .top-nav a:hover { background: white; }
+
+    header.hero {
+      text-align: center;
+      padding: 0.6rem 0.5rem 0.9rem;
+      animation: rise 0.55s ease both;
+    }
+
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 6vw, 3.25rem);
+      line-height: 1.05;
+      color: #164836;
+    }
+
+    .brand span {
+      display: block;
+      margin-top: 0.3rem;
+      font-size: 0.4em;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--berry-deep);
+    }
+
+    .tagline {
+      margin: 0.7rem auto 0;
+      max-width: 40rem;
+      font-weight: 700;
+      color: #2d5344;
+      font-size: 1.05rem;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 0.9rem;
+    }
+
+    .stat {
+      font-weight: 800;
+      font-size: 0.85rem;
+      background: white;
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      box-shadow: var(--shadow);
+      color: #24553f;
+    }
+
+    nav.tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+      margin: 1.2rem 0 1rem;
+    }
+
+    .tab-btn, .btn, .chip, .speak-btn, .choice {
+      font-family: var(--font-body);
+      cursor: pointer;
+    }
+
+    .tab-btn {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      border: none;
+      padding: 0.65rem 1.2rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.65);
+      color: var(--ink);
+      box-shadow: 0 4px 0 rgba(30, 47, 40, 0.1);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(180deg, var(--leaf), var(--leaf-deep));
+      color: white;
+      box-shadow: 0 5px 0 #145c3c;
+    }
+
+    .panel { display: none; animation: rise 0.4s ease both; }
+    .panel.active { display: block; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: none; }
+      30% { transform: rotate(-3deg); }
+      70% { transform: rotate(3deg); }
+    }
+    @keyframes confetti-fall {
+      to { transform: translateY(105vh) rotate(640deg); opacity: 0; }
+    }
+
+    .howto {
+      background: rgba(255,254,247,0.88);
+      border: 2px solid rgba(255,255,255,0.95);
+      border-radius: 18px;
+      padding: 1rem 1.15rem;
+      margin: 0 auto 1rem;
+      max-width: 760px;
+      box-shadow: var(--shadow);
+    }
+
+    .howto h2 {
+      font-family: var(--font-display);
+      color: #164836;
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .howto ol { margin-left: 1.15rem; font-weight: 600; line-height: 1.5; }
+
+    .filter-row, .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: center;
+      margin-bottom: 0.85rem;
+    }
+
+    .chip {
+      font-weight: 800;
+      font-size: 0.82rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.4rem 0.85rem;
+      background: rgba(255,255,255,0.7);
+      color: var(--ink);
+    }
+
+    .chip.active {
+      background: #164836;
+      color: white;
+    }
+
+    #search {
+      width: min(420px, 92vw);
+      font: inherit;
+      font-weight: 700;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      border: 2px solid rgba(47, 158, 107, 0.35);
+      background: white;
+      outline: none;
+    }
+
+    .hint {
+      text-align: center;
+      font-weight: 700;
+      color: #2d5344;
+      margin-bottom: 0.85rem;
+    }
+
+    .count-label {
+      text-align: center;
+      font-weight: 800;
+      color: var(--sky-deep);
+      margin-bottom: 0.75rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      background: rgba(255,254,247,0.94);
+      border-radius: 20px;
+      padding: 1rem 1.05rem 1.1rem;
+      box-shadow: var(--shadow);
+      border: 3px solid rgba(255,255,255,0.9);
+      cursor: pointer;
+      text-align: left;
+      min-height: 150px;
+      transition: transform 0.15s ease;
+      position: relative;
+    }
+
+    .card:hover { transform: translateY(-3px); }
+    .card.flipped {
+      background: linear-gradient(160deg, #fff 0%, #eaf8f0 100%);
+      border-color: #8fd4b0;
+    }
+
+    .card .icon { font-size: 2rem; margin-bottom: 0.3rem; display: inline-block; }
+    .card .fr {
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      color: #164836;
+      line-height: 1.15;
+      padding-right: 3.2rem;
+    }
+    .card .ipa { font-size: 0.82rem; color: #5a7368; font-weight: 700; margin-top: 0.12rem; }
+
+    .badge {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.65rem;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.22rem 0.48rem;
+      border-radius: 999px;
+      background: #ffe2a8;
+      color: #7a4a00;
+    }
+
+    .badge.weather { background: #c9e9ff; color: #1f5a7a; }
+    .badge.places { background: #ffd4cc; color: #8a2f22; }
+    .badge.verbs { background: #d8f5e0; color: #1c6b3a; }
+    .badge.adjectives { background: #f3d9ff; color: #6a2f88; }
+    .badge.colors { background: #fff0a8; color: #7a6200; }
+    .badge.prepositions { background: #ffe0f0; color: #8a2a5a; }
+    .badge.phrases { background: #e0e7ff; color: #2f3f8a; }
+
+    .reveal {
+      display: none;
+      margin-top: 0.65rem;
+      padding-top: 0.6rem;
+      border-top: 2px dashed rgba(47, 158, 107, 0.25);
+    }
+    .card.flipped .reveal { display: block; }
+
+    .lang-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .speak-btn {
+      font-weight: 800;
+      font-size: 0.75rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.32rem 0.65rem;
+    }
+    .speak-btn.fr-btn { background: #ffd4cc; color: #a32a1d; }
+    .speak-btn.de-btn { background: #d4e8ff; color: #1a4f7a; }
+    .speak-btn.en-btn { background: #d8f5e0; color: #1c6b3a; }
+    .speak-btn.example-btn {
+      background: #fff0c2;
+      color: #8a5a00;
+      width: 100%;
+      margin-top: 0.35rem;
+      justify-content: center;
+      display: inline-flex;
+    }
+
+    .trans { font-size: 0.92rem; font-weight: 700; margin: 0.12rem 0; }
+    .trans .label {
+      display: inline-block;
+      min-width: 2rem;
+      font-size: 0.7rem;
+      opacity: 0.65;
+      text-transform: uppercase;
+    }
+
+    .example {
+      margin-top: 0.45rem;
+      font-size: 0.85rem;
+      line-height: 1.35;
+      background: rgba(61, 159, 217, 0.12);
+      border-radius: 12px;
+      padding: 0.5rem 0.6rem;
+      color: #2a4a58;
+    }
+    .example .line { display: block; margin-top: 0.18rem; }
+
+    .note {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #7a4a00;
+      background: #fff4d6;
+      border-radius: 10px;
+      padding: 0.4rem 0.5rem;
+    }
+
+    .stage {
+      background: rgba(255,254,247,0.95);
+      border-radius: 24px;
+      padding: 1.35rem 1.2rem 1.5rem;
+      box-shadow: var(--shadow);
+      border: 3px solid white;
+      max-width: 660px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .progress-bar {
+      height: 12px;
+      background: rgba(30, 47, 40, 0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 0.75rem 0 1rem;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--leaf), #7ed957);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .q-meta { font-weight: 800; color: #3a6a58; }
+    .q-prompt {
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 4.5vw, 2rem);
+      color: #164836;
+      margin: 0.45rem 0;
+      line-height: 1.15;
+    }
+    .q-icon { font-size: 2.6rem; display: block; margin: 0.3rem 0; }
+
+    .choices { display: grid; gap: 0.55rem; margin-top: 0.95rem; }
+    .choice {
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 0.9rem;
+      border-radius: 14px;
+      border: 3px solid transparent;
+      background: #eef8f2;
+      color: var(--ink);
+      text-align: left;
+    }
+    .choice:hover:not(:disabled) { background: #e0f3e8; }
+    .choice.correct { background: #d4f8de; border-color: var(--leaf); animation: wiggle 0.35s ease; }
+    .choice.wrong { background: #ffe0db; border-color: var(--berry); }
+    .choice:disabled { cursor: default; }
+
+    .feedback { min-height: 1.5rem; margin-top: 0.8rem; font-weight: 800; }
+    .feedback.good { color: #1c6b3a; }
+    .feedback.bad { color: #a32a1d; }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 999px;
+      padding: 0.7rem 1.35rem;
+      color: white;
+      background: linear-gradient(180deg, var(--leaf), var(--leaf-deep));
+      box-shadow: 0 5px 0 #145c3c;
+    }
+    .btn.secondary {
+      background: linear-gradient(180deg, var(--sky), var(--sky-deep));
+      box-shadow: 0 5px 0 #155578;
+    }
+    .btn.coral {
+      background: linear-gradient(180deg, var(--berry), var(--berry-deep));
+      box-shadow: 0 5px 0 #9a2f22;
+    }
+    .btn.mango {
+      background: linear-gradient(180deg, var(--mango), var(--mango-deep));
+      box-shadow: 0 5px 0 #b86200;
+    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+
+    .listen-big {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(180deg, var(--berry), var(--berry-deep));
+      color: white;
+      font-size: 1.7rem;
+      cursor: pointer;
+      box-shadow: 0 6px 0 #9a2f22;
+      margin: 0.6rem auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-big {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 3.6rem);
+      color: var(--berry-deep);
+      line-height: 1;
+      margin: 0.4rem 0;
+    }
+
+    .stars { font-size: 1.8rem; margin: 0.4rem 0 0.8rem; letter-spacing: 0.12rem; }
+
+    .quiz-size {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      justify-content: center;
+      margin: 0.8rem 0;
+    }
+
+    .voice-note, footer {
+      text-align: center;
+      font-weight: 700;
+      margin-top: 1.1rem;
+      color: #2d5344;
+      font-size: 0.9rem;
+    }
+
+    footer { color: #3a6a58; opacity: 0.95; }
+
+    #confetti-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 40;
+    }
+    .confetti {
+      position: absolute;
+      top: -12px;
+      width: 9px;
+      height: 13px;
+      border-radius: 2px;
+      animation: confetti-fall 2.6s ease-in forwards;
+    }
+
+    @media (max-width: 520px) {
+      .card { min-height: 130px; }
+      .brand { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="confetti-layer" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="index.html">← Cute 15-word starter</a>
+      <a href="#panel-quiz" id="jump-quiz">Jump to quiz →</a>
+    </div>
+
+    <header class="hero">
+      <h1 class="brand">
+        Vocabulaire 6 Complet
+        <span>Unité 6 · All pages · Trois jours à Nice!</span>
+      </h1>
+      <p class="tagline">Every important word from your book pages — weather, places, verbs, adjectives, colors, and “where is it?” prepositions — with examples and click-to-hear FR / DE / EN.</p>
+      <div class="stats">
+        <span class="stat" id="stat-total">0 words</span>
+        <span class="stat">🔊 FR · DE · EN</span>
+        <span class="stat">📝 Quiz up to 25</span>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="learn" type="button">📚 Learn all</button>
+      <button class="tab-btn" data-tab="practice" type="button">🎧 Listen</button>
+      <button class="tab-btn" data-tab="quiz" type="button">⭐ Big quiz</button>
+    </nav>
+
+    <section id="panel-learn" class="panel active">
+      <div class="howto">
+        <h2>How to use this bigger book</h2>
+        <ol>
+          <li>Filter by topic, or search a word.</li>
+          <li>Tap a card to flip — see German + English + example.</li>
+          <li>Press <strong>FR</strong>, <strong>DE</strong>, or <strong>EN</strong> to hear pronunciation.</li>
+          <li>When ready, try Listen mode or the Big Quiz (15 or 25 questions).</li>
+        </ol>
+      </div>
+
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Search French, German, or English…" autocomplete="off" />
+      </div>
+
+      <div class="filter-row" id="filters" role="group" aria-label="Categories"></div>
+      <p class="count-label" id="visible-count"></p>
+      <p class="hint">Tip: flip a card and tap FR a few times — that’s the one for the test!</p>
+      <div class="grid" id="vocab-grid"></div>
+      <p class="voice-note" id="voice-status">Loading voices…</p>
+    </section>
+
+    <section id="panel-practice" class="panel">
+      <div class="stage">
+        <p class="q-meta" id="practice-meta">Listen &amp; choose</p>
+        <div class="progress-bar"><div class="progress-fill" id="practice-progress"></div></div>
+        <span class="q-icon" id="practice-icon">🔊</span>
+        <p class="q-prompt" id="practice-prompt">Tap the speaker, then pick the meaning</p>
+        <button class="listen-big" id="practice-listen" type="button" aria-label="Play French">🔊</button>
+        <div class="choices" id="practice-choices"></div>
+        <p class="feedback" id="practice-feedback"></p>
+        <div class="cta-row">
+          <button class="btn secondary" id="practice-restart" type="button">Restart (12)</button>
+          <button class="btn" id="practice-next" type="button" disabled>Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-quiz" class="panel">
+      <div class="stage" id="quiz-stage">
+        <p class="q-meta" id="quiz-meta">Big quiz from the full book</p>
+        <p class="q-prompt" style="font-size:1.35rem;">How many questions?</p>
+        <div class="quiz-size">
+          <button class="btn mango" data-quiz-size="15" type="button">15 questions</button>
+          <button class="btn coral" data-quiz-size="25" type="button">25 questions</button>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="quiz-progress"></div></div>
+        <span class="q-icon" id="quiz-icon">🦜</span>
+        <p class="q-prompt" id="quiz-prompt">Pick a size to start!</p>
+        <button class="listen-big" id="quiz-listen" type="button" style="display:none" aria-label="Hear French hint">🔊</button>
+        <div class="choices" id="quiz-choices"></div>
+        <p class="feedback" id="quiz-feedback"></p>
+        <div class="cta-row">
+          <button class="btn" id="quiz-next" type="button" disabled style="display:none">Next →</button>
+        </div>
+      </div>
+
+      <div class="stage" id="quiz-results" style="display:none">
+        <p class="q-meta">Quiz complete!</p>
+        <div class="score-big" id="final-score">0 / 15</div>
+        <div class="stars" id="final-stars">⭐⭐⭐</div>
+        <p id="final-message" style="font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;"></p>
+        <p id="missed-list" style="font-weight:600;color:#3a6a58;margin-bottom:1rem;"></p>
+        <div class="cta-row">
+          <button class="btn coral" id="quiz-again" type="button">Try again</button>
+          <button class="btn secondary" id="back-learn" type="button">Back to Learn</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>From every Unité 6 page you shared — bon courage, Maya! 🌴🦜</footer>
+  </div>
+
+  <script>
+    const CATEGORIES = [
+      { id: "all", label: "All", icon: "📖" },
+      { id: "weather", label: "Weather", icon: "⛅" },
+      { id: "places", label: "Places", icon: "🏖️" },
+      { id: "verbs", label: "Verbs", icon: "🏃" },
+      { id: "adjectives", label: "Adjectives", icon: "✨" },
+      { id: "colors", label: "Colors", icon: "🎨" },
+      { id: "prepositions", label: "Where?", icon: "🦜" },
+      { id: "phrases", label: "Phrases", icon: "💬" }
+    ];
+
+    /** Full Unité 6 vocabulary from uploaded textbook pages */
+    const VOCAB = [
+      // —— Weather (pp. 186–187) ——
+      { id: "meteo", category: "weather", icon: "📺", fr: "la météo", ipa: "[la meteo]", de: "die Wettervorhersage", en: "the weather forecast", exampleFr: "Regarde la météo!", exampleDe: "Schau die Wettervorhersage an!", exampleEn: "Look at the weather forecast!" },
+      { id: "temps", category: "weather", icon: "🕐", fr: "le temps", ipa: "[lə tɑ̃]", de: "das Wetter / die Zeit", en: "the weather / time", exampleFr: "Il fait quel temps?", exampleDe: "Wie ist das Wetter?", exampleEn: "What's the weather like?" },
+      { id: "quel-temps", category: "weather", icon: "❓", fr: "Il fait quel temps?", ipa: "[il fɛ kɛl tɑ̃]", de: "Wie ist das Wetter?", en: "What's the weather like?", exampleFr: "Il fait quel temps à Nice?", exampleDe: "Wie ist das Wetter in Nizza?", exampleEn: "What's the weather like in Nice?" },
+      { id: "beau", category: "weather", icon: "☀️", fr: "Il fait beau.", ipa: "[il fɛ bo]", de: "Es ist schönes Wetter.", en: "The weather is nice.", exampleFr: "À Nice, il fait beau.", exampleDe: "In Nizza ist schönes Wetter.", exampleEn: "In Nice, the weather is nice." },
+      { id: "soleil-phrase", category: "weather", icon: "🌞", fr: "Il fait soleil.", ipa: "[il fɛ sɔlɛj]", de: "Die Sonne scheint.", en: "It is sunny.", exampleFr: "Regarde, il fait soleil!", exampleDe: "Schau, die Sonne scheint!", exampleEn: "Look, it is sunny!" },
+      { id: "soleil", category: "weather", icon: "☀️", fr: "le soleil", ipa: "[lə sɔlɛj]", de: "die Sonne", en: "the sun", exampleFr: "Le soleil brille.", exampleDe: "Die Sonne scheint.", exampleEn: "The sun is shining." },
+      { id: "pleut", category: "weather", icon: "🌧️", fr: "Il pleut.", ipa: "[il plø]", de: "Es regnet.", en: "It is raining.", exampleFr: "À Paris, il pleut.", exampleDe: "In Paris regnet es.", exampleEn: "In Paris, it is raining." },
+      { id: "chaud", category: "weather", icon: "🌡️", fr: "Il fait chaud.", ipa: "[il fɛ ʃo]", de: "Es ist warm / heiß.", en: "It is hot.", exampleFr: "Il fait chaud! On mange une glace?", exampleDe: "Es ist heiß! Essen wir ein Eis?", exampleEn: "It is hot! Shall we have an ice cream?" },
+      { id: "froid", category: "weather", icon: "🥶", fr: "Il fait froid.", ipa: "[il fɛ frwa]", de: "Es ist kalt.", en: "It is cold.", exampleFr: "Il fait froid? — Oui, un peu.", exampleDe: "Ist es kalt? — Ja, ein bisschen.", exampleEn: "Is it cold? — Yes, a little." },
+      { id: "mauvais", category: "weather", icon: "☁️", fr: "Il fait mauvais.", ipa: "[il fɛ movɛ]", de: "Es ist schlechtes Wetter.", en: "The weather is bad.", exampleFr: "Il fait mauvais. La mer est grise.", exampleDe: "Es ist schlechtes Wetter. Das Meer ist grau.", exampleEn: "The weather is bad. The sea is grey." },
+      { id: "vent-phrase", category: "weather", icon: "💨", fr: "Il y a du vent.", ipa: "[il ja dy vɑ̃]", de: "Es ist windig.", en: "It is windy.", exampleFr: "Attention, il y a du vent!", exampleDe: "Achtung, es ist windig!", exampleEn: "Careful, it is windy!" },
+      { id: "vent", category: "weather", icon: "🍃", fr: "le vent", ipa: "[lə vɑ̃]", de: "der Wind", en: "the wind", exampleFr: "Le vent est fort.", exampleDe: "Der Wind ist stark.", exampleEn: "The wind is strong." },
+      { id: "neige", category: "weather", icon: "❄️", fr: "Il neige.", ipa: "[il nɛʒ]", de: "Es schneit.", en: "It is snowing.", exampleFr: "Il neige sur la montagne.", exampleDe: "Es schneit auf dem Berg.", exampleEn: "It is snowing on the mountain." },
+      { id: "orage", category: "weather", icon: "⛈️", fr: "Il y a un orage.", ipa: "[il ja œ̃ nɔʁaʒ]", de: "Es gibt ein Gewitter.", en: "There is a thunderstorm.", exampleFr: "Vite! Il y a un orage!", exampleDe: "Schnell! Es gibt ein Gewitter!", exampleEn: "Quick! There is a thunderstorm!" },
+
+      // —— Places / Nice (pp. 186–189) ——
+      { id: "ville", category: "places", icon: "🏙️", fr: "une ville", ipa: "[yn vil]", de: "eine Stadt", en: "a city", exampleFr: "Nice est une ville en France.", exampleDe: "Nizza ist eine Stadt in Frankreich.", exampleEn: "Nice is a city in France." },
+      { id: "mer", category: "places", icon: "🌊", fr: "la mer", ipa: "[la mɛʁ]", de: "das Meer", en: "the sea", exampleFr: "On va à la mer!", exampleDe: "Wir fahren ans Meer!", exampleEn: "We're going to the sea!" },
+      { id: "mediterranee", category: "places", icon: "🗺️", fr: "la Méditerranée", ipa: "[la meditɛʁane]", de: "das Mittelmeer", en: "the Mediterranean", exampleFr: "Nice est près de la Méditerranée.", exampleDe: "Nizza liegt am Mittelmeer.", exampleEn: "Nice is by the Mediterranean." },
+      { id: "grande-bleue", category: "places", icon: "💙", fr: "la grande bleue", ipa: "[la ɡʁɑ̃d blø]", de: "das Mittelmeer (wörtl. die große Blaue)", en: "the Mediterranean (literally “the big blue”)", exampleFr: "On nage dans la grande bleue!", exampleDe: "Wir schwimmen in der großen Blauen!", exampleEn: "We're swimming in the big blue!" },
+      { id: "montagne", category: "places", icon: "⛰️", fr: "une montagne", ipa: "[yn mɔ̃taɲ]", de: "ein Gebirge / ein Berg", en: "a mountain", exampleFr: "On va à la montagne.", exampleDe: "Wir fahren in die Berge.", exampleEn: "We're going to the mountains." },
+      { id: "vacances", category: "places", icon: "🌴", fr: "les vacances", ipa: "[le vakɑ̃s]", de: "der Urlaub / die Ferien", en: "vacation / holidays", exampleFr: "C'est enfin les vacances!", exampleDe: "Endlich sind Ferien!", exampleEn: "It's finally vacation!" },
+      { id: "sortie", category: "places", icon: "🎟️", fr: "une sortie", ipa: "[yn sɔʁti]", de: "ein Ausflug", en: "an outing / trip", exampleFr: "Les filles vont faire une sortie en bateau.", exampleDe: "Die Mädchen machen einen Bootsausflug.", exampleEn: "The girls are going on a boat trip." },
+      { id: "bateau", category: "places", icon: "⛵", fr: "un bateau", ipa: "[œ̃ bato]", de: "ein Boot / Schiff", en: "a boat / ship", exampleFr: "Une sortie en bateau!", exampleDe: "Ein Bootsausflug!", exampleEn: "A boat trip!" },
+      { id: "plage", category: "places", icon: "🏖️", fr: "une plage", ipa: "[yn plaʒ]", de: "ein Strand", en: "a beach", exampleFr: "Il fait beau, on va à la plage!", exampleDe: "Es ist schönes Wetter, wir gehen an den Strand!", exampleEn: "Nice weather — let's go to the beach!" },
+      { id: "specialite", category: "places", icon: "🍽️", fr: "une spécialité", ipa: "[yn spesjalite]", de: "eine Spezialität", en: "a specialty", exampleFr: "La socca est une spécialité de Nice.", exampleDe: "Socca ist eine Spezialität aus Nizza.", exampleEn: "Socca is a specialty from Nice." },
+      { id: "restaurant", category: "places", icon: "🍴", fr: "un restaurant", ipa: "[œ̃ ʁɛstɔʁɑ̃]", de: "ein Restaurant", en: "a restaurant", exampleFr: "Les grands-parents ont un restaurant à Nice.", exampleDe: "Die Großeltern haben ein Restaurant in Nizza.", exampleEn: "The grandparents have a restaurant in Nice." },
+      { id: "batiment", category: "places", icon: "🏛️", fr: "un bâtiment", ipa: "[œ̃ batimɑ̃]", de: "ein Gebäude / Bauwerk", en: "a building", exampleFr: "Le théâtre est un bâtiment moderne.", exampleDe: "Das Theater ist ein modernes Gebäude.", exampleEn: "The theater is a modern building." },
+      { id: "endroit", category: "places", icon: "📍", fr: "un endroit", ipa: "[œ̃ nɑ̃dʁwa]", de: "ein Ort", en: "a place", exampleFr: "C'est un bel endroit.", exampleDe: "Das ist ein schöner Ort.", exampleEn: "It's a beautiful place." },
+      { id: "glace", category: "places", icon: "🍦", fr: "une glace", ipa: "[yn ɡlas]", de: "ein Eis", en: "an ice cream", exampleFr: "On mange une glace?", exampleDe: "Essen wir ein Eis?", exampleEn: "Shall we have an ice cream?" },
+      { id: "vue", category: "places", icon: "👀", fr: "une vue", ipa: "[yn vy]", de: "eine Aussicht", en: "a view", exampleFr: "Regarde, la vue sur la ville!", exampleDe: "Schau, die Aussicht über die Stadt!", exampleEn: "Look, the view over the city!" },
+      { id: "ascenseur", category: "places", icon: "🛗", fr: "un ascenseur", ipa: "[œ̃ nasɑ̃sœʁ]", de: "ein Aufzug / Fahrstuhl", en: "an elevator", exampleFr: "Ils prennent l'ascenseur.", exampleDe: "Sie nehmen den Aufzug.", exampleEn: "They take the elevator." },
+      { id: "escalier", category: "places", icon: "🪜", fr: "un escalier", ipa: "[œ̃ nɛskalje]", de: "eine Treppe", en: "a staircase", exampleFr: "Les filles prennent l'escalier.", exampleDe: "Die Mädchen nehmen die Treppe.", exampleEn: "The girls take the stairs." },
+      { id: "visite", category: "places", icon: "🎫", fr: "une visite", ipa: "[yn vizit]", de: "ein Besuch", en: "a visit", exampleFr: "Une visite de la ville!", exampleDe: "Ein Besuch der Stadt!", exampleEn: "A visit of the city!" },
+      { id: "touriste", category: "places", icon: "🧳", fr: "un touriste / une touriste", ipa: "[œ̃ tuʁist]", de: "ein Tourist / eine Touristin", en: "a tourist", exampleFr: "Beaucoup de touristes à Nice.", exampleDe: "Viele Touristen in Nizza.", exampleEn: "Lots of tourists in Nice." },
+      { id: "depart", category: "places", icon: "🚌", fr: "le départ", ipa: "[lə depaʁ]", de: "die Abfahrt / der Aufbruch", en: "the departure", exampleFr: "C'est l'heure du départ.", exampleDe: "Es ist Zeit zur Abfahrt.", exampleEn: "It's time to leave." },
+      { id: "retour", category: "places", icon: "🔁", fr: "un retour", ipa: "[œ̃ ʁətuʁ]", de: "eine Rückkehr / Rückfahrt", en: "a return", exampleFr: "Le retour est demain.", exampleDe: "Die Rückfahrt ist morgen.", exampleEn: "The return is tomorrow.", note: "Opposite: le départ" },
+      { id: "palmier", category: "places", icon: "🌴", fr: "un palmier", ipa: "[œ̃ palmje]", de: "eine Palme", en: "a palm tree", exampleFr: "Un palmier est un joli arbre.", exampleDe: "Eine Palme ist ein hübscher Baum.", exampleEn: "A palm tree is a pretty tree." },
+      { id: "dauphin", category: "places", icon: "🐬", fr: "un dauphin", ipa: "[œ̃ dofɛ̃]", de: "ein Delfin", en: "a dolphin", exampleFr: "Je vois un dauphin!", exampleDe: "Ich sehe einen Delfin!", exampleEn: "I see a dolphin!" },
+      { id: "colline", category: "places", icon: "🌄", fr: "une colline", ipa: "[yn kɔlin]", de: "ein Hügel", en: "a hill", exampleFr: "On monte sur la colline?", exampleDe: "Gehen wir auf den Hügel?", exampleEn: "Shall we climb the hill?" },
+      { id: "maison", category: "places", icon: "🏠", fr: "une maison", ipa: "[yn mɛzɔ̃]", de: "ein Haus", en: "a house", exampleFr: "J'habite dans une maison blanche.", exampleDe: "Ich wohne in einem weißen Haus.", exampleEn: "I live in a white house." },
+      { id: "pied", category: "places", icon: "🦶", fr: "un pied", ipa: "[œ̃ pje]", de: "ein Fuß", en: "a foot", exampleFr: "Aie! Mon pied!", exampleDe: "Aua! Mein Fuß!", exampleEn: "Ouch! My foot!" },
+      { id: "jeune", category: "places", icon: "🧑", fr: "un jeune / une jeune", ipa: "[œ̃ ʒœn]", de: "ein Jugendlicher / eine Jugendliche", en: "a young person / teenager", exampleFr: "Les jeunes sont fatigués.", exampleDe: "Die Jugendlichen sind müde.", exampleEn: "The young people are tired.", note: "≈ un adolescent / une adolescente" },
+      { id: "moniteur", category: "places", icon: "🧭", fr: "un moniteur / une monitrice", ipa: "[œ̃ monitœʁ]", de: "ein Betreuer / eine Betreuerin", en: "an instructor / counselor", exampleFr: "Le moniteur explique un exercice.", exampleDe: "Der Betreuer erklärt eine Übung.", exampleEn: "The instructor explains an exercise." },
+      { id: "stage", category: "places", icon: "📋", fr: "un stage", ipa: "[œ̃ staʒ]", de: "ein Praktikum / Kurs", en: "an internship / course", exampleFr: "Elle fait un stage à Nice.", exampleDe: "Sie macht ein Praktikum in Nizza.", exampleEn: "She's doing a course in Nice." },
+      { id: "information", category: "places", icon: "ℹ️", fr: "une information", ipa: "[yn ɛ̃fɔʁmasjɔ̃]", de: "eine Information", en: "a piece of information", exampleFr: "J'ai une information pour toi.", exampleDe: "Ich habe eine Information für dich.", exampleEn: "I have information for you." },
+      { id: "blague", category: "places", icon: "😂", fr: "une blague", ipa: "[yn blaɡ]", de: "ein Scherz / Witz", en: "a joke", exampleFr: "Ce n'est pas une blague!", exampleDe: "Das ist kein Witz!", exampleEn: "That's not a joke!" },
+
+      // —— Verbs ——
+      { id: "visiter", category: "verbs", icon: "🚶", fr: "visiter", ipa: "[vizite]", de: "besichtigen / besuchen", en: "to visit (a place)", exampleFr: "Les amis vont visiter la ville.", exampleDe: "Die Freunde besichtigen die Stadt.", exampleEn: "The friends are going to visit the city." },
+      { id: "voir", category: "verbs", icon: "👁️", fr: "voir", ipa: "[vwaʁ]", de: "sehen", en: "to see", exampleFr: "Tu vois quelque chose dans l'eau?", exampleDe: "Siehst du etwas im Wasser?", exampleEn: "Do you see something in the water?", note: "je vois, tu vois, il voit, nous voyons…" },
+      { id: "nager", category: "verbs", icon: "🏊", fr: "nager", ipa: "[naʒe]", de: "schwimmen", en: "to swim", exampleFr: "Nous nageons dans la mer.", exampleDe: "Wir schwimmen im Meer.", exampleEn: "We swim in the sea.", note: "Watch the -e- in nous nageons (like nous mangeons)!" },
+      { id: "expliquer", category: "verbs", icon: "🗣️", fr: "expliquer", ipa: "[ɛksplike]", de: "erklären", en: "to explain", exampleFr: "Le moniteur explique un exercice.", exampleDe: "Der Betreuer erklärt eine Übung.", exampleEn: "The instructor explains an exercise." },
+      { id: "montrer", category: "verbs", icon: "👉", fr: "montrer", ipa: "[mɔ̃tʁe]", de: "zeigen", en: "to show", exampleFr: "Je te montre la vue!", exampleDe: "Ich zeige dir die Aussicht!", exampleEn: "I'll show you the view!" },
+      { id: "demander", category: "verbs", icon: "🙋", fr: "demander", ipa: "[dəmɑ̃de]", de: "fragen / bitten um", en: "to ask (for)", exampleFr: "Je demande une glace.", exampleDe: "Ich bitte um ein Eis.", exampleEn: "I ask for an ice cream." },
+      { id: "donner", category: "verbs", icon: "🎁", fr: "donner", ipa: "[dɔne]", de: "geben", en: "to give", exampleFr: "Tu me donnes la carte?", exampleDe: "Gibst du mir die Karte?", exampleEn: "Will you give me the map?" },
+      { id: "sauter", category: "verbs", icon: "🤸", fr: "sauter", ipa: "[sote]", de: "springen", en: "to jump", exampleFr: "Il saute dans l'eau.", exampleDe: "Er springt ins Wasser.", exampleEn: "He jumps into the water." },
+      { id: "poser", category: "verbs", icon: "📦", fr: "poser", ipa: "[poze]", de: "legen / stellen", en: "to put / place", exampleFr: "Pose le sac ici.", exampleDe: "Stell die Tasche hier hin.", exampleEn: "Put the bag here." },
+      { id: "aider", category: "verbs", icon: "🤝", fr: "aider", ipa: "[ede]", de: "helfen", en: "to help", exampleFr: "Tu peux m'aider?", exampleDe: "Kannst du mir helfen?", exampleEn: "Can you help me?" },
+      { id: "avoir-mal", category: "verbs", icon: "🤕", fr: "avoir mal", ipa: "[avwaʁ mal]", de: "Schmerzen haben", en: "to hurt / to be in pain", exampleFr: "Antoine a mal au pied.", exampleDe: "Antoine hat Schmerzen am Fuß.", exampleEn: "Antoine's foot hurts." },
+      { id: "passer", category: "verbs", icon: "➡️", fr: "passer", ipa: "[pase]", de: "vorbeigehen / verbringen", en: "to pass / to spend (time)", exampleFr: "Nous passons devant le théâtre.", exampleDe: "Wir gehen am Theater vorbei.", exampleEn: "We walk past the theater." },
+      { id: "contacter", category: "verbs", icon: "📱", fr: "contacter", ipa: "[kɔ̃takte]", de: "kontaktieren", en: "to contact", exampleFr: "Je contacte mes amis.", exampleDe: "Ich kontaktiere meine Freunde.", exampleEn: "I contact my friends." },
+      { id: "desirer", category: "verbs", icon: "✨", fr: "désirer", ipa: "[dezire]", de: "wünschen / möchten", en: "to want / desire", exampleFr: "Vous désirez?", exampleDe: "Bitte schön? / Was möchten Sie?", exampleEn: "What would you like?" },
+      { id: "rigoler", category: "verbs", icon: "😆", fr: "rigoler", ipa: "[ʁiɡɔle]", de: "lachen (ugs.)", en: "to laugh (informal)", exampleFr: "On rigole beaucoup!", exampleDe: "Wir lachen viel!", exampleEn: "We laugh a lot!" },
+      { id: "proposer", category: "verbs", icon: "💡", fr: "proposer", ipa: "[pʁɔpoze]", de: "vorschlagen", en: "to suggest / propose", exampleFr: "Je propose une sortie!", exampleDe: "Ich schlage einen Ausflug vor!", exampleEn: "I suggest an outing!" },
+
+      // —— Adjectives ——
+      { id: "interessant", category: "adjectives", icon: "🤓", fr: "intéressant / intéressante", ipa: "[ɛ̃teʁesɑ̃]", de: "interessant", en: "interesting", exampleFr: "C'est intéressant!", exampleDe: "Das ist interessant!", exampleEn: "That's interesting!" },
+      { id: "grand", category: "adjectives", icon: "📏", fr: "grand / grande", ipa: "[ɡʁɑ̃ / ɡʁɑ̃d]", de: "groß", en: "big / large", exampleFr: "Nice est une grande ville.", exampleDe: "Nizza ist eine große Stadt.", exampleEn: "Nice is a big city." },
+      { id: "petit", category: "adjectives", icon: "🔎", fr: "petit / petite", ipa: "[pəti / pətit]", de: "klein", en: "small", exampleFr: "Une petite glace, s'il te plaît.", exampleDe: "Ein kleines Eis bitte.", exampleEn: "A small ice cream, please." },
+      { id: "joli", category: "adjectives", icon: "🌸", fr: "joli / jolie", ipa: "[ʒɔli]", de: "hübsch", en: "pretty / nice", exampleFr: "Elle est jolie.", exampleDe: "Sie ist hübsch.", exampleEn: "She is pretty." },
+      { id: "content", category: "adjectives", icon: "😊", fr: "content / contente", ipa: "[kɔ̃tɑ̃]", de: "zufrieden / froh", en: "happy / glad", exampleFr: "Je suis content!", exampleDe: "Ich bin froh!", exampleEn: "I'm happy!" },
+      { id: "gratuit", category: "adjectives", icon: "🆓", fr: "gratuit / gratuite", ipa: "[ɡʁatɥi]", de: "kostenlos", en: "free (of charge)", exampleFr: "C'est gratuit!", exampleDe: "Das ist kostenlos!", exampleEn: "It's free!" },
+      { id: "long", category: "adjectives", icon: "📐", fr: "long / longue", ipa: "[lɔ̃ / lɔ̃ɡ]", de: "lang", en: "long", exampleFr: "Un long voyage.", exampleDe: "Eine lange Reise.", exampleEn: "A long journey." },
+      { id: "fatigue", category: "adjectives", icon: "🥱", fr: "fatigué / fatiguée", ipa: "[fatiɡe]", de: "müde", en: "tired", exampleFr: "Après l'exercice, les jeunes sont fatigués.", exampleDe: "Nach der Übung sind die Jugendlichen müde.", exampleEn: "After the exercise, the teens are tired." },
+      { id: "bon", category: "adjectives", icon: "👍", fr: "bon / bonne", ipa: "[bɔ̃ / bɔn]", de: "gut", en: "good", exampleFr: "C'est une bonne équipe!", exampleDe: "Das ist ein gutes Team!", exampleEn: "That's a good team!", note: "Opposite: mauvais / mauvaise" },
+      { id: "drole", category: "adjectives", icon: "😜", fr: "drôle", ipa: "[dʁol]", de: "lustig", en: "funny", exampleFr: "C'est drôle!", exampleDe: "Das ist lustig!", exampleEn: "That's funny!" },
+      { id: "moderne", category: "adjectives", icon: "🆕", fr: "moderne", ipa: "[mɔdɛʁn]", de: "modern", en: "modern", exampleFr: "Un bâtiment très moderne.", exampleDe: "Ein sehr modernes Gebäude.", exampleEn: "A very modern building." },
+
+      // —— Colors (palette + B5) ——
+      { id: "couleur", category: "colors", icon: "🎨", fr: "une couleur", ipa: "[yn kulœʁ]", de: "eine Farbe", en: "a color", exampleFr: "Quelle est ta couleur préférée?", exampleDe: "Was ist deine Lieblingsfarbe?", exampleEn: "What's your favorite color?" },
+      { id: "bleu", category: "colors", icon: "🔵", fr: "bleu / bleue", ipa: "[blø]", de: "blau", en: "blue", exampleFr: "La mer est bleue.", exampleDe: "Das Meer ist blau.", exampleEn: "The sea is blue." },
+      { id: "gris", category: "colors", icon: "⚪", fr: "gris / grise", ipa: "[ɡʁi / ɡʁiz]", de: "grau", en: "grey", exampleFr: "La mer est grise.", exampleDe: "Das Meer ist grau.", exampleEn: "The sea is grey." },
+      { id: "jaune", category: "colors", icon: "🟡", fr: "jaune", ipa: "[ʒon]", de: "gelb", en: "yellow", exampleFr: "L'Orangina est une boisson jaune.", exampleDe: "Orangina ist ein gelbes Getränk.", exampleEn: "Orangina is a yellow drink." },
+      { id: "blanc", category: "colors", icon: "⬜", fr: "blanc / blanche", ipa: "[blɑ̃ / blɑ̃ʃ]", de: "weiß", en: "white", exampleFr: "Une maison blanche.", exampleDe: "Ein weißes Haus.", exampleEn: "A white house." },
+      { id: "vert", category: "colors", icon: "🟢", fr: "vert / verte", ipa: "[vɛʁ / vɛʁt]", de: "grün", en: "green", exampleFr: "J'ai une casquette verte.", exampleDe: "Ich habe eine grüne Schirmmütze.", exampleEn: "I have a green cap." },
+      { id: "rouge", category: "colors", icon: "🔴", fr: "rouge", ipa: "[ʁuʒ]", de: "rot", en: "red", exampleFr: "Un perroquet rouge!", exampleDe: "Ein roter Papagei!", exampleEn: "A red parrot!" },
+      { id: "noir", category: "colors", icon: "⚫", fr: "noir / noire", ipa: "[nwaʁ]", de: "schwarz", en: "black", exampleFr: "Un chat noir.", exampleDe: "Eine schwarze Katze.", exampleEn: "A black cat." },
+
+      // —— Prepositions (p. 191) ——
+      { id: "sous", category: "prepositions", icon: "⬇️", fr: "sous", ipa: "[su]", de: "unter", en: "under", exampleFr: "sous la table ↔ sur la table", exampleDe: "unter dem Tisch ↔ auf dem Tisch", exampleEn: "under the table ↔ on the table" },
+      { id: "sur", category: "prepositions", icon: "⬆️", fr: "sur", ipa: "[syʁ]", de: "auf", en: "on", exampleFr: "sur la colline", exampleDe: "auf dem Hügel", exampleEn: "on the hill" },
+      { id: "a-cote", category: "prepositions", icon: "↔️", fr: "à côté de", ipa: "[a kote də]", de: "neben", en: "next to / beside", exampleFr: "Le restaurant est à côté de la librairie.", exampleDe: "Das Restaurant ist neben der Buchhandlung.", exampleEn: "The restaurant is next to the bookstore." },
+      { id: "a-droite", category: "prepositions", icon: "➡️", fr: "à droite de", ipa: "[a dʁwat də]", de: "rechts von", en: "to the right of", exampleFr: "C'est à droite de la boulangerie.", exampleDe: "Es ist rechts von der Bäckerei.", exampleEn: "It's to the right of the bakery." },
+      { id: "a-gauche", category: "prepositions", icon: "⬅️", fr: "à gauche de", ipa: "[a ɡoʃ də]", de: "links von", en: "to the left of", exampleFr: "C'est à gauche de la gare.", exampleDe: "Es ist links vom Bahnhof.", exampleEn: "It's to the left of the station." },
+      { id: "entre", category: "prepositions", icon: "🔀", fr: "entre", ipa: "[ɑ̃tʁ]", de: "zwischen", en: "between", exampleFr: "entre les palmiers", exampleDe: "zwischen den Palmen", exampleEn: "between the palm trees" },
+      { id: "devant", category: "prepositions", icon: "🚪", fr: "devant", ipa: "[dəvɑ̃]", de: "vor", en: "in front of", exampleFr: "devant la maison", exampleDe: "vor dem Haus", exampleEn: "in front of the house" },
+      { id: "derriere", category: "prepositions", icon: "🙈", fr: "derrière", ipa: "[dɛʁjɛʁ]", de: "hinter", en: "behind", exampleFr: "derrière la maison", exampleDe: "hinter dem Haus", exampleEn: "behind the house" },
+      { id: "dans", category: "prepositions", icon: "📥", fr: "dans", ipa: "[dɑ̃]", de: "in / im", en: "in / inside", exampleFr: "dans l'ascenseur", exampleDe: "im Aufzug", exampleEn: "in the elevator" },
+      { id: "pres-de", category: "prepositions", icon: "📌", fr: "près de", ipa: "[pʁɛ də]", de: "nahe bei / neben", en: "near / close to", exampleFr: "Il y a des dauphins près du bateau.", exampleDe: "Da sind Delfine nahe beim Boot.", exampleEn: "There are dolphins near the boat.", note: "de + le = du · de + les = des" },
+
+      // —— Useful phrases / extras ——
+      { id: "beaucoup", category: "phrases", icon: "💯", fr: "beaucoup", ipa: "[boku]", de: "viel", en: "a lot / much", exampleFr: "Merci beaucoup!", exampleDe: "Vielen Dank!", exampleEn: "Thank you very much!" },
+      { id: "merci-beaucoup", category: "phrases", icon: "🙏", fr: "Merci beaucoup!", ipa: "[mɛʁsi boku]", de: "Vielen Dank!", en: "Thank you very much!", exampleFr: "Merci beaucoup!", exampleDe: "Vielen Dank!", exampleEn: "Thank you very much!" },
+      { id: "et-avec-ca", category: "phrases", icon: "🛒", fr: "Et avec ça?", ipa: "[e avɛk sa]", de: "Sonst noch etwas?", en: "Anything else?", exampleFr: "Et avec ça?", exampleDe: "Sonst noch etwas?", exampleEn: "Anything else with that?" },
+      { id: "vendeur", category: "phrases", icon: "🛍️", fr: "un vendeur / une vendeuse", ipa: "[œ̃ vɑ̃dœʁ]", de: "ein Verkäufer / eine Verkäuferin", en: "a salesperson", exampleFr: "La vendeuse est sympa.", exampleDe: "Die Verkäuferin ist nett.", exampleEn: "The saleswoman is nice." },
+      { id: "une-fois", category: "phrases", icon: "1️⃣", fr: "une fois", ipa: "[yn fwa]", de: "ein Mal / einmal", en: "once / one time", exampleFr: "Encore une fois!", exampleDe: "Noch einmal!", exampleEn: "One more time!", note: "→ parfois = sometimes" },
+      { id: "un-peu", category: "phrases", icon: "🤏", fr: "un peu", ipa: "[œ̃ pø]", de: "ein wenig", en: "a little", exampleFr: "Oui, un peu.", exampleDe: "Ja, ein bisschen.", exampleEn: "Yes, a little." },
+      { id: "sous-leau", category: "phrases", icon: "🤿", fr: "sous l'eau", ipa: "[su lo]", de: "unter Wasser", en: "underwater", exampleFr: "Le perroquet est sous l'eau!", exampleDe: "Der Papagei ist unter Wasser!", exampleEn: "The parrot is underwater!" },
+      { id: "sur-colline", category: "phrases", icon: "🦜", fr: "sur la colline", ipa: "[syʁ la kɔlin]", de: "auf dem Hügel", en: "on the hill", exampleFr: "Le perroquet est sur la colline.", exampleDe: "Der Papagei ist auf dem Hügel.", exampleEn: "The parrot is on the hill." }
+    ];
+
+    /* —— Speech —— */
+    let voices = [];
+    function loadVoices() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      const el = document.getElementById("voice-status");
+      if (!window.speechSynthesis) {
+        el.textContent = "Speech not available — try Chrome or Edge.";
+        return;
+      }
+      const fr = pickVoice("fr");
+      const de = pickVoice("de");
+      const en = pickVoice("en");
+      el.textContent = voices.length
+        ? `Pronunciation ready · FR: ${fr?.name || "default"} · DE: ${de?.name || "default"} · EN: ${en?.name || "default"}`
+        : "Tap a speaker button to unlock voices on this device.";
+    }
+    if (window.speechSynthesis) {
+      loadVoices();
+      speechSynthesis.onvoiceschanged = loadVoices;
+    } else loadVoices();
+
+    function pickVoice(prefix) {
+      const list = voices.filter(v => v.lang.toLowerCase().startsWith(prefix));
+      if (!list.length) return null;
+      return list.find(v => /google|apple|microsoft|natural|enhanced|premium/i.test(v.name)) || list[0];
+    }
+
+    function speak(text, lang) {
+      if (!window.speechSynthesis || !text) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang === "fr" ? "fr-FR" : lang === "de" ? "de-DE" : "en-US";
+      const voice = pickVoice(lang);
+      if (voice) u.voice = voice;
+      u.rate = lang === "fr" ? 0.88 : 0.92;
+      u.pitch = 1.02;
+      speechSynthesis.speak(u);
+      if (!voices.length) setTimeout(loadVoices, 250);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    function escapeAttr(s) { return escapeHtml(s).replace(/'/g, "&#39;"); }
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    document.getElementById("stat-total").textContent = VOCAB.length + " words";
+
+    /* —— Filters & cards —— */
+    let filter = "all";
+    let query = "";
+    const filtersEl = document.getElementById("filters");
+    filtersEl.innerHTML = CATEGORIES.map(c =>
+      `<button type="button" class="chip${c.id === "all" ? " active" : ""}" data-filter="${c.id}">${c.icon} ${c.label}</button>`
+    ).join("");
+
+    filtersEl.addEventListener("click", e => {
+      const chip = e.target.closest("[data-filter]");
+      if (!chip) return;
+      filtersEl.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      filter = chip.dataset.filter;
+      renderCards();
+    });
+
+    document.getElementById("search").addEventListener("input", e => {
+      query = e.target.value.trim().toLowerCase();
+      renderCards();
+    });
+
+    function filteredVocab() {
+      return VOCAB.filter(v => {
+        if (filter !== "all" && v.category !== filter) return false;
+        if (!query) return true;
+        const hay = [v.fr, v.de, v.en, v.ipa, v.exampleFr, v.exampleDe, v.exampleEn].join(" ").toLowerCase();
+        return hay.includes(query);
+      });
+    }
+
+    const grid = document.getElementById("vocab-grid");
+    function renderCards() {
+      const items = filteredVocab();
+      document.getElementById("visible-count").textContent =
+        `Showing ${items.length} of ${VOCAB.length} words`;
+      grid.innerHTML = items.map(v => `
+        <article class="card" data-id="${v.id}" tabindex="0" role="button" aria-expanded="false">
+          <span class="badge ${v.category}">${v.category}</span>
+          <div class="icon">${v.icon}</div>
+          <div class="fr">${escapeHtml(v.fr)}</div>
+          <div class="ipa">${escapeHtml(v.ipa)}</div>
+          <div class="reveal">
+            <div class="lang-row">
+              <button type="button" class="speak-btn fr-btn" data-speak="fr" data-text="${escapeAttr(v.fr)}">🔊 FR</button>
+              <button type="button" class="speak-btn de-btn" data-speak="de" data-text="${escapeAttr(v.de)}">🔊 DE</button>
+              <button type="button" class="speak-btn en-btn" data-speak="en" data-text="${escapeAttr(v.en)}">🔊 EN</button>
+            </div>
+            <p class="trans"><span class="label">DE</span> ${escapeHtml(v.de)}</p>
+            <p class="trans"><span class="label">EN</span> ${escapeHtml(v.en)}</p>
+            <div class="example">
+              <strong>FR:</strong> ${escapeHtml(v.exampleFr)}
+              <span class="line"><strong>DE:</strong> ${escapeHtml(v.exampleDe)}</span>
+              <span class="line"><strong>EN:</strong> ${escapeHtml(v.exampleEn)}</span>
+            </div>
+            ${v.note ? `<div class="note">${escapeHtml(v.note)}</div>` : ""}
+            <button type="button" class="speak-btn example-btn" data-speak="fr" data-text="${escapeAttr(v.exampleFr)}">🔊 Hear French example</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    grid.addEventListener("click", e => {
+      const speakBtn = e.target.closest("[data-speak]");
+      if (speakBtn) {
+        e.stopPropagation();
+        speak(speakBtn.dataset.text, speakBtn.dataset.speak);
+        return;
+      }
+      const card = e.target.closest(".card");
+      if (card) toggleCard(card);
+    });
+    grid.addEventListener("keydown", e => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const card = e.target.closest(".card");
+      if (!card) return;
+      e.preventDefault();
+      toggleCard(card);
+    });
+    function toggleCard(card) {
+      const open = card.classList.toggle("flipped");
+      card.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        const word = VOCAB.find(v => v.id === card.dataset.id);
+        if (word) speak(word.fr, "fr");
+      }
+    }
+    renderCards();
+
+    /* —— Tabs —— */
+    function showTab(name) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+      document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === "panel-" + name));
+      if (name === "practice") startPractice();
+      if (name === "quiz") resetQuizUI();
+    }
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => showTab(btn.dataset.tab));
+    });
+    document.getElementById("jump-quiz").addEventListener("click", e => {
+      e.preventDefault();
+      showTab("quiz");
+      document.getElementById("panel-quiz").scrollIntoView({ behavior: "smooth" });
+    });
+    document.getElementById("back-learn").addEventListener("click", () => showTab("learn"));
+
+    /* —— Practice (12 random) —— */
+    let practiceQueue = [], practiceIndex = 0, practiceAnswered = false;
+
+    function startPractice() {
+      practiceQueue = shuffle(VOCAB).slice(0, 12);
+      practiceIndex = 0;
+      practiceAnswered = false;
+      document.getElementById("practice-next").disabled = true;
+      renderPractice();
+    }
+
+    function wrongChoices(correct, n = 3) {
+      return shuffle(VOCAB.filter(v => v.id !== correct.id)).slice(0, n);
+    }
+
+    function renderPractice() {
+      const item = practiceQueue[practiceIndex];
+      const total = practiceQueue.length;
+      document.getElementById("practice-meta").textContent = `Word ${practiceIndex + 1} of ${total}`;
+      document.getElementById("practice-progress").style.width = `${(practiceIndex / total) * 100}%`;
+      document.getElementById("practice-icon").textContent = "🔊";
+      document.getElementById("practice-prompt").textContent = "What does this French word mean?";
+      document.getElementById("practice-feedback").textContent = "";
+      document.getElementById("practice-feedback").className = "feedback";
+      document.getElementById("practice-next").disabled = true;
+      practiceAnswered = false;
+
+      const options = shuffle([item, ...wrongChoices(item)]);
+      document.getElementById("practice-choices").innerHTML = options.map(o => `
+        <button type="button" class="choice" data-id="${o.id}">
+          ${o.icon} ${escapeHtml(o.en)}
+          <div style="font-size:0.82rem;opacity:0.75;margin-top:0.12rem;">${escapeHtml(o.de)}</div>
+        </button>
+      `).join("");
+      setTimeout(() => speak(item.fr, "fr"), 220);
+    }
+
+    document.getElementById("practice-listen").addEventListener("click", () => {
+      const item = practiceQueue[practiceIndex];
+      if (item) speak(item.fr, "fr");
+    });
+    document.getElementById("practice-choices").addEventListener("click", e => {
+      const btn = e.target.closest(".choice");
+      if (!btn || practiceAnswered) return;
+      const item = practiceQueue[practiceIndex];
+      practiceAnswered = true;
+      [...document.querySelectorAll("#practice-choices .choice")].forEach(b => {
+        b.disabled = true;
+        if (b.dataset.id === item.id) b.classList.add("correct");
+      });
+      const fb = document.getElementById("practice-feedback");
+      if (btn.dataset.id === item.id) {
+        fb.textContent = "Bravo! 🎉 " + item.fr;
+        fb.className = "feedback good";
+        document.getElementById("practice-icon").textContent = item.icon;
+      } else {
+        btn.classList.add("wrong");
+        fb.textContent = "Correct: " + item.fr + " = " + item.en;
+        fb.className = "feedback bad";
+        speak(item.fr, "fr");
+      }
+      document.getElementById("practice-next").disabled = false;
+      document.getElementById("practice-progress").style.width = `${((practiceIndex + 1) / practiceQueue.length) * 100}%`;
+    });
+    document.getElementById("practice-next").addEventListener("click", () => {
+      if (practiceIndex < practiceQueue.length - 1) {
+        practiceIndex++;
+        renderPractice();
+      } else {
+        document.getElementById("practice-prompt").textContent = "Listening practice done!";
+        document.getElementById("practice-choices").innerHTML = "";
+        document.getElementById("practice-feedback").textContent = "Ready for the Big Quiz?";
+        document.getElementById("practice-feedback").className = "feedback good";
+        document.getElementById("practice-next").disabled = true;
+        document.getElementById("practice-icon").textContent = "🌟";
+      }
+    });
+    document.getElementById("practice-restart").addEventListener("click", startPractice);
+
+    /* —— Quiz —— */
+    let quizQueue = [], quizIndex = 0, quizScore = 0, quizAnswered = false, missed = [], lastQuizSize = 15;
+
+    function resetQuizUI() {
+      document.getElementById("quiz-stage").style.display = "block";
+      document.getElementById("quiz-results").style.display = "none";
+      document.getElementById("quiz-next").style.display = "none";
+      document.getElementById("quiz-next").disabled = true;
+      document.getElementById("quiz-choices").innerHTML = "";
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-meta").textContent = "Big quiz from the full book";
+      document.getElementById("quiz-prompt").textContent = "Pick a size to start!";
+      document.getElementById("quiz-icon").textContent = "🦜";
+      document.getElementById("quiz-progress").style.width = "0%";
+      document.getElementById("quiz-listen").style.display = "none";
+      document.querySelector(".quiz-size").style.display = "flex";
+    }
+
+    function startQuiz(size) {
+      lastQuizSize = size;
+      const words = shuffle(VOCAB).slice(0, size);
+      const styles = ["enToFr", "deToFr", "frToEn", "iconToFr"];
+      quizQueue = words.map((word, i) => ({ word, style: styles[i % styles.length] }));
+      quizIndex = 0;
+      quizScore = 0;
+      missed = [];
+      quizAnswered = false;
+      document.querySelector(".quiz-size").style.display = "none";
+      document.getElementById("quiz-next").style.display = "inline-block";
+      document.getElementById("quiz-results").style.display = "none";
+      document.getElementById("quiz-stage").style.display = "block";
+      renderQuizQuestion();
+    }
+
+    document.querySelectorAll("[data-quiz-size]").forEach(btn => {
+      btn.addEventListener("click", () => startQuiz(Number(btn.dataset.quizSize)));
+    });
+
+    function renderQuizQuestion() {
+      const { word, style } = quizQueue[quizIndex];
+      const total = quizQueue.length;
+      quizAnswered = false;
+      document.getElementById("quiz-meta").textContent = `Question ${quizIndex + 1} of ${total}`;
+      document.getElementById("quiz-progress").style.width = `${(quizIndex / total) * 100}%`;
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-feedback").className = "feedback";
+      document.getElementById("quiz-next").disabled = true;
+      document.getElementById("quiz-listen").style.display = "none";
+      document.getElementById("quiz-icon").textContent = word.icon;
+
+      let prompt = "";
+      let labelFn = w => w.fr;
+      if (style === "enToFr") {
+        prompt = `French for: “${word.en}”?`;
+      } else if (style === "deToFr") {
+        prompt = `Französisch für: „${word.de}“?`;
+      } else if (style === "frToEn") {
+        prompt = `What does “${word.fr}” mean?`;
+        labelFn = w => w.en;
+        document.getElementById("quiz-listen").style.display = "inline-flex";
+        document.getElementById("quiz-listen").onclick = () => speak(word.fr, "fr");
+        setTimeout(() => speak(word.fr, "fr"), 200);
+      } else {
+        prompt = "Which French matches this?";
+      }
+      document.getElementById("quiz-prompt").textContent = prompt;
+      const choices = shuffle([word, ...wrongChoices(word)]);
+      document.getElementById("quiz-choices").innerHTML = choices.map(o =>
+        `<button type="button" class="choice" data-id="${o.id}">${o.icon} ${escapeHtml(labelFn(o))}</button>`
+      ).join("");
+    }
+
+    document.getElementById("quiz-choices").addEventListener("click", e => {
+      const btn = e.target.closest(".choice");
+      if (!btn || quizAnswered || !quizQueue.length) return;
+      const { word } = quizQueue[quizIndex];
+      quizAnswered = true;
+      [...document.querySelectorAll("#quiz-choices .choice")].forEach(b => {
+        b.disabled = true;
+        if (b.dataset.id === word.id) b.classList.add("correct");
+      });
+      const fb = document.getElementById("quiz-feedback");
+      if (btn.dataset.id === word.id) {
+        quizScore++;
+        fb.textContent = "Super! ✅ " + word.fr + " — " + word.de;
+        fb.className = "feedback good";
+        speak(word.fr, "fr");
+      } else {
+        btn.classList.add("wrong");
+        missed.push(word);
+        fb.textContent = "→ " + word.fr + " = " + word.en + " / " + word.de;
+        fb.className = "feedback bad";
+        speak(word.fr, "fr");
+      }
+      document.getElementById("quiz-next").disabled = false;
+      document.getElementById("quiz-progress").style.width = `${((quizIndex + 1) / quizQueue.length) * 100}%`;
+    });
+
+    document.getElementById("quiz-next").addEventListener("click", () => {
+      if (quizIndex < quizQueue.length - 1) {
+        quizIndex++;
+        renderQuizQuestion();
+      } else showResults();
+    });
+    document.getElementById("quiz-again").addEventListener("click", () => startQuiz(lastQuizSize));
+
+    function showResults() {
+      document.getElementById("quiz-stage").style.display = "none";
+      document.getElementById("quiz-results").style.display = "block";
+      const total = quizQueue.length;
+      document.getElementById("final-score").textContent = `${quizScore} / ${total}`;
+      const ratio = quizScore / total;
+      let stars = "⭐⭐", msg = "Keep flipping cards — you're learning!";
+      if (ratio >= 0.92) { stars = "⭐⭐⭐⭐⭐"; msg = "Incroyable, Maya! Full-book champion! 👑"; burstConfetti(); }
+      else if (ratio >= 0.75) { stars = "⭐⭐⭐⭐"; msg = "Très bien! Almost perfect!"; burstConfetti(); }
+      else if (ratio >= 0.55) { stars = "⭐⭐⭐"; msg = "Bon travail! Review the missed words below."; }
+      document.getElementById("final-stars").textContent = stars;
+      document.getElementById("final-message").textContent = msg;
+      const missedEl = document.getElementById("missed-list");
+      if (missed.length) {
+        const unique = [...new Map(missed.map(m => [m.id, m])).values()];
+        missedEl.innerHTML = "Practice again: " + unique.map(m => `<strong>${escapeHtml(m.fr)}</strong>`).join(", ");
+      } else {
+        missedEl.textContent = "Zero mistakes — bravo!";
+      }
+    }
+
+    function burstConfetti() {
+      const layer = document.getElementById("confetti-layer");
+      const colors = ["#e85d4c", "#ff9f1c", "#2f9e6b", "#3d9fd9", "#fff", "#ffe066"];
+      for (let i = 0; i < 52; i++) {
+        const bit = document.createElement("div");
+        bit.className = "confetti";
+        bit.style.left = Math.random() * 100 + "vw";
+        bit.style.background = colors[i % colors.length];
+        bit.style.animationDelay = (Math.random() * 0.5) + "s";
+        bit.style.animationDuration = (2.1 + Math.random() * 1.3) + "s";
+        layer.appendChild(bit);
+        setTimeout(() => bit.remove(), 3800);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,23 +1,22 @@
 # Maya’s French Adventure
 
-Interactive French vocabulary page for **Unité 6: Trois jours à Nice!**
+Interactive French vocabulary pages for **Unité 6: Trois jours à Nice!**
 
-## Open the page (send this to Maya)
+## Send these to Maya
 
-**Quick preview link (works right away):**  
+### 1) Cute starter (15 words)
 https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/index.html
 
-Or download / open **[index.html](index.html)** on any phone or laptop.
+Weather + Nice trip places, flip cards, FR/DE/EN pronunciation, 15-question quiz.
 
-After GitHub Pages is enabled (Settings → Pages → Source: GitHub Actions), the permanent link will be:  
-`https://malkozajche.github.io/french/`
+### 2) Full Vocabulaire 6 (all book pages)
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/vocabulaire-6.html
 
-## What’s inside
+**80+ words** from every uploaded page: weather, places, verbs, adjectives, colors, prepositions (“C’est où?”), shopping phrases — with examples, search/filters, listen practice, and a 15 or 25 question quiz.
 
-- Learn **15 words** (weather expressions + Nice trip places)
-- Hear pronunciation in **French, German, and English** (tap FR / DE / EN)
-- Example sentences on every card
-- Listen practice mode
-- A **15-question quiz** with score and stars
+## Files
 
-Works best in **Chrome, Edge, or Safari** (uses the browser’s speech voices).
+- [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
+- [`vocabulaire-6.html`](vocabulaire-6.html) — full textbook coverage
+
+Works best in **Chrome, Edge, or Safari** (browser speech voices).
