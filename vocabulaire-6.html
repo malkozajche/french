@@ -650,6 +650,82 @@
     }
     .level-up-flash .box h2 { font-family: var(--font-display); font-size: 2rem; color: #e07a00; }
 
+
+    /* —— Explore / Gaps / Thrill —— */
+    .explore-map {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      min-height: 340px;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(255,255,200,0.55), transparent 35%),
+        linear-gradient(180deg, #7ec8f5 0%, #b8e4ff 38%, #3cb878 62%, #2a9a60 78%, #1f8fbf 100%);
+      box-shadow: inset 0 -30px 40px rgba(13,106,148,0.15);
+      border: 3px solid white;
+    }
+    .explore-map .sea-label {
+      position: absolute; bottom: 12%; right: 8%;
+      font-family: var(--font-display); color: rgba(255,255,255,0.85);
+      font-size: 1.1rem; letter-spacing: 0.08em; text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .explore-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border: none; cursor: pointer;
+      background: rgba(255,254,247,0.95);
+      border-radius: 16px;
+      padding: 0.45rem 0.55rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+      font-family: inherit; font-weight: 800; font-size: 0.78rem;
+      color: #164836; min-width: 72px; text-align: center;
+      transition: transform 0.15s ease, box-shadow 0.15s;
+      animation: bob-pin 2.8s ease-in-out infinite;
+    }
+    .explore-pin:hover { transform: translate(-50%, -50%) scale(1.08); }
+    .explore-pin .pin-emoji { display: block; font-size: 1.45rem; line-height: 1; }
+    .explore-pin.done {
+      background: linear-gradient(180deg, #d4f8de, #b8efc8);
+      box-shadow: 0 0 0 3px #2f9e6b, 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .explore-pin.active {
+      box-shadow: 0 0 0 3px #ff9f1c, 0 8px 20px rgba(224,122,0,0.35);
+      animation: pulse-pin 0.9s ease infinite;
+    }
+    @keyframes bob-pin {
+      0%, 100% { margin-top: 0; }
+      50% { margin-top: -5px; }
+    }
+    @keyframes pulse-pin {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.06); }
+    }
+    .explore-progress {
+      margin-top: 0.75rem; font-weight: 800; color: #24553f; text-align: center;
+    }
+    .gap-sentence {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
+      line-height: 1.35; color: #164836; margin: 0.6rem 0 1rem;
+      background: rgba(61,159,217,0.12); border-radius: 16px; padding: 1rem;
+    }
+    .gap-blank {
+      display: inline-block; min-width: 4.5rem;
+      border-bottom: 3px dashed #e07a00; color: #e07a00;
+      padding: 0 0.25rem; margin: 0 0.15rem;
+    }
+    .thrill-hud {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-bottom: 0.7rem;
+    }
+    .thrill-chip {
+      font-weight: 800; font-size: 0.85rem;
+      background: #fff; border-radius: 999px; padding: 0.35rem 0.75rem;
+      box-shadow: var(--shadow); color: #164836;
+    }
+    .thrill-chip.danger { background: #ffe0db; color: #a32a1d; }
+    .thrill-chip.hot { background: #ffe2a8; color: #7a4a00; }
+    .hearts { letter-spacing: 0.08rem; font-size: 1.2rem; }
+
   </style>
 </head>
 <body>
@@ -771,8 +847,8 @@
         <h2>Play to learn 🎮</h2>
         <ol>
           <li>Earn <strong>stars (XP)</strong> by flipping cards, answering quizzes, and winning games.</li>
-          <li>Keep a streak of correct answers for bonus points.</li>
-          <li>Unlock shiny badges — check the Badges tab!</li>
+          <li><strong>Explore Nice</strong>, <strong>Fill the Gaps</strong>, and dare a <strong>Thrill Run</strong> for bigger rewards.</li>
+          <li>Keep streaks hot — unlock shiny badges in the Badges tab!</li>
         </ol>
       </div>
 
@@ -796,6 +872,21 @@
           <h3>⛅ Weather Boss</h3>
           <p>Only weather words. Beat 8 questions fast for a special badge.</p>
           <button class="play" type="button">Play</button>
+        </article>
+        <article class="game-card" data-start-game="explore">
+          <h3>🗺️ Explore Nice</h3>
+          <p>Joyous adventure! Tap places on the map, discover words, fill your travel journal.</p>
+          <button class="play" type="button">Explore</button>
+        </article>
+        <article class="game-card" data-start-game="gaps">
+          <h3>✏️ Fill the Gaps</h3>
+          <p>Complete real example sentences — pick the missing French word.</p>
+          <button class="play" type="button">Play</button>
+        </article>
+        <article class="game-card" data-start-game="thrill">
+          <h3>🎢 Thrill Run</h3>
+          <p>3 lives. Rising speed. Multipliers. Can you survive the rush?</p>
+          <button class="play" type="button">Dare me</button>
         </article>
       </div>
 
@@ -1372,6 +1463,11 @@
       { id: "memory-win", emoji: "🧠", name: "Memory Champ", desc: "Win Memory Flip", check: s => s.games.memoryWins >= 1 },
       { id: "speed-15", emoji: "⚡", name: "Speed Demon", desc: "Score 15+ in Speed Round", check: s => s.games.bestSpeed >= 15 },
       { id: "weather-boss", emoji: "⛈️", name: "Weather Boss", desc: "Beat the Weather Boss", check: s => s.games.weatherWins >= 1 },
+      { id: "explore-3", emoji: "🗺️", name: "City Wanderer", desc: "Discover 3 Nice spots", check: s => (s.games.exploreSpots || 0) >= 3 },
+      { id: "explore-all", emoji: "🌴", name: "Nice Explorer", desc: "Discover every map spot", check: s => (s.games.exploreSpots || 0) >= 8 },
+      { id: "gaps-win", emoji: "✏️", name: "Sentence Sleuth", desc: "Win Fill the Gaps", check: s => s.games.gapsWins >= 1 },
+      { id: "thrill-8", emoji: "🎢", name: "Thrill Seeker", desc: "Score 8+ on Thrill Run", check: s => (s.games.bestThrill || 0) >= 8 },
+      { id: "thrill-15", emoji: "💥", name: "Adrenaline Ace", desc: "Score 15+ on Thrill Run", check: s => (s.games.bestThrill || 0) >= 15 },
       { id: "level-5", emoji: "🌴", name: "Nice Regular", desc: "Reach level 5", check: s => levelFromXp(s.xp) >= 5 },
       { id: "level-10", emoji: "🏆", name: "Riviera Legend", desc: "Reach level 10", check: s => levelFromXp(s.xp) >= 10 },
       { id: "stars-500", emoji: "✨", name: "Star Hoarder", desc: "Earn 500 total stars", check: s => s.xp >= 500 }
@@ -1388,7 +1484,7 @@
         quizzesFinished: 0,
         bestQuizRatio: 0,
         badges: {},
-        games: { matchWins: 0, memoryWins: 0, bestSpeed: 0, weatherWins: 0 }
+        games: { matchWins: 0, memoryWins: 0, bestSpeed: 0, weatherWins: 0, exploreSpots: 0, explored: {}, gapsWins: 0, bestThrill: 0 }
       };
     }
 
@@ -1562,6 +1658,8 @@
       if (winKey === "match") state.games.matchWins += 1;
       if (winKey === "memory") state.games.memoryWins += 1;
       if (winKey === "weather") state.games.weatherWins += 1;
+      if (winKey === "gaps") state.games.gapsWins += 1;
+      if (winKey === "explore") { /* spots tracked live */ }
       persist();
       if (xp) addXp(xp, "Game reward!");
       burstConfetti();
@@ -1575,6 +1673,9 @@
       if (g === "memory") startMemoryGame();
       if (g === "speed") startSpeedGame();
       if (g === "weather") startWeatherBoss();
+      if (g === "explore") startExploreNice();
+      if (g === "gaps") startFillGaps();
+      if (g === "thrill") startThrillRun();
     });
     document.getElementById("game-quit").addEventListener("click", showGameMenu);
     document.getElementById("game-menu-btn").addEventListener("click", showGameMenu);
@@ -1800,6 +1901,276 @@
           }
         }, 650);
       };
+    }
+
+    /* —— Explore Nice —— */
+    const NICE_SPOTS = [
+      { id: "plage", x: 62, y: 72, label: "Plage", emoji: "🏖️", wordIds: ["plage", "mer", "glace", "beau"] },
+      { id: "mer", x: 78, y: 78, label: "La mer", emoji: "🌊", wordIds: ["mer", "bateau", "dauphin", "nager"] },
+      { id: "ville", x: 48, y: 48, label: "Ville", emoji: "🏙️", wordIds: ["ville", "restaurant", "batiment", "touriste"] },
+      { id: "colline", x: 28, y: 38, label: "Colline", emoji: "🌄", wordIds: ["colline", "vue", "palmier", "grand"] },
+      { id: "montagne", x: 18, y: 22, label: "Montagne", emoji: "⛰️", wordIds: ["montagne", "froid", "neige"] },
+      { id: "port", x: 70, y: 58, label: "Port", emoji: "⛵", wordIds: ["bateau", "sortie", "dauphin", "voir"] },
+      { id: "meteo", x: 40, y: 18, label: "Météo", emoji: "☀️", wordIds: ["beau", "soleil", "chaud", "pleut", "orage"] },
+      { id: "parc", x: 35, y: 58, label: "Parc", emoji: "🌴", wordIds: ["palmier", "pres-de", "joli", "vacances"] }
+    ];
+
+    function wordById(id) { return VOCAB.find(v => v.id === id); }
+
+    function startExploreNice() {
+      gameAgainFn = startExploreNice;
+      openGameStage("🗺️ Explore Nice");
+      activeGame = "explore";
+      if (!state.games.explored) state.games.explored = {};
+      document.getElementById("game-timer").textContent = "MAP";
+      document.getElementById("game-meta").textContent = "Tap a glowing spot — joyous discovery awaits!";
+      document.getElementById("game-feedback").textContent = "";
+      renderExploreMap();
+    }
+
+    function renderExploreMap() {
+      const explored = state.games.explored || {};
+      const doneCount = Object.keys(explored).length;
+      document.getElementById("game-body").innerHTML = `
+        <div class="explore-map" id="explore-map">
+          <div class="sea-label">Méditerranée</div>
+          ${NICE_SPOTS.map(s => `
+            <button type="button" class="explore-pin${explored[s.id] ? " done" : ""}"
+              style="left:${s.x}%;top:${s.y}%;" data-spot="${s.id}">
+              <span class="pin-emoji">${explored[s.id] ? "✅" : s.emoji}</span>
+              ${escapeHtml(s.label)}
+            </button>`).join("")}
+        </div>
+        <p class="explore-progress">Journal: ${doneCount} / ${NICE_SPOTS.length} spots discovered</p>
+        <div id="explore-challenge"></div>`;
+
+      document.getElementById("game-body").onclick = e => {
+        const pin = e.target.closest("[data-spot]");
+        if (pin) openExploreSpot(pin.dataset.spot);
+      };
+
+      if (doneCount >= NICE_SPOTS.length) {
+        state.games.exploreSpots = doneCount;
+        persist();
+        endGame("You explored all of Nice! What a journey 🌴", 80, "explore");
+      }
+    }
+
+    function openExploreSpot(spotId) {
+      const spot = NICE_SPOTS.find(s => s.id === spotId);
+      if (!spot) return;
+      const candidates = spot.wordIds.map(wordById).filter(Boolean);
+      if (!candidates.length) return;
+      const word = shuffle(candidates)[0];
+      speak(word.fr, "fr");
+      document.getElementById("game-meta").textContent = `${spot.emoji} ${spot.label} — what's this?`;
+      const opts = shuffle([word, ...wrongChoices(word)]);
+      const box = document.getElementById("explore-challenge");
+      box.innerHTML = `
+        <div class="speed-prompt" style="margin-top:0.8rem;">${word.icon} Hear it… pick the meaning!</div>
+        <p style="font-weight:800;color:#3a6a58;margin-bottom:0.5rem;">FR: <em>${escapeHtml(word.fr)}</em></p>
+        <div class="choices">${opts.map(o => `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.en)} <span style="opacity:.7;font-size:.85rem;">/ ${escapeHtml(o.de)}</span></button>`).join("")}</div>`;
+
+      box.onclick = e => {
+        const btn = e.target.closest(".choice");
+        if (!btn) return;
+        [...box.querySelectorAll(".choice")].forEach(b => b.disabled = true);
+        if (btn.dataset.id === word.id) {
+          bumpStreak(true);
+          addXp(12, spot.label + " discovered!");
+          if (!state.games.explored) state.games.explored = {};
+          state.games.explored[spot.id] = true;
+          state.games.exploreSpots = Object.keys(state.games.explored).length;
+          persist();
+          document.getElementById("game-feedback").textContent = `Joy! ${word.fr} = ${word.en}`;
+          document.getElementById("game-feedback").className = "feedback good";
+          setTimeout(() => {
+            document.getElementById("game-feedback").textContent = "";
+            renderExploreMap();
+          }, 700);
+        } else {
+          bumpStreak(false);
+          btn.classList.add("wrong");
+          document.getElementById("game-feedback").textContent = `Keep exploring — it was: ${word.en}`;
+          document.getElementById("game-feedback").className = "feedback bad";
+          setTimeout(() => {
+            document.getElementById("game-feedback").textContent = "";
+            openExploreSpot(spotId);
+          }, 800);
+        }
+      };
+    }
+
+    /* —— Fill the Gaps —— */
+    function startFillGaps() {
+      gameAgainFn = startFillGaps;
+      openGameStage("✏️ Fill the Gaps");
+      activeGame = "gaps";
+      const pool = shuffle(VOCAB.filter(v => v.exampleFr && v.fr.length > 2)).slice(0, 8);
+      let i = 0, score = 0;
+      document.getElementById("game-timer").textContent = "GAP";
+
+      function blankify(word) {
+        const needle = word.fr.replace(/\.$/, "");
+        const sentence = word.exampleFr;
+        const idx = sentence.toLowerCase().indexOf(needle.toLowerCase());
+        if (idx < 0) {
+          return `Complete: <span class="gap-blank">???</span> <span style="opacity:.75">(${escapeHtml(word.en)})</span>`;
+        }
+        const before = sentence.slice(0, idx);
+        const after = sentence.slice(idx + needle.length);
+        return `${escapeHtml(before)}<span class="gap-blank">???</span>${escapeHtml(after)}`;
+      }
+
+      function render() {
+        const word = pool[i];
+        document.getElementById("game-meta").textContent = `Gap ${i + 1} / ${pool.length} · Score ${score}`;
+        const opts = shuffle([word, ...wrongChoices(word)]);
+        document.getElementById("game-body").innerHTML = `
+          <div class="gap-sentence">${blankify(word)}</div>
+          <p style="font-weight:700;color:#3a6a58;margin-bottom:0.6rem;">DE: ${escapeHtml(word.exampleDe)}</p>
+          <div class="choices">${opts.map(o => `<button type="button" class="choice" data-id="${o.id}">${o.icon} ${escapeHtml(o.fr)}</button>`).join("")}</div>`;
+      }
+      render();
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".choice");
+        if (!btn) return;
+        const word = pool[i];
+        [...document.querySelectorAll("#game-body .choice")].forEach(b => b.disabled = true);
+        if (btn.dataset.id === word.id) {
+          score++;
+          bumpStreak(true);
+          addXp(10, "Gap filled!");
+          speak(word.exampleFr, "fr");
+          document.getElementById("game-feedback").textContent = "Perfect fit! " + word.fr;
+          document.getElementById("game-feedback").className = "feedback good";
+        } else {
+          bumpStreak(false);
+          btn.classList.add("wrong");
+          document.getElementById("game-feedback").textContent = "Answer: " + word.fr;
+          document.getElementById("game-feedback").className = "feedback bad";
+          speak(word.fr, "fr");
+        }
+        setTimeout(() => {
+          if (i < pool.length - 1) {
+            i++;
+            document.getElementById("game-feedback").textContent = "";
+            render();
+          } else {
+            const won = score >= Math.ceil(pool.length * 0.7);
+            if (won) endGame(`Gaps conquered! ${score}/${pool.length}`, 55, "gaps");
+            else {
+              stopGameTimer();
+              document.getElementById("game-feedback").textContent = `Nice try — ${score}/${pool.length}. Fill again!`;
+              document.getElementById("game-feedback").className = "feedback bad";
+              document.getElementById("game-cta").style.display = "flex";
+              addXp(18, "Gap practice");
+            }
+          }
+        }, 700);
+      };
+    }
+
+    /* —— Thrill Run —— */
+    function startThrillRun() {
+      gameAgainFn = startThrillRun;
+      openGameStage("🎢 Thrill Run");
+      activeGame = "thrill";
+      let lives = 3;
+      let score = 0;
+      let mult = 1;
+      let q = 0;
+      let timePerQ = 8;
+      let current = null;
+      let qDeadline = null;
+      document.getElementById("game-feedback").textContent = "";
+
+      function hud() {
+        document.getElementById("game-meta").textContent = "";
+        document.getElementById("game-body").innerHTML = `
+          <div class="thrill-hud">
+            <span class="hearts thrill-chip danger">${"❤️".repeat(lives)}${"🖤".repeat(3 - lives)}</span>
+            <span class="thrill-chip">Score ${score}</span>
+            <span class="thrill-chip hot">×${mult}</span>
+            <span class="thrill-chip">Q ${q}</span>
+          </div>
+          <div id="thrill-q"></div>`;
+      }
+
+      function fail(reason) {
+        lives--;
+        mult = 1;
+        bumpStreak(false);
+        document.getElementById("game-feedback").textContent = reason;
+        document.getElementById("game-feedback").className = "feedback bad";
+        if (lives <= 0) {
+          stopGameTimer();
+          if (score > (state.games.bestThrill || 0)) state.games.bestThrill = score;
+          persist();
+          endGame(`Thrill over! Final score ${score} 🎢`, 20 + score * 3, null);
+          return true;
+        }
+        return false;
+      }
+
+      function nextQ() {
+        stopGameTimer();
+        q++;
+        if (q > 1 && q % 4 === 1) timePerQ = Math.max(3.5, timePerQ - 0.7);
+        current = shuffle(VOCAB)[0];
+        hud();
+        const opts = shuffle([current, ...wrongChoices(current)]);
+        const prompts = [
+          `French for “${escapeHtml(current.en)}”?`,
+          `Was heißt „${escapeHtml(current.de)}“?`,
+          `${current.icon} Which word?`
+        ];
+        document.getElementById("thrill-q").innerHTML = `
+          <div class="speed-prompt">${prompts[q % prompts.length]}</div>
+          <div class="choices">${opts.map(o => `<button type="button" class="choice" data-id="${o.id}">${o.icon} ${escapeHtml(o.fr)}</button>`).join("")}</div>`;
+
+        let left = timePerQ;
+        const timerEl = document.getElementById("game-timer");
+        timerEl.textContent = left.toFixed(1);
+        timerEl.classList.toggle("danger", left <= 3);
+        qDeadline = Date.now() + timePerQ * 1000;
+        gameTimerId = setInterval(() => {
+          left = Math.max(0, (qDeadline - Date.now()) / 1000);
+          timerEl.textContent = left.toFixed(1);
+          timerEl.classList.toggle("danger", left <= 3);
+          if (left <= 0) {
+            if (!fail("Too slow! 💨")) {
+              document.getElementById("game-feedback").textContent = "Keep running!";
+              setTimeout(() => { document.getElementById("game-feedback").textContent = ""; nextQ(); }, 500);
+            }
+          }
+        }, 50);
+      }
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".choice");
+        if (!btn || lives <= 0) return;
+        stopGameTimer();
+        [...document.querySelectorAll("#thrill-q .choice")].forEach(b => b.disabled = true);
+        if (btn.dataset.id === current.id) {
+          score += mult;
+          mult = Math.min(5, mult + 1);
+          bumpStreak(true);
+          addXp(4 * mult, "Thrill hit!");
+          speak(current.fr, "fr");
+          document.getElementById("game-feedback").textContent = mult > 2 ? `×${mult} RUSH!` : "Yes!";
+          document.getElementById("game-feedback").className = "feedback good";
+          setTimeout(() => { document.getElementById("game-feedback").textContent = ""; nextQ(); }, 380);
+        } else {
+          btn.classList.add("wrong");
+          if (!fail("Wrong turn! It was " + current.fr)) {
+            setTimeout(() => { document.getElementById("game-feedback").textContent = ""; nextQ(); }, 550);
+          }
+        }
+      };
+
+      nextQ();
     }
 
     renderHUD();
