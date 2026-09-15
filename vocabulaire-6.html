@@ -745,7 +745,7 @@
         Vocabulaire 6 Complet
         <span>Unité 6 · All pages · Trois jours à Nice!</span>
       </h1>
-      <p class="tagline">Every important word from your book pages — weather, places, verbs, adjectives, colors, and “where is it?” prepositions — with examples and click-to-hear FR / DE / EN.</p>
+      <p class="tagline">Every word from your book pages — weather, places, verbs, adjectives, colors, and “where is it?” prepositions — with examples and click-to-hear FR / DE / EN.</p>
       <div class="stats">
         <span class="stat" id="stat-total">0 words</span>
         <span class="stat">🔊 FR · DE · EN</span>
@@ -788,7 +788,7 @@
 
       <div class="filter-row" id="filters" role="group" aria-label="Categories"></div>
       <p class="count-label" id="visible-count"></p>
-      <p class="hint">Tip: flip a card and tap FR a few times — that’s the one for the test!</p>
+      <p class="hint">Tip: this page has every word from your book pages — filter by topic, flip, and tap FR!</p>
       <div class="grid" id="vocab-grid"></div>
       <p class="voice-note" id="voice-status">Loading voices…</p>
     </section>
@@ -1051,7 +1051,56 @@
       { id: "une-fois", category: "phrases", icon: "1️⃣", fr: "une fois", ipa: "[yn fwa]", de: "ein Mal / einmal", en: "once / one time", exampleFr: "Encore une fois!", exampleDe: "Noch einmal!", exampleEn: "One more time!", note: "→ parfois = sometimes" },
       { id: "un-peu", category: "phrases", icon: "🤏", fr: "un peu", ipa: "[œ̃ pø]", de: "ein wenig", en: "a little", exampleFr: "Oui, un peu.", exampleDe: "Ja, ein bisschen.", exampleEn: "Yes, a little." },
       { id: "sous-leau", category: "phrases", icon: "🤿", fr: "sous l'eau", ipa: "[su lo]", de: "unter Wasser", en: "underwater", exampleFr: "Le perroquet est sous l'eau!", exampleDe: "Der Papagei ist unter Wasser!", exampleEn: "The parrot is underwater!" },
-      { id: "sur-colline", category: "phrases", icon: "🦜", fr: "sur la colline", ipa: "[syʁ la kɔlin]", de: "auf dem Hügel", en: "on the hill", exampleFr: "Le perroquet est sur la colline.", exampleDe: "Der Papagei ist auf dem Hügel.", exampleEn: "The parrot is on the hill." }
+
+      { id: "sur-colline", category: "phrases", icon: "🦜", fr: "sur la colline", ipa: "[syʁ la kɔlin]", de: "auf dem Hügel", en: "on the hill", exampleFr: "Le perroquet est sur la colline.", exampleDe: "Der Papagei ist auf dem Hügel.", exampleEn: "The parrot is on the hill." },
+
+      // —— Missing from book pages (complete coverage) ——
+      { id: "comprendre", category: "verbs", icon: "🧠", fr: "comprendre", ipa: "[kɔ̃pʁɑ̃dʁ]", de: "verstehen", en: "to understand", exampleFr: "Tu comprends?", exampleDe: "Verstehst du?", exampleEn: "Do you understand?" },
+      { id: "faire-un-tour", category: "phrases", icon: "🚶", fr: "faire un tour", ipa: "[fɛʁ œ̃ tuʁ]", de: "eine Tour / Runde machen", en: "to take a walk / tour", exampleFr: "On fait un tour?", exampleDe: "Machen wir eine Runde?", exampleEn: "Shall we take a walk?" },
+      { id: "retrouver", category: "verbs", icon: "🤝", fr: "retrouver", ipa: "[ʁətʁuve]", de: "treffen / wiederfinden", en: "to meet up with / find again", exampleFr: "Je retrouve mes amis à Nice.", exampleDe: "Ich treffe meine Freunde in Nizza.", exampleEn: "I'm meeting my friends in Nice." },
+      { id: "monter", category: "verbs", icon: "⬆️", fr: "monter", ipa: "[mɔ̃te]", de: "hinaufgehen / steigen", en: "to go up / climb", exampleFr: "Antoine monte sur le rocher.", exampleDe: "Antoine klettert auf den Felsen.", exampleEn: "Antoine climbs onto the rock." },
+      { id: "premier", category: "adjectives", icon: "🥇", fr: "le premier / la première", ipa: "[lə pʁəmje / la pʁəmjɛʁ]", de: "der erste / die erste", en: "the first", exampleFr: "C'est le premier jour.", exampleDe: "Das ist der erste Tag.", exampleEn: "It's the first day." },
+      { id: "sauvetage", category: "places", icon: "🛟", fr: "un sauvetage", ipa: "[œ̃ sovtaʒ]", de: "eine Rettung / Rettungsaktion", en: "a rescue", exampleFr: "Max va faire un stage de sauvetage.", exampleDe: "Max macht einen Rettungskurs.", exampleEn: "Max is doing a rescue course." },
+      { id: "on-y-va", category: "phrases", icon: "🚀", fr: "On y va!", ipa: "[ɔ̃ ni va]", de: "Auf geht's!", en: "Let's go!", exampleFr: "On y va!", exampleDe: "Auf geht's!", exampleEn: "Let's go!" },
+      { id: "equipe", category: "places", icon: "👥", fr: "une équipe", ipa: "[yn ekip]", de: "eine Mannschaft / ein Team", en: "a team", exampleFr: "C'est une bonne équipe!", exampleDe: "Das ist ein gutes Team!", exampleEn: "That's a good team!" },
+      { id: "eau", category: "places", icon: "💧", fr: "l'eau", ipa: "[lo]", de: "das Wasser", en: "the water", exampleFr: "Il saute dans l'eau.", exampleDe: "Er springt ins Wasser.", exampleEn: "He jumps into the water." },
+      { id: "exercice", category: "places", icon: "📝", fr: "un exercice", ipa: "[œ̃ nɛɡzɛʁsis]", de: "eine Übung", en: "an exercise", exampleFr: "Le moniteur explique un exercice.", exampleDe: "Der Betreuer erklärt eine Übung.", exampleEn: "The instructor explains an exercise." },
+      { id: "tout-le-monde", category: "phrases", icon: "🌍", fr: "tout le monde", ipa: "[tu lə mɔ̃d]", de: "alle / jeder", en: "everyone", exampleFr: "Tout le monde est content!", exampleDe: "Alle sind froh!", exampleEn: "Everyone is happy!" },
+      { id: "quel-temps-il", category: "weather", icon: "❓", fr: "Quel temps fait-il?", ipa: "[kɛl tɑ̃ fɛ til]", de: "Wie ist das Wetter?", en: "What's the weather like?", exampleFr: "Quel temps fait-il à Nice?", exampleDe: "Wie ist das Wetter in Nizza?", exampleEn: "What's the weather like in Nice?" },
+      { id: "chateau", category: "places", icon: "🏰", fr: "un château", ipa: "[œ̃ ʃato]", de: "ein Schloss", en: "a castle", exampleFr: "Il y a un château sur la colline.", exampleDe: "Es gibt ein Schloss auf dem Hügel.", exampleEn: "There is a castle on the hill." },
+      { id: "vieille-ville", category: "places", icon: "🏘️", fr: "la vieille ville", ipa: "[la vjɛj vil]", de: "die Altstadt", en: "the old town", exampleFr: "On visite la vieille ville.", exampleDe: "Wir besichtigen die Altstadt.", exampleEn: "We're visiting the old town." },
+      { id: "parfois", category: "phrases", icon: "🔁", fr: "parfois", ipa: "[paʁfwa]", de: "manchmal", en: "sometimes", exampleFr: "Parfois il pleut.", exampleDe: "Manchmal regnet es.", exampleEn: "Sometimes it rains." },
+      { id: "mauvais-adj", category: "adjectives", icon: "👎", fr: "mauvais / mauvaise", ipa: "[movɛ / movɛz]", de: "schlecht", en: "bad", exampleFr: "Ce n'est pas mauvais.", exampleDe: "Das ist nicht schlecht.", exampleEn: "That's not bad.", note: "Opposite of bon / bonne" },
+      { id: "adolescent", category: "places", icon: "🧒", fr: "un adolescent / une adolescente", ipa: "[œ̃ nadɔlɛsɑ̃]", de: "ein Jugendlicher / eine Jugendliche", en: "a teenager", exampleFr: "Les adolescents nagent.", exampleDe: "Die Jugendlichen schwimmen.", exampleEn: "The teenagers are swimming.", note: "≈ un jeune / une jeune" },
+      { id: "arbre", category: "places", icon: "🌳", fr: "un arbre", ipa: "[œ̃ naʁbʁ]", de: "ein Baum", en: "a tree", exampleFr: "Un palmier est un joli arbre.", exampleDe: "Eine Palme ist ein hübscher Baum.", exampleEn: "A palm tree is a pretty tree." },
+      { id: "librairie", category: "places", icon: "📚", fr: "une librairie", ipa: "[yn libʁɛʁi]", de: "eine Buchhandlung", en: "a bookstore", exampleFr: "Le restaurant est à côté de la librairie.", exampleDe: "Das Restaurant ist neben der Buchhandlung.", exampleEn: "The restaurant is next to the bookstore." },
+      { id: "boulangerie", category: "places", icon: "🥖", fr: "une boulangerie", ipa: "[yn bulɑ̃ʒʁi]", de: "eine Bäckerei", en: "a bakery", exampleFr: "C'est à droite de la boulangerie.", exampleDe: "Es ist rechts von der Bäckerei.", exampleEn: "It's to the right of the bakery." },
+      { id: "gare", category: "places", icon: "🚉", fr: "une gare", ipa: "[yn ɡaʁ]", de: "ein Bahnhof", en: "a train station", exampleFr: "C'est à gauche de la gare.", exampleDe: "Es ist links vom Bahnhof.", exampleEn: "It's to the left of the station." },
+      { id: "entree", category: "places", icon: "🚪", fr: "une entrée", ipa: "[yn ɑ̃tʁe]", de: "ein Eingang", en: "an entrance", exampleFr: "à gauche de l'entrée", exampleDe: "links vom Eingang", exampleEn: "to the left of the entrance" },
+      { id: "toilettes", category: "places", icon: "🚻", fr: "les toilettes", ipa: "[le twalɛt]", de: "die Toiletten", en: "the toilets / restroom", exampleFr: "à droite des toilettes", exampleDe: "rechts von den Toiletten", exampleEn: "to the right of the toilets" },
+      { id: "parc", category: "places", icon: "🌳", fr: "un parc", ipa: "[œ̃ paʁk]", de: "ein Park", en: "a park", exampleFr: "à côté du parc", exampleDe: "neben dem Park", exampleEn: "next to the park" },
+      { id: "table", category: "places", icon: "🪑", fr: "une table", ipa: "[yn tabl]", de: "ein Tisch", en: "a table", exampleFr: "sous la table ↔ sur la table", exampleDe: "unter dem Tisch ↔ auf dem Tisch", exampleEn: "under the table ↔ on the table" },
+      { id: "train", category: "places", icon: "🚆", fr: "un train", ipa: "[œ̃ tʁɛ̃]", de: "ein Zug", en: "a train", exampleFr: "Entre Paris et Nice, il y a un train.", exampleDe: "Zwischen Paris und Nizza gibt es einen Zug.", exampleEn: "Between Paris and Nice, there is a train." },
+      { id: "bus", category: "places", icon: "🚌", fr: "un bus", ipa: "[œ̃ bys]", de: "ein Bus", en: "a bus", exampleFr: "Il y a aussi un bus.", exampleDe: "Es gibt auch einen Bus.", exampleEn: "There is also a bus." },
+      { id: "rocher", category: "places", icon: "🪨", fr: "un rocher", ipa: "[œ̃ ʁɔʃe]", de: "ein Felsen", en: "a rock", exampleFr: "Antoine monte sur le rocher.", exampleDe: "Antoine klettert auf den Felsen.", exampleEn: "Antoine climbs onto the rock." },
+      { id: "sac", category: "places", icon: "👜", fr: "un sac", ipa: "[œ̃ sak]", de: "eine Tasche", en: "a bag", exampleFr: "Pose ton sac ici.", exampleDe: "Stell deine Tasche hier hin.", exampleEn: "Put your bag here." },
+      { id: "rue", category: "places", icon: "🛣️", fr: "une rue", ipa: "[yn ʁy]", de: "eine Straße", en: "a street", exampleFr: "Il y a des petites rues.", exampleDe: "Es gibt kleine Straßen.", exampleEn: "There are small streets." },
+      { id: "oursin", category: "places", icon: "🦔", fr: "un oursin", ipa: "[œ̃ nuʁsɛ̃]", de: "ein Seeigel", en: "a sea urchin", exampleFr: "On peut manger les oursins.", exampleDe: "Seeigel kann man essen.", exampleEn: "You can eat sea urchins." },
+      { id: "boisson", category: "places", icon: "🥤", fr: "une boisson", ipa: "[yn bwasɔ̃]", de: "ein Getränk", en: "a drink", exampleFr: "L'Orangina est une boisson jaune.", exampleDe: "Orangina ist ein gelbes Getränk.", exampleEn: "Orangina is a yellow drink." },
+      { id: "casquette", category: "places", icon: "🧢", fr: "une casquette", ipa: "[yn kaskɛt]", de: "eine Schirmmütze", en: "a cap", exampleFr: "J'ai une casquette verte.", exampleDe: "Ich habe eine grüne Schirmmütze.", exampleEn: "I have a green cap." },
+      { id: "eleve", category: "places", icon: "🎒", fr: "un élève / une élève", ipa: "[œ̃ nelɛv]", de: "ein Schüler / eine Schülerin", en: "a student / pupil", exampleFr: "Le moniteur parle à ses élèves.", exampleDe: "Der Betreuer spricht zu seinen Schülern.", exampleEn: "The instructor talks to his students." },
+      { id: "socca", category: "places", icon: "🥞", fr: "la socca", ipa: "[la sɔka]", de: "Socca (Kichererbsenpfannkuchen)", en: "socca (Nice chickpea pancake)", exampleFr: "La socca est une spécialité de Nice.", exampleDe: "Socca ist eine Spezialität aus Nizza.", exampleEn: "Socca is a specialty from Nice." },
+      { id: "devant-maison", category: "phrases", icon: "🏠", fr: "devant la maison", ipa: "[dəvɑ̃ la mɛzɔ̃]", de: "vor dem Haus", en: "in front of the house", exampleFr: "Le perroquet est devant la maison.", exampleDe: "Der Papagei ist vor dem Haus.", exampleEn: "The parrot is in front of the house." },
+      { id: "derriere-maison", category: "phrases", icon: "🙈", fr: "derrière la maison", ipa: "[dɛʁjɛʁ la mɛzɔ̃]", de: "hinter dem Haus", en: "behind the house", exampleFr: "Le perroquet est derrière la maison.", exampleDe: "Der Papagei ist hinter dem Haus.", exampleEn: "The parrot is behind the house." },
+      { id: "dans-ascenseur", category: "phrases", icon: "🛗", fr: "dans l'ascenseur", ipa: "[dɑ̃ lasɑ̃sœʁ]", de: "im Aufzug", en: "in the elevator", exampleFr: "Le perroquet est dans l'ascenseur.", exampleDe: "Der Papagei ist im Aufzug.", exampleEn: "The parrot is in the elevator." },
+      { id: "entre-palmiers", category: "phrases", icon: "🌴", fr: "entre les palmiers", ipa: "[ɑ̃tʁ le palmje]", de: "zwischen den Palmen", en: "between the palm trees", exampleFr: "Le perroquet est entre les palmiers.", exampleDe: "Der Papagei ist zwischen den Palmen.", exampleEn: "The parrot is between the palm trees." },
+      { id: "a-cote-parc", category: "phrases", icon: "↔️", fr: "à côté du parc", ipa: "[a kote dy paʁk]", de: "neben dem Park", en: "next to the park", exampleFr: "Le café est à côté du parc.", exampleDe: "Das Café ist neben dem Park.", exampleEn: "The café is next to the park." },
+      { id: "pres-librairie", category: "phrases", icon: "📌", fr: "près de la librairie", ipa: "[pʁɛ də la libʁɛʁi]", de: "nahe bei der Buchhandlung", en: "near the bookstore", exampleFr: "On se retrouve près de la librairie.", exampleDe: "Wir treffen uns nahe bei der Buchhandlung.", exampleEn: "We'll meet near the bookstore." },
+      { id: "a-gauche-entree", category: "phrases", icon: "⬅️", fr: "à gauche de l'entrée", ipa: "[a ɡoʃ də lɑ̃tʁe]", de: "links vom Eingang", en: "to the left of the entrance", exampleFr: "Les toilettes sont à gauche de l'entrée.", exampleDe: "Die Toiletten sind links vom Eingang.", exampleEn: "The toilets are to the left of the entrance." },
+      { id: "a-droite-toilettes", category: "phrases", icon: "➡️", fr: "à droite des toilettes", ipa: "[a dʁwat de twalɛt]", de: "rechts von den Toiletten", en: "to the right of the toilets", exampleFr: "C'est à droite des toilettes.", exampleDe: "Es ist rechts von den Toiletten.", exampleEn: "It's to the right of the toilets." },
+      { id: "inviter", category: "verbs", icon: "📨", fr: "inviter", ipa: "[ɛ̃vite]", de: "einladen", en: "to invite", exampleFr: "J'invite mes amis.", exampleDe: "Ich lade meine Freunde ein.", exampleEn: "I invite my friends." },
+      { id: "regarder", category: "verbs", icon: "👀", fr: "regarder", ipa: "[ʁəɡaʁde]", de: "anschauen / ansehen", en: "to look at / watch", exampleFr: "On regarde la météo.", exampleDe: "Wir schauen die Wettervorhersage an.", exampleEn: "We're looking at the weather forecast." },
+      { id: "chercher", category: "verbs", icon: "🔎", fr: "chercher", ipa: "[ʃɛʁʃe]", de: "suchen", en: "to look for", exampleFr: "Je cherche la gare.", exampleDe: "Ich suche den Bahnhof.", exampleEn: "I'm looking for the station." }
     ];
 
     /* —— Speech —— */
