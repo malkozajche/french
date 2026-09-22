@@ -1487,6 +1487,11 @@
       document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === "panel-" + name));
       if (name === "badges") renderBadges();
       if (name === "explore") renderLab();
+      const panel = document.getElementById("panel-" + name);
+      if (panel) {
+        const anchor = panel.querySelector(".stage, .lab, .rules-wrap, .howto") || panel;
+        setTimeout(() => anchor.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+      }
     }
 
     document.querySelectorAll(".tab-btn").forEach(btn => {
@@ -1742,6 +1747,7 @@
       box.innerHTML = choices.map(c =>
         `<button type="button" class="choice" data-answer="${escapeAttr(c)}">${escapeHtml(c)}</button>`
       ).join("");
+      document.getElementById("exam-stage").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
     function finishExam() {
