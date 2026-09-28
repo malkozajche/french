@@ -19,7 +19,7 @@ https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/v
 ### 3) Les Adjectifs — Test am Dienstag ⭐
 https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/adjectifs.html
 
-From Frau Damm’s worksheet: **25 adjectives** (m/f · singular/plural), grammar tips, Formen-Labor, the **26 exam sentences**, quiz modes, voice (FR/DE/EN), and stars/badges to earn while practicing.
+From Frau Damm’s worksheet: **25 adjectives** (m/f · singular/plural), grammar tips, Formen-Labor, the **26 exam sentences**, quiz modes, voice (FR/DE/EN), stars/badges, and a **Print tab** that generates writable tests with **5 words + 5 sentences** (answer key on page 2).
 
 ## Files
 
