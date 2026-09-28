@@ -923,11 +923,232 @@
       .card { min-height: 140px; }
     }
 
+    /* —— Printable 5+5 tests —— */
+    .print-controls {
+      background: rgba(255,255,255,0.95);
+      border: 3px solid white;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 1.2rem 1.25rem;
+      max-width: 720px;
+      margin: 0 auto 1.2rem;
+      text-align: center;
+    }
+    .print-controls h2 {
+      font-family: var(--font-display);
+      color: #163a5c;
+      font-size: 1.45rem;
+      margin-bottom: 0.35rem;
+    }
+    .print-controls p {
+      font-weight: 700;
+      color: #3a6a80;
+      margin-bottom: 0.9rem;
+    }
+    .print-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+      margin: 0.25rem 0 0;
+    }
+
+    .worksheet {
+      background: #fffef9;
+      border-radius: 18px;
+      border: 2px solid #d5e4f0;
+      box-shadow: var(--shadow);
+      padding: 1.15rem 1.2rem 1.4rem;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      color: #1a3550;
+    }
+    .worksheet-header {
+      text-align: center;
+      border-bottom: 2px solid var(--masc);
+      padding-bottom: 0.45rem;
+      margin-bottom: 0.55rem;
+    }
+    .worksheet-header h1 {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      color: #163a5c;
+      line-height: 1.05;
+    }
+    .worksheet-header .sub {
+      font-weight: 700;
+      color: #3a6a80;
+      margin-top: 0.1rem;
+      font-size: 0.88rem;
+    }
+    .ws-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 1rem;
+      justify-content: center;
+      margin-top: 0.4rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .ws-meta .line-field {
+      border-bottom: 1.5px solid #1a3550;
+      min-width: 6.5rem;
+      display: inline-block;
+      height: 0.95rem;
+      vertical-align: bottom;
+      margin-left: 0.25rem;
+    }
+    .ws-section-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: #163a5c;
+      margin: 0.85rem 0 0.35rem;
+      padding-bottom: 0.2rem;
+      border-bottom: 1.5px dashed #b8cce0;
+    }
+    .ws-section-title span {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #4a6578;
+      margin-left: 0.35rem;
+    }
+    .ws-list { list-style: none; margin: 0.15rem 0 0; padding: 0; }
+    .ws-item {
+      display: grid;
+      grid-template-columns: 1.6rem minmax(3.6rem, auto) minmax(0, 1.2fr) minmax(7rem, 1fr);
+      gap: 0.35rem 0.5rem;
+      align-items: end;
+      padding: 0.38rem 0.15rem;
+      border-bottom: 1px solid #d5e4f0;
+    }
+    .ws-item.sentence {
+      grid-template-columns: 1.6rem minmax(0, 1.4fr) minmax(6.5rem, 0.9fr);
+    }
+    .ws-item:last-child { border-bottom: none; }
+    .ws-num {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      color: var(--masc);
+      line-height: 1.2;
+      padding-bottom: 0.1rem;
+    }
+    .ws-prompt {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #163a5c;
+      line-height: 1.25;
+      padding-bottom: 0.12rem;
+      overflow-wrap: anywhere;
+    }
+    .ws-hint {
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #7a5200;
+      background: #fff3c4;
+      border-radius: 999px;
+      padding: 0.12rem 0.45rem;
+      justify-self: start;
+      margin-bottom: 0.15rem;
+    }
+    .dir-pill {
+      display: inline-block;
+      padding: 0.12rem 0.4rem;
+      border-radius: 999px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      align-self: end;
+      margin-bottom: 0.15rem;
+    }
+    .dir-pill.de2fr { background: #d4e8ff; color: #1a4f7a; }
+    .dir-pill.form { background: #ffe4ec; color: #9a2348; }
+    .write-line {
+      height: 1.15rem;
+      border-bottom: 1.5px solid #5a7a90;
+      width: 100%;
+    }
+
+    .answer-key {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 3px double #c5a14e;
+      break-before: page;
+      page-break-before: always;
+    }
+    .answer-key h2 {
+      font-family: var(--font-display);
+      color: #7a4a00;
+      font-size: 1.35rem;
+      text-align: center;
+      margin-bottom: 0.65rem;
+    }
+    .answer-key h3 {
+      font-family: var(--font-display);
+      color: #163a5c;
+      font-size: 1.05rem;
+      margin: 0.55rem 0 0.3rem;
+    }
+    .answer-key ol {
+      margin: 0;
+      padding-left: 1.2rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #2a4036;
+    }
+    .answer-key li { break-inside: avoid; margin-bottom: 0.15rem; }
+
+    @media (max-width: 640px) {
+      .ws-item, .ws-item.sentence {
+        grid-template-columns: 1.4rem auto 1fr;
+        grid-template-rows: auto auto;
+      }
+      .write-line { grid-column: 2 / -1; }
+    }
+
     @media print {
-      .top-nav, nav.tabs, .hud, .xp-wrap, .toast, .level-up-flash, .float-deco { display: none !important; }
-      body { background: white; }
-      .panel { display: none !important; }
-      #panel-learn.panel { display: block !important; }
+      @page { size: A4; margin: 12mm 12mm 12mm 12mm; }
+      body {
+        background: white !important;
+        background-image: none !important;
+      }
+      body::before, .float-deco, #confetti-layer, #toast, #level-flash { display: none !important; }
+      .wrap { width: 100%; max-width: none; padding: 0; margin: 0; }
+      .top-nav, header.hero, nav.tabs, footer, .howto,
+      .print-controls, .print-actions, #panel-learn, #panel-rules,
+      #panel-explore, #panel-exam, #panel-quiz, #panel-badges { display: none !important; }
+      #panel-print { display: block !important; }
+      .worksheet {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        max-width: none;
+        margin: 0;
+        background: white;
+      }
+      .worksheet-header { padding-bottom: 0.3rem; margin-bottom: 0.3rem; }
+      .worksheet-header h1 { font-size: 16pt; }
+      .worksheet-header .sub { font-size: 9pt; }
+      .ws-meta { font-size: 9pt; margin-top: 0.2rem; }
+      .ws-section-title { font-size: 12pt; margin: 0.55rem 0 0.2rem; }
+      .ws-item, .ws-item.sentence { padding: 0.22rem 0; }
+      .ws-num { font-size: 10pt; }
+      .ws-prompt { font-size: 10.5pt; }
+      .ws-hint { font-size: 8pt; }
+      .dir-pill { font-size: 7pt; }
+      .write-line { height: 1rem; }
+      .answer-key {
+        break-before: page;
+        page-break-before: always;
+        margin-top: 0;
+        padding-top: 0.4rem;
+        border-top: none;
+      }
+      .ws-item { break-inside: avoid; page-break-inside: avoid; }
+      a { text-decoration: none; color: inherit; }
     }
   </style>
 </head>
@@ -980,6 +1201,7 @@
       <button class="tab-btn" data-tab="explore" type="button">🔎 Entdecken</button>
       <button class="tab-btn" data-tab="exam" type="button">📝 Prüfung</button>
       <button class="tab-btn" data-tab="quiz" type="button">⭐ Quiz</button>
+      <button class="tab-btn" data-tab="print" type="button">🖨️ Drucken</button>
       <button class="tab-btn" data-tab="badges" type="button">🏅 Badges</button>
     </nav>
 
@@ -991,7 +1213,7 @@
           <li>Tippe eine Karte — sie zeigt alle Formen (m/f · Singular/Plural).</li>
           <li>Blau = männlich, Rosa = weiblich — genau wie im Arbeitsblatt.</li>
           <li>Hör dir FR / DE / EN und den Beispielsatz an.</li>
-          <li>Dann: Entdecken → Prüfung (26 Sätze) → Quiz für den Dienstag!</li>
+          <li>Dann: Entdecken → Prüfung → Quiz — oder <strong>Drucken</strong> für 5 Wörter + 5 Sätze!</li>
         </ol>
       </div>
       <div class="search-row">
@@ -1138,6 +1360,21 @@
           <button class="btn coral" id="quiz-again" type="button">Nochmal</button>
           <button class="btn secondary" data-goto="learn" type="button">Zurück zu Lernen</button>
         </div>
+      </div>
+    </section>
+
+    <!-- PRINT -->
+    <section id="panel-print" class="panel" role="tabpanel">
+      <div class="print-controls no-print">
+        <h2>Druckbarer Test</h2>
+        <p>Jeder Test hat <strong>5 Wörter + 5 Sätze auf einer Seite</strong>, Lösungen auf Seite 2 — wie im Arbeitsblatt.</p>
+        <div class="print-actions">
+          <button class="btn mango" id="ws-generate" type="button">✨ Neuen Test erzeugen</button>
+          <button class="btn coral" id="ws-print" type="button">🖨️ Drucken (Test + Lösungen)</button>
+        </div>
+      </div>
+      <div id="worksheet" class="worksheet" aria-live="polite">
+        <p style="text-align:center;font-weight:700;color:#3a6a80;">Klicke „Neuen Test erzeugen“ für 5 Wörter + 5 Sätze.</p>
       </div>
     </section>
 
@@ -1487,9 +1724,10 @@
       document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === "panel-" + name));
       if (name === "badges") renderBadges();
       if (name === "explore") renderLab();
+      if (name === "print" && !document.getElementById("worksheet").dataset.ready) generateWorksheet();
       const panel = document.getElementById("panel-" + name);
       if (panel) {
-        const anchor = panel.querySelector(".stage, .lab, .rules-wrap, .howto") || panel;
+        const anchor = panel.querySelector(".stage, .lab, .rules-wrap, .howto, .print-controls, .worksheet") || panel;
         setTimeout(() => anchor.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
       }
     }
@@ -1977,6 +2215,127 @@
       persist();
       renderBadges();
       showToast("Neustart", "Viel Erfolg!");
+    });
+
+    /* ========== PRINTABLE 5 WORDS + 5 SENTENCES ========== */
+    function makeWordItem(adj) {
+      const modes = [
+        {
+          kind: "de2fr",
+          pill: "DE → FR",
+          pillClass: "de2fr",
+          prompt: adj.de,
+          hint: "m. Sg.",
+          answer: adj.ms
+        },
+        {
+          kind: "fem",
+          pill: "→ f.",
+          pillClass: "form",
+          prompt: adj.ms,
+          hint: "f. Sg.",
+          answer: adj.fs
+        },
+        {
+          kind: "mpl",
+          pill: "→ Pl.",
+          pillClass: "form",
+          prompt: adj.ms,
+          hint: "m. Pl.",
+          answer: adj.mp
+        },
+        {
+          kind: "fpl",
+          pill: "→ Pl.",
+          pillClass: "form",
+          prompt: adj.fs,
+          hint: "f. Pl.",
+          answer: adj.fp
+        }
+      ];
+      return { adj, ...modes[Math.floor(Math.random() * modes.length)] };
+    }
+
+    function generateWorksheet() {
+      const wordPool = shuffle(ADJECTIVES).slice(0, 5);
+      const wordItems = wordPool.map(makeWordItem);
+      const usedIds = new Set(wordPool.map(a => a.id));
+
+      // Prefer sentences whose adjective is not already in the word list when possible
+      const examPool = shuffle(EXAM);
+      const preferred = examPool.filter(e => !usedIds.has(e.adjId));
+      const rest = examPool.filter(e => usedIds.has(e.adjId));
+      const sentenceItems = [...preferred, ...rest].slice(0, 5);
+
+      const dateStr = new Date().toLocaleDateString("de-DE", {
+        day: "numeric", month: "short", year: "numeric"
+      });
+
+      const wordsHtml = wordItems.map((item, i) => `
+        <li class="ws-item">
+          <div class="ws-num">${i + 1}.</div>
+          <span class="dir-pill ${item.pillClass}">${item.pill}</span>
+          <div class="ws-prompt">${escapeHtml(item.prompt)} <span class="ws-hint">${escapeHtml(item.hint)}</span></div>
+          <div class="write-line" aria-hidden="true"></div>
+        </li>
+      `).join("");
+
+      const sentencesHtml = sentenceItems.map((item, i) => {
+        const shown = item.sentence.replace("______", "________");
+        return `<li class="ws-item sentence">
+          <div class="ws-num">${i + 1}.</div>
+          <div class="ws-prompt">${escapeHtml(shown)} <span class="ws-hint">${escapeHtml(item.hint)}</span></div>
+          <div class="write-line" aria-hidden="true"></div>
+        </li>`;
+      }).join("");
+
+      const keyWords = wordItems.map((item, i) =>
+        `<li>${i + 1}. ${escapeHtml(item.prompt)} (${escapeHtml(item.hint)}) → <strong>${escapeHtml(item.answer)}</strong></li>`
+      ).join("");
+
+      const keySentences = sentenceItems.map((item, i) => {
+        const filled = item.sentence.replace("______", item.answer);
+        return `<li>${i + 1}. ${escapeHtml(filled)} <em>(${escapeHtml(item.hint)})</em></li>`;
+      }).join("");
+
+      const el = document.getElementById("worksheet");
+      el.dataset.ready = "1";
+      el.innerHTML = `
+        <div class="ws-page-test">
+          <header class="worksheet-header">
+            <h1>Maya’s Adjektiv-Test</h1>
+            <div class="sub">Französische Adjektive · 5 Wörter + 5 Sätze · wie im Arbeitsblatt</div>
+            <div class="ws-meta">
+              <span>Name:<span class="line-field"></span></span>
+              <span>Datum: ${dateStr}</span>
+              <span>Punkte:<span class="line-field" style="min-width:3.2rem"></span>/ 10</span>
+            </div>
+          </header>
+
+          <h2 class="ws-section-title">A. Wörter <span>schreibe die richtige Form</span></h2>
+          <ol class="ws-list">${wordsHtml}</ol>
+
+          <h2 class="ws-section-title">B. Sätze <span>setze das Adjektiv ein</span></h2>
+          <ol class="ws-list">${sentencesHtml}</ol>
+        </div>
+
+        <section class="answer-key">
+          <h2>Lösungen · Answer key</h2>
+          <h3>A. Wörter</h3>
+          <ol>${keyWords}</ol>
+          <h3>B. Sätze</h3>
+          <ol>${keySentences}</ol>
+        </section>
+      `;
+    }
+
+    document.getElementById("ws-generate")?.addEventListener("click", () => {
+      generateWorksheet();
+      showToast("Neuer Test!", "5 Wörter + 5 Sätze");
+    });
+    document.getElementById("ws-print")?.addEventListener("click", () => {
+      if (!document.getElementById("worksheet").dataset.ready) generateWorksheet();
+      window.print();
     });
 
     /* ========== INIT ========== */
