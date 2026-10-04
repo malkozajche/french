@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Französisch im Klassenzimmer — Maya lernen</title>
+  <meta name="description" content="Classroom French phrases with clear pronunciation, German translations, practice, quiz, and printable mixed tests." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1e3a4c;
+      --sky: #5eb3e8;
+      --sky-deep: #2f86b8;
+      --chalk: #e8f6ff;
+      --coral: #e85d4c;
+      --coral-deep: #c43d2e;
+      --leaf: #2f9e6b;
+      --leaf-deep: #1f7a52;
+      --mango: #ff9f1c;
+      --mango-deep: #e07a00;
+      --paper: #fffef9;
+      --shadow: 0 12px 28px rgba(30, 58, 76, 0.14);
+      --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+      --font-body: "Nunito", "Trebuchet MS", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 100% 70% at 50% -15%, #b8e4ff 0%, transparent 55%),
+        radial-gradient(circle at 90% 20%, rgba(255, 159, 28, 0.28), transparent 28%),
+        linear-gradient(180deg, #7ec8f5 0%, #d6effc 42%, #eef8f2 100%);
+      background-attachment: fixed;
+    }
+    .wrap { width: min(1080px, 94vw); margin: 0 auto; padding: 1.1rem 0 3rem; }
+    .top-nav {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; margin-bottom: 0.8rem;
+    }
+    .top-nav a {
+      font-weight: 800; text-decoration: none; color: var(--sky-deep);
+      background: rgba(255,255,255,0.75); padding: 0.4rem 0.85rem; border-radius: 999px;
+      border: 2px solid rgba(47, 134, 184, 0.25);
+    }
+    header.hero { text-align: center; padding: 0.5rem 0.4rem 0.8rem; animation: rise 0.55s ease both; }
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.1rem);
+      line-height: 1.05; color: #16486a;
+    }
+    .brand span {
+      display: block; margin-top: 0.3rem; font-size: 0.38em;
+      letter-spacing: 0.04em; text-transform: uppercase; color: var(--coral-deep);
+    }
+    .tagline {
+      margin: 0.65rem auto 0; max-width: 36rem; font-weight: 700; color: #2a5568; font-size: 1.05rem;
+    }
+    .stats { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-top: 0.85rem; }
+    .stat {
+      font-weight: 800; font-size: 0.85rem; background: white; border-radius: 999px;
+      padding: 0.35rem 0.8rem; box-shadow: var(--shadow); color: #24556a;
+    }
+    nav.tabs {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: 1.15rem 0 1rem;
+    }
+    .tab-btn, .btn, .chip, .speak-btn, .choice { font-family: var(--font-body); cursor: pointer; }
+    .tab-btn {
+      font-family: var(--font-display); font-size: 1.08rem; border: none;
+      padding: 0.6rem 1.15rem; border-radius: 999px;
+      background: rgba(255,255,255,0.65); color: var(--ink);
+      box-shadow: 0 4px 0 rgba(30, 58, 76, 0.1);
+    }
+    .tab-btn.active {
+      background: linear-gradient(180deg, var(--sky), var(--sky-deep));
+      color: white; box-shadow: 0 5px 0 #1e5f85;
+    }
+    .panel { display: none; animation: rise 0.4s ease both; }
+    .panel.active { display: block; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: none; } 30% { transform: rotate(-3deg); } 70% { transform: rotate(3deg); }
+    }
+    @keyframes confetti-fall {
+      to { transform: translateY(105vh) rotate(640deg); opacity: 0; }
+    }
+    .howto {
+      background: rgba(255,254,249,0.9); border: 2px solid rgba(255,255,255,0.95);
+      border-radius: 18px; padding: 1rem 1.15rem; margin: 0 auto 1rem; max-width: 720px; box-shadow: var(--shadow);
+    }
+    .howto h2 { font-family: var(--font-display); color: #16486a; font-size: 1.3rem; margin-bottom: 0.3rem; }
+    .howto ol { margin-left: 1.15rem; font-weight: 600; line-height: 1.5; }
+    .filter-row, .search-row {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin-bottom: 0.8rem;
+    }
+    .chip {
+      font-weight: 800; font-size: 0.82rem; border: none; border-radius: 999px;
+      padding: 0.4rem 0.85rem; background: rgba(255,255,255,0.7); color: var(--ink);
+    }
+    .chip.active { background: #16486a; color: white; }
+    #search {
+      width: min(420px, 92vw); font: inherit; font-weight: 700;
+      padding: 0.65rem 1rem; border-radius: 999px; border: 2px solid rgba(47, 134, 184, 0.35);
+      background: white; outline: none;
+    }
+    .hint, .count-label, .voice-note, footer {
+      text-align: center; font-weight: 700; color: #2a5568; margin-bottom: 0.75rem;
+    }
+    .voice-note, footer { margin-top: 1rem; font-size: 0.9rem; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 0.9rem;
+    }
+    .card {
+      background: rgba(255,254,249,0.95); border-radius: 20px; padding: 1rem 1.05rem 1.15rem;
+      box-shadow: var(--shadow); border: 3px solid rgba(255,255,255,0.9);
+      cursor: pointer; text-align: left; min-height: 150px; transition: transform 0.15s ease; position: relative;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card.flipped {
+      background: linear-gradient(160deg, #fff 0%, #e8f5ff 100%);
+      border-color: #8ec8ea;
+    }
+    .card .icon { font-size: 1.9rem; margin-bottom: 0.3rem; display: inline-block; }
+    .card .fr {
+      font-family: var(--font-display); font-size: 1.2rem; color: #16486a;
+      line-height: 1.2; padding-right: 3rem;
+    }
+    .card .ipa { font-size: 0.82rem; color: #5a7a8a; font-weight: 700; margin-top: 0.2rem; }
+    .badge {
+      position: absolute; top: 0.65rem; right: 0.65rem; font-size: 0.65rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.04em; padding: 0.22rem 0.48rem;
+      border-radius: 999px; background: #c9e9ff; color: #1f5a7a;
+    }
+    .badge.help { background: #ffd4cc; color: #8a2f22; }
+    .badge.school { background: #fff0a8; color: #7a6200; }
+    .badge.greet { background: #d8f5e0; color: #1c6b3a; }
+    .reveal {
+      display: none; margin-top: 0.65rem; padding-top: 0.6rem;
+      border-top: 2px dashed rgba(47, 134, 184, 0.25);
+    }
+    .card.flipped .reveal { display: block; }
+    .lang-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.45rem; }
+    .speak-btn {
+      font-weight: 800; font-size: 0.75rem; border: none; border-radius: 999px; padding: 0.35rem 0.7rem;
+    }
+    .speak-btn.fr-btn { background: #ffd4cc; color: #a32a1d; }
+    .speak-btn.slow-btn { background: #ffe2a8; color: #7a4a00; }
+    .speak-btn.de-btn { background: #d4e8ff; color: #1a4f7a; }
+    .speak-btn.en-btn { background: #d8f5e0; color: #1c6b3a; }
+    .trans { font-size: 0.95rem; font-weight: 700; margin: 0.15rem 0; }
+    .trans .label {
+      display: inline-block; min-width: 2rem; font-size: 0.7rem; opacity: 0.65; text-transform: uppercase;
+    }
+    .stage {
+      background: rgba(255,254,249,0.95); border-radius: 24px; padding: 1.35rem 1.2rem 1.5rem;
+      box-shadow: var(--shadow); border: 3px solid white; max-width: 660px; margin: 0 auto; text-align: center;
+    }
+    .progress-bar {
+      height: 12px; background: rgba(30, 58, 76, 0.1); border-radius: 999px; overflow: hidden; margin: 0.75rem 0 1rem;
+    }
+    .progress-fill {
+      height: 100%; width: 0%; background: linear-gradient(90deg, var(--leaf), #7ed957);
+      border-radius: 999px; transition: width 0.3s ease;
+    }
+    .q-meta { font-weight: 800; color: #3a6a80; }
+    .q-prompt {
+      font-family: var(--font-display); font-size: clamp(1.35rem, 4.2vw, 1.9rem);
+      color: #16486a; margin: 0.45rem 0; line-height: 1.2;
+    }
+    .q-icon { font-size: 2.4rem; display: block; margin: 0.3rem 0; }
+    .choices { display: grid; gap: 0.55rem; margin-top: 0.95rem; }
+    .choice {
+      font-weight: 800; font-size: 1rem; padding: 0.85rem 0.9rem; border-radius: 14px;
+      border: 3px solid transparent; background: #eef6fb; color: var(--ink); text-align: left;
+    }
+    .choice:hover:not(:disabled) { background: #e0f0f8; }
+    .choice.correct { background: #d4f8de; border-color: var(--leaf); animation: wiggle 0.35s ease; }
+    .choice.wrong { background: #ffe0db; border-color: var(--coral); }
+    .choice:disabled { cursor: default; }
+    .feedback { min-height: 1.5rem; margin-top: 0.8rem; font-weight: 800; }
+    .feedback.good { color: #1c6b3a; }
+    .feedback.bad { color: #a32a1d; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: center; margin-top: 1rem; }
+    .btn {
+      font-family: var(--font-display); font-size: 1.1rem; border: none; border-radius: 999px;
+      padding: 0.7rem 1.35rem; color: white;
+      background: linear-gradient(180deg, var(--leaf), var(--leaf-deep)); box-shadow: 0 5px 0 #145c3c;
+    }
+    .btn.secondary {
+      background: linear-gradient(180deg, var(--sky), var(--sky-deep)); box-shadow: 0 5px 0 #1e5f85;
+    }
+    .btn.coral {
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep)); box-shadow: 0 5px 0 #9a2f22;
+    }
+    .btn.mango {
+      background: linear-gradient(180deg, var(--mango), var(--mango-deep)); box-shadow: 0 5px 0 #b86200;
+    }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; box-shadow: none; }
+    .listen-big {
+      width: 70px; height: 70px; border-radius: 50%; border: none;
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep));
+      color: white; font-size: 1.7rem; cursor: pointer; box-shadow: 0 6px 0 #9a2f22;
+      margin: 0.6rem auto; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .score-big {
+      font-family: var(--font-display); font-size: clamp(2.4rem, 7vw, 3.6rem);
+      color: var(--coral-deep); line-height: 1; margin: 0.4rem 0;
+    }
+    .stars { font-size: 1.8rem; margin: 0.4rem 0 0.8rem; letter-spacing: 0.12rem; }
+    #confetti-layer { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 40; }
+    .confetti {
+      position: absolute; top: -12px; width: 9px; height: 13px; border-radius: 2px;
+      animation: confetti-fall 2.6s ease-in forwards;
+    }
+
+    /* Print worksheet */
+    .print-controls {
+      background: rgba(255,254,249,0.95); border: 3px solid white; border-radius: 22px;
+      box-shadow: var(--shadow); padding: 1.2rem; max-width: 720px; margin: 0 auto 1.2rem; text-align: center;
+    }
+    .print-controls h2 { font-family: var(--font-display); color: #16486a; font-size: 1.4rem; margin-bottom: 0.35rem; }
+    .print-controls p { font-weight: 700; color: #3a6a80; margin-bottom: 0.85rem; }
+    .print-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: center; }
+    .worksheet {
+      background: #fffef9; border-radius: 18px; border: 2px solid #d0e6f2;
+      box-shadow: var(--shadow); padding: 1.15rem 1.2rem; max-width: 820px; margin: 0 auto; color: #1e3a4c;
+    }
+    .worksheet-header {
+      text-align: center; border-bottom: 2px solid var(--sky-deep); padding-bottom: 0.45rem; margin-bottom: 0.55rem;
+    }
+    .worksheet-header h1 { font-family: var(--font-display); font-size: 1.4rem; color: #16486a; }
+    .worksheet-header .sub { font-weight: 700; color: #3a6a80; font-size: 0.88rem; margin-top: 0.1rem; }
+    .ws-meta {
+      display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; justify-content: center;
+      margin-top: 0.4rem; font-weight: 700; font-size: 0.85rem;
+    }
+    .ws-meta .line-field {
+      border-bottom: 1.5px solid #1e3a4c; min-width: 6.5rem; display: inline-block;
+      height: 0.95rem; vertical-align: bottom; margin-left: 0.25rem;
+    }
+    .ws-legend {
+      display: flex; flex-wrap: wrap; gap: 0.35rem 0.65rem; justify-content: center;
+      margin: 0.4rem 0 0.15rem; font-size: 0.75rem; font-weight: 800;
+    }
+    .dir-pill {
+      display: inline-block; padding: 0.12rem 0.4rem; border-radius: 999px;
+      font-size: 0.65rem; font-weight: 800; white-space: nowrap;
+    }
+    .dir-pill.de2fr { background: #d4e8ff; color: #1a4f7a; }
+    .dir-pill.fr2de { background: #ffe2a8; color: #7a4a00; }
+    .ws-list { list-style: none; margin: 0.25rem 0 0; padding: 0; }
+    .ws-item {
+      display: grid;
+      grid-template-columns: 1.6rem minmax(4.2rem, auto) minmax(0, 1.15fr) minmax(7rem, 1fr);
+      gap: 0.35rem 0.5rem; align-items: end; padding: 0.32rem 0.15rem; border-bottom: 1px solid #d0e6f2;
+    }
+    .ws-num { font-family: var(--font-display); font-size: 0.95rem; color: var(--sky-deep); padding-bottom: 0.1rem; }
+    .ws-prompt {
+      font-weight: 800; font-size: 0.9rem; color: #16486a; line-height: 1.2;
+      padding-bottom: 0.12rem; overflow-wrap: anywhere;
+    }
+    .write-line { height: 1.15rem; border-bottom: 1.5px solid #5a7a8a; width: 100%; }
+    .answer-key {
+      margin-top: 1.5rem; padding-top: 1rem; border-top: 3px double #c5a14e;
+      break-before: page; page-break-before: always;
+    }
+    .answer-key h2 {
+      font-family: var(--font-display); color: #7a4a00; font-size: 1.35rem;
+      text-align: center; margin-bottom: 0.65rem;
+    }
+    .answer-key ol {
+      columns: 2; column-gap: 1.4rem; margin: 0; padding-left: 1.2rem;
+      font-weight: 700; font-size: 0.85rem; line-height: 1.45; color: #2a4036;
+    }
+    .answer-key li { break-inside: avoid; margin-bottom: 0.2rem; }
+    .answer-key .dir { font-size: 0.68rem; font-weight: 800; opacity: 0.7; margin-right: 0.25rem; }
+
+    @media (max-width: 640px) {
+      .ws-item { grid-template-columns: 1.4rem auto 1fr; grid-template-rows: auto auto; }
+      .write-line { grid-column: 2 / -1; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: white !important; }
+      #confetti-layer { display: none !important; }
+      .wrap { width: 100%; max-width: none; padding: 0; margin: 0; }
+      .top-nav, header.hero, nav.tabs, footer, .howto,
+      .print-controls, .print-actions, #panel-learn, #panel-practice, #panel-quiz { display: none !important; }
+      #panel-print { display: block !important; }
+      .worksheet {
+        box-shadow: none; border: none; border-radius: 0; padding: 0; max-width: none; margin: 0; background: white;
+      }
+      .worksheet-header h1 { font-size: 16pt; }
+      .ws-item { padding: 0.18rem 0; page-break-inside: avoid; }
+      .ws-prompt, .ws-num { font-size: 10pt; }
+      .write-line { height: 0.95rem; }
+      .answer-key { break-before: page; page-break-before: always; margin-top: 0; border-top: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="confetti-layer" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="index.html">← Cute starter</a>
+      <a href="vocabulaire-6.html">Vocabulaire 6 →</a>
+      <a href="adjectifs.html">Adjektive →</a>
+    </div>
+
+    <header class="hero">
+      <h1 class="brand">
+        Französisch im Klassenzimmer
+        <span>Speaking French in class · with pronunciation</span>
+      </h1>
+      <p class="tagline">Tap any phrase to hear clear French — plus slow mode, German, and English. Perfect for real classroom moments.</p>
+      <div class="stats">
+        <span class="stat" id="stat-total">0 phrases</span>
+        <span class="stat">🔊 FR · slow · DE · EN</span>
+        <span class="stat">🖨️ Printable test</span>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="learn" type="button">📚 Learn</button>
+      <button class="tab-btn" data-tab="practice" type="button">🎧 Listen</button>
+      <button class="tab-btn" data-tab="quiz" type="button">⭐ Quiz</button>
+      <button class="tab-btn" data-tab="print" type="button">🖨️ Print test</button>
+    </nav>
+
+    <section id="panel-learn" class="panel active">
+      <div class="howto">
+        <h2>How to get the pronunciation right</h2>
+        <ol>
+          <li>Tap a card — French plays automatically.</li>
+          <li>Use <strong>FR slow</strong> to hear it carefully, then <strong>FR</strong> at natural speed.</li>
+          <li>Check the IPA tip under each phrase, plus German &amp; English.</li>
+          <li>Practice with Listen / Quiz, or print a mixed 15-phrase test.</li>
+        </ol>
+      </div>
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Search French, German, or English…" autocomplete="off" />
+      </div>
+      <div class="filter-row" id="filters"></div>
+      <p class="count-label" id="visible-count"></p>
+      <p class="hint">Tip: press FR slow twice, then FR once — your ear will thank you.</p>
+      <div class="grid" id="vocab-grid"></div>
+      <p class="voice-note" id="voice-status">Loading voices…</p>
+    </section>
+
+    <section id="panel-practice" class="panel">
+      <div class="stage">
+        <p class="q-meta" id="practice-meta">Listen &amp; choose</p>
+        <div class="progress-bar"><div class="progress-fill" id="practice-progress"></div></div>
+        <span class="q-icon" id="practice-icon">🔊</span>
+        <p class="q-prompt" id="practice-prompt">Tap the speaker, then pick the meaning</p>
+        <button class="listen-big" id="practice-listen" type="button" aria-label="Play French">🔊</button>
+        <div class="choices" id="practice-choices"></div>
+        <p class="feedback" id="practice-feedback"></p>
+        <div class="cta-row">
+          <button class="btn secondary" id="practice-restart" type="button">Restart (12)</button>
+          <button class="btn" id="practice-next" type="button" disabled>Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-quiz" class="panel">
+      <div class="stage" id="quiz-stage">
+        <p class="q-meta" id="quiz-meta">Classroom quiz</p>
+        <p class="q-prompt" style="font-size:1.3rem;">15 mixed questions</p>
+        <div class="cta-row" style="margin-bottom:0.8rem;">
+          <button class="btn mango" id="quiz-start" type="button">Start quiz!</button>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="quiz-progress"></div></div>
+        <span class="q-icon" id="quiz-icon">🏫</span>
+        <p class="q-prompt" id="quiz-prompt">Ready when you are!</p>
+        <button class="listen-big" id="quiz-listen" type="button" style="display:none" aria-label="Hear French">🔊</button>
+        <div class="choices" id="quiz-choices"></div>
+        <p class="feedback" id="quiz-feedback"></p>
+        <div class="cta-row">
+          <button class="btn" id="quiz-next" type="button" disabled style="display:none">Next →</button>
+        </div>
+      </div>
+      <div class="stage" id="quiz-results" style="display:none">
+        <p class="q-meta">Quiz complete!</p>
+        <div class="score-big" id="final-score">0 / 15</div>
+        <div class="stars" id="final-stars">⭐⭐⭐</div>
+        <p id="final-message" style="font-weight:700;font-size:1.1rem;margin-bottom:0.5rem;"></p>
+        <p id="missed-list" style="font-weight:600;color:#3a6a80;margin-bottom:1rem;"></p>
+        <div class="cta-row">
+          <button class="btn coral" id="quiz-again" type="button">Try again</button>
+          <button class="btn secondary" id="back-learn" type="button">Back to Learn</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-print" class="panel">
+      <div class="print-controls">
+        <h2>Printable classroom test</h2>
+        <p><strong>15 mixed DE↔FR phrases on one page</strong>, one writing line each. Answer key on page 2.</p>
+        <div class="print-actions">
+          <button class="btn mango" id="ws-generate" type="button">✨ Generate new test</button>
+          <button class="btn coral" id="ws-print" type="button">🖨️ Print (test + answers)</button>
+        </div>
+      </div>
+      <div id="worksheet" class="worksheet" aria-live="polite">
+        <p style="text-align:center;font-weight:700;color:#3a6a80;">Click “Generate new test” for a 15-phrase worksheet.</p>
+      </div>
+    </section>
+
+    <footer>Französisch sprechen im Klassenzimmer — bon courage, Maya! 🏫</footer>
+  </div>
+
+  <script>
+    const CATEGORIES = [
+      { id: "all", label: "All", icon: "📖" },
+      { id: "ask", label: "Asking", icon: "🙋" },
+      { id: "help", label: "Help", icon: "🆘" },
+      { id: "school", label: "Homework", icon: "📝" },
+      { id: "greet", label: "Greetings", icon: "👋" }
+    ];
+
+    /** Classroom phrases from Maya’s worksheet */
+    const VOCAB = [
+      { id: "voudrais-question", category: "ask", icon: "🙋", fr: "Je voudrais poser une question.", ipa: "[ʒə vudʁɛ poze yn kɛstjɔ̃]", de: "Ich würde gerne eine Frage stellen.", en: "I would like to ask a question." },
+      { id: "jai-question", category: "ask", icon: "❓", fr: "J'ai une question !", ipa: "[ʒe yn kɛstjɔ̃]", de: "Ich habe eine Frage!", en: "I have a question!" },
+      { id: "veut-dire", category: "ask", icon: "💬", fr: "Qu'est-ce que ça veut dire ?", ipa: "[kɛs kə sa vø diʁ]", de: "Was bedeutet das?", en: "What does that mean?" },
+      { id: "quest-ce", category: "ask", icon: "🔎", fr: "Qu'est-ce que c'est ?", ipa: "[kɛs kə sɛ]", de: "Was ist das?", en: "What is that?" },
+      { id: "prononce", category: "ask", icon: "🔊", fr: "Ça se prononce comment ?", ipa: "[sa sə pʁɔnɔ̃s kɔmɑ̃]", de: "Wie spricht man das aus?", en: "How do you pronounce that?" },
+      { id: "comprends-pas", category: "help", icon: "😕", fr: "Je ne comprends pas.", ipa: "[ʒə nə kɔ̃pʁɑ̃ pa]", de: "Ich verstehe nicht.", en: "I don't understand." },
+      { id: "pas-bien-compris", category: "help", icon: "🤔", fr: "Je n'ai pas bien compris.", ipa: "[ʒə ne pa bjɛ̃ kɔ̃pʁi]", de: "Ich habe nicht gut verstanden.", en: "I didn't understand well." },
+      { id: "expliquer-encore", category: "help", icon: "🔁", fr: "Vous pouvez expliquer encore une fois, s'il vous plaît ?", ipa: "[vu puve ɛksplike ɑ̃kɔʁ yn fwa sil vu plɛ]", de: "Können Sie das bitte noch einmal erklären?", en: "Can you explain it one more time, please?" },
+      { id: "pas-ce-quil-faut", category: "help", icon: "📋", fr: "Je ne comprends pas ce qu'il faut faire.", ipa: "[ʒə nə kɔ̃pʁɑ̃ pa sə kil fo fɛʁ]", de: "Ich verstehe nicht, was zu tun ist.", en: "I don't understand what I have to do." },
+      { id: "repetez", category: "help", icon: "🗣️", fr: "Vous pouvez le répéter, s'il vous plaît ?", ipa: "[vu puve lə ʁepete sil vu plɛ]", de: "Können Sie das bitte wiederholen?", en: "Can you repeat that, please?" },
+      { id: "devoirs", category: "school", icon: "📚", fr: "Est-ce qu'il y a des devoirs ?", ipa: "[ɛs kil ja de dəvwaʁ]", de: "Gibt es Hausaufgaben?", en: "Is there any homework?" },
+      { id: "oublie-maison", category: "school", icon: "🏠", fr: "Je suis désolé, j'ai oublié mes devoirs à la maison.", ipa: "[ʒə sɥi dezɔle ʒe ublje me dəvwaʁ a la mɛzɔ̃]", de: "Es tut mir leid, ich habe meine Hausaufgaben zu Hause vergessen.", en: "I'm sorry, I forgot my homework at home." },
+      { id: "apporter-demain", category: "school", icon: "📅", fr: "Est-ce que c'est possible d'apporter mon devoir demain ?", ipa: "[ɛs kə sɛ pɔsibl dapɔʁte mɔ̃ dəvwaʁ dəmɛ̃]", de: "Ist es möglich, meine Hausaufgabe morgen mitzubringen?", en: "Is it possible to bring my homework tomorrow?" },
+      { id: "oublie-devoirs", category: "school", icon: "😅", fr: "J'ai oublié mes devoirs.", ipa: "[ʒe ublje me dəvwaʁ]", de: "Ich habe meine Hausaufgaben vergessen.", en: "I forgot my homework." },
+      { id: "toilettes", category: "school", icon: "🚻", fr: "Est-ce que je peux aller aux toilettes ?", ipa: "[ɛs kə ʒə pø ale o twalɛt]", de: "Darf ich auf die Toilette gehen?", en: "May I go to the toilet?" },
+      { id: "pas-bien", category: "help", icon: "🤒", fr: "Excusez-moi, je ne me sens pas bien.", ipa: "[ɛkskyze mwa ʒə nə mə sɑ̃ pa bjɛ̃]", de: "Entschuldigung, mir ist nicht gut.", en: "Excuse me, I don't feel well." },
+      { id: "sais-pas", category: "help", icon: "🤷", fr: "Je ne sais pas.", ipa: "[ʒə nə sɛ pa]", de: "Ich weiß nicht.", en: "I don't know." },
+      { id: "merci", category: "greet", icon: "🙏", fr: "Merci.", ipa: "[mɛʁsi]", de: "Danke.", en: "Thank you." },
+      { id: "bonjour", category: "greet", icon: "☀️", fr: "Bonjour.", ipa: "[bɔ̃ʒuʁ]", de: "Guten Tag.", en: "Hello. / Good morning." },
+      { id: "au-revoir", category: "greet", icon: "👋", fr: "Au revoir.", ipa: "[o ʁəvwaʁ]", de: "Auf Wiedersehen.", en: "Goodbye." },
+      { id: "a-demain", category: "greet", icon: "🌙", fr: "À demain.", ipa: "[a dəmɛ̃]", de: "Bis morgen.", en: "See you tomorrow." },
+      { id: "semaine", category: "greet", icon: "📆", fr: "À la semaine prochaine.", ipa: "[a la səmɛn pʁɔʃɛn]", de: "Bis nächste Woche.", en: "See you next week." }
+    ];
+
+    /* —— Speech (tuned for clearer French) —— */
+    let voices = [];
+    function loadVoices() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      const el = document.getElementById("voice-status");
+      if (!window.speechSynthesis) {
+        el.textContent = "Speech not available — try Chrome, Edge, or Safari.";
+        return;
+      }
+      const fr = pickVoice("fr");
+      const de = pickVoice("de");
+      const en = pickVoice("en");
+      el.textContent = voices.length
+        ? `Pronunciation ready · FR: ${fr?.name || "default"} · DE: ${de?.name || "default"} · EN: ${en?.name || "default"}`
+        : "Tap a speaker button once to unlock voices on this device.";
+    }
+    if (window.speechSynthesis) {
+      loadVoices();
+      speechSynthesis.onvoiceschanged = loadVoices;
+    } else loadVoices();
+
+    function pickVoice(prefix) {
+      const list = voices.filter(v => v.lang.toLowerCase().startsWith(prefix));
+      if (!list.length) return null;
+      const rank = (name) => {
+        const n = name.toLowerCase();
+        if (/google français|google french|thomas|amélie|aurelie|marie|paul|natural|enhanced|premium|neural/i.test(n)) return 3;
+        if (/google|apple|microsoft|samantha|daniel|anna|helena/i.test(n)) return 2;
+        return 1;
+      };
+      return [...list].sort((a, b) => rank(b.name) - rank(a.name))[0];
+    }
+
+    function speak(text, lang, { slow = false } = {}) {
+      if (!window.speechSynthesis || !text) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang === "fr" ? "fr-FR" : lang === "de" ? "de-DE" : "en-US";
+      const voice = pickVoice(lang);
+      if (voice) u.voice = voice;
+      if (lang === "fr") {
+        u.rate = slow ? 0.62 : 0.82;
+        u.pitch = 1;
+      } else {
+        u.rate = slow ? 0.78 : 0.92;
+        u.pitch = 1.02;
+      }
+      speechSynthesis.speak(u);
+      if (!voices.length) setTimeout(loadVoices, 250);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    function escapeAttr(s) { return escapeHtml(s).replace(/'/g, "&#39;"); }
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function wrongChoices(correct, n = 3) {
+      return shuffle(VOCAB.filter(v => v.id !== correct.id)).slice(0, n);
+    }
+
+    document.getElementById("stat-total").textContent = VOCAB.length + " phrases";
+
+    let filter = "all";
+    let query = "";
+    const filtersEl = document.getElementById("filters");
+    filtersEl.innerHTML = CATEGORIES.map(c =>
+      `<button type="button" class="chip${c.id === "all" ? " active" : ""}" data-filter="${c.id}">${c.icon} ${c.label}</button>`
+    ).join("");
+    filtersEl.addEventListener("click", e => {
+      const chip = e.target.closest("[data-filter]");
+      if (!chip) return;
+      filtersEl.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      filter = chip.dataset.filter;
+      renderCards();
+    });
+    document.getElementById("search").addEventListener("input", e => {
+      query = e.target.value.trim().toLowerCase();
+      renderCards();
+    });
+
+    function filteredVocab() {
+      return VOCAB.filter(v => {
+        if (filter !== "all" && v.category !== filter) return false;
+        if (!query) return true;
+        return [v.fr, v.de, v.en, v.ipa].join(" ").toLowerCase().includes(query);
+      });
+    }
+
+    const grid = document.getElementById("vocab-grid");
+    function renderCards() {
+      const items = filteredVocab();
+      document.getElementById("visible-count").textContent = `Showing ${items.length} of ${VOCAB.length} phrases`;
+      grid.innerHTML = items.map(v => `
+        <article class="card" data-id="${v.id}" tabindex="0" role="button" aria-expanded="false">
+          <span class="badge ${v.category}">${v.category}</span>
+          <div class="icon">${v.icon}</div>
+          <div class="fr">${escapeHtml(v.fr)}</div>
+          <div class="ipa">${escapeHtml(v.ipa)}</div>
+          <div class="reveal">
+            <div class="lang-row">
+              <button type="button" class="speak-btn fr-btn" data-speak="fr" data-text="${escapeAttr(v.fr)}">🔊 FR</button>
+              <button type="button" class="speak-btn slow-btn" data-speak="fr" data-slow="1" data-text="${escapeAttr(v.fr)}">🐢 FR slow</button>
+              <button type="button" class="speak-btn de-btn" data-speak="de" data-text="${escapeAttr(v.de)}">🔊 DE</button>
+              <button type="button" class="speak-btn en-btn" data-speak="en" data-text="${escapeAttr(v.en)}">🔊 EN</button>
+            </div>
+            <p class="trans"><span class="label">DE</span> ${escapeHtml(v.de)}</p>
+            <p class="trans"><span class="label">EN</span> ${escapeHtml(v.en)}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    grid.addEventListener("click", e => {
+      const speakBtn = e.target.closest("[data-speak]");
+      if (speakBtn) {
+        e.stopPropagation();
+        speak(speakBtn.dataset.text, speakBtn.dataset.speak, { slow: speakBtn.dataset.slow === "1" });
+        return;
+      }
+      const card = e.target.closest(".card");
+      if (card) toggleCard(card);
+    });
+    grid.addEventListener("keydown", e => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const card = e.target.closest(".card");
+      if (!card) return;
+      e.preventDefault();
+      toggleCard(card);
+    });
+    function toggleCard(card) {
+      const open = card.classList.toggle("flipped");
+      card.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        const word = VOCAB.find(v => v.id === card.dataset.id);
+        if (word) speak(word.fr, "fr", { slow: true });
+      }
+    }
+    renderCards();
+
+    /* Tabs */
+    function showTab(name) {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+      document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === "panel-" + name));
+      if (name === "practice") startPractice();
+      if (name === "quiz") resetQuizUI();
+      if (name === "print" && !document.getElementById("worksheet").dataset.ready) generateWorksheet();
+    }
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => showTab(btn.dataset.tab));
+    });
+    document.getElementById("back-learn").addEventListener("click", () => showTab("learn"));
+
+    /* Practice */
+    let practiceQueue = [], practiceIndex = 0, practiceAnswered = false;
+    function startPractice() {
+      practiceQueue = shuffle(VOCAB).slice(0, 12);
+      practiceIndex = 0;
+      practiceAnswered = false;
+      document.getElementById("practice-next").disabled = true;
+      renderPractice();
+    }
+    function renderPractice() {
+      const item = practiceQueue[practiceIndex];
+      const total = practiceQueue.length;
+      document.getElementById("practice-meta").textContent = `Phrase ${practiceIndex + 1} of ${total}`;
+      document.getElementById("practice-progress").style.width = `${(practiceIndex / total) * 100}%`;
+      document.getElementById("practice-icon").textContent = "🔊";
+      document.getElementById("practice-prompt").textContent = "What does this French phrase mean?";
+      document.getElementById("practice-feedback").textContent = "";
+      document.getElementById("practice-feedback").className = "feedback";
+      document.getElementById("practice-next").disabled = true;
+      practiceAnswered = false;
+      const options = shuffle([item, ...wrongChoices(item)]);
+      document.getElementById("practice-choices").innerHTML = options.map(o => `
+        <button type="button" class="choice" data-id="${o.id}">
+          ${o.icon} ${escapeHtml(o.de)}
+          <div style="font-size:0.82rem;opacity:0.75;margin-top:0.12rem;">${escapeHtml(o.en)}</div>
+        </button>
+      `).join("");
+      setTimeout(() => speak(item.fr, "fr", { slow: true }), 220);
+    }
+    document.getElementById("practice-listen").addEventListener("click", () => {
+      const item = practiceQueue[practiceIndex];
+      if (item) speak(item.fr, "fr", { slow: true });
+    });
+    document.getElementById("practice-choices").addEventListener("click", e => {
+      const btn = e.target.closest(".choice");
+      if (!btn || practiceAnswered) return;
+      const item = practiceQueue[practiceIndex];
+      practiceAnswered = true;
+      [...document.querySelectorAll("#practice-choices .choice")].forEach(b => {
+        b.disabled = true;
+        if (b.dataset.id === item.id) b.classList.add("correct");
+      });
+      const fb = document.getElementById("practice-feedback");
+      if (btn.dataset.id === item.id) {
+        fb.textContent = "Bravo! 🎉 " + item.fr;
+        fb.className = "feedback good";
+        document.getElementById("practice-icon").textContent = item.icon;
+        speak(item.fr, "fr");
+      } else {
+        btn.classList.add("wrong");
+        fb.textContent = "Correct: " + item.fr + " = " + item.de;
+        fb.className = "feedback bad";
+        speak(item.fr, "fr", { slow: true });
+      }
+      document.getElementById("practice-next").disabled = false;
+      document.getElementById("practice-progress").style.width = `${((practiceIndex + 1) / practiceQueue.length) * 100}%`;
+    });
+    document.getElementById("practice-next").addEventListener("click", () => {
+      if (practiceIndex < practiceQueue.length - 1) {
+        practiceIndex++;
+        renderPractice();
+      } else {
+        document.getElementById("practice-prompt").textContent = "Listening practice done!";
+        document.getElementById("practice-choices").innerHTML = "";
+        document.getElementById("practice-feedback").textContent = "Ready for the Quiz?";
+        document.getElementById("practice-feedback").className = "feedback good";
+        document.getElementById("practice-next").disabled = true;
+        document.getElementById("practice-icon").textContent = "🌟";
+      }
+    });
+    document.getElementById("practice-restart").addEventListener("click", startPractice);
+
+    /* Quiz */
+    let quizQueue = [], quizIndex = 0, quizScore = 0, quizAnswered = false, missed = [];
+    function resetQuizUI() {
+      document.getElementById("quiz-stage").style.display = "block";
+      document.getElementById("quiz-results").style.display = "none";
+      document.getElementById("quiz-start").style.display = "inline-block";
+      document.getElementById("quiz-next").style.display = "none";
+      document.getElementById("quiz-next").disabled = true;
+      document.getElementById("quiz-choices").innerHTML = "";
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-meta").textContent = "Classroom quiz";
+      document.getElementById("quiz-prompt").textContent = "Ready when you are!";
+      document.getElementById("quiz-icon").textContent = "🏫";
+      document.getElementById("quiz-progress").style.width = "0%";
+      document.getElementById("quiz-listen").style.display = "none";
+    }
+    function startQuiz() {
+      const words = shuffle(VOCAB).slice(0, 15);
+      const styles = ["enToFr", "deToFr", "frToDe", "listen"];
+      quizQueue = words.map((word, i) => ({ word, style: styles[i % styles.length] }));
+      quizIndex = 0; quizScore = 0; missed = []; quizAnswered = false;
+      document.getElementById("quiz-start").style.display = "none";
+      document.getElementById("quiz-next").style.display = "inline-block";
+      document.getElementById("quiz-results").style.display = "none";
+      document.getElementById("quiz-stage").style.display = "block";
+      renderQuizQuestion();
+    }
+    function renderQuizQuestion() {
+      const { word, style } = quizQueue[quizIndex];
+      const total = quizQueue.length;
+      quizAnswered = false;
+      document.getElementById("quiz-meta").textContent = `Question ${quizIndex + 1} of ${total}`;
+      document.getElementById("quiz-progress").style.width = `${(quizIndex / total) * 100}%`;
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-feedback").className = "feedback";
+      document.getElementById("quiz-next").disabled = true;
+      document.getElementById("quiz-listen").style.display = "none";
+      document.getElementById("quiz-icon").textContent = word.icon;
+
+      let prompt = "", labelFn = w => w.fr;
+      if (style === "enToFr") {
+        prompt = `French for: “${word.en}”?`;
+      } else if (style === "deToFr") {
+        prompt = `Französisch für: „${word.de}“?`;
+      } else if (style === "frToDe") {
+        prompt = `Was heißt: „${word.fr}“?`;
+        labelFn = w => w.de;
+        document.getElementById("quiz-listen").style.display = "inline-flex";
+        document.getElementById("quiz-listen").onclick = () => speak(word.fr, "fr", { slow: true });
+        setTimeout(() => speak(word.fr, "fr", { slow: true }), 200);
+      } else {
+        prompt = "Listen — what does it mean?";
+        labelFn = w => w.de;
+        document.getElementById("quiz-listen").style.display = "inline-flex";
+        document.getElementById("quiz-listen").onclick = () => speak(word.fr, "fr", { slow: true });
+        setTimeout(() => speak(word.fr, "fr", { slow: true }), 200);
+      }
+      document.getElementById("quiz-prompt").textContent = prompt;
+      const choices = shuffle([word, ...wrongChoices(word)]);
+      document.getElementById("quiz-choices").innerHTML = choices.map(o =>
+        `<button type="button" class="choice" data-id="${o.id}">${o.icon} ${escapeHtml(labelFn(o))}</button>`
+      ).join("");
+    }
+    document.getElementById("quiz-choices").addEventListener("click", e => {
+      const btn = e.target.closest(".choice");
+      if (!btn || quizAnswered || !quizQueue.length) return;
+      const { word } = quizQueue[quizIndex];
+      quizAnswered = true;
+      [...document.querySelectorAll("#quiz-choices .choice")].forEach(b => {
+        b.disabled = true;
+        if (b.dataset.id === word.id) b.classList.add("correct");
+      });
+      const fb = document.getElementById("quiz-feedback");
+      if (btn.dataset.id === word.id) {
+        quizScore++;
+        fb.textContent = "Super! ✅ " + word.fr;
+        fb.className = "feedback good";
+        speak(word.fr, "fr");
+      } else {
+        btn.classList.add("wrong");
+        missed.push(word);
+        fb.textContent = "→ " + word.fr + " = " + word.de;
+        fb.className = "feedback bad";
+        speak(word.fr, "fr", { slow: true });
+      }
+      document.getElementById("quiz-next").disabled = false;
+      document.getElementById("quiz-progress").style.width = `${((quizIndex + 1) / quizQueue.length) * 100}%`;
+    });
+    document.getElementById("quiz-next").addEventListener("click", () => {
+      if (quizIndex < quizQueue.length - 1) {
+        quizIndex++;
+        renderQuizQuestion();
+      } else showResults();
+    });
+    document.getElementById("quiz-start").addEventListener("click", startQuiz);
+    document.getElementById("quiz-again").addEventListener("click", startQuiz);
+
+    function showResults() {
+      document.getElementById("quiz-stage").style.display = "none";
+      document.getElementById("quiz-results").style.display = "block";
+      const total = quizQueue.length;
+      document.getElementById("final-score").textContent = `${quizScore} / ${total}`;
+      const ratio = quizScore / total;
+      let stars = "⭐⭐", msg = "Keep listening — you've got this!";
+      if (ratio >= 0.92) { stars = "⭐⭐⭐⭐⭐"; msg = "Incroyable, Maya! Classroom champion! 👑"; burstConfetti(); }
+      else if (ratio >= 0.75) { stars = "⭐⭐⭐⭐"; msg = "Très bien! Almost perfect!"; burstConfetti(); }
+      else if (ratio >= 0.55) { stars = "⭐⭐⭐"; msg = "Bon travail! Review the missed phrases."; }
+      document.getElementById("final-stars").textContent = stars;
+      document.getElementById("final-message").textContent = msg;
+      const missedEl = document.getElementById("missed-list");
+      if (missed.length) {
+        const unique = [...new Map(missed.map(m => [m.id, m])).values()];
+        missedEl.innerHTML = "Practice again: " + unique.map(m => `<strong>${escapeHtml(m.fr)}</strong>`).join(", ");
+      } else {
+        missedEl.textContent = "Zero mistakes — bravo!";
+      }
+    }
+
+    function burstConfetti() {
+      const layer = document.getElementById("confetti-layer");
+      const colors = ["#e85d4c", "#ff9f1c", "#2f9e6b", "#5eb3e8", "#fff", "#ffe066"];
+      for (let i = 0; i < 48; i++) {
+        const bit = document.createElement("div");
+        bit.className = "confetti";
+        bit.style.left = Math.random() * 100 + "vw";
+        bit.style.background = colors[i % colors.length];
+        bit.style.animationDelay = (Math.random() * 0.5) + "s";
+        bit.style.animationDuration = (2.1 + Math.random() * 1.3) + "s";
+        layer.appendChild(bit);
+        setTimeout(() => bit.remove(), 3800);
+      }
+    }
+
+    /* Printable mixed test — 15 on one page, answers page 2 */
+    function generateWorksheet() {
+      const words = shuffle(VOCAB).slice(0, 15);
+      const dirs = shuffle([...Array(8).fill("de2fr"), ...Array(7).fill("fr2de")]);
+      const items = words.map((w, i) => ({ word: w, dir: dirs[i] }));
+      const dateStr = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+
+      const listHtml = items.map((item, i) => {
+        const w = item.word;
+        const isDe2Fr = item.dir === "de2fr";
+        const prompt = isDe2Fr ? w.de : w.fr;
+        const pill = isDe2Fr
+          ? `<span class="dir-pill de2fr">DE → FR</span>`
+          : `<span class="dir-pill fr2de">FR → DE</span>`;
+        return `<li class="ws-item">
+          <div class="ws-num">${i + 1}.</div>
+          ${pill}
+          <div class="ws-prompt">${escapeHtml(prompt)}</div>
+          <div class="write-line" aria-hidden="true"></div>
+        </li>`;
+      }).join("");
+
+      const keyHtml = `
+        <section class="answer-key">
+          <h2>Answer key · Lösungen</h2>
+          <ol>
+            ${items.map(item => {
+              const w = item.word;
+              const isDe2Fr = item.dir === "de2fr";
+              const ans = isDe2Fr ? w.fr : w.de;
+              const shown = isDe2Fr ? w.de : w.fr;
+              const tag = isDe2Fr ? "DE→FR" : "FR→DE";
+              return `<li><span class="dir">${tag}</span> ${escapeHtml(shown)} → <strong>${escapeHtml(ans)}</strong></li>`;
+            }).join("")}
+          </ol>
+        </section>`;
+
+      const el = document.getElementById("worksheet");
+      el.dataset.ready = "1";
+      el.innerHTML = `
+        <header class="worksheet-header">
+          <h1>Französisch im Klassenzimmer — Test</h1>
+          <div class="sub">Mixed DE ↔ FR · 15 phrases · one page</div>
+          <div class="ws-meta">
+            <span>Name:<span class="line-field"></span></span>
+            <span>Date: ${dateStr}</span>
+            <span>Score:<span class="line-field" style="min-width:3.2rem"></span>/ 15</span>
+          </div>
+          <div class="ws-legend">
+            <span class="dir-pill de2fr">DE → FR</span> write French
+            <span class="dir-pill fr2de">FR → DE</span> write German
+          </div>
+        </header>
+        <ol class="ws-list">${listHtml}</ol>
+        ${keyHtml}
+      `;
+    }
+    document.getElementById("ws-generate").addEventListener("click", generateWorksheet);
+    document.getElementById("ws-print").addEventListener("click", () => {
+      if (!document.getElementById("worksheet").dataset.ready) generateWorksheet();
+      window.print();
+    });
+  </script>
+</body>
+</html>

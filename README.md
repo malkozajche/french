@@ -21,10 +21,16 @@ https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/a
 
 From Frau Damm’s worksheet: **25 adjectives** (m/f · singular/plural), grammar tips, Formen-Labor, the **26 exam sentences**, quiz modes, voice (FR/DE/EN), stars/badges, and a **Print tab** that generates writable tests with **5 words + 5 sentences** (answer key on page 2).
 
+### 4) Französisch im Klassenzimmer 🏫
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/klassenzimmer.html
+
+**22 classroom phrases** from the worksheet — clear pronunciation (FR + slow FR + DE + EN), IPA tips, listen practice, quiz, and a printable mixed 15-phrase test (one page + answer key).
+
 ## Files
 
 - [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
 - [`vocabulaire-6.html`](vocabulaire-6.html) — full textbook coverage
 - [`adjectifs.html`](adjectifs.html) — adjectives for the Tuesday test
+- [`klassenzimmer.html`](klassenzimmer.html) — classroom speaking phrases
 
 Works best in **Chrome, Edge, or Safari** (browser speech voices).
