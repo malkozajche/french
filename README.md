@@ -26,11 +26,21 @@ https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/k
 
 **22 classroom phrases** from the worksheet — clear pronunciation (FR + slow FR + DE + EN), IPA tips, listen practice, quiz, and a printable mixed 15-phrase test (one page + answer key).
 
+### 5) Frau Clarinda · Seite 106 📗
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/clarinda-106.html
+
+Circled exercises **1** (Les relations), **2** (Le caractère), and **4** (qui / que) with answers + German help.
+
+**Pronunciation + translation (separate page):**
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/clarinda-106-vocab.html
+
 ## Files
 
 - [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
 - [`vocabulaire-6.html`](vocabulaire-6.html) — full textbook coverage
 - [`adjectifs.html`](adjectifs.html) — adjectives for the Tuesday test
 - [`klassenzimmer.html`](klassenzimmer.html) — classroom speaking phrases
+- [`clarinda-106.html`](clarinda-106.html) — Frau Clarinda p.106 exercises 1 · 2 · 4
+- [`clarinda-106-vocab.html`](clarinda-106-vocab.html) — pronunciation + DE/EN translations
 
 Works best in **Chrome, Edge, or Safari** (browser speech voices).

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frau Clarinda · Seite 106 — Übungen 1 &amp; 4</title>
+  <meta name="description" content="Circled exercises from French with Frau Clarinda p.106: Les relations + qui/que, with answers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #243447;
+      --sky: #4aa3d8;
+      --sky-deep: #2a7aad;
+      --leaf: #2f9e6b;
+      --leaf-deep: #1f7a52;
+      --coral: #e85d4c;
+      --coral-deep: #c43d2e;
+      --mango: #f0a202;
+      --paper: #fffdf8;
+      --shadow: 0 10px 26px rgba(36, 52, 71, 0.12);
+      --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+      --font-body: "Nunito", "Trebuchet MS", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -10%, #b9e0f7 0%, transparent 55%),
+        radial-gradient(circle at 12% 80%, rgba(240, 162, 2, 0.18), transparent 30%),
+        linear-gradient(180deg, #7ec4ef 0%, #e8f5fc 40%, #f4faf4 100%);
+      background-attachment: fixed;
+    }
+    .wrap { width: min(920px, 94vw); margin: 0 auto; padding: 1rem 0 3rem; }
+    .top-nav {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: space-between; margin-bottom: 0.7rem;
+    }
+    .top-nav a {
+      font-weight: 800; text-decoration: none; color: var(--sky-deep);
+      background: rgba(255,255,255,0.78); padding: 0.4rem 0.85rem; border-radius: 999px;
+      border: 2px solid rgba(42, 122, 173, 0.25);
+    }
+    header.hero { text-align: center; padding: 0.4rem 0.3rem 0.9rem; animation: rise 0.5s ease both; }
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 5.5vw, 2.85rem);
+      line-height: 1.05; color: #183a55;
+    }
+    .brand span {
+      display: block; margin-top: 0.28rem; font-size: 0.4em;
+      letter-spacing: 0.03em; text-transform: uppercase; color: var(--coral-deep);
+    }
+    .tagline {
+      margin: 0.6rem auto 0; max-width: 34rem; font-weight: 700; color: #2d5266; font-size: 1.02rem;
+    }
+    .stats { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.75rem; }
+    .stat {
+      font-weight: 800; font-size: 0.82rem; background: white; border-radius: 999px;
+      padding: 0.32rem 0.75rem; box-shadow: var(--shadow); color: #24556a;
+    }
+    .panel {
+      background: rgba(255,253,248,0.96); border-radius: 22px; padding: 1.15rem 1.2rem 1.35rem;
+      box-shadow: var(--shadow); border: 3px solid rgba(255,255,255,0.95); margin-bottom: 1rem;
+      animation: rise 0.45s ease both;
+    }
+    .panel h2 {
+      font-family: var(--font-display); font-size: 1.45rem; color: #183a55; margin-bottom: 0.2rem;
+    }
+    .panel .meta { font-weight: 700; color: #4a6a7a; margin-bottom: 0.85rem; font-size: 0.95rem; }
+    .bank {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.7rem 0 1rem;
+      padding: 0.7rem; border-radius: 14px; background: #eef7fc; border: 2px dashed #9ccae3;
+    }
+    .bank span {
+      font-weight: 800; font-size: 0.88rem; background: white; padding: 0.3rem 0.65rem;
+      border-radius: 999px; color: #1f5a7a; border: 2px solid #c5e4f5;
+    }
+    .bank span.used { opacity: 0.45; text-decoration: line-through; }
+    .ex {
+      margin: 0.75rem 0; padding: 0.75rem 0.85rem; border-radius: 14px;
+      background: #f3faf6; border-left: 5px solid var(--leaf);
+      font-weight: 700; line-height: 1.45;
+    }
+    .ex .label { color: var(--leaf-deep); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .item {
+      margin: 0.65rem 0; padding: 0.8rem 0.9rem; border-radius: 14px;
+      background: #fff; border: 2px solid #e4eef4; font-weight: 700; line-height: 1.5;
+    }
+    .item .q { color: var(--ink); }
+    .item .letter {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 1.55rem; height: 1.55rem; border-radius: 50%;
+      background: #d9effc; color: #1f5a7a; font-weight: 800; font-size: 0.85rem; margin-right: 0.35rem;
+    }
+    .blank {
+      display: inline-block; min-width: 5.5rem; border-bottom: 2.5px solid #8eb8d0;
+      color: transparent; margin: 0 0.15rem; padding: 0 0.2rem;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    .blank.revealed {
+      color: var(--coral-deep); background: #ffe9e4; border-bottom-color: var(--coral);
+      border-radius: 6px; font-weight: 800;
+    }
+    .answer-line {
+      display: none; margin-top: 0.45rem; font-size: 0.95rem; color: #1f6b45;
+      background: #e8f8ee; border-radius: 10px; padding: 0.45rem 0.65rem;
+    }
+    .answer-line.show { display: block; }
+    .answer-line .de { color: #3a6070; font-weight: 700; margin-top: 0.2rem; display: block; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.9rem 0 0.3rem; }
+    .btn {
+      font-family: var(--font-display); font-size: 1.05rem; border: none; border-radius: 999px;
+      padding: 0.65rem 1.2rem; color: white; cursor: pointer;
+      background: linear-gradient(180deg, var(--leaf), var(--leaf-deep)); box-shadow: 0 4px 0 #145c3c;
+    }
+    .btn.secondary {
+      background: linear-gradient(180deg, var(--sky), var(--sky-deep)); box-shadow: 0 4px 0 #1e5f85;
+    }
+    .btn.coral {
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep)); box-shadow: 0 4px 0 #9a2f22;
+    }
+    .btn.mango {
+      background: linear-gradient(180deg, var(--mango), #d48900); box-shadow: 0 4px 0 #b86200; color: #2a1a00;
+    }
+    .match-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem; margin-top: 0.6rem;
+    }
+    @media (max-width: 640px) { .match-grid { grid-template-columns: 1fr; } }
+    .match-col h3 {
+      font-family: var(--font-display); font-size: 1.1rem; color: #183a55; margin-bottom: 0.4rem;
+    }
+    .match-item {
+      display: flex; gap: 0.45rem; align-items: flex-start;
+      padding: 0.55rem 0.65rem; border-radius: 12px; background: #fff;
+      border: 2px solid #e4eef4; font-weight: 700; font-size: 0.92rem; margin-bottom: 0.35rem;
+    }
+    .match-item.circled {
+      border-color: #4aa3d8; box-shadow: 0 0 0 3px rgba(74, 163, 216, 0.25);
+      background: #f0f9ff;
+    }
+    .match-item .n {
+      flex-shrink: 0; width: 1.5rem; height: 1.5rem; border-radius: 50%;
+      background: #ffd9d2; color: #a32a1d; display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 800;
+    }
+    .match-item.trait .n { background: #d9effc; color: #1f5a7a; }
+    .pair-answer {
+      display: none; margin-top: 0.7rem; padding: 0.7rem 0.85rem; border-radius: 12px;
+      background: #e8f8ee; font-weight: 800; color: #1f6b45; line-height: 1.55;
+    }
+    .pair-answer.show { display: block; }
+    .pair-answer .hit { color: var(--sky-deep); }
+    .rel-ans {
+      margin-top: 0.4rem; padding: 0.5rem 0.65rem; border-radius: 10px;
+      background: #fff4e5; border: 2px solid #f0c878; font-weight: 800; color: #7a4a00;
+      display: none;
+    }
+    .rel-ans.show { display: block; }
+    .rel-ans .qui { color: var(--leaf-deep); }
+    .rel-ans .que { color: var(--coral-deep); }
+    .tip {
+      margin-top: 0.8rem; padding: 0.7rem 0.85rem; border-radius: 12px;
+      background: #eef7fc; font-weight: 700; color: #2d5266; font-size: 0.92rem;
+    }
+    .tip strong { color: #183a55; }
+    footer {
+      text-align: center; margin-top: 1.2rem; font-weight: 700; color: #2d5266; font-size: 0.9rem;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media print {
+      body { background: white; }
+      .top-nav, .cta-row, footer { display: none; }
+      .panel { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+      .blank { color: var(--coral-deep); border-bottom-color: #999; }
+      .answer-line, .pair-answer, .rel-ans { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="index.html">← Cute starter</a>
+      <a href="clarinda-106-vocab.html">🔊 Pronunciation + translation →</a>
+    </div>
+
+    <header class="hero">
+      <h1 class="brand">
+        Frau Clarinda · Seite 106
+        <span>Circled exercises · answers for Maya</span>
+      </h1>
+      <p class="tagline">Circled on the worksheet: exercises <strong>1</strong>, <strong>2</strong> and <strong>4</strong> — with answers + German help.</p>
+      <div class="stats">
+        <span class="stat">① Relations</span>
+        <span class="stat">② Caractère</span>
+        <span class="stat">④ qui / que</span>
+        <span class="stat"><a href="clarinda-106-vocab.html" style="color:inherit;text-decoration:none;">🔊 Vocab page</a></span>
+      </div>
+    </header>
+
+    <!-- EXERCISE 1 -->
+    <section class="panel" id="ex1">
+      <h2>① Les relations — Complète les phrases</h2>
+      <p class="meta">Fill the blanks with the words from the box. Tap <strong>Show answers</strong> when you’re ready.</p>
+      <div class="bank" id="bank">
+        <span data-w="découvrir">découvrir</span>
+        <span data-w="fréquente">fréquente</span>
+        <span data-w="se connaît">se connaît</span>
+        <span data-w="croise">croise</span>
+        <span data-w="amis">amis</span>
+        <span data-w="faire connaissance">faire connaissance</span>
+        <span data-w="se parlent">se parlent</span>
+        <span data-w="voisins">voisins</span>
+        <span data-w="copain">copain</span>
+      </div>
+
+      <div class="ex">
+        <div class="label">Exemple</div>
+        Nous venons de déménager, nous allons <em>découvrir</em> nos nouveaux voisins.
+      </div>
+
+      <div class="item" data-blanks="fréquente">
+        <p class="q"><span class="letter">a</span> Tu connais tes voisins ? Non, je ne les <span class="blank" data-ans="fréquente">______</span> pas.</p>
+        <div class="answer-line">✅ <strong>fréquente</strong> → <em>Je ne les fréquente pas.</em>
+          <span class="de">🇩🇪 Kennst du deine Nachbarn? Nein, ich treffe mich nicht mit ihnen / ich gehe nicht mit ihnen um.</span>
+        </div>
+      </div>
+
+      <div class="item" data-blanks="amis">
+        <p class="q"><span class="letter">b</span> Il a beaucoup d’<span class="blank" data-ans="amis">______</span>. C’est normal : il est très sympa !</p>
+        <div class="answer-line">✅ <strong>amis</strong> → <em>Il a beaucoup d’amis.</em>
+          <span class="de">🇩🇪 Er hat viele Freunde. Das ist normal: er ist sehr nett!</span>
+        </div>
+      </div>
+
+      <div class="item" data-blanks="voisins|croise|se connaît">
+        <p class="q"><span class="letter">c</span> Vous êtes les <span class="blank" data-ans="voisins">______</span> du 5<sup>e</sup> étage ? On se <span class="blank" data-ans="croise">______</span> parfois dans l’immeuble mais on ne <span class="blank" data-ans="se connaît">______</span> pas !</p>
+        <div class="answer-line">✅ <strong>voisins</strong> · <strong>croise</strong> · <strong>se connaît</strong>
+          <br>→ <em>Vous êtes les voisins du 5<sup>e</sup> étage ? On se croise parfois… mais on ne se connaît pas !</em>
+          <span class="de">🇩🇪 Seid ihr die Nachbarn vom 5. Stock? Man läuft sich manchmal im Haus über den Weg, aber man kennt sich nicht!</span>
+        </div>
+      </div>
+
+      <div class="item" data-blanks="faire connaissance|copain">
+        <p class="q"><span class="letter">d</span> Tu viens à la fête ce soir ? Tu vas <span class="blank" data-ans="faire connaissance">______</span> avec mon <span class="blank" data-ans="copain">______</span> !</p>
+        <div class="answer-line">✅ <strong>faire connaissance</strong> · <strong>copain</strong>
+          <br>→ <em>Tu vas faire connaissance avec mon copain !</em>
+          <span class="de">🇩🇪 Kommst du heute Abend zur Party? Du wirst meinen Kumpel kennenlernen!</span>
+        </div>
+      </div>
+
+      <div class="item" data-blanks="se parlent">
+        <p class="q"><span class="letter">e</span> Ces deux voisins ne s’aiment pas, ils ne <span class="blank" data-ans="se parlent">______</span> jamais.</p>
+        <div class="answer-line">✅ <strong>se parlent</strong> → <em>ils ne se parlent jamais.</em>
+          <span class="de">🇩🇪 Diese beiden Nachbarn mögen sich nicht, sie sprechen nie miteinander.</span>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn" type="button" id="show1">✨ Show answers</button>
+        <button class="btn secondary" type="button" id="hide1">Hide answers</button>
+        <button class="btn mango" type="button" id="speak1">🔊 Hear all answers (slow FR)</button>
+      </div>
+    </section>
+
+    <!-- EXERCISE 2 -->
+    <section class="panel" id="ex2">
+      <h2>② Le caractère — Associe les descriptions</h2>
+      <p class="meta">Match each description (a–h) to a quality or flaw (1–8). Full exercise answered below.</p>
+
+      <div class="match-grid">
+        <div class="match-col">
+          <h3>Descriptions</h3>
+          <div class="match-item"><span class="n">a</span> Notre camarade n’aime pas déjeuner avec nous.</div>
+          <div class="match-item"><span class="n">b</span> José invite toujours ses amis au restaurant.</div>
+          <div class="match-item"><span class="n">c</span> Il ne parle pas souvent à ses voisins.</div>
+          <div class="match-item"><span class="n">d</span> Marguerite ne pense jamais à ses amis.</div>
+          <div class="match-item"><span class="n">e</span> C’est un ami de ma sœur, il adore rire.</div>
+          <div class="match-item"><span class="n">f</span> Tu ne parles jamais de tes qualités.</div>
+          <div class="match-item"><span class="n">g</span> Arthur travaille du matin au soir.</div>
+          <div class="match-item"><span class="n">h</span> Je n’aime pas Helmut, il parle toujours de lui.</div>
+        </div>
+        <div class="match-col">
+          <h3>Qualité / défaut</h3>
+          <div class="match-item trait"><span class="n">1</span> égoïste</div>
+          <div class="match-item trait"><span class="n">2</span> prétentieux</div>
+          <div class="match-item trait"><span class="n">3</span> modeste</div>
+          <div class="match-item trait"><span class="n">4</span> pas sympathique</div>
+          <div class="match-item trait"><span class="n">5</span> drôle</div>
+          <div class="match-item trait"><span class="n">6</span> sérieux</div>
+          <div class="match-item trait"><span class="n">7</span> timide</div>
+          <div class="match-item trait"><span class="n">8</span> généreux</div>
+        </div>
+      </div>
+
+      <div class="pair-answer" id="pairs2">
+        <strong>Answers:</strong><br>
+        <strong>a → 4</strong> pas sympathique &nbsp;·&nbsp;
+        <strong>b → 8</strong> généreux &nbsp;·&nbsp;
+        <strong>c → 7</strong> timide &nbsp;·&nbsp;
+        <strong>d → 1</strong> égoïste<br>
+        <strong>e → 5</strong> drôle &nbsp;·&nbsp;
+        <strong>f → 3</strong> modeste &nbsp;·&nbsp;
+        <strong>g → 6</strong> sérieux &nbsp;·&nbsp;
+        <strong>h → 2</strong> prétentieux
+        <div style="margin-top:0.55rem;font-weight:700;color:#3a6070;line-height:1.55;">
+          🇩🇪 a unfreundlich · b großzügig · c schüchtern · d egoistisch ·
+          e lustig · f bescheiden · g ernst/fleißig · h angeberisch
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn" type="button" id="show2">✨ Show all matching answers</button>
+        <button class="btn secondary" type="button" id="hide2">Hide</button>
+        <button class="btn mango" type="button" id="speak2">🔊 Hear adjectives (slow FR)</button>
+      </div>
+    </section>
+
+    <!-- EXERCISE 4 -->
+    <section class="panel" id="ex4">
+      <h2>④ Pronoms relatifs — qui / que</h2>
+      <p class="meta">Make one sentence. Use <strong>qui</strong> (subject) or <strong>que</strong> (object). <em>que</em> + vowel → <em>qu’</em>.</p>
+
+      <div class="ex">
+        <div class="label">Exemple</div>
+        C’est une voisine. La voisine aime sortir avec ses amis.<br>
+        → C’est une voisine <strong>qui</strong> aime sortir avec ses amis.
+      </div>
+
+      <div class="tip">
+        <strong>qui</strong> = replaces the subject (who/which does the action).<br>
+        <strong>que / qu’</strong> = replaces the direct object (whom/which you do something to).
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="letter">a</span> Mes copains vont souvent au restaurant. Le restaurant se trouve à côté de chez moi.</p>
+        <div class="rel-ans" data-speak="Mes copains vont souvent au restaurant qui se trouve à côté de chez moi.">
+          → Mes copains vont souvent au restaurant <span class="qui">qui</span> se trouve à côté de chez moi.
+          <div style="margin-top:0.25rem;font-weight:700;color:#3a6070;">🇩🇪 Meine Freunde gehen oft in das Restaurant, das neben meinem Haus liegt.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="letter">b</span> Nous avons des voisins très sympathiques. Nous fréquentons nos voisins.</p>
+        <div class="rel-ans" data-speak="Nous avons des voisins très sympathiques que nous fréquentons.">
+          → Nous avons des voisins très sympathiques <span class="que">que</span> nous fréquentons.
+          <div style="margin-top:0.25rem;font-weight:700;color:#3a6070;">🇩🇪 Wir haben sehr nette Nachbarn, die wir oft treffen / mit denen wir Umgang haben.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="letter">c</span> Tu connais mon ami Simon. Il fait du tennis avec moi.</p>
+        <div class="rel-ans" data-speak="Tu connais mon ami Simon qui fait du tennis avec moi.">
+          → Tu connais mon ami Simon <span class="qui">qui</span> fait du tennis avec moi.
+          <div style="margin-top:0.25rem;font-weight:700;color:#3a6070;">🇩🇪 Du kennst meinen Freund Simon, der mit mir Tennis spielt.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="letter">d</span> Vous croisez tous les jours des gens. Vous ne connaissez pas ces gens.</p>
+        <div class="rel-ans" data-speak="Vous croisez tous les jours des gens que vous ne connaissez pas.">
+          → Vous croisez tous les jours des gens <span class="que">que</span> vous ne connaissez pas.
+          <div style="margin-top:0.25rem;font-weight:700;color:#3a6070;">🇩🇪 Ihr trefft jeden Tag Leute, die ihr nicht kennt.</div>
+        </div>
+      </div>
+
+      <div class="item">
+        <p class="q"><span class="letter">e</span> Elle s’est fait un nouvel ami. Elle a souvent croisé cet ami dans l’immeuble.</p>
+        <div class="rel-ans" data-speak="Elle s'est fait un nouvel ami qu'elle a souvent croisé dans l'immeuble.">
+          → Elle s’est fait un nouvel ami <span class="que">qu’</span>elle a souvent croisé dans l’immeuble.
+          <div style="margin-top:0.25rem;font-weight:700;color:#3a6070;">🇩🇪 Sie hat einen neuen Freund gefunden, den sie oft im Haus getroffen hat.</div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <button class="btn" type="button" id="show4">✨ Show qui / que answers</button>
+        <button class="btn secondary" type="button" id="hide4">Hide</button>
+        <button class="btn mango" type="button" id="speak4">🔊 Hear sentences (slow FR)</button>
+      </div>
+    </section>
+
+    <footer>
+      French with Frau Clarinda · p.106 · Maya’s answers page ·
+      <a href="clarinda-106-vocab.html" style="color:#2a7aad;font-weight:800;">Pronunciation &amp; translation →</a>
+    </footer>
+  </div>
+
+  <script>
+    let voices = [];
+    function loadVoices() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+    }
+    if (window.speechSynthesis) {
+      loadVoices();
+      speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    function pickVoice(prefix) {
+      const list = voices.filter(v => v.lang.toLowerCase().startsWith(prefix));
+      if (!list.length) return null;
+      const rank = (name) => {
+        const n = name.toLowerCase();
+        if (/google français|google french|thomas|amélie|aurelie|marie|paul|natural|enhanced|premium|neural/i.test(n)) return 3;
+        if (/google|apple|microsoft/i.test(n)) return 2;
+        return 1;
+      };
+      return [...list].sort((a, b) => rank(b.name) - rank(a.name))[0];
+    }
+
+    function speak(text, { slow = true } = {}) {
+      if (!window.speechSynthesis || !text) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = "fr-FR";
+      const voice = pickVoice("fr");
+      if (voice) u.voice = voice;
+      u.rate = slow ? 0.65 : 0.85;
+      speechSynthesis.speak(u);
+    }
+
+    function speakQueue(list) {
+      if (!window.speechSynthesis) return;
+      speechSynthesis.cancel();
+      let i = 0;
+      const next = () => {
+        if (i >= list.length) return;
+        const u = new SpeechSynthesisUtterance(list[i++]);
+        u.lang = "fr-FR";
+        const voice = pickVoice("fr");
+        if (voice) u.voice = voice;
+        u.rate = 0.68;
+        u.onend = () => setTimeout(next, 280);
+        speechSynthesis.speak(u);
+      };
+      next();
+    }
+
+    function markBank(used) {
+      document.querySelectorAll("#bank span").forEach(el => {
+        el.classList.toggle("used", used.has(el.dataset.w));
+      });
+    }
+
+    function showEx1(on) {
+      const used = new Set(["découvrir"]);
+      document.querySelectorAll("#ex1 .blank").forEach(b => {
+        if (on) {
+          b.textContent = b.dataset.ans;
+          b.classList.add("revealed");
+          used.add(b.dataset.ans);
+        } else {
+          b.textContent = "______";
+          b.classList.remove("revealed");
+        }
+      });
+      document.querySelectorAll("#ex1 .answer-line").forEach(el => el.classList.toggle("show", on));
+      markBank(on ? used : new Set());
+    }
+
+    document.getElementById("show1").onclick = () => showEx1(true);
+    document.getElementById("hide1").onclick = () => showEx1(false);
+    document.getElementById("speak1").onclick = () => {
+      showEx1(true);
+      speakQueue([
+        "Je ne les fréquente pas.",
+        "Il a beaucoup d'amis.",
+        "Vous êtes les voisins du cinquième étage ? On se croise parfois dans l'immeuble mais on ne se connaît pas !",
+        "Tu vas faire connaissance avec mon copain !",
+        "Ils ne se parlent jamais."
+      ]);
+    };
+
+    document.getElementById("show2").onclick = () => document.getElementById("pairs2").classList.add("show");
+    document.getElementById("hide2").onclick = () => document.getElementById("pairs2").classList.remove("show");
+    document.getElementById("speak2").onclick = () => {
+      document.getElementById("pairs2").classList.add("show");
+      speakQueue([
+        "pas sympathique",
+        "généreux",
+        "timide",
+        "égoïste",
+        "drôle",
+        "modeste",
+        "sérieux",
+        "prétentieux"
+      ]);
+    };
+
+    function showEx4(on) {
+      document.querySelectorAll("#ex4 .rel-ans").forEach(el => el.classList.toggle("show", on));
+    }
+    document.getElementById("show4").onclick = () => showEx4(true);
+    document.getElementById("hide4").onclick = () => showEx4(false);
+    document.getElementById("speak4").onclick = () => {
+      showEx4(true);
+      const texts = [...document.querySelectorAll("#ex4 .rel-ans")].map(el => el.dataset.speak);
+      speakQueue(texts);
+    };
+  </script>
+</body>
+</html>
