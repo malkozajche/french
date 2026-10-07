@@ -246,12 +246,124 @@
     .answer-key h3 { font-size: 1rem; margin: 0.6rem 0 0.3rem; }
     .answer-key ol { margin-left: 1.2rem; font-weight: 700; line-height: 1.45; }
     .answer-key li { margin-bottom: 0.2rem; }
+    /* —— Gamification —— */
+    @keyframes confetti-fall {
+      to { transform: translateY(105vh) rotate(640deg); opacity: 0; }
+    }
+    #confetti-layer { position: fixed; inset: 0; pointer-events: none; z-index: 80; overflow: hidden; }
+    .confetti {
+      position: absolute; top: -12px; width: 10px; height: 14px; border-radius: 2px;
+      animation: confetti-fall 2.6s ease-in forwards;
+    }
+    .hud {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem;
+      max-width: 640px; margin: 0.85rem auto 0.4rem;
+    }
+    @media (max-width: 560px) { .hud { grid-template-columns: repeat(2, 1fr); } }
+    .hud-card {
+      background: rgba(255,253,248,0.95); border-radius: 14px; padding: 0.55rem 0.7rem;
+      box-shadow: var(--shadow); text-align: center; border: 2px solid rgba(255,255,255,0.9);
+    }
+    .hud-card .k { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: #5a6f88; }
+    .hud-card .v { font-family: var(--font-display); font-size: 1.3rem; color: var(--navy); line-height: 1.1; }
+    .xp-wrap { max-width: 640px; margin: 0.35rem auto 0.6rem; }
+    .xp-label { display: flex; justify-content: space-between; font-weight: 800; font-size: 0.85rem; color: #2d4560; margin-bottom: 0.25rem; }
+    .xp-track { height: 12px; background: rgba(30,42,68,0.12); border-radius: 999px; overflow: hidden; }
+    .xp-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--mango), var(--red)); border-radius: 999px; transition: width 0.35s ease; }
+    .toast {
+      position: fixed; left: 50%; bottom: 1.4rem; transform: translateX(-50%) translateY(120%);
+      background: var(--navy); color: white; padding: 0.75rem 1.15rem; border-radius: 16px;
+      box-shadow: var(--shadow); z-index: 90; font-weight: 700; text-align: center; transition: transform 0.3s ease;
+      max-width: min(90vw, 360px);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast .big { font-family: var(--font-display); font-size: 1.1rem; display: block; }
+    .level-up-flash {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
+      background: rgba(1,33,105,0.45); z-index: 95;
+    }
+    .level-up-flash.on { display: flex; }
+    .level-up-flash .box {
+      background: white; border-radius: 22px; padding: 1.4rem 1.6rem; text-align: center;
+      box-shadow: var(--shadow); border: 4px solid var(--mango);
+    }
+    .level-up-flash h2 { font-family: var(--font-display); font-size: 2rem; color: var(--red-deep); }
+    .game-menu {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.85rem; margin-top: 0.5rem;
+    }
+    .game-card {
+      background: rgba(255,253,248,0.96); border-radius: 18px; padding: 1.05rem 1.1rem;
+      box-shadow: var(--shadow); border: 3px solid white; cursor: pointer; transition: transform 0.15s ease;
+      text-align: left;
+    }
+    .game-card:hover { transform: translateY(-3px); }
+    .game-card h3 { font-family: var(--font-display); font-size: 1.3rem; color: var(--navy); margin-bottom: 0.25rem; }
+    .game-card p { font-weight: 700; color: #3a5570; font-size: 0.9rem; margin-bottom: 0.65rem; }
+    .game-card .play {
+      display: inline-block; font-weight: 800; font-size: 0.85rem; color: white;
+      background: linear-gradient(180deg, var(--red), var(--red-deep)); padding: 0.35rem 0.75rem; border-radius: 999px;
+    }
+    .game-stage {
+      display: none; background: rgba(255,253,248,0.96); border-radius: 22px; padding: 1.15rem 1.1rem 1.35rem;
+      box-shadow: var(--shadow); border: 3px solid white; max-width: 720px; margin: 0 auto; text-align: center;
+    }
+    .game-stage.on { display: block; }
+    .game-top { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; }
+    .game-top h2 { font-family: var(--font-display); color: var(--navy); font-size: 1.4rem; }
+    .game-timer {
+      font-family: var(--font-display); font-size: 1.5rem; min-width: 3rem;
+      background: #eef4fb; border-radius: 12px; padding: 0.2rem 0.65rem; color: var(--navy);
+    }
+    .game-timer.danger { background: #ffe0db; color: var(--red-deep); }
+    .game-combo { min-height: 1.3rem; font-weight: 800; color: var(--mango); margin: 0.3rem 0; }
+    .match-board { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; text-align: left; }
+    @media (max-width: 640px) { .match-board { grid-template-columns: 1fr; } }
+    .match-col h4 { font-family: var(--font-display); color: var(--navy); margin-bottom: 0.4rem; }
+    .match-item, .mem-card {
+      display: block; width: 100%; text-align: left; font-weight: 800; font-size: 0.92rem;
+      padding: 0.65rem 0.75rem; margin-bottom: 0.4rem; border-radius: 12px;
+      border: 3px solid transparent; background: #eef4fb; color: var(--ink); cursor: pointer;
+    }
+    .match-item.selected { border-color: var(--sky); background: #dce9f8; }
+    .match-item.matched { background: #d4f8de; border-color: var(--leaf); opacity: 0.85; }
+    .match-item.shake, .choice.shake { animation: rise 0.35s ease; }
+    .memory-board {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.45rem; margin-top: 0.5rem;
+    }
+    @media (max-width: 560px) { .memory-board { grid-template-columns: repeat(3, 1fr); } }
+    .mem-card {
+      aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+      text-align: center; font-size: 0.78rem; padding: 0.4rem; margin: 0;
+      background: linear-gradient(180deg, var(--navy), var(--navy-soft)); color: white;
+    }
+    .mem-card.face, .mem-card.done {
+      background: #eef4fb; color: var(--ink); border-color: #c5d8ef;
+    }
+    .mem-card.done { background: #d4f8de; border-color: var(--leaf); }
+    .speed-prompt {
+      font-family: var(--font-display); font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+      color: var(--navy); margin: 0.5rem 0 0.8rem; line-height: 1.25;
+    }
+    .badge-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 0.75rem;
+    }
+    .badge-item {
+      background: rgba(255,253,248,0.95); border-radius: 16px; padding: 0.9rem 0.85rem;
+      box-shadow: var(--shadow); text-align: center; opacity: 0.45; filter: grayscale(0.6);
+      border: 3px solid rgba(255,255,255,0.9);
+    }
+    .badge-item.earned { opacity: 1; filter: none; border-color: #ffd166; }
+    .badge-item .emoji { font-size: 2rem; display: block; margin-bottom: 0.25rem; }
+    .badge-item h3 { font-family: var(--font-display); font-size: 1.05rem; color: var(--navy); }
+    .badge-item p { font-size: 0.8rem; font-weight: 700; color: #3a5570; margin-top: 0.2rem; }
+
     @media print {
       @page { size: A4; margin: 12mm; }
       body { background: white !important; }
       .top-nav, nav.tabs, .howto, .filter-row, .search-row, .hint, .count-label,
-      .voice-note, footer, .print-controls, .print-actions,
-      #panel-learn, #panel-practice, #panel-quiz { display: none !important; }
+      .voice-note, footer, .print-controls, .print-actions, .hud, .xp-wrap,
+      #confetti-layer, #toast, #level-flash,
+      #panel-learn, #panel-practice, #panel-quiz, #panel-games, #panel-badges { display: none !important; }
       #panel-print { display: block !important; }
       .worksheet {
         box-shadow: none; border-radius: 0; max-width: none; padding: 0;
@@ -264,6 +376,12 @@
   </style>
 </head>
 <body>
+  <div id="confetti-layer" aria-hidden="true"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="level-flash" class="level-up-flash" aria-hidden="true">
+    <div class="box"><h2>Level up!</h2><p id="level-flash-text" style="font-weight:800;color:#012169;"></p></div>
+  </div>
+
   <div class="wrap">
     <div class="top-nav">
       <a href="index.html">← Maya’s French home</a>
@@ -278,15 +396,27 @@
       <p class="tagline">From <em>the best thing about</em> to <em>tortoise</em> — hear it, see the German, and practise the example sentences the way the test uses them.</p>
       <div class="stats">
         <span class="stat" id="stat-total">0 words</span>
-        <span class="stat">🔊 EN · slow · DE · example</span>
+        <span class="stat">🎮 Games + badges</span>
         <span class="stat">🖨️ 10 words + 3 sentences</span>
+      </div>
+      <div class="hud" aria-label="Progress">
+        <div class="hud-card"><div class="k">Level</div><div class="v" id="hud-level">1</div></div>
+        <div class="hud-card"><div class="k">Stars</div><div class="v" id="hud-xp">0</div></div>
+        <div class="hud-card"><div class="k">Streak</div><div class="v" id="hud-streak">0🔥</div></div>
+        <div class="hud-card"><div class="k">Badges</div><div class="v" id="hud-badges">0</div></div>
+      </div>
+      <div class="xp-wrap">
+        <div class="xp-label"><span id="xp-level-label">Level 1</span><span id="xp-next-label">0 / 100 XP</span></div>
+        <div class="xp-track"><div class="xp-fill" id="xp-fill"></div></div>
       </div>
     </header>
 
     <nav class="tabs" role="tablist">
       <button class="tab-btn active" data-tab="learn" type="button">📚 Learn</button>
       <button class="tab-btn" data-tab="practice" type="button">🎧 Listen</button>
+      <button class="tab-btn" data-tab="games" type="button">🎮 Games</button>
       <button class="tab-btn" data-tab="quiz" type="button">⭐ Quiz</button>
+      <button class="tab-btn" data-tab="badges" type="button">🏅 Badges</button>
       <button class="tab-btn" data-tab="print" type="button">🖨️ Print test</button>
     </nav>
 
@@ -345,6 +475,72 @@
           <button class="btn" id="quiz-again" type="button">Try again</button>
         </div>
       </div>
+    </section>
+
+    <!-- GAMES -->
+    <section id="panel-games" class="panel">
+      <div class="howto">
+        <h2>London practice games</h2>
+        <ol>
+          <li>Earn <strong>stars (XP)</strong> by listening, quizzing, and winning games.</li>
+          <li>Keep your streak hot — unlock Tube badges!</li>
+          <li><strong>Sentence Express</strong> feels most like tomorrow’s test sentences.</li>
+        </ol>
+      </div>
+      <div class="game-menu" id="game-menu">
+        <article class="game-card" data-start-game="match">
+          <h3>🚇 Tube Match</h3>
+          <p>Match English ↔ German. Clear the board for stars.</p>
+          <span class="play">Play →</span>
+        </article>
+        <article class="game-card" data-start-game="memory">
+          <h3>🃏 Memory Flip</h3>
+          <p>Find EN / DE pairs. Great for tricky phrases.</p>
+          <span class="play">Play →</span>
+        </article>
+        <article class="game-card" data-start-game="speed">
+          <h3>⚡ Speed Tube</h3>
+          <p>60 seconds. How many German meanings can you hit?</p>
+          <span class="play">Play →</span>
+        </article>
+        <article class="game-card" data-start-game="sentence">
+          <h3>🚄 Sentence Express</h3>
+          <p>See the German back-translation — pick the English example. Test mode!</p>
+          <span class="play">Play →</span>
+        </article>
+      </div>
+      <div class="game-stage" id="game-stage">
+        <div class="game-top">
+          <h2 id="game-title">Game</h2>
+          <div class="game-timer" id="game-timer">--</div>
+        </div>
+        <p class="q-meta" id="game-meta"></p>
+        <p class="game-combo" id="game-combo"></p>
+        <div id="game-body"></div>
+        <p class="feedback" id="game-feedback"></p>
+        <div class="cta-row" id="game-cta" style="display:none">
+          <button class="btn mango" id="game-again" type="button">Play again</button>
+          <button class="btn secondary" id="game-menu-btn" type="button">All games</button>
+        </div>
+        <div class="cta-row">
+          <button class="btn coral" id="game-quit" type="button">← Quit</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BADGES -->
+    <section id="panel-badges" class="panel">
+      <div class="howto">
+        <h2>Maya’s London badges</h2>
+        <ol>
+          <li>Listen, quiz, and play games to unlock badges on this device.</li>
+          <li>Progress is saved in the browser — same phone/laptop keeps your stars.</li>
+        </ol>
+      </div>
+      <div class="cta-row" style="margin-bottom:0.9rem">
+        <button class="btn secondary" id="reset-progress" type="button">Reset progress</button>
+      </div>
+      <div class="badge-grid" id="badge-grid"></div>
     </section>
 
     <!-- PRINT -->
@@ -657,7 +853,7 @@
       document.getElementById("stat-total").textContent = `${VOCAB.length} words`;
       document.getElementById("count-label").textContent = `Showing ${list.length} of ${VOCAB.length}`;
       document.getElementById("grid").innerHTML = list.map(v => `
-        <article class="card">
+        <article class="card" data-id="${v.id}">
           <span class="badge">p.${escapeHtml(v.page)}</span>
           <div class="icon">${v.icon}</div>
           <div class="en">${escapeHtml(v.en)}</div>
@@ -695,6 +891,8 @@
       const btn = e.target.closest("[data-speak]");
       if (!btn) return;
       speak(btn.dataset.text, btn.dataset.speak, { slow: btn.dataset.slow === "1" });
+      const card = btn.closest(".card");
+      if (card?.dataset.id) GameSave.onHear(card.dataset.id);
     });
 
     // Tabs
@@ -706,6 +904,8 @@
         const name = btn.dataset.tab;
         document.getElementById("panel-" + name).classList.add("active");
         if (name === "practice") startPractice();
+        if (name === "games") showGameMenu();
+        if (name === "badges") renderBadges();
         if (name === "print" && !document.getElementById("worksheet").dataset.ready) generateWorksheet();
       });
     });
@@ -746,10 +946,12 @@
           fb.textContent = "✅ Yes! " + item.en;
           fb.className = "feedback good";
           speak(item.ex, "en");
+          GameSave.onListenCorrect();
         } else {
           b.classList.add("wrong");
           fb.textContent = "❌ " + item.en + " = " + item.de;
           fb.className = "feedback bad";
+          GameSave.onListenWrong();
         }
       };
     }
@@ -787,6 +989,7 @@
         document.getElementById("quiz-bar-wrap").style.display = "none";
         document.getElementById("quiz-end").style.display = "block";
         document.getElementById("quiz-score").textContent = `${quizScore} / ${quizItems.length}`;
+        GameSave.onQuizDone(quizScore, quizItems.length);
         return;
       }
       const w = q.word;
@@ -829,10 +1032,12 @@
           b.classList.add("correct");
           fb.textContent = "✅ Super!";
           fb.className = "feedback good";
+          GameSave.onQuizAnswer(true);
         } else {
           b.classList.add("wrong");
           fb.textContent = "❌ " + w.en + " — " + w.ex;
           fb.className = "feedback bad";
+          GameSave.onQuizAnswer(false);
         }
         setTimeout(() => { quizIdx++; showQuiz(); }, 900);
       };
@@ -915,8 +1120,435 @@
       window.print();
     };
 
+    /* ========== GAMIFICATION ========== */
+    const SAVE_KEY = "maya-english-london-save-v1";
+    const XP_PER_LEVEL = 100;
+
+    const BADGE_DEFS = [
+      { id: "first-hear", emoji: "🎧", name: "Ear for English", desc: "Hear your first word", check: s => Object.keys(s.heardIds || {}).length >= 1 },
+      { id: "hear-15", emoji: "🔊", name: "Loudspeaker", desc: "Hear 15 different words", check: s => Object.keys(s.heardIds || {}).length >= 15 },
+      { id: "hear-all", emoji: "📚", name: "Word Collector", desc: "Hear every word once", check: s => Object.keys(s.heardIds || {}).length >= VOCAB.length },
+      { id: "listen-10", emoji: "👂", name: "Sharp Ears", desc: "Get 10 listen answers right", check: s => s.listenCorrect >= 10 },
+      { id: "quiz-done", emoji: "⭐", name: "Quiz Rookie", desc: "Finish a quiz", check: s => s.quizzesFinished >= 1 },
+      { id: "quiz-ace", emoji: "👑", name: "Quiz Queen", desc: "Score 90%+ on a quiz", check: s => s.bestQuizRatio >= 0.9 },
+      { id: "streak-5", emoji: "🔥", name: "On Fire", desc: "Get a streak of 5", check: s => s.bestStreak >= 5 },
+      { id: "streak-10", emoji: "☄️", name: "Unstoppable", desc: "Get a streak of 10", check: s => s.bestStreak >= 10 },
+      { id: "match-win", emoji: "🚇", name: "Tube Matcher", desc: "Win Tube Match", check: s => s.games.matchWins >= 1 },
+      { id: "memory-win", emoji: "🧠", name: "Memory Champ", desc: "Win Memory Flip", check: s => s.games.memoryWins >= 1 },
+      { id: "speed-12", emoji: "⚡", name: "Speed Rider", desc: "Score 12+ in Speed Tube", check: s => s.games.bestSpeed >= 12 },
+      { id: "sentence-win", emoji: "🚄", name: "Express Star", desc: "Win Sentence Express", check: s => s.games.sentenceWins >= 1 },
+      { id: "level-5", emoji: "🌉", name: "Bridge Regular", desc: "Reach level 5", check: s => levelFromXp(s.xp) >= 5 },
+      { id: "level-10", emoji: "🏆", name: "London Legend", desc: "Reach level 10", check: s => levelFromXp(s.xp) >= 10 },
+      { id: "stars-300", emoji: "✨", name: "Star Hoarder", desc: "Earn 300 total stars", check: s => s.xp >= 300 }
+    ];
+
+    function defaultSave() {
+      return {
+        xp: 0, streak: 0, bestStreak: 0,
+        heardIds: {}, listenCorrect: 0,
+        quizzesFinished: 0, bestQuizRatio: 0,
+        badges: {},
+        games: { matchWins: 0, memoryWins: 0, bestSpeed: 0, sentenceWins: 0 }
+      };
+    }
+
+    function loadSave() {
+      try {
+        const raw = localStorage.getItem(SAVE_KEY);
+        if (!raw) return defaultSave();
+        const parsed = JSON.parse(raw);
+        return { ...defaultSave(), ...parsed, games: { ...defaultSave().games, ...(parsed.games || {}) } };
+      } catch { return defaultSave(); }
+    }
+
+    let state = loadSave();
+
+    function persist() {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+      renderHUD();
+      checkBadges();
+    }
+
+    function levelFromXp(xp) { return Math.floor(xp / XP_PER_LEVEL) + 1; }
+    function xpIntoLevel(xp) { return xp % XP_PER_LEVEL; }
+
+    function burstConfetti() {
+      const layer = document.getElementById("confetti-layer");
+      const colors = ["#c8102e", "#012169", "#e8a317", "#2f9e6b", "#fff", "#5b9bd5"];
+      for (let i = 0; i < 36; i++) {
+        const bit = document.createElement("div");
+        bit.className = "confetti";
+        bit.style.left = Math.random() * 100 + "vw";
+        bit.style.background = colors[i % colors.length];
+        bit.style.animationDelay = (Math.random() * 0.4) + "s";
+        layer.appendChild(bit);
+        setTimeout(() => bit.remove(), 2800);
+      }
+    }
+
+    function renderHUD() {
+      const level = levelFromXp(state.xp);
+      const into = xpIntoLevel(state.xp);
+      document.getElementById("hud-level").textContent = level;
+      document.getElementById("hud-xp").textContent = state.xp;
+      document.getElementById("hud-streak").textContent = state.streak + "🔥";
+      document.getElementById("hud-badges").textContent = Object.keys(state.badges).length;
+      document.getElementById("xp-level-label").textContent = "Level " + level;
+      document.getElementById("xp-next-label").textContent = into + " / " + XP_PER_LEVEL + " XP";
+      document.getElementById("xp-fill").style.width = (into / XP_PER_LEVEL * 100) + "%";
+    }
+
+    function showToast(title, sub) {
+      const el = document.getElementById("toast");
+      el.innerHTML = `<span class="big">${title}</span>${sub || ""}`;
+      el.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => el.classList.remove("show"), 2400);
+    }
+
+    function flashLevel(level) {
+      const flash = document.getElementById("level-flash");
+      document.getElementById("level-flash-text").textContent = "You're now Level " + level + "!";
+      flash.classList.add("on");
+      burstConfetti();
+      setTimeout(() => flash.classList.remove("on"), 1800);
+    }
+
+    function addXp(amount, reason) {
+      const before = levelFromXp(state.xp);
+      state.xp += amount;
+      const after = levelFromXp(state.xp);
+      persist();
+      if (reason) showToast("+" + amount + " ⭐", reason);
+      if (after > before) flashLevel(after);
+    }
+
+    function bumpStreak(correct) {
+      if (correct) {
+        state.streak += 1;
+        if (state.streak > state.bestStreak) state.bestStreak = state.streak;
+        if (state.streak > 0 && state.streak % 5 === 0) addXp(15, "Streak x" + state.streak + "!");
+      } else {
+        state.streak = 0;
+      }
+      persist();
+    }
+
+    function checkBadges() {
+      const unlocked = [];
+      BADGE_DEFS.forEach(b => {
+        if (!state.badges[b.id] && b.check(state)) {
+          state.badges[b.id] = Date.now();
+          unlocked.push(b);
+        }
+      });
+      if (unlocked.length) {
+        localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+        renderHUD();
+        unlocked.forEach((b, i) => setTimeout(() => {
+          showToast(b.emoji + " Badge unlocked!", b.name);
+          burstConfetti();
+        }, i * 700));
+        if (document.getElementById("panel-badges").classList.contains("active")) renderBadges();
+      }
+    }
+
+    function renderBadges() {
+      document.getElementById("badge-grid").innerHTML = BADGE_DEFS.map(b => {
+        const earned = !!state.badges[b.id];
+        return `<article class="badge-item${earned ? " earned" : ""}">
+          <span class="emoji">${b.emoji}</span>
+          <h3>${escapeHtml(b.name)}</h3>
+          <p>${escapeHtml(b.desc)}</p>
+          <p style="margin-top:0.35rem;font-size:0.75rem;opacity:0.85;">${earned ? "✅ Unlocked" : "🔒 Locked"}</p>
+        </article>`;
+      }).join("");
+    }
+
+    const GameSave = {
+      onHear(id) {
+        const wasNew = !state.heardIds[id];
+        state.heardIds[id] = true;
+        persist();
+        if (wasNew) addXp(2, "New word heard");
+      },
+      onListenCorrect() {
+        state.listenCorrect += 1;
+        bumpStreak(true);
+        addXp(5, "Nice listen!");
+      },
+      onListenWrong() { bumpStreak(false); },
+      onQuizAnswer(correct) {
+        bumpStreak(correct);
+        if (correct) addXp(6, "Quiz hit!");
+      },
+      onQuizDone(score, total) {
+        state.quizzesFinished += 1;
+        const ratio = total ? score / total : 0;
+        if (ratio > state.bestQuizRatio) state.bestQuizRatio = ratio;
+        addXp(20 + Math.round(ratio * 30), "Quiz finished!");
+        persist();
+      }
+    };
+
+    document.getElementById("reset-progress").addEventListener("click", () => {
+      if (!confirm("Reset all stars, badges, and streaks on this device?")) return;
+      state = defaultSave();
+      persist();
+      renderBadges();
+      showToast("Progress reset", "Fresh start!");
+    });
+
+    /* —— Games —— */
+    let gameTimerId = null;
+    let gameAgainFn = null;
+
+    function showGameMenu() {
+      stopGameTimer();
+      document.getElementById("game-menu").style.display = "grid";
+      document.getElementById("game-stage").classList.remove("on");
+      document.getElementById("game-cta").style.display = "none";
+    }
+
+    function openGameStage(title) {
+      document.getElementById("game-menu").style.display = "none";
+      document.getElementById("game-stage").classList.add("on");
+      document.getElementById("game-title").textContent = title;
+      document.getElementById("game-feedback").textContent = "";
+      document.getElementById("game-combo").textContent = "";
+      document.getElementById("game-cta").style.display = "none";
+      document.getElementById("game-timer").textContent = "--";
+      document.getElementById("game-timer").classList.remove("danger");
+    }
+
+    function stopGameTimer() {
+      if (gameTimerId) { clearInterval(gameTimerId); gameTimerId = null; }
+    }
+
+    function endGame(msg, xp, winKey) {
+      stopGameTimer();
+      document.getElementById("game-feedback").textContent = msg;
+      document.getElementById("game-feedback").className = "feedback good";
+      document.getElementById("game-cta").style.display = "flex";
+      if (winKey === "match") state.games.matchWins += 1;
+      if (winKey === "memory") state.games.memoryWins += 1;
+      if (winKey === "sentence") state.games.sentenceWins += 1;
+      persist();
+      if (xp) addXp(xp, "Game reward!");
+      burstConfetti();
+    }
+
+    document.getElementById("game-menu").addEventListener("click", e => {
+      const card = e.target.closest("[data-start-game]");
+      if (!card) return;
+      const g = card.dataset.startGame;
+      if (g === "match") startMatchGame();
+      if (g === "memory") startMemoryGame();
+      if (g === "speed") startSpeedGame();
+      if (g === "sentence") startSentenceGame();
+    });
+    document.getElementById("game-quit").addEventListener("click", showGameMenu);
+    document.getElementById("game-menu-btn").addEventListener("click", showGameMenu);
+    document.getElementById("game-again").addEventListener("click", () => { if (gameAgainFn) gameAgainFn(); });
+
+    function startMatchGame() {
+      gameAgainFn = startMatchGame;
+      openGameStage("🚇 Tube Match");
+      const words = shuffle(VOCAB).slice(0, 6);
+      const left = shuffle(words);
+      const right = shuffle(words);
+      let selected = null;
+      let matched = 0;
+      document.getElementById("game-meta").textContent = "Match English ↔ German";
+      document.getElementById("game-body").innerHTML = `
+        <div class="match-board">
+          <div class="match-col"><h4>English</h4>${left.map(w =>
+            `<button type="button" class="match-item" data-side="en" data-id="${w.id}">${w.icon} ${escapeHtml(w.en)}</button>`
+          ).join("")}</div>
+          <div class="match-col"><h4>German</h4>${right.map(w =>
+            `<button type="button" class="match-item" data-side="de" data-id="${w.id}">${escapeHtml(w.de)}</button>`
+          ).join("")}</div>
+        </div>`;
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".match-item");
+        if (!btn || btn.classList.contains("matched")) return;
+        if (!selected) { selected = btn; btn.classList.add("selected"); return; }
+        if (selected === btn) { btn.classList.remove("selected"); selected = null; return; }
+        if (selected.dataset.side === btn.dataset.side) {
+          selected.classList.remove("selected");
+          selected = btn; btn.classList.add("selected"); return;
+        }
+        const a = selected, b = btn;
+        a.classList.remove("selected");
+        if (a.dataset.id === b.dataset.id) {
+          a.classList.add("matched"); b.classList.add("matched");
+          matched++; bumpStreak(true); addXp(8, "Match!");
+          const word = VOCAB.find(v => v.id === a.dataset.id);
+          if (word) speak(word.en, "en");
+          selected = null;
+          if (matched >= words.length) endGame("Board cleared — Tube Match win!", 40, "match");
+        } else {
+          bumpStreak(false);
+          selected = null;
+        }
+      };
+    }
+
+    function startMemoryGame() {
+      gameAgainFn = startMemoryGame;
+      openGameStage("🃏 Memory Flip");
+      const words = shuffle(VOCAB).slice(0, 6);
+      const tiles = shuffle([
+        ...words.map(w => ({ id: w.id, kind: "en", label: w.en, icon: w.icon })),
+        ...words.map(w => ({ id: w.id, kind: "de", label: w.de, icon: w.icon }))
+      ]);
+      let open = [];
+      let locked = false;
+      let matched = 0;
+      document.getElementById("game-meta").textContent = "Find the EN / DE pairs";
+      document.getElementById("game-body").innerHTML = `<div class="memory-board">${tiles.map((t, i) =>
+        `<button type="button" class="mem-card" data-i="${i}" data-id="${t.id}" data-kind="${t.kind}" data-label="${escapeAttr(t.icon + " " + t.label)}">?</button>`
+      ).join("")}</div>`;
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".mem-card");
+        if (!btn || locked || btn.classList.contains("done") || btn.classList.contains("face")) return;
+        btn.classList.add("face");
+        btn.textContent = btn.dataset.label;
+        open.push(btn);
+        if (open.length < 2) return;
+        locked = true;
+        const [a, b] = open;
+        if (a.dataset.id === b.dataset.id && a.dataset.kind !== b.dataset.kind) {
+          a.classList.add("done"); b.classList.add("done");
+          matched++; bumpStreak(true); addXp(10, "Pair found!");
+          const word = VOCAB.find(v => v.id === a.dataset.id);
+          if (word) speak(word.en, "en");
+          open = []; locked = false;
+          if (matched >= words.length) endGame("Memory mastered!", 50, "memory");
+        } else {
+          bumpStreak(false);
+          setTimeout(() => {
+            a.classList.remove("face"); b.classList.remove("face");
+            a.textContent = "?"; b.textContent = "?";
+            open = []; locked = false;
+          }, 700);
+        }
+      };
+    }
+
+    function startSpeedGame() {
+      gameAgainFn = startSpeedGame;
+      openGameStage("⚡ Speed Tube");
+      let timeLeft = 60;
+      let score = 0;
+      let combo = 0;
+      let current = null;
+      document.getElementById("game-meta").textContent = "Score: 0";
+      const timerEl = document.getElementById("game-timer");
+      timerEl.textContent = timeLeft;
+
+      function nextQ() {
+        current = shuffle(VOCAB)[0];
+        const opts = shuffle([current, ...shuffle(VOCAB.filter(v => v.id !== current.id)).slice(0, 2)]);
+        document.getElementById("game-body").innerHTML = `
+          <div class="speed-prompt">${current.icon}<br>What means: “${escapeHtml(current.en)}”?</div>
+          <div class="choices">${opts.map(o =>
+            `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.de)}</button>`
+          ).join("")}</div>`;
+      }
+      nextQ();
+      stopGameTimer();
+      gameTimerId = setInterval(() => {
+        timeLeft--;
+        timerEl.textContent = timeLeft;
+        if (timeLeft <= 10) timerEl.classList.add("danger");
+        if (timeLeft <= 0) {
+          stopGameTimer();
+          if (score > state.games.bestSpeed) state.games.bestSpeed = score;
+          persist();
+          endGame(`Time! You scored ${score} ⚡`, 25 + score * 2, null);
+          document.getElementById("game-body").onclick = null;
+        }
+      }, 1000);
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".choice");
+        if (!btn || timeLeft <= 0) return;
+        if (btn.dataset.id === current.id) {
+          combo++;
+          score += 1 + Math.floor(combo / 3);
+          bumpStreak(true);
+          document.getElementById("game-combo").textContent = combo >= 3 ? `Combo x${combo}!` : "";
+          document.getElementById("game-meta").textContent = "Score: " + score;
+          speak(current.en, "en");
+          nextQ();
+        } else {
+          combo = 0;
+          bumpStreak(false);
+          document.getElementById("game-combo").textContent = "Combo broken";
+          btn.classList.add("wrong");
+          setTimeout(() => nextQ(), 350);
+        }
+      };
+    }
+
+    function startSentenceGame() {
+      gameAgainFn = startSentenceGame;
+      openGameStage("🚄 Sentence Express");
+      const queue = shuffle(VOCAB.filter(v => v.ex && v.exDe)).slice(0, 8);
+      let i = 0, score = 0;
+      document.getElementById("game-timer").textContent = "TEST";
+      document.getElementById("game-meta").textContent = "German → English example";
+
+      function render() {
+        const word = queue[i];
+        if (!word) {
+          if (score >= 6) {
+            endGame(`Express arrived! ${score}/${queue.length} 🚄`, 35 + score * 3, "sentence");
+          } else {
+            endGame(`Nice try — ${score}/${queue.length}. Ride again!`, 15 + score * 2, score >= 5 ? "sentence" : null);
+          }
+          return;
+        }
+        document.getElementById("game-meta").textContent = `Sentence ${i + 1} / ${queue.length}`;
+        const opts = shuffle([word, ...shuffle(VOCAB.filter(v => v.id !== word.id && v.ex)).slice(0, 2)]);
+        document.getElementById("game-body").innerHTML = `
+          <div class="speed-prompt">Translate to English:<br><em style="font-size:0.85em;color:#3a5570">${escapeHtml(word.exDe)}</em></div>
+          <div class="choices">${opts.map(o =>
+            `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.ex)}</button>`
+          ).join("")}</div>`;
+      }
+      render();
+
+      document.getElementById("game-body").onclick = e => {
+        const btn = e.target.closest(".choice");
+        if (!btn || !queue[i]) return;
+        const word = queue[i];
+        [...document.querySelectorAll("#game-body .choice")].forEach(c => c.disabled = true);
+        if (btn.dataset.id === word.id) {
+          score++;
+          bumpStreak(true);
+          addXp(8, "Sentence hit!");
+          btn.classList.add("correct");
+          document.getElementById("game-feedback").textContent = "✅ " + word.ex;
+          document.getElementById("game-feedback").className = "feedback good";
+          speak(word.ex, "en");
+        } else {
+          bumpStreak(false);
+          btn.classList.add("wrong");
+          document.getElementById("game-feedback").textContent = "❌ " + word.ex;
+          document.getElementById("game-feedback").className = "feedback bad";
+        }
+        setTimeout(() => { i++; document.getElementById("game-feedback").textContent = ""; render(); }, 850);
+      };
+    }
+
+    renderHUD();
     renderFilters();
     renderGrid();
   </script>
 </body>
 </html>
+
