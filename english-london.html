@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unit 1 · This is London — Maya’s English Vocab</title>
+  <meta name="description" content="English Unit 1 vocabulary for Maya: pronunciation, German meanings, example sentences with German back-translations, quiz and printable test (10 words + 3 sentences)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1e2a44;
+      --red: #c8102e;
+      --red-deep: #9a0c22;
+      --navy: #012169;
+      --navy-soft: #1e3a6e;
+      --sky: #5b9bd5;
+      --leaf: #2f9e6b;
+      --leaf-deep: #1f7a52;
+      --mango: #e8a317;
+      --paper: #fffdf8;
+      --shadow: 0 12px 28px rgba(30, 42, 68, 0.14);
+      --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+      --font-body: "Nunito", "Trebuchet MS", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -12%, #9ec5e8 0%, transparent 55%),
+        radial-gradient(circle at 92% 18%, rgba(200, 16, 46, 0.18), transparent 26%),
+        linear-gradient(180deg, #6ea8d8 0%, #e8f1fa 40%, #f7f9fc 100%);
+      background-attachment: fixed;
+    }
+    .wrap { width: min(1100px, 94vw); margin: 0 auto; padding: 1rem 0 3rem; }
+    .top-nav {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: space-between; margin-bottom: 0.7rem;
+    }
+    .top-nav a {
+      font-weight: 800; text-decoration: none; color: var(--navy);
+      background: rgba(255,255,255,0.8); padding: 0.4rem 0.85rem; border-radius: 999px;
+      border: 2px solid rgba(1, 33, 105, 0.2);
+    }
+    header.hero { text-align: center; padding: 0.35rem 0.3rem 0.85rem; animation: rise 0.5s ease both; }
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 5.8vw, 3rem);
+      line-height: 1.05; color: var(--navy);
+    }
+    .brand span {
+      display: block; margin-top: 0.28rem; font-size: 0.38em;
+      letter-spacing: 0.03em; text-transform: uppercase; color: var(--red);
+    }
+    .tagline {
+      margin: 0.55rem auto 0; max-width: 38rem; font-weight: 700; color: #2d4560; font-size: 1.02rem;
+    }
+    .stats { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.75rem; }
+    .stat {
+      font-weight: 800; font-size: 0.82rem; background: white; border-radius: 999px;
+      padding: 0.32rem 0.75rem; box-shadow: var(--shadow); color: #243a58;
+    }
+    nav.tabs {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin: 0.95rem 0 1rem;
+    }
+    .tab-btn, .speak-btn, .chip, .btn, .choice { font-family: var(--font-body); cursor: pointer; }
+    .tab-btn {
+      font-family: var(--font-display); font-size: 1.05rem; border: none;
+      padding: 0.55rem 1.1rem; border-radius: 999px;
+      background: rgba(255,255,255,0.72); color: var(--ink);
+      box-shadow: 0 4px 0 rgba(30, 42, 68, 0.1);
+    }
+    .tab-btn.active {
+      background: linear-gradient(180deg, var(--red), var(--red-deep));
+      color: white; box-shadow: 0 5px 0 #6e0818;
+    }
+    .panel { display: none; animation: rise 0.4s ease both; }
+    .panel.active { display: block; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    .howto {
+      background: rgba(255,253,248,0.94); border: 2px solid rgba(255,255,255,0.95);
+      border-radius: 16px; padding: 0.95rem 1.1rem; margin: 0 auto 1rem; max-width: 740px; box-shadow: var(--shadow);
+    }
+    .howto h2 { font-family: var(--font-display); color: var(--navy); font-size: 1.3rem; margin-bottom: 0.25rem; }
+    .howto ol { margin-left: 1.15rem; font-weight: 600; line-height: 1.5; }
+    .filter-row, .search-row {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 0.75rem;
+    }
+    .chip {
+      font-weight: 800; font-size: 0.8rem; border: none; border-radius: 999px;
+      padding: 0.38rem 0.8rem; background: rgba(255,255,255,0.75); color: var(--ink);
+    }
+    .chip.active { background: var(--navy); color: white; }
+    #search {
+      width: min(420px, 92vw); font: inherit; font-weight: 700;
+      padding: 0.65rem 1rem; border-radius: 999px; border: 2px solid rgba(1, 33, 105, 0.25);
+      background: white; outline: none;
+    }
+    .hint, .count-label, .voice-note, footer {
+      text-align: center; font-weight: 700; color: #2d4560; margin-bottom: 0.7rem;
+    }
+    .voice-note, footer { margin-top: 1rem; font-size: 0.9rem; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.9rem;
+    }
+    .card {
+      background: rgba(255,253,248,0.96); border-radius: 18px; padding: 1rem 1.05rem 1.1rem;
+      box-shadow: var(--shadow); border: 3px solid rgba(255,255,255,0.95);
+      text-align: left; position: relative; transition: transform 0.15s ease;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card .icon { font-size: 1.65rem; margin-bottom: 0.2rem; display: inline-block; }
+    .card .en {
+      font-family: var(--font-display); font-size: 1.28rem; color: var(--navy); line-height: 1.2;
+      padding-right: 3.4rem;
+    }
+    .card .ipa { font-size: 0.85rem; color: #5a6f88; font-weight: 700; margin-top: 0.15rem; }
+    .badge {
+      position: absolute; top: 0.65rem; right: 0.65rem; font-size: 0.65rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.04em; padding: 0.22rem 0.48rem;
+      border-radius: 999px; background: #dce9f8; color: var(--navy);
+    }
+    .lang-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.55rem 0 0.45rem; }
+    .speak-btn {
+      font-weight: 800; font-size: 0.75rem; border: none; border-radius: 999px; padding: 0.35rem 0.7rem;
+    }
+    .speak-btn.en-btn { background: #cfe0f5; color: var(--navy); }
+    .speak-btn.slow-btn { background: #ffe2a8; color: #7a4a00; }
+    .speak-btn.de-btn { background: #ffd4cc; color: #a32a1d; }
+    .speak-btn.ex-btn { background: #d8f5e0; color: #1c6b3a; }
+    .meta-line { font-size: 0.95rem; font-weight: 700; margin: 0.15rem 0; }
+    .meta-line .label {
+      display: inline-block; min-width: 2.1rem; font-size: 0.7rem; opacity: 0.65; text-transform: uppercase;
+    }
+    .ex-box {
+      margin-top: 0.55rem; padding: 0.55rem 0.65rem; border-radius: 12px;
+      background: #eef5fc; border-left: 4px solid var(--sky); font-weight: 700; font-size: 0.9rem; line-height: 1.4;
+    }
+    .ex-box .de-ex {
+      margin-top: 0.35rem; color: #3a5570; font-size: 0.88rem;
+      padding-top: 0.35rem; border-top: 1px dashed rgba(30, 58, 100, 0.2);
+    }
+    .note {
+      margin-top: 0.4rem; font-size: 0.8rem; font-weight: 700; color: #6a5060; font-style: italic;
+    }
+    .stage {
+      background: rgba(255,253,248,0.96); border-radius: 22px; padding: 1.3rem 1.15rem 1.45rem;
+      box-shadow: var(--shadow); border: 3px solid white; max-width: 660px; margin: 0 auto; text-align: center;
+    }
+    .progress-bar {
+      height: 12px; background: rgba(30, 42, 68, 0.1); border-radius: 999px; overflow: hidden; margin: 0.75rem 0 1rem;
+    }
+    .progress-fill {
+      height: 100%; width: 0%; background: linear-gradient(90deg, var(--leaf), #7ed957);
+      border-radius: 999px; transition: width 0.3s ease;
+    }
+    .q-meta { font-weight: 800; color: #3a5570; }
+    .q-prompt {
+      font-family: var(--font-display); font-size: clamp(1.3rem, 4vw, 1.85rem);
+      color: var(--navy); margin: 0.4rem 0; line-height: 1.2;
+    }
+    .choices { display: grid; gap: 0.55rem; margin-top: 0.9rem; }
+    .choice {
+      font-weight: 800; font-size: 1rem; padding: 0.85rem 0.9rem; border-radius: 14px;
+      border: 3px solid transparent; background: #eef4fb; color: var(--ink); text-align: left;
+    }
+    .choice.correct { background: #d4f8de; border-color: var(--leaf); }
+    .choice.wrong { background: #ffe0db; border-color: var(--red); }
+    .choice:disabled { cursor: default; }
+    .feedback { min-height: 1.5rem; margin-top: 0.75rem; font-weight: 800; }
+    .feedback.good { color: #1c6b3a; }
+    .feedback.bad { color: #a32a1d; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+    .btn {
+      font-family: var(--font-display); font-size: 1.08rem; border: none; border-radius: 999px;
+      padding: 0.65rem 1.25rem; color: white;
+      background: linear-gradient(180deg, var(--leaf), var(--leaf-deep)); box-shadow: 0 5px 0 #145c3c;
+    }
+    .btn.secondary {
+      background: linear-gradient(180deg, var(--sky), #3a7eb0); box-shadow: 0 5px 0 #2a5f85;
+    }
+    .btn.coral {
+      background: linear-gradient(180deg, var(--red), var(--red-deep)); box-shadow: 0 5px 0 #6e0818;
+    }
+    .btn.mango {
+      background: linear-gradient(180deg, var(--mango), #c4860a); box-shadow: 0 5px 0 #9a6a08; color: #2a1a00;
+    }
+    .listen-big {
+      width: 70px; height: 70px; border-radius: 50%; border: none;
+      background: linear-gradient(180deg, var(--red), var(--red-deep));
+      color: white; font-size: 1.7rem; cursor: pointer; box-shadow: 0 6px 0 #6e0818;
+      margin: 0.55rem auto; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .score-big {
+      font-family: var(--font-display); font-size: clamp(2.4rem, 7vw, 3.5rem);
+      color: var(--red-deep); line-height: 1; margin: 0.4rem 0;
+    }
+    .print-controls {
+      background: rgba(255,253,248,0.96); border-radius: 18px; padding: 1.1rem 1.15rem;
+      box-shadow: var(--shadow); border: 3px solid white; max-width: 720px; margin: 0 auto 1rem; text-align: center;
+    }
+    .print-controls h2 { font-family: var(--font-display); color: var(--navy); font-size: 1.4rem; }
+    .print-controls p { font-weight: 700; color: #3a5570; margin: 0.4rem 0 0.8rem; }
+    .print-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .worksheet {
+      background: white; border-radius: 12px; padding: 1.2rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow); max-width: 820px; margin: 0 auto; color: #111;
+    }
+    .worksheet-header { border-bottom: 2px solid #222; padding-bottom: 0.55rem; margin-bottom: 0.7rem; }
+    .worksheet-header h1 { font-family: var(--font-display); font-size: 1.45rem; color: #111; }
+    .worksheet-header .sub { font-weight: 700; color: #444; font-size: 0.92rem; margin-top: 0.15rem; }
+    .ws-meta {
+      display: flex; flex-wrap: wrap; gap: 1rem; font-weight: 700; margin: 0.55rem 0 0.7rem; font-size: 0.95rem;
+    }
+    .ws-meta span { border-bottom: 1px solid #999; min-width: 8rem; padding-bottom: 0.1rem; }
+    .ws-section-title {
+      font-family: var(--font-display); font-size: 1.15rem; margin: 0.85rem 0 0.45rem; color: #111;
+    }
+    .ws-legend { font-weight: 700; font-size: 0.88rem; color: #444; margin-bottom: 0.45rem; }
+    .ws-list { list-style: none; counter-reset: ws; }
+    .ws-item {
+      counter-increment: ws; display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.35rem;
+      align-items: baseline; padding: 0.28rem 0; border-bottom: 1px dotted #ccc;
+      font-weight: 700; font-size: 0.95rem; page-break-inside: avoid;
+    }
+    .ws-item::before { content: counter(ws) "."; font-weight: 800; color: #333; }
+    .ws-prompt { line-height: 1.35; }
+    .write-line {
+      display: block; margin-top: 0.2rem; border-bottom: 1.5px solid #333; height: 1.15rem; width: 100%;
+    }
+    .dir-pill {
+      display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 0.12rem 0.4rem;
+      border-radius: 999px; background: #dce9f8; color: var(--navy); margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+    .dir-pill.sent { background: #ffe2a8; color: #7a4a00; }
+    .answer-key {
+      margin-top: 1.5rem; padding-top: 1rem; border-top: 2px dashed #999;
+    }
+    .answer-key h2 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .answer-key h3 { font-size: 1rem; margin: 0.6rem 0 0.3rem; }
+    .answer-key ol { margin-left: 1.2rem; font-weight: 700; line-height: 1.45; }
+    .answer-key li { margin-bottom: 0.2rem; }
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: white !important; }
+      .top-nav, nav.tabs, .howto, .filter-row, .search-row, .hint, .count-label,
+      .voice-note, footer, .print-controls, .print-actions,
+      #panel-learn, #panel-practice, #panel-quiz { display: none !important; }
+      #panel-print { display: block !important; }
+      .worksheet {
+        box-shadow: none; border-radius: 0; max-width: none; padding: 0;
+      }
+      .ws-item { padding: 0.18rem 0; font-size: 10.5pt; }
+      .write-line { height: 0.95rem; }
+      .answer-key { break-before: page; page-break-before: always; margin-top: 0; border-top: none; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="index.html">← Maya’s French home</a>
+      <a href="clarinda-106.html">Frau Clarinda →</a>
+    </div>
+
+    <header class="hero">
+      <h1 class="brand">
+        This is London
+        <span>Unit 1 Vocabulary · English test prep for Maya</span>
+      </h1>
+      <p class="tagline">From <em>the best thing about</em> to <em>tortoise</em> — hear it, see the German, and practise the example sentences the way the test uses them.</p>
+      <div class="stats">
+        <span class="stat" id="stat-total">0 words</span>
+        <span class="stat">🔊 EN · slow · DE · example</span>
+        <span class="stat">🖨️ 10 words + 3 sentences</span>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="learn" type="button">📚 Learn</button>
+      <button class="tab-btn" data-tab="practice" type="button">🎧 Listen</button>
+      <button class="tab-btn" data-tab="quiz" type="button">⭐ Quiz</button>
+      <button class="tab-btn" data-tab="print" type="button">🖨️ Print test</button>
+    </nav>
+
+    <!-- LEARN -->
+    <section id="panel-learn" class="panel active">
+      <div class="howto">
+        <h2>How Maya’s English test works</h2>
+        <ol>
+          <li>Learn each word: meaning + IPA + British English pronunciation.</li>
+          <li>Study the <strong>English example</strong> and its <strong>German back-translation</strong> underneath.</li>
+          <li>In the test, sentences are given in German — you write the English example back.</li>
+          <li>Printable test = <strong>10 words</strong> (DE → EN) + <strong>3 sentences</strong> (DE → EN).</li>
+        </ol>
+      </div>
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Search English or German…" autocomplete="off" />
+      </div>
+      <div class="filter-row" id="filters"></div>
+      <p class="count-label" id="count-label">Showing 0</p>
+      <p class="hint">Tip: tap <strong>EN slow</strong>, then the green <strong>Example</strong> button — that’s what the sentence questions feel like.</p>
+      <div class="grid" id="grid"></div>
+      <p class="voice-note" id="voice-status">Loading voices…</p>
+    </section>
+
+    <!-- PRACTICE -->
+    <section id="panel-practice" class="panel">
+      <div class="stage">
+        <p class="q-meta" id="practice-meta">Listen &amp; choose</p>
+        <div class="progress-bar"><div class="progress-fill" id="practice-progress"></div></div>
+        <button class="listen-big" id="practice-listen" type="button" aria-label="Play English">🔊</button>
+        <p class="q-prompt" id="practice-prompt">What does this mean?</p>
+        <div class="choices" id="practice-choices"></div>
+        <p class="feedback" id="practice-feedback"></p>
+        <div class="cta-row">
+          <button class="btn secondary" id="practice-next" type="button">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="panel-quiz" class="panel">
+      <div class="stage" id="quiz-stage">
+        <p class="q-meta">Unit 1 quiz</p>
+        <p class="q-prompt">13 mixed questions — words + example meaning</p>
+        <div class="cta-row">
+          <button class="btn mango" id="quiz-start" type="button">✨ Start quiz!</button>
+        </div>
+        <div class="progress-bar" style="display:none" id="quiz-bar-wrap"><div class="progress-fill" id="quiz-progress"></div></div>
+        <p class="q-meta" id="quiz-meta" style="display:none"></p>
+        <p class="q-prompt" id="quiz-prompt" style="display:none"></p>
+        <button class="listen-big" id="quiz-listen" type="button" style="display:none" aria-label="Hear English">🔊</button>
+        <div class="choices" id="quiz-choices" style="display:none"></div>
+        <p class="feedback" id="quiz-feedback"></p>
+        <div class="cta-row" id="quiz-end" style="display:none">
+          <p class="score-big" id="quiz-score"></p>
+          <button class="btn" id="quiz-again" type="button">Try again</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRINT -->
+    <section id="panel-print" class="panel">
+      <div class="print-controls no-print">
+        <h2>Printable vocabulary test</h2>
+        <p>Like Anna’s tests: <strong>10 words</strong> (German → English) + <strong>3 sentences</strong> (German back-translation → English example). Answer key on page 2.</p>
+        <div class="print-actions">
+          <button class="btn mango" id="ws-generate" type="button">✨ Generate new test</button>
+          <button class="btn coral" id="ws-print" type="button">🖨️ Print (test + answers)</button>
+        </div>
+      </div>
+      <div id="worksheet" class="worksheet" aria-live="polite"></div>
+    </section>
+
+    <footer>Unit 1 · This is London · Vocab pp. 173–174 · for Maya · good luck tomorrow! 🇬🇧</footer>
+  </div>
+
+  <script>
+    /**
+     * Range: "the best thing about" (p.173) → "tortoise" (p.174)
+     * Skip page-number spellings at the bottom of the book pages.
+     * exDe = German back-translation of the English example (how the test presents sentences).
+     */
+    const VOCAB = [
+      // p. 8/9
+      { id: "best-thing", page: "8/9", icon: "⭐", en: "the best thing about …", ipa: "", de: "das Beste an …",
+        ex: "The best thing about the film was the music.",
+        exDe: "Das Beste an dem Film war die Musik." },
+
+      // Part A p. 10
+      { id: "huge", page: "10", icon: "🐻", en: "huge", ipa: "[hjuːdʒ]", de: "riesig, sehr groß",
+        ex: "Little Andrew got a huge teddy bear for his birthday.",
+        exDe: "Der kleine Andrew bekam zum Geburtstag einen riesigen Teddybären." },
+      { id: "as-soon-as", page: "10", icon: "⏱️", en: "as soon as", ipa: "[əz ˈsuːn əz]", de: "sobald, sowie",
+        ex: "I'll call you as soon as I'm home.",
+        exDe: "Ich rufe dich an, sobald ich zu Hause bin." },
+      { id: "cathedral", page: "10", icon: "⛪", en: "cathedral", ipa: "[kəˈθiːdrəl]", de: "Kathedrale, Dom",
+        ex: "We visited a huge cathedral in London.",
+        exDe: "Wir haben in London eine riesige Kathedrale besucht.",
+        note: "Stress: ca-THE-dral" },
+      { id: "palace", page: "10", icon: "🏰", en: "palace", ipa: "[ˈpæləs]", de: "Palast, Schloss",
+        ex: "Buckingham Palace is famous all over the world.",
+        exDe: "Buckingham Palace ist auf der ganzen Welt berühmt.",
+        note: "Stress: PA-lace" },
+      { id: "welsh", page: "10", icon: "🏴󠁧󠁢󠁷󠁬󠁳󠁿", en: "Welsh", ipa: "[welʃ]", de: "Walisisch; walisisch",
+        ex: "Some people in Wales speak English and Welsh.",
+        exDe: "Manche Leute in Wales sprechen Englisch und Walisisch." },
+      { id: "reply", page: "10", icon: "✉️", en: "(to) reply (to)", ipa: "[rɪˈplaɪ]", de: "antworten (auf); erwidern",
+        ex: "Why didn't you reply to my email?",
+        exDe: "Warum hast du nicht auf meine E-Mail geantwortet?" },
+      { id: "europe", page: "10", icon: "🌍", en: "Europe", ipa: "[ˈjʊərəp]", de: "Europa",
+        ex: "London is one of the biggest cities in Europe.",
+        exDe: "London ist eine der größten Städte in Europa." },
+      { id: "western", page: "10", icon: "🧭", en: "western", ipa: "[ˈwestən]", de: "westlich, West-",
+        ex: "Spain is one of the biggest countries in western Europe.",
+        exDe: "Spanien ist eines der größten Länder in Westeuropa." },
+      { id: "i-see", page: "10", icon: "💡", en: "I see.", ipa: "", de: "Aha! / Verstehe.",
+        ex: "I see. So Tower Bridge isn't London Bridge.",
+        exDe: "Aha! / Verstehe. Also ist Tower Bridge nicht London Bridge." },
+      { id: "lift", page: "10", icon: "🛗", en: "lift", ipa: "[lɪft]", de: "Fahrstuhl, Aufzug",
+        ex: "Let's take the lift to the top floor.",
+        exDe: "Lass uns den Fahrstuhl in den obersten Stock nehmen." },
+      { id: "amazing", page: "10", icon: "🤩", en: "amazing", ipa: "[əˈmeɪzɪŋ]", de: "erstaunlich, unglaublich",
+        ex: "The view from the London Eye is amazing.",
+        exDe: "Die Aussicht vom London Eye ist unglaublich." },
+      { id: "how-know", page: "10", icon: "❓", en: "How do you know …?", ipa: "", de: "Woher weißt/kennst du …?",
+        ex: "How do you know so much about cows? – My grandparents have a farm.",
+        exDe: "Woher weißt du so viel über Kühe? – Meine Großeltern haben einen Bauernhof." },
+      { id: "post", page: "10", icon: "📝", en: "post", ipa: "[pəʊst]", de: "Posting (auf Blog), Blog-Eintrag",
+        ex: "I wrote a post about our trip to London.",
+        exDe: "Ich habe einen Blog-Eintrag über unsere Reise nach London geschrieben." },
+      { id: "carnival", page: "10", icon: "🎉", en: "carnival", ipa: "[ˈkɑːnɪvl]", de: "Karneval, Fasching; Straßenumzug (GB)",
+        ex: "Carnival is a big event in German cities like Cologne and Mainz, but people in Britain don't celebrate it.",
+        exDe: "Karneval ist ein großes Ereignis in deutschen Städten wie Köln und Mainz, aber in Großbritannien feiert man ihn nicht.",
+        note: "In Britain, carnival = street parade with music/dance/floats" },
+      { id: "test", page: "10", icon: "📋", en: "test", ipa: "[test]", de: "Test",
+        ex: "Maya has an English vocabulary test tomorrow.",
+        exDe: "Maya hat morgen einen englischen Vokabeltest." },
+      { id: "be-into", page: "10", icon: "🎧", en: "(to) be into sth.", ipa: "", de: "etwas mögen, auf etwas stehen (ugs.)",
+        ex: "My sister is into reggae at the moment.",
+        exDe: "Meine Schwester steht im Moment auf Reggae." },
+      { id: "enjoy", page: "10", icon: "😊", en: "(to) enjoy", ipa: "[ɪnˈdʒɔɪ]", de: "genießen",
+        ex: "The film was fantastic. I really enjoyed it.",
+        exDe: "Der Film war fantastisch. Ich habe ihn wirklich genossen." },
+      { id: "by-the-way", page: "10", icon: "💬", en: "by the way", ipa: "[ˌbaɪ ðə ˈweɪ]", de: "übrigens",
+        ex: "Oh, by the way, Grandma called this morning.",
+        exDe: "Oh, übrigens, Oma hat heute Morgen angerufen." },
+
+      // p. 11
+      { id: "south", page: "11", icon: "⬇️", en: "south", ipa: "[saʊθ]", de: "Süden; nach Süden; südlich",
+        ex: "They live in the south of London.",
+        exDe: "Sie wohnen im Süden von London." },
+      { id: "north", page: "11", icon: "⬆️", en: "north", ipa: "[nɔːθ]", de: "Norden; nach Norden; nördlich",
+        ex: "Scotland is in the north of the UK.",
+        exDe: "Schottland liegt im Norden des Vereinigten Königreichs." },
+      { id: "east", page: "11", icon: "➡️", en: "east", ipa: "[iːst]", de: "Osten; nach Osten; östlich",
+        ex: "The sun rises in the east.",
+        exDe: "Die Sonne geht im Osten auf." },
+      { id: "west", page: "11", icon: "⬅️", en: "west", ipa: "[west]", de: "Westen; nach Westen; westlich",
+        ex: "Wales is in the west of Great Britain.",
+        exDe: "Wales liegt im Westen von Großbritannien." },
+      { id: "north-east", page: "11", icon: "↗️", en: "north-east", ipa: "[ˌnɔːθˈiːst]", de: "Nordosten; nordöstlich",
+        ex: "Newcastle is in the north-east of England.",
+        exDe: "Newcastle liegt im Nordosten von England." },
+      { id: "south-east", page: "11", icon: "↘️", en: "south-east", ipa: "[ˌsaʊθˈiːst]", de: "Südosten; südöstlich",
+        ex: "Kent is in the south-east of England.",
+        exDe: "Kent liegt im Südosten von England." },
+      { id: "south-west", page: "11", icon: "↙️", en: "south-west", ipa: "[ˌsaʊθˈwest]", de: "Südwesten; südwestlich",
+        ex: "Cornwall is in the south-west of England.",
+        exDe: "Cornwall liegt im Südwesten von England." },
+      { id: "north-west", page: "11", icon: "↖️", en: "north-west", ipa: "[ˌnɔːθˈwest]", de: "Nordwesten; nordwestlich",
+        ex: "Liverpool is in the north-west of England.",
+        exDe: "Liverpool liegt im Nordwesten von England." },
+      { id: "darkness", page: "11", icon: "🌑", en: "darkness", ipa: "[ˈdɑːknəs]", de: "Dunkelheit, Finsternis",
+        ex: "We couldn't see anything in the darkness.",
+        exDe: "Wir konnten in der Dunkelheit nichts sehen." },
+      { id: "clue", page: "11", icon: "🔎", en: "clue", ipa: "[kluː]", de: "(Lösungs-)Hinweis; Anhaltspunkt",
+        ex: "Nobody knows who killed the man. The police are still looking for clues in his house.",
+        exDe: "Niemand weiß, wer den Mann getötet hat. Die Polizei sucht noch immer nach Hinweisen in seinem Haus." },
+      { id: "skyline", page: "11", icon: "🏙️", en: "skyline", ipa: "[ˈskaɪlaɪn]", de: "Skyline; Horizont",
+        ex: "The London skyline looks amazing at night.",
+        exDe: "Die Skyline von London sieht nachts unglaublich aus." },
+      { id: "false", page: "11", icon: "❌", en: "false", ipa: "[fɔːls]", de: "falsch",
+        ex: "True or false? London Bridge and Tower Bridge are the same. – False.",
+        exDe: "Richtig oder falsch? London Bridge und Tower Bridge sind dasselbe. – Falsch.",
+        note: "true ◄► false" },
+
+      // p. 12
+      { id: "go-together", page: "12", icon: "🎨", en: "(to) go together", ipa: "", de: "zusammenpassen, zueinander passen",
+        ex: "I don't think pink and orange go together.",
+        exDe: "Ich glaube nicht, dass Rosa und Orange zusammenpassen." },
+      { id: "tube", page: "12", icon: "🚇", en: "the Tube", ipa: "[tjuːb]", de: "die U-Bahn (in London)",
+        ex: "We went to the museum on the Tube.",
+        exDe: "Wir sind mit der U-Bahn zum Museum gefahren.",
+        note: "EN: on the Tube · DE: in der U-Bahn · no plural" },
+      { id: "underground", page: "12", icon: "🚇", en: "the underground", ipa: "[ˈʌndəɡraʊnd]", de: "die U-Bahn",
+        ex: "In London, the underground is called 'the Tube'.",
+        exDe: "In London wird die U-Bahn „the Tube“ genannt.",
+        note: "no plural" },
+      { id: "stay", page: "12", icon: "🛏️", en: "(to) stay (at/with)", ipa: "[steɪ]", de: "(vorübergehend) wohnen, übernachten (in/bei)",
+        ex: "Did you stay at a hotel? – No, we didn't. We stayed with my grandma.",
+        exDe: "Habt ihr in einem Hotel übernachtet? – Nein. Wir haben bei meiner Oma übernachtet." },
+      { id: "timetable", page: "12", icon: "🗓️", en: "timetable", ipa: "[ˈtaɪmteɪbl]", de: "Fahrplan; Stundenplan",
+        ex: "Can I have a look at the train timetable?",
+        exDe: "Kann ich mir den Zugfahrplan ansehen?",
+        note: "1. Stundenplan  2. Fahrplan" },
+      { id: "gallery", page: "12", icon: "🖼️", en: "gallery", ipa: "[ˈɡæləri]", de: "Galerie",
+        ex: "We spent the afternoon in an art gallery.",
+        exDe: "Wir haben den Nachmittag in einer Kunstgalerie verbracht.",
+        note: "Stress on first syllable: GA-llery" },
+      { id: "restaurant", page: "12", icon: "🍽️", en: "restaurant", ipa: "[ˈrestrɒnt]", de: "Restaurant",
+        ex: "Let's eat in an Italian restaurant tonight.",
+        exDe: "Lass uns heute Abend in einem italienischen Restaurant essen." },
+
+      // p. 13
+      { id: "stress", page: "13", icon: "🔊", en: "stress", ipa: "[stres]", de: "Betonung",
+        ex: "Where's the stress in 'gallery'? – On the first syllable.",
+        exDe: "Wo liegt die Betonung in „gallery“? – Auf der ersten Silbe." },
+      { id: "stress-mark", page: "13", icon: "ˈ", en: "stress mark", ipa: "[ˈstres mɑːk]", de: "Betonungszeichen",
+        ex: "The stress mark shows which syllable is strong.",
+        exDe: "Das Betonungszeichen zeigt, welche Silbe stark ist." },
+      { id: "small-talk", page: "13", icon: "💭", en: "small talk", ipa: "", de: "Smalltalk (lockeres Gespräch)",
+        ex: "British people often make small talk about the weather.",
+        exDe: "Die Briten machen oft Smalltalk über das Wetter." },
+      { id: "culture", page: "13", icon: "🎭", en: "culture", ipa: "[ˈkʌltʃə]", de: "Kultur",
+        ex: "London is famous for its culture and museums.",
+        exDe: "London ist berühmt für seine Kultur und Museen.",
+        note: "Stress on first syllable: CUL-ture" },
+      { id: "expect", page: "13", icon: "⏳", en: "(to) expect sth.", ipa: "[ɪkˈspekt]", de: "etwas erwarten",
+        ex: "I expect the train will be late again.",
+        exDe: "Ich erwarte, dass der Zug wieder zu spät kommt." },
+
+      // Part B p. 14
+      { id: "attraction", page: "14", icon: "🎟️", en: "attraction", ipa: "[əˈtrækʃn]", de: "Attraktion; Anziehungspunkt",
+        ex: "The British Museum is one of London's biggest tourist attractions.",
+        exDe: "Das British Museum ist eine von Londons größten Touristenattraktionen." },
+      { id: "natural-history", page: "14", icon: "🦕", en: "natural history", ipa: "[ˌnætʃrəl ˈhɪstri]", de: "Naturkunde",
+        ex: "We loved the dinosaurs at the Natural History Museum.",
+        exDe: "Wir haben die Dinosaurier im Natural History Museum geliebt." },
+      { id: "entry", page: "14", icon: "🚪", en: "entry", ipa: "[ˈentri]", de: "Eintritt, Zutritt",
+        ex: "Entry into museums is usually free in Britain.",
+        exDe: "Der Eintritt in Museen ist in Großbritannien gewöhnlich kostenlos." },
+      { id: "in-fact", page: "14", icon: "📌", en: "in fact", ipa: "[ɪn ˈfækt]", de: "eigentlich, in Wirklichkeit",
+        ex: "I thought he was English, but in fact he was from Wales.",
+        exDe: "Ich dachte, er wäre Engländer, aber in Wirklichkeit kam er aus Wales." },
+      { id: "fact", page: "14", icon: "📘", en: "fact", ipa: "[fækt]", de: "Tatsache, Fakt",
+        ex: "Here are some interesting facts about London.",
+        exDe: "Hier sind einige interessante Fakten über London." },
+      { id: "uk", page: "14", icon: "🇬🇧", en: "the UK (the United Kingdom)", ipa: "[ˌjuː ˈkeɪ]", de: "das Vereinigte Königreich",
+        ex: "The UK is Great Britain and Northern Ireland.",
+        exDe: "Das Vereinigte Königreich ist Großbritannien und Nordirland.",
+        note: "UK = England, Scotland, Wales + Northern Ireland" },
+      { id: "reserve", page: "14", icon: "📅", en: "(to) reserve", ipa: "[rɪˈzɜːv]", de: "reservieren, buchen",
+        ex: "We'll have to reserve a table if we want to eat there.",
+        exDe: "Wir werden einen Tisch reservieren müssen, wenn wir dort essen wollen." },
+
+      // p. 15
+      { id: "step", page: "15", icon: "🪜", en: "step", ipa: "[step]", de: "Stufe; Schritt",
+        ex: "Be careful on the steps outside the museum.",
+        exDe: "Sei vorsichtig auf den Stufen vor dem Museum.",
+        note: "1. Stufe  2. Schritt" },
+      { id: "chance", page: "15", icon: "🍀", en: "chance", ipa: "[tʃɑːns]", de: "Gelegenheit, Möglichkeit, Chance",
+        ex: "If you have the chance, you should go to the British Museum.",
+        exDe: "Wenn du die Gelegenheit hast, solltest du ins British Museum gehen." },
+      { id: "figure", page: "15", icon: "🔢", en: "figure", ipa: "[ˈfɪɡə]", de: "Zahl, Ziffer",
+        ex: "The figures aren't correct. Please check them again.",
+        exDe: "Die Zahlen sind nicht korrekt. Bitte überprüfe sie noch einmal.",
+        note: "Stress: FI-gure" },
+      { id: "less-than", page: "15", icon: "📉", en: "less (than)", ipa: "[les]", de: "weniger (als)",
+        ex: "I have less money than you.",
+        exDe: "Ich habe weniger Geld als du." },
+      { id: "tortoise", page: "15", icon: "🐢", en: "tortoise", ipa: "[ˈtɔːtəs]", de: "(Land-)Schildkröte",
+        ex: "A tortoise walks very slowly.",
+        exDe: "Eine Landschildkröte läuft sehr langsam." }
+    ];
+
+    const CATS = [
+      { id: "all", label: "All" },
+      { id: "8/9", label: "p. 8/9" },
+      { id: "10", label: "Part A · p.10" },
+      { id: "11", label: "p. 11" },
+      { id: "12", label: "p. 12" },
+      { id: "13", label: "p. 13" },
+      { id: "14", label: "Part B · p.14" },
+      { id: "15", label: "p. 15" }
+    ];
+
+    let filter = "all";
+    let search = "";
+    let voices = [];
+
+    function loadVoices() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      const el = document.getElementById("voice-status");
+      if (!window.speechSynthesis) {
+        el.textContent = "Speech not available — try Chrome, Edge, or Safari.";
+        return;
+      }
+      const en = pickVoice("en");
+      const de = pickVoice("de");
+      el.textContent = voices.length
+        ? `Pronunciation ready · EN: ${en?.name || "default"} · DE: ${de?.name || "default"}`
+        : "Tap a speaker once to unlock voices on this device.";
+    }
+    if (window.speechSynthesis) {
+      loadVoices();
+      speechSynthesis.onvoiceschanged = loadVoices;
+    } else loadVoices();
+
+    function pickVoice(prefix) {
+      const list = voices.filter(v => v.lang.toLowerCase().startsWith(prefix));
+      if (!list.length) return null;
+      const rank = (name, lang) => {
+        const n = (name + " " + lang).toLowerCase();
+        if (prefix === "en") {
+          if (/en-gb|british|uk english|daniel|serena|martha|google uk/i.test(n)) return 4;
+          if (/natural|enhanced|premium|neural/i.test(n)) return 3;
+          if (/google|apple|microsoft/i.test(n)) return 2;
+          return 1;
+        }
+        if (/google|apple|microsoft|anna|helena|natural|enhanced/i.test(n)) return 3;
+        return 1;
+      };
+      return [...list].sort((a, b) => rank(b.name, b.lang) - rank(a.name, a.lang))[0];
+    }
+
+    function speak(text, lang, { slow = false } = {}) {
+      if (!window.speechSynthesis || !text) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang === "de" ? "de-DE" : "en-GB";
+      const voice = pickVoice(lang === "de" ? "de" : "en");
+      if (voice) u.voice = voice;
+      if (lang === "de") u.rate = slow ? 0.78 : 0.92;
+      else u.rate = slow ? 0.7 : 0.9;
+      speechSynthesis.speak(u);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    function escapeAttr(s) { return escapeHtml(s).replace(/'/g, "&#39;"); }
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function filtered() {
+      const q = search.trim().toLowerCase();
+      return VOCAB.filter(v => {
+        if (filter !== "all" && v.page !== filter) return false;
+        if (!q) return true;
+        return [v.en, v.de, v.ex, v.exDe, v.ipa].join(" ").toLowerCase().includes(q);
+      });
+    }
+
+    function renderFilters() {
+      document.getElementById("filters").innerHTML = CATS.map(c =>
+        `<button type="button" class="chip ${filter === c.id ? "active" : ""}" data-cat="${c.id}">${c.label}</button>`
+      ).join("");
+    }
+
+    function renderGrid() {
+      const list = filtered();
+      document.getElementById("stat-total").textContent = `${VOCAB.length} words`;
+      document.getElementById("count-label").textContent = `Showing ${list.length} of ${VOCAB.length}`;
+      document.getElementById("grid").innerHTML = list.map(v => `
+        <article class="card">
+          <span class="badge">p.${escapeHtml(v.page)}</span>
+          <div class="icon">${v.icon}</div>
+          <div class="en">${escapeHtml(v.en)}</div>
+          ${v.ipa ? `<div class="ipa">${escapeHtml(v.ipa)}</div>` : `<div class="ipa">phrase</div>`}
+          <div class="lang-row">
+            <button type="button" class="speak-btn en-btn" data-speak="en" data-text="${escapeAttr(v.en)}">🔊 EN</button>
+            <button type="button" class="speak-btn slow-btn" data-speak="en" data-slow="1" data-text="${escapeAttr(v.en)}">🐢 EN slow</button>
+            <button type="button" class="speak-btn de-btn" data-speak="de" data-text="${escapeAttr(v.de)}">🔊 DE</button>
+            <button type="button" class="speak-btn ex-btn" data-speak="en" data-text="${escapeAttr(v.ex)}">📗 Example</button>
+          </div>
+          <div class="meta-line"><span class="label">DE</span> ${escapeHtml(v.de)}</div>
+          <div class="ex-box">
+            <div><span class="label">EN</span> ${escapeHtml(v.ex)}</div>
+            <div class="de-ex"><span class="label">DE</span> ${escapeHtml(v.exDe)}
+              <button type="button" class="speak-btn de-btn" style="margin-left:0.35rem" data-speak="de" data-text="${escapeAttr(v.exDe)}">🔊</button>
+            </div>
+          </div>
+          ${v.note ? `<div class="note">❗ ${escapeHtml(v.note)}</div>` : ""}
+        </article>
+      `).join("");
+    }
+
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-cat]");
+      if (!b) return;
+      filter = b.dataset.cat;
+      renderFilters();
+      renderGrid();
+    });
+    document.getElementById("search").addEventListener("input", (e) => {
+      search = e.target.value;
+      renderGrid();
+    });
+    document.getElementById("grid").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-speak]");
+      if (!btn) return;
+      speak(btn.dataset.text, btn.dataset.speak, { slow: btn.dataset.slow === "1" });
+    });
+
+    // Tabs
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        const name = btn.dataset.tab;
+        document.getElementById("panel-" + name).classList.add("active");
+        if (name === "practice") startPractice();
+        if (name === "print" && !document.getElementById("worksheet").dataset.ready) generateWorksheet();
+      });
+    });
+
+    // Practice
+    let practiceList = [];
+    let practiceIdx = 0;
+    function startPractice() {
+      practiceList = shuffle(VOCAB).slice(0, 12);
+      practiceIdx = 0;
+      showPractice();
+    }
+    function showPractice() {
+      const item = practiceList[practiceIdx];
+      if (!item) return;
+      document.getElementById("practice-meta").textContent = `Phrase ${practiceIdx + 1} of ${practiceList.length}`;
+      document.getElementById("practice-progress").style.width = `${(practiceIdx / practiceList.length) * 100}%`;
+      document.getElementById("practice-prompt").textContent = "What does this English word/phrase mean?";
+      document.getElementById("practice-feedback").textContent = "";
+      document.getElementById("practice-feedback").className = "feedback";
+      const opts = shuffle([item, ...shuffle(VOCAB.filter(v => v.id !== item.id)).slice(0, 2)]);
+      document.getElementById("practice-choices").innerHTML = opts.map(o =>
+        `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.de)}</button>`
+      ).join("");
+      const play = () => speak(item.en, "en", { slow: true });
+      document.getElementById("practice-listen").onclick = play;
+      setTimeout(play, 200);
+      document.getElementById("practice-choices").onclick = (e) => {
+        const b = e.target.closest(".choice");
+        if (!b || b.disabled) return;
+        [...document.querySelectorAll("#practice-choices .choice")].forEach(c => {
+          c.disabled = true;
+          if (c.dataset.id === item.id) c.classList.add("correct");
+        });
+        const fb = document.getElementById("practice-feedback");
+        if (b.dataset.id === item.id) {
+          b.classList.add("correct");
+          fb.textContent = "✅ Yes! " + item.en;
+          fb.className = "feedback good";
+          speak(item.ex, "en");
+        } else {
+          b.classList.add("wrong");
+          fb.textContent = "❌ " + item.en + " = " + item.de;
+          fb.className = "feedback bad";
+        }
+      };
+    }
+    document.getElementById("practice-next").onclick = () => {
+      practiceIdx++;
+      if (practiceIdx >= practiceList.length) startPractice();
+      else showPractice();
+    };
+
+    // Quiz
+    let quizItems = [];
+    let quizIdx = 0;
+    let quizScore = 0;
+    function startQuiz() {
+      quizItems = shuffle(VOCAB).slice(0, 13).map((w, i) => ({
+        word: w,
+        style: i % 3 === 0 ? "listen" : i % 3 === 1 ? "deToEn" : "exDeToEn"
+      }));
+      quizIdx = 0;
+      quizScore = 0;
+      document.getElementById("quiz-start").style.display = "none";
+      document.getElementById("quiz-end").style.display = "none";
+      ["quiz-bar-wrap","quiz-meta","quiz-prompt","quiz-choices"].forEach(id => {
+        document.getElementById(id).style.display = id === "quiz-choices" ? "grid" : "block";
+      });
+      showQuiz();
+    }
+    function showQuiz() {
+      const q = quizItems[quizIdx];
+      if (!q) {
+        document.getElementById("quiz-choices").style.display = "none";
+        document.getElementById("quiz-listen").style.display = "none";
+        document.getElementById("quiz-prompt").style.display = "none";
+        document.getElementById("quiz-meta").style.display = "none";
+        document.getElementById("quiz-bar-wrap").style.display = "none";
+        document.getElementById("quiz-end").style.display = "block";
+        document.getElementById("quiz-score").textContent = `${quizScore} / ${quizItems.length}`;
+        return;
+      }
+      const w = q.word;
+      document.getElementById("quiz-meta").textContent = `Question ${quizIdx + 1} of ${quizItems.length}`;
+      document.getElementById("quiz-progress").style.width = `${(quizIdx / quizItems.length) * 100}%`;
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-feedback").className = "feedback";
+      let prompt = "";
+      let answerId = w.id;
+      let options = [];
+      if (q.style === "listen") {
+        prompt = "Listen — what does it mean?";
+        document.getElementById("quiz-listen").style.display = "inline-flex";
+        document.getElementById("quiz-listen").onclick = () => speak(w.en, "en", { slow: true });
+        setTimeout(() => speak(w.en, "en", { slow: true }), 180);
+        options = shuffle([w, ...shuffle(VOCAB.filter(x => x.id !== w.id)).slice(0, 2)]).map(o => ({ id: o.id, label: o.de }));
+      } else if (q.style === "deToEn") {
+        prompt = `English for: ${w.de}`;
+        document.getElementById("quiz-listen").style.display = "none";
+        options = shuffle([w, ...shuffle(VOCAB.filter(x => x.id !== w.id)).slice(0, 2)]).map(o => ({ id: o.id, label: o.en }));
+      } else {
+        prompt = `Translate to English:\n${w.exDe}`;
+        document.getElementById("quiz-listen").style.display = "none";
+        options = shuffle([w, ...shuffle(VOCAB.filter(x => x.id !== w.id)).slice(0, 2)]).map(o => ({ id: o.id, label: o.ex }));
+      }
+      document.getElementById("quiz-prompt").textContent = prompt;
+      document.getElementById("quiz-choices").innerHTML = options.map(o =>
+        `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.label)}</button>`
+      ).join("");
+      document.getElementById("quiz-choices").onclick = (e) => {
+        const b = e.target.closest(".choice");
+        if (!b || b.disabled) return;
+        [...document.querySelectorAll("#quiz-choices .choice")].forEach(c => {
+          c.disabled = true;
+          if (c.dataset.id === answerId) c.classList.add("correct");
+        });
+        const fb = document.getElementById("quiz-feedback");
+        if (b.dataset.id === answerId) {
+          quizScore++;
+          b.classList.add("correct");
+          fb.textContent = "✅ Super!";
+          fb.className = "feedback good";
+        } else {
+          b.classList.add("wrong");
+          fb.textContent = "❌ " + w.en + " — " + w.ex;
+          fb.className = "feedback bad";
+        }
+        setTimeout(() => { quizIdx++; showQuiz(); }, 900);
+      };
+    }
+    document.getElementById("quiz-start").onclick = startQuiz;
+    document.getElementById("quiz-again").onclick = () => {
+      document.getElementById("quiz-start").style.display = "inline-block";
+      document.getElementById("quiz-end").style.display = "none";
+      startQuiz();
+    };
+
+    // Printable worksheet: 10 words + 3 sentences
+    function generateWorksheet() {
+      const words = shuffle(VOCAB).slice(0, 10);
+      const withExamples = shuffle(VOCAB.filter(v => v.ex && v.exDe));
+      // Prefer sentences not already represented if possible
+      const used = new Set(words.map(w => w.id));
+      const sentences = [];
+      for (const v of withExamples) {
+        if (sentences.length >= 3) break;
+        if (!used.has(v.id) || withExamples.length < 8) {
+          if (!sentences.find(s => s.id === v.id)) sentences.push(v);
+        }
+      }
+      while (sentences.length < 3) {
+        const v = withExamples[sentences.length % withExamples.length];
+        if (!sentences.find(s => s.id === v.id)) sentences.push(v);
+        else break;
+      }
+
+      const today = new Date().toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+      const wordsHtml = words.map(w => `
+        <li class="ws-item">
+          <div class="ws-prompt">
+            <span class="dir-pill">DE → EN</span>${escapeHtml(w.de)}
+            <span class="write-line"></span>
+          </div>
+        </li>`).join("");
+      const sentHtml = sentences.map(s => `
+        <li class="ws-item">
+          <div class="ws-prompt">
+            <span class="dir-pill sent">DE → EN</span>${escapeHtml(s.exDe)}
+            <span class="write-line"></span>
+            <span class="write-line"></span>
+          </div>
+        </li>`).join("");
+
+      const el = document.getElementById("worksheet");
+      el.dataset.ready = "1";
+      el.innerHTML = `
+        <header class="worksheet-header">
+          <h1>Unit 1 · This is London — Vocabulary Test</h1>
+          <div class="sub">10 words + 3 sentences · German → English · one page</div>
+        </header>
+        <div class="ws-meta">
+          <div>Name: <span></span></div>
+          <div>Date: <span style="border:none;min-width:auto">${today}</span></div>
+          <div>Score: ____ / 13</div>
+        </div>
+        <h2 class="ws-section-title">A) Words — write the English</h2>
+        <p class="ws-legend">Translate each German meaning into English (word or phrase).</p>
+        <ol class="ws-list">${wordsHtml}</ol>
+        <h2 class="ws-section-title">B) Sentences — write the English example</h2>
+        <p class="ws-legend">These are German back-translations of book examples. Write the English sentence.</p>
+        <ol class="ws-list" style="counter-reset:ws">${sentHtml}</ol>
+
+        <section class="answer-key">
+          <h2>Answer key</h2>
+          <h3>A) Words</h3>
+          <ol>${words.map(w => `<li><strong>${escapeHtml(w.en)}</strong> — ${escapeHtml(w.de)}</li>`).join("")}</ol>
+          <h3>B) Sentences</h3>
+          <ol>${sentences.map(s => `<li><strong>${escapeHtml(s.ex)}</strong><br><span style="font-weight:600;color:#444">${escapeHtml(s.exDe)}</span></li>`).join("")}</ol>
+        </section>
+      `;
+    }
+
+    document.getElementById("ws-generate").onclick = generateWorksheet;
+    document.getElementById("ws-print").onclick = () => {
+      if (!document.getElementById("worksheet").dataset.ready) generateWorksheet();
+      window.print();
+    };
+
+    renderFilters();
+    renderGrid();
+  </script>
+</body>
+</html>

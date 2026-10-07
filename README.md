@@ -34,6 +34,11 @@ Circled exercises **1** (Les relations), **2** (Le caractère), and **4** (qui /
 **Pronunciation + translation (separate page):**
 https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/clarinda-106-vocab.html
 
+### 6) English · Unit 1 This is London 🇬🇧
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/english-london.html
+
+Vocab from **the best thing about** → **tortoise** (pp. 173–174): IPA, British EN pronunciation, German meanings, English examples + German back-translations, listen/quiz, and printable **10 words + 3 DE→EN sentences** (answer key page 2).
+
 ## Files
 
 - [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
@@ -42,5 +47,6 @@ https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/c
 - [`klassenzimmer.html`](klassenzimmer.html) — classroom speaking phrases
 - [`clarinda-106.html`](clarinda-106.html) — Frau Clarinda p.106 exercises 1 · 2 · 4
 - [`clarinda-106-vocab.html`](clarinda-106-vocab.html) — pronunciation + DE/EN translations
+- [`english-london.html`](english-london.html) — English Unit 1 London vocab + printable test
 
 Works best in **Chrome, Edge, or Safari** (browser speech voices).
