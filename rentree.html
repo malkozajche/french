@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unité 1 · La rentrée des amis — Maya</title>
+  <meta name="description" content="This week's French vocab: La rentrée des amis. Pronunciation, German, examples, printable test — 5 words both directions + 1 German→French sentence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1e3a4c;
+      --sky: #5eb3e8;
+      --sky-deep: #2f86b8;
+      --coral: #e85d4c;
+      --coral-deep: #c43d2e;
+      --leaf: #2f9e6b;
+      --leaf-deep: #1f7a52;
+      --mango: #ff9f1c;
+      --mango-deep: #e07a00;
+      --chalk: #e8f6ff;
+      --shadow: 0 12px 28px rgba(30, 58, 76, 0.14);
+      --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+      --font-body: "Nunito", "Trebuchet MS", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 100% 70% at 50% -15%, #b8e4ff 0%, transparent 55%),
+        radial-gradient(circle at 90% 18%, rgba(255, 159, 28, 0.28), transparent 28%),
+        linear-gradient(180deg, #7ec8f5 0%, #d6effc 42%, #eef8f2 100%);
+      background-attachment: fixed;
+    }
+    .wrap { width: min(1080px, 94vw); margin: 0 auto; padding: 1rem 0 3rem; }
+    .top-nav {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: space-between; margin-bottom: 0.7rem;
+    }
+    .top-nav a {
+      font-weight: 800; text-decoration: none; color: var(--sky-deep);
+      background: rgba(255,255,255,0.78); padding: 0.4rem 0.85rem; border-radius: 999px;
+      border: 2px solid rgba(47, 134, 184, 0.25);
+    }
+    header.hero { text-align: center; padding: 0.35rem 0.3rem 0.85rem; animation: rise 0.5s ease both; }
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 5.8vw, 3rem);
+      line-height: 1.05; color: #16486a;
+    }
+    .brand span {
+      display: block; margin-top: 0.28rem; font-size: 0.38em;
+      letter-spacing: 0.03em; text-transform: uppercase; color: var(--coral-deep);
+    }
+    .tagline {
+      margin: 0.55rem auto 0; max-width: 38rem; font-weight: 700; color: #2a5568; font-size: 1.02rem;
+    }
+    .stats { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.75rem; }
+    .stat {
+      font-weight: 800; font-size: 0.82rem; background: white; border-radius: 999px;
+      padding: 0.32rem 0.75rem; box-shadow: var(--shadow); color: #24556a;
+    }
+    nav.tabs {
+      display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin: 0.95rem 0 1rem;
+    }
+    .tab-btn, .speak-btn, .chip, .btn, .choice { font-family: var(--font-body); cursor: pointer; }
+    .tab-btn {
+      font-family: var(--font-display); font-size: 1.05rem; border: none;
+      padding: 0.55rem 1.1rem; border-radius: 999px;
+      background: rgba(255,255,255,0.72); color: var(--ink);
+      box-shadow: 0 4px 0 rgba(30, 58, 76, 0.1);
+    }
+    .tab-btn.active {
+      background: linear-gradient(180deg, var(--sky), var(--sky-deep));
+      color: white; box-shadow: 0 5px 0 #1e5f85;
+    }
+    .panel { display: none; animation: rise 0.4s ease both; }
+    .panel.active { display: block; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: none; }
+    }
+    .howto {
+      background: rgba(255,254,249,0.94); border: 2px solid rgba(255,255,255,0.95);
+      border-radius: 16px; padding: 0.95rem 1.1rem; margin: 0 auto 1rem; max-width: 720px; box-shadow: var(--shadow);
+    }
+    .howto h2 { font-family: var(--font-display); color: #16486a; font-size: 1.3rem; margin-bottom: 0.25rem; }
+    .howto ol { margin-left: 1.15rem; font-weight: 600; line-height: 1.5; }
+    .filter-row, .search-row {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 0.75rem;
+    }
+    .chip {
+      font-weight: 800; font-size: 0.8rem; border: none; border-radius: 999px;
+      padding: 0.38rem 0.8rem; background: rgba(255,255,255,0.75); color: var(--ink);
+    }
+    .chip.active { background: #16486a; color: white; }
+    #search {
+      width: min(420px, 92vw); font: inherit; font-weight: 700;
+      padding: 0.65rem 1rem; border-radius: 999px; border: 2px solid rgba(47, 134, 184, 0.35);
+      background: white; outline: none;
+    }
+    .hint, .count-label, .voice-note, footer {
+      text-align: center; font-weight: 700; color: #2a5568; margin-bottom: 0.7rem;
+    }
+    .voice-note, footer { margin-top: 1rem; font-size: 0.9rem; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 0.9rem;
+    }
+    .card {
+      background: rgba(255,254,249,0.96); border-radius: 18px; padding: 1rem 1.05rem 1.1rem;
+      box-shadow: var(--shadow); border: 3px solid rgba(255,255,255,0.95);
+      text-align: left; position: relative; transition: transform 0.15s ease;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card .icon { font-size: 1.65rem; margin-bottom: 0.2rem; display: inline-block; }
+    .card .fr {
+      font-family: var(--font-display); font-size: 1.28rem; color: #16486a; line-height: 1.2;
+      padding-right: 3.6rem;
+    }
+    .card .ipa { font-size: 0.85rem; color: #5a7a8a; font-weight: 700; margin-top: 0.15rem; }
+    .badge {
+      position: absolute; top: 0.65rem; right: 0.65rem; font-size: 0.65rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.04em; padding: 0.22rem 0.48rem;
+      border-radius: 999px; background: #c9e9ff; color: #1f5a7a;
+    }
+    .badge.review { background: #fff0a8; color: #7a6200; }
+    .badge.new { background: #d8f5e0; color: #1c6b3a; }
+    .lang-row { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.55rem 0 0.45rem; }
+    .speak-btn {
+      font-weight: 800; font-size: 0.75rem; border: none; border-radius: 999px; padding: 0.35rem 0.7rem;
+    }
+    .speak-btn.fr-btn { background: #ffd4cc; color: #a32a1d; }
+    .speak-btn.slow-btn { background: #ffe2a8; color: #7a4a00; }
+    .speak-btn.de-btn { background: #d4e8ff; color: #1a4f7a; }
+    .speak-btn.ex-btn { background: #d8f5e0; color: #1c6b3a; }
+    .meta-line { font-size: 0.95rem; font-weight: 700; margin: 0.15rem 0; }
+    .meta-line .label {
+      display: inline-block; min-width: 2.1rem; font-size: 0.7rem; opacity: 0.65; text-transform: uppercase;
+    }
+    .ex-box {
+      margin-top: 0.55rem; padding: 0.55rem 0.65rem; border-radius: 12px;
+      background: #eef7fc; border-left: 4px solid var(--sky); font-weight: 700; font-size: 0.9rem; line-height: 1.4;
+    }
+    .ex-box .de-ex {
+      margin-top: 0.35rem; color: #3a6070; font-size: 0.88rem;
+      padding-top: 0.35rem; border-top: 1px dashed rgba(47, 134, 184, 0.25);
+    }
+    .note {
+      margin-top: 0.4rem; font-size: 0.8rem; font-weight: 700; color: #6a5060; font-style: italic;
+    }
+    .stage {
+      background: rgba(255,254,249,0.96); border-radius: 22px; padding: 1.3rem 1.15rem 1.45rem;
+      box-shadow: var(--shadow); border: 3px solid white; max-width: 660px; margin: 0 auto; text-align: center;
+    }
+    .progress-bar {
+      height: 12px; background: rgba(30, 58, 76, 0.1); border-radius: 999px; overflow: hidden; margin: 0.75rem 0 1rem;
+    }
+    .progress-fill {
+      height: 100%; width: 0%; background: linear-gradient(90deg, var(--leaf), #7ed957);
+      border-radius: 999px; transition: width 0.3s ease;
+    }
+    .q-meta { font-weight: 800; color: #3a6a80; }
+    .q-prompt {
+      font-family: var(--font-display); font-size: clamp(1.3rem, 4vw, 1.85rem);
+      color: #16486a; margin: 0.4rem 0; line-height: 1.2;
+    }
+    .choices { display: grid; gap: 0.55rem; margin-top: 0.9rem; }
+    .choice {
+      font-weight: 800; font-size: 1rem; padding: 0.85rem 0.9rem; border-radius: 14px;
+      border: 3px solid transparent; background: #eef6fb; color: var(--ink); text-align: left;
+    }
+    .choice.correct { background: #d4f8de; border-color: var(--leaf); }
+    .choice.wrong { background: #ffe0db; border-color: var(--coral); }
+    .choice:disabled { cursor: default; }
+    .feedback { min-height: 1.5rem; margin-top: 0.75rem; font-weight: 800; }
+    .feedback.good { color: #1c6b3a; }
+    .feedback.bad { color: #a32a1d; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 1rem; }
+    .btn {
+      font-family: var(--font-display); font-size: 1.08rem; border: none; border-radius: 999px;
+      padding: 0.65rem 1.25rem; color: white; cursor: pointer;
+      background: linear-gradient(180deg, var(--leaf), var(--leaf-deep)); box-shadow: 0 5px 0 #145c3c;
+    }
+    .btn.secondary {
+      background: linear-gradient(180deg, var(--sky), var(--sky-deep)); box-shadow: 0 5px 0 #1e5f85;
+    }
+    .btn.coral {
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep)); box-shadow: 0 5px 0 #9a2f22;
+    }
+    .btn.mango {
+      background: linear-gradient(180deg, var(--mango), var(--mango-deep)); box-shadow: 0 5px 0 #b86200; color: #2a1a00;
+    }
+    .listen-big {
+      width: 70px; height: 70px; border-radius: 50%; border: none;
+      background: linear-gradient(180deg, var(--coral), var(--coral-deep));
+      color: white; font-size: 1.7rem; cursor: pointer; box-shadow: 0 6px 0 #9a2f22;
+      margin: 0.55rem auto; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .score-big {
+      font-family: var(--font-display); font-size: clamp(2.4rem, 7vw, 3.5rem);
+      color: var(--coral-deep); line-height: 1; margin: 0.4rem 0;
+    }
+    .print-controls {
+      background: rgba(255,254,249,0.96); border-radius: 18px; padding: 1.1rem 1.15rem;
+      box-shadow: var(--shadow); border: 3px solid white; max-width: 720px; margin: 0 auto 1rem; text-align: center;
+    }
+    .print-controls h2 { font-family: var(--font-display); color: #16486a; font-size: 1.4rem; }
+    .print-controls p { font-weight: 700; color: #3a6a80; margin: 0.4rem 0 0.8rem; }
+    .print-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .worksheet {
+      background: white; border-radius: 12px; padding: 1.2rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow); max-width: 780px; margin: 0 auto; color: #111;
+    }
+    .worksheet-header { border-bottom: 2px solid #222; padding-bottom: 0.55rem; margin-bottom: 0.7rem; }
+    .worksheet-header h1 { font-family: var(--font-display); font-size: 1.4rem; color: #111; }
+    .worksheet-header .sub { font-weight: 700; color: #444; font-size: 0.92rem; margin-top: 0.15rem; }
+    .ws-meta {
+      display: flex; flex-wrap: wrap; gap: 1rem; font-weight: 700; margin: 0.55rem 0 0.7rem; font-size: 0.95rem;
+    }
+    .ws-meta span { border-bottom: 1px solid #999; min-width: 8rem; padding-bottom: 0.1rem; }
+    .ws-section-title {
+      font-family: var(--font-display); font-size: 1.15rem; margin: 0.85rem 0 0.45rem; color: #111;
+    }
+    .ws-legend { font-weight: 700; font-size: 0.88rem; color: #444; margin-bottom: 0.45rem; }
+    .ws-list { list-style: none; counter-reset: ws; }
+    .ws-item {
+      counter-increment: ws; display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.35rem;
+      align-items: baseline; padding: 0.35rem 0; border-bottom: 1px dotted #ccc;
+      font-weight: 700; font-size: 0.98rem; page-break-inside: avoid;
+    }
+    .ws-item::before { content: counter(ws) "."; font-weight: 800; color: #333; }
+    .write-line {
+      display: block; margin-top: 0.25rem; border-bottom: 1.5px solid #333; height: 1.2rem; width: 100%;
+    }
+    .dir-pill {
+      display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 0.12rem 0.4rem;
+      border-radius: 999px; background: #dce9f8; color: #16486a; margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+    .dir-pill.frde { background: #ffe2a8; color: #7a4a00; }
+    .dir-pill.sent { background: #d8f5e0; color: #1c6b3a; }
+    .answer-key { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px dashed #999; }
+    .answer-key h2 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .answer-key h3 { font-size: 1rem; margin: 0.6rem 0 0.3rem; }
+    .answer-key ol { margin-left: 1.2rem; font-weight: 700; line-height: 1.45; }
+    .answer-key li { margin-bottom: 0.25rem; }
+    @media print {
+      @page { size: A4; margin: 14mm; }
+      body { background: white !important; }
+      .top-nav, nav.tabs, .howto, .filter-row, .search-row, .hint, .count-label,
+      .voice-note, footer, .print-controls, .print-actions,
+      #panel-learn, #panel-practice, #panel-quiz { display: none !important; }
+      #panel-print { display: block !important; }
+      .worksheet { box-shadow: none; border-radius: 0; max-width: none; padding: 0; }
+      .ws-item { padding: 0.28rem 0; font-size: 11pt; }
+      .write-line { height: 1.1rem; }
+      .answer-key { break-before: page; page-break-before: always; margin-top: 0; border-top: none; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="index.html">← Cute starter</a>
+      <a href="english-london.html">English London →</a>
+    </div>
+
+    <header class="hero">
+      <h1 class="brand">
+        La rentrée des amis
+        <span>Unité 1 · this week’s French vocab for Maya</span>
+      </h1>
+      <p class="tagline">C’est la rentrée ! Learn the words, hear them slowly, and practise the German→French sentence the way the test asks.</p>
+      <div class="stats">
+        <span class="stat" id="stat-total">0 words</span>
+        <span class="stat">🔊 FR · slow · DE · example</span>
+        <span class="stat">🖨️ 5 words + 1 sentence</span>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="learn" type="button">📚 Learn</button>
+      <button class="tab-btn" data-tab="practice" type="button">🎧 Listen</button>
+      <button class="tab-btn" data-tab="quiz" type="button">⭐ Quiz</button>
+      <button class="tab-btn" data-tab="print" type="button">🖨️ Print test</button>
+    </nav>
+
+    <section id="panel-learn" class="panel active">
+      <div class="howto">
+        <h2>This week’s test shape</h2>
+        <ol>
+          <li><strong>5 words</strong> — mixture of DE → FR and FR → DE.</li>
+          <li><strong>1 sentence</strong> — German only → write the French example.</li>
+          <li>Tap <strong>FR slow</strong>, then the green <strong>Example</strong> button for each new word.</li>
+          <li>Yellow tags = review (“Erinnerst du dich?”). Green = new Atelier words.</li>
+        </ol>
+      </div>
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Search French or German…" autocomplete="off" />
+      </div>
+      <div class="filter-row" id="filters"></div>
+      <p class="count-label" id="count-label">Showing 0</p>
+      <p class="hint">Tip: sentences on the test are always <strong>German → French</strong>.</p>
+      <div class="grid" id="grid"></div>
+      <p class="voice-note" id="voice-status">Loading voices…</p>
+    </section>
+
+    <section id="panel-practice" class="panel">
+      <div class="stage">
+        <p class="q-meta" id="practice-meta">Listen &amp; choose</p>
+        <div class="progress-bar"><div class="progress-fill" id="practice-progress"></div></div>
+        <button class="listen-big" id="practice-listen" type="button" aria-label="Play French">🔊</button>
+        <p class="q-prompt" id="practice-prompt">What does this mean?</p>
+        <div class="choices" id="practice-choices"></div>
+        <p class="feedback" id="practice-feedback"></p>
+        <div class="cta-row">
+          <button class="btn secondary" id="practice-next" type="button">Next →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-quiz" class="panel">
+      <div class="stage" id="quiz-stage">
+        <p class="q-meta">Rentrée quiz</p>
+        <p class="q-prompt">10 mixed questions — both directions + one sentence style</p>
+        <div class="cta-row">
+          <button class="btn mango" id="quiz-start" type="button">✨ Start quiz!</button>
+        </div>
+        <div class="progress-bar" style="display:none" id="quiz-bar-wrap"><div class="progress-fill" id="quiz-progress"></div></div>
+        <p class="q-meta" id="quiz-meta" style="display:none"></p>
+        <p class="q-prompt" id="quiz-prompt" style="display:none"></p>
+        <button class="listen-big" id="quiz-listen" type="button" style="display:none" aria-label="Hear French">🔊</button>
+        <div class="choices" id="quiz-choices" style="display:none"></div>
+        <p class="feedback" id="quiz-feedback"></p>
+        <div class="cta-row" id="quiz-end" style="display:none">
+          <p class="score-big" id="quiz-score"></p>
+          <button class="btn" id="quiz-again" type="button">Try again</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-print" class="panel">
+      <div class="print-controls no-print">
+        <h2>Printable weekly test</h2>
+        <p><strong>5 words</strong> (mixed DE ↔ FR) + <strong>1 sentence</strong> (German → French only). Answer key on page 2.</p>
+        <div class="print-actions">
+          <button class="btn mango" id="ws-generate" type="button">✨ Generate new test</button>
+          <button class="btn coral" id="ws-print" type="button">🖨️ Print (test + answers)</button>
+        </div>
+      </div>
+      <div id="worksheet" class="worksheet" aria-live="polite"></div>
+    </section>
+
+    <footer>Unité 1 · La rentrée des amis · this week for Maya · C’est la rentrée ! 🏫</footer>
+  </div>
+
+  <script>
+    const VOCAB = [
+      // Erinnerst du dich?
+      { id: "vacances", cat: "review", icon: "☀️", fr: "les vacances", ipa: "[le vakɑ̃s]", de: "die Ferien",
+        ex: "Après les grandes vacances, c'est la rentrée.",
+        exDe: "Nach den Sommerferien ist Schuljahresbeginn." },
+      { id: "fin", cat: "review", icon: "🏁", fr: "la fin", ipa: "[la fɛ̃]", de: "das Ende",
+        ex: "C'est la fin des vacances.",
+        exDe: "Das ist das Ende der Ferien." },
+      { id: "salle", cat: "review", icon: "🚪", fr: "une salle", ipa: "[yn sal]", de: "ein Saal, ein Raum",
+        ex: "Les élèves entrent dans une grande salle.",
+        exDe: "Die Schüler gehen in einen großen Raum." },
+      { id: "retrouver", cat: "review", icon: "🤝", fr: "retrouver qn", ipa: "[ʁətʁuve]", de: "jdn. treffen",
+        ex: "Je retrouve mes amis dans la cour.",
+        exDe: "Ich treffe meine Freunde auf dem Hof." },
+      { id: "cour", cat: "review", icon: "🏫", fr: "la cour", ipa: "[la kuʁ]", de: "der Hof",
+        ex: "On joue dans la cour.",
+        exDe: "Wir spielen auf dem Hof." },
+      { id: "cours", cat: "review", icon: "📖", fr: "un cours", ipa: "[œ̃ kuʁ]", de: "eine Unterrichtsstunde",
+        ex: "Le cours de français commence à huit heures.",
+        exDe: "Die Französischstunde beginnt um acht Uhr." },
+      { id: "beaucoup", cat: "review", icon: "➕", fr: "beaucoup", ipa: "[boku]", de: "viel",
+        ex: "J'ai beaucoup d'amis au collège.",
+        exDe: "Ich habe viele Freunde in der Schule." },
+      { id: "un-peu", cat: "review", icon: "➖", fr: "un peu", ipa: "[œ̃ pø]", de: "ein wenig",
+        ex: "Je parle un peu français.",
+        exDe: "Ich spreche ein wenig Französisch." },
+
+      // Atelier DE 1
+      { id: "rentree", cat: "new", icon: "✏️", fr: "la rentrée", ipa: "[la ʁɑ̃tʁe]", de: "der Schuljahresbeginn",
+        ex: "Après les grandes vacances, c'est la rentrée.",
+        exDe: "Nach den Sommerferien ist Schuljahresbeginn.",
+        note: "→ rentrer = heimgehen, zurückkommen" },
+      { id: "fini", cat: "new", icon: "✅", fr: "fini / finie", ipa: "[fini]", de: "beendet; zu Ende",
+        ex: "Les vacances sont finies.",
+        exDe: "Die Ferien sind zu Ende.",
+        note: "→ la fin (das Ende); enfin (schließlich)" },
+      { id: "retourner", cat: "new", icon: "🔄", fr: "retourner", ipa: "[ʁətuʁne]", de: "zurückkehren",
+        ex: "On retourne au collège.",
+        exDe: "Wir kehren in die Schule zurück.",
+        note: "→ le retour (die Rückkehr)" },
+      { id: "salle-cours", cat: "new", icon: "🪑", fr: "une salle de cours", ipa: "[yn sal də kuʁ]", de: "ein Klassenraum",
+        ex: "Les élèves entrent dans la salle de cours.",
+        exDe: "Die Schüler gehen in den Klassenraum.",
+        note: "→ un cours (eine Unterrichtsstunde)" },
+      { id: "eps", cat: "new", icon: "⚽", fr: "l'E.P.S.", ipa: "[l‿e pe ɛs]", de: "Sport (als Schulfach)",
+        ex: "On a E.P.S. On va au gymnase.",
+        exDe: "Wir haben Sport. Wir gehen in die Turnhalle.",
+        note: "Éducation physique et sportive (f.)" },
+      { id: "gymnase", cat: "new", icon: "🏟️", fr: "un gymnase", ipa: "[œ̃ ʒimnaz]", de: "eine Turnhalle",
+        ex: "On a E.P.S. On va au gymnase.",
+        exDe: "Wir haben Sport. Wir gehen in die Turnhalle." },
+      { id: "repas", cat: "new", icon: "🍽️", fr: "un repas", ipa: "[œ̃ ʁəpa]", de: "ein Essen; eine Mahlzeit",
+        ex: "On prend le repas à la cantine.",
+        exDe: "Wir nehmen die Mahlzeit in der Kantine ein." },
+      { id: "nature", cat: "new", icon: "🌳", fr: "la nature", ipa: "[la natyʁ]", de: "die Natur",
+        ex: "J'adore les arbres et les animaux. J'aime bien la nature.",
+        exDe: "Ich mag Bäume und Tiere sehr gerne. Ich liebe die Natur." },
+      { id: "conversation", cat: "new", icon: "💬", fr: "une conversation", ipa: "[yn kɔ̃vɛʁsasjɔ̃]", de: "ein Gespräch; eine Unterhaltung",
+        ex: "une conversation intéressante",
+        exDe: "ein interessantes Gespräch" },
+
+      // DE 2
+      { id: "sixieme", cat: "new", icon: "6️⃣", fr: "la sixième", ipa: "[la sizjɛm]", de: "die sechste Klasse",
+        ex: "Alice est en première année de collège. Elle est en sixième.",
+        exDe: "Alice ist im ersten Jahr des Collège. Sie ist in der sechsten Klasse.",
+        note: "In France: 6e → 5e → 4e → 3e (counting backwards)" }
+    ];
+
+    const CATS = [
+      { id: "all", label: "All" },
+      { id: "new", label: "🆕 This week" },
+      { id: "review", label: "🟡 Review" }
+    ];
+
+    let filter = "all";
+    let search = "";
+    let voices = [];
+
+    function loadVoices() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      const el = document.getElementById("voice-status");
+      if (!window.speechSynthesis) {
+        el.textContent = "Speech not available — try Chrome, Edge, or Safari.";
+        return;
+      }
+      const fr = pickVoice("fr");
+      const de = pickVoice("de");
+      el.textContent = voices.length
+        ? `Pronunciation ready · FR: ${fr?.name || "default"} · DE: ${de?.name || "default"}`
+        : "Tap a speaker once to unlock voices.";
+    }
+    if (window.speechSynthesis) {
+      loadVoices();
+      speechSynthesis.onvoiceschanged = loadVoices;
+    } else loadVoices();
+
+    function pickVoice(prefix) {
+      const list = voices.filter(v => v.lang.toLowerCase().startsWith(prefix));
+      if (!list.length) return null;
+      const rank = (name) => {
+        const n = name.toLowerCase();
+        if (/google français|google french|thomas|amélie|aurelie|marie|paul|natural|enhanced|premium|neural/i.test(n)) return 3;
+        if (/google|apple|microsoft|anna|helena/i.test(n)) return 2;
+        return 1;
+      };
+      return [...list].sort((a, b) => rank(b.name) - rank(a.name))[0];
+    }
+
+    function speak(text, lang, { slow = false } = {}) {
+      if (!window.speechSynthesis || !text) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang === "de" ? "de-DE" : "fr-FR";
+      const voice = pickVoice(lang === "de" ? "de" : "fr");
+      if (voice) u.voice = voice;
+      if (lang === "fr") u.rate = slow ? 0.62 : 0.82;
+      else u.rate = slow ? 0.78 : 0.92;
+      speechSynthesis.speak(u);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    }
+    function escapeAttr(s) { return escapeHtml(s).replace(/'/g, "&#39;"); }
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function filtered() {
+      const q = search.trim().toLowerCase();
+      return VOCAB.filter(v => {
+        if (filter !== "all" && v.cat !== filter) return false;
+        if (!q) return true;
+        return [v.fr, v.de, v.ex, v.exDe, v.ipa].join(" ").toLowerCase().includes(q);
+      });
+    }
+
+    function renderFilters() {
+      document.getElementById("filters").innerHTML = CATS.map(c =>
+        `<button type="button" class="chip ${filter === c.id ? "active" : ""}" data-cat="${c.id}">${c.label}</button>`
+      ).join("");
+    }
+
+    function renderGrid() {
+      const list = filtered();
+      const news = VOCAB.filter(v => v.cat === "new").length;
+      document.getElementById("stat-total").textContent = `${VOCAB.length} words · ${news} new`;
+      document.getElementById("count-label").textContent = `Showing ${list.length} of ${VOCAB.length}`;
+      document.getElementById("grid").innerHTML = list.map(v => `
+        <article class="card" data-id="${v.id}">
+          <span class="badge ${v.cat}">${v.cat === "review" ? "review" : "new"}</span>
+          <div class="icon">${v.icon}</div>
+          <div class="fr">${escapeHtml(v.fr)}</div>
+          <div class="ipa">${escapeHtml(v.ipa)}</div>
+          <div class="lang-row">
+            <button type="button" class="speak-btn fr-btn" data-speak="fr" data-text="${escapeAttr(v.fr)}">🔊 FR</button>
+            <button type="button" class="speak-btn slow-btn" data-speak="fr" data-slow="1" data-text="${escapeAttr(v.fr)}">🐢 FR slow</button>
+            <button type="button" class="speak-btn de-btn" data-speak="de" data-text="${escapeAttr(v.de)}">🔊 DE</button>
+            <button type="button" class="speak-btn ex-btn" data-speak="fr" data-text="${escapeAttr(v.ex)}">📗 Example</button>
+          </div>
+          <div class="meta-line"><span class="label">DE</span> ${escapeHtml(v.de)}</div>
+          <div class="ex-box">
+            <div><span class="label">FR</span> ${escapeHtml(v.ex)}</div>
+            <div class="de-ex"><span class="label">DE</span> ${escapeHtml(v.exDe)}
+              <button type="button" class="speak-btn de-btn" style="margin-left:0.35rem" data-speak="de" data-text="${escapeAttr(v.exDe)}">🔊</button>
+            </div>
+          </div>
+          ${v.note ? `<div class="note">❗ ${escapeHtml(v.note)}</div>` : ""}
+        </article>
+      `).join("");
+    }
+
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-cat]");
+      if (!b) return;
+      filter = b.dataset.cat;
+      renderFilters();
+      renderGrid();
+    });
+    document.getElementById("search").addEventListener("input", (e) => {
+      search = e.target.value;
+      renderGrid();
+    });
+    document.getElementById("grid").addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-speak]");
+      if (!btn) return;
+      speak(btn.dataset.text, btn.dataset.speak, { slow: btn.dataset.slow === "1" });
+    });
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        const name = btn.dataset.tab;
+        document.getElementById("panel-" + name).classList.add("active");
+        if (name === "practice") startPractice();
+        if (name === "print" && !document.getElementById("worksheet").dataset.ready) generateWorksheet();
+      });
+    });
+
+    let practiceList = [];
+    let practiceIdx = 0;
+    function startPractice() {
+      practiceList = shuffle(VOCAB).slice(0, 10);
+      practiceIdx = 0;
+      showPractice();
+    }
+    function showPractice() {
+      const item = practiceList[practiceIdx];
+      if (!item) return;
+      document.getElementById("practice-meta").textContent = `Word ${practiceIdx + 1} of ${practiceList.length}`;
+      document.getElementById("practice-progress").style.width = `${(practiceIdx / practiceList.length) * 100}%`;
+      document.getElementById("practice-prompt").textContent = "What does this French word mean?";
+      document.getElementById("practice-feedback").textContent = "";
+      document.getElementById("practice-feedback").className = "feedback";
+      const opts = shuffle([item, ...shuffle(VOCAB.filter(v => v.id !== item.id)).slice(0, 2)]);
+      document.getElementById("practice-choices").innerHTML = opts.map(o =>
+        `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.de)}</button>`
+      ).join("");
+      const play = () => speak(item.fr, "fr", { slow: true });
+      document.getElementById("practice-listen").onclick = play;
+      setTimeout(play, 200);
+      document.getElementById("practice-choices").onclick = (e) => {
+        const b = e.target.closest(".choice");
+        if (!b || b.disabled) return;
+        [...document.querySelectorAll("#practice-choices .choice")].forEach(c => {
+          c.disabled = true;
+          if (c.dataset.id === item.id) c.classList.add("correct");
+        });
+        const fb = document.getElementById("practice-feedback");
+        if (b.dataset.id === item.id) {
+          b.classList.add("correct");
+          fb.textContent = "✅ Oui ! " + item.fr;
+          fb.className = "feedback good";
+          speak(item.ex, "fr");
+        } else {
+          b.classList.add("wrong");
+          fb.textContent = "❌ " + item.fr + " = " + item.de;
+          fb.className = "feedback bad";
+        }
+      };
+    }
+    document.getElementById("practice-next").onclick = () => {
+      practiceIdx++;
+      if (practiceIdx >= practiceList.length) startPractice();
+      else showPractice();
+    };
+
+    let quizItems = [];
+    let quizIdx = 0;
+    let quizScore = 0;
+    function startQuiz() {
+      quizItems = shuffle(VOCAB).slice(0, 10).map((w, i) => ({
+        word: w,
+        style: i === 9 ? "exDeToFr" : (i % 2 === 0 ? "deToFr" : "frToDe")
+      }));
+      quizIdx = 0;
+      quizScore = 0;
+      document.getElementById("quiz-start").style.display = "none";
+      document.getElementById("quiz-end").style.display = "none";
+      ["quiz-bar-wrap","quiz-meta","quiz-prompt","quiz-choices"].forEach(id => {
+        document.getElementById(id).style.display = id === "quiz-choices" ? "grid" : "block";
+      });
+      showQuiz();
+    }
+    function showQuiz() {
+      const q = quizItems[quizIdx];
+      if (!q) {
+        document.getElementById("quiz-choices").style.display = "none";
+        document.getElementById("quiz-listen").style.display = "none";
+        document.getElementById("quiz-prompt").style.display = "none";
+        document.getElementById("quiz-meta").style.display = "none";
+        document.getElementById("quiz-bar-wrap").style.display = "none";
+        document.getElementById("quiz-end").style.display = "block";
+        document.getElementById("quiz-score").textContent = `${quizScore} / ${quizItems.length}`;
+        return;
+      }
+      const w = q.word;
+      document.getElementById("quiz-meta").textContent = `Question ${quizIdx + 1} of ${quizItems.length}`;
+      document.getElementById("quiz-progress").style.width = `${(quizIdx / quizItems.length) * 100}%`;
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-feedback").className = "feedback";
+      let prompt = "";
+      let options = [];
+      if (q.style === "deToFr") {
+        prompt = `Französisch für: ${w.de}`;
+        document.getElementById("quiz-listen").style.display = "none";
+        options = shuffle([w, ...shuffle(VOCAB.filter(x => x.id !== w.id)).slice(0, 2)]).map(o => ({ id: o.id, label: o.fr }));
+      } else if (q.style === "frToDe") {
+        prompt = `Deutsch für: ${w.fr}`;
+        document.getElementById("quiz-listen").style.display = "inline-flex";
+        document.getElementById("quiz-listen").onclick = () => speak(w.fr, "fr", { slow: true });
+        setTimeout(() => speak(w.fr, "fr", { slow: true }), 180);
+        options = shuffle([w, ...shuffle(VOCAB.filter(x => x.id !== w.id)).slice(0, 2)]).map(o => ({ id: o.id, label: o.de }));
+      } else {
+        prompt = `Übersetze auf Französisch:\n${w.exDe}`;
+        document.getElementById("quiz-listen").style.display = "none";
+        options = shuffle([w, ...shuffle(VOCAB.filter(x => x.id !== w.id)).slice(0, 2)]).map(o => ({ id: o.id, label: o.ex }));
+      }
+      document.getElementById("quiz-prompt").textContent = prompt;
+      document.getElementById("quiz-choices").innerHTML = options.map(o =>
+        `<button type="button" class="choice" data-id="${o.id}">${escapeHtml(o.label)}</button>`
+      ).join("");
+      document.getElementById("quiz-choices").onclick = (e) => {
+        const b = e.target.closest(".choice");
+        if (!b || b.disabled) return;
+        [...document.querySelectorAll("#quiz-choices .choice")].forEach(c => {
+          c.disabled = true;
+          if (c.dataset.id === w.id) c.classList.add("correct");
+        });
+        const fb = document.getElementById("quiz-feedback");
+        if (b.dataset.id === w.id) {
+          quizScore++;
+          b.classList.add("correct");
+          fb.textContent = "✅ Super!";
+          fb.className = "feedback good";
+          speak(w.fr, "fr");
+        } else {
+          b.classList.add("wrong");
+          fb.textContent = "❌ " + w.fr + " — " + w.ex;
+          fb.className = "feedback bad";
+        }
+        setTimeout(() => { quizIdx++; showQuiz(); }, 900);
+      };
+    }
+    document.getElementById("quiz-start").onclick = startQuiz;
+    document.getElementById("quiz-again").onclick = () => {
+      document.getElementById("quiz-start").style.display = "inline-block";
+      document.getElementById("quiz-end").style.display = "none";
+      startQuiz();
+    };
+
+    /** Printable: 5 words mixed directions + 1 DE→FR sentence */
+    function generateWorksheet() {
+      const pool = shuffle(VOCAB);
+      const words = pool.slice(0, 5).map((w, i) => ({
+        ...w,
+        dir: i % 2 === 0 ? "deToFr" : "frToDe"
+      }));
+      const used = new Set(words.map(w => w.id));
+      const sentencePool = shuffle(VOCAB.filter(v => v.ex && v.exDe && !used.has(v.id)));
+      const sentence = sentencePool[0] || shuffle(VOCAB)[0];
+
+      const today = new Date().toLocaleDateString("de-DE", { day: "numeric", month: "short", year: "numeric" });
+      const wordsHtml = words.map(w => {
+        const prompt = w.dir === "deToFr" ? w.de : w.fr;
+        const pill = w.dir === "deToFr"
+          ? `<span class="dir-pill">DE → FR</span>`
+          : `<span class="dir-pill frde">FR → DE</span>`;
+        return `<li class="ws-item"><div class="ws-prompt">${pill}${escapeHtml(prompt)}<span class="write-line"></span></div></li>`;
+      }).join("");
+
+      const el = document.getElementById("worksheet");
+      el.dataset.ready = "1";
+      el.innerHTML = `
+        <header class="worksheet-header">
+          <h1>Unité 1 · La rentrée — Vokabeltest</h1>
+          <div class="sub">5 Wörter (beide Richtungen) + 1 Satz DE → FR</div>
+        </header>
+        <div class="ws-meta">
+          <div>Name: <span></span></div>
+          <div>Datum: <span style="border:none;min-width:auto">${today}</span></div>
+          <div>Punkte: ____ / 6</div>
+        </div>
+        <h2 class="ws-section-title">A) Wörter</h2>
+        <p class="ws-legend">Mischung: DE → FR und FR → DE. Ein Wort pro Zeile.</p>
+        <ol class="ws-list">${wordsHtml}</ol>
+        <h2 class="ws-section-title">B) Satz — Deutsch → Französisch</h2>
+        <p class="ws-legend">Schreibe den französischen Beispielsatz.</p>
+        <ol class="ws-list" style="counter-reset:ws">
+          <li class="ws-item">
+            <div class="ws-prompt">
+              <span class="dir-pill sent">DE → FR</span>${escapeHtml(sentence.exDe)}
+              <span class="write-line"></span>
+              <span class="write-line"></span>
+            </div>
+          </li>
+        </ol>
+        <section class="answer-key">
+          <h2>Lösungen</h2>
+          <h3>A) Wörter</h3>
+          <ol>${words.map(w => {
+            const ans = w.dir === "deToFr" ? w.fr : w.de;
+            const from = w.dir === "deToFr" ? w.de : w.fr;
+            return `<li><strong>${escapeHtml(ans)}</strong> <span style="font-weight:600;color:#555">(${escapeHtml(from)})</span></li>`;
+          }).join("")}</ol>
+          <h3>B) Satz</h3>
+          <ol><li><strong>${escapeHtml(sentence.ex)}</strong><br><span style="font-weight:600;color:#444">${escapeHtml(sentence.exDe)}</span></li></ol>
+        </section>
+      `;
+    }
+
+    document.getElementById("ws-generate").onclick = generateWorksheet;
+    document.getElementById("ws-print").onclick = () => {
+      if (!document.getElementById("worksheet").dataset.ready) generateWorksheet();
+      window.print();
+    };
+
+    renderFilters();
+    renderGrid();
+  </script>
+</body>
+</html>

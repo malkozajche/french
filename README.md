@@ -39,6 +39,11 @@ https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/e
 
 Vocab from **the best thing about** → **tortoise** (pp. 173–174): IPA, British EN pronunciation, German meanings, English examples + German back-translations, listen/quiz, and printable **10 words + 3 DE→EN sentences** (answer key page 2).
 
+### 7) Unité 1 · La rentrée des amis 🏫
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/rentree.html
+
+This week’s French vocab (review + Atelier DE 1 + *la sixième*): FR pronunciation, German, examples with back-translations. Printable test = **5 words both directions** + **1 sentence German → French**.
+
 ## Files
 
 - [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
@@ -48,5 +53,6 @@ Vocab from **the best thing about** → **tortoise** (pp. 173–174): IPA, Briti
 - [`clarinda-106.html`](clarinda-106.html) — Frau Clarinda p.106 exercises 1 · 2 · 4
 - [`clarinda-106-vocab.html`](clarinda-106-vocab.html) — pronunciation + DE/EN translations
 - [`english-london.html`](english-london.html) — English Unit 1 London vocab + printable test
+- [`rentree.html`](rentree.html) — Unité 1 La rentrée this-week vocab + printable test
 
 Works best in **Chrome, Edge, or Safari** (browser speech voices).
