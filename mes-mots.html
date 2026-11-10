@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mes mots — Vokabeln mit Bildern · Test 12.11.</title>
+  <meta name="description" content="Klasse 7 Wiederholung: 16 Vokabeln mit Bildern. Jedes Wort mit Artikel. Test am Donnerstag, 12.11.2026." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1e2a33;
+      --blue: #1d4fa8;
+      --blue-line: #2f6fdb;
+      --red: #c42342;
+      --red-line: #e23b5a;
+      --purple: #6d32b5;
+      --purple-line: #8a4ad4;
+      --leaf: #2f9e6b;
+      --leaf-deep: #1f7a52;
+      --mango: #ff9f1c;
+      --mango-deep: #e07a00;
+      --sky: #5eb3e8;
+      --sky-deep: #2f86b8;
+      --shadow: 0 12px 28px rgba(30, 42, 51, 0.12);
+      --font-display: "Baloo 2", "Trebuchet MS", sans-serif;
+      --font-body: "Nunito", "Trebuchet MS", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 90% 50% at 50% -12%, #ffe7a8 0%, transparent 52%),
+        linear-gradient(180deg, #f3f8ff 0%, #fff 38%, #f8f1fb 100%);
+      background-attachment: fixed;
+    }
+    .wrap { width: min(1080px, 94vw); margin: 0 auto; padding: 1rem 0 3rem; }
+    .top-nav { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: space-between; margin-bottom: 0.7rem; }
+    .top-nav a {
+      font-weight: 800; text-decoration: none; color: var(--purple);
+      background: rgba(255,255,255,0.86); padding: 0.4rem 0.85rem; border-radius: 999px;
+      border: 2px solid rgba(138, 74, 212, 0.28);
+    }
+    header.hero {
+      text-align: center; padding: 0.85rem 0.8rem 1rem; margin-bottom: 0.85rem;
+      background: #fff6df; border: 2px solid #f0e0b0; border-radius: 22px;
+      box-shadow: var(--shadow); animation: rise 0.5s ease both;
+    }
+    .brand {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.1rem);
+      line-height: 1.02; color: #1a2330;
+    }
+    .brand span {
+      display: block; margin-top: 0.2rem; font-size: 0.4em;
+      letter-spacing: 0.03em; text-transform: uppercase; color: var(--red);
+    }
+    .tagline { margin: 0.45rem auto 0; max-width: 40rem; font-weight: 800; color: #3a4654; font-size: 1.02rem; }
+    .legend { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-top: 0.75rem; }
+    .leg {
+      font-weight: 800; font-size: 0.86rem; background: white; border-radius: 999px;
+      padding: 0.32rem 0.75rem; border: 2px solid transparent;
+    }
+    .leg.m { color: var(--blue); border-color: #c5d7f8; }
+    .leg.f { color: var(--red); border-color: #f8c9d2; }
+    .leg.pl { color: var(--purple); border-color: #e0d0f6; }
+    .dot { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 50%; margin-right: 0.28rem; vertical-align: -1px; }
+    .dot.m { background: var(--blue-line); }
+    .dot.f { background: var(--red-line); }
+    .dot.pl { background: var(--purple-line); }
+    nav.tabs { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; margin: 0.95rem 0 1rem; }
+    .tab-btn, .speak-btn, .chip, .btn, .choice, .pic-choice, .text-btn { font-family: var(--font-body); cursor: pointer; }
+    .tab-btn {
+      font-family: var(--font-display); font-size: 1.05rem; border: none;
+      padding: 0.55rem 1.05rem; border-radius: 999px;
+      background: rgba(255,255,255,0.8); color: var(--ink);
+      box-shadow: 0 4px 0 rgba(30, 42, 51, 0.08);
+    }
+    .tab-btn.active {
+      background: linear-gradient(180deg, #7d5ad4, var(--purple));
+      color: white; box-shadow: 0 5px 0 #4c2188;
+    }
+    .panel { display: none; animation: rise 0.4s ease both; }
+    .panel.active { display: block; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes shake {
+      20% { transform: translateX(-5px); }
+      40% { transform: translateX(5px); }
+      60% { transform: translateX(-3px); }
+      80% { transform: translateX(3px); }
+    }
+    @keyframes confetti-fall { to { transform: translateY(105vh) rotate(640deg); opacity: 0; } }
+    .howto, .traps {
+      border-radius: 16px; padding: 0.9rem 1.05rem; margin: 0 auto 0.85rem; max-width: 760px;
+    }
+    .howto { background: rgba(255,255,255,0.94); border: 2px solid white; box-shadow: var(--shadow); }
+    .howto h2, .traps h2 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.3rem; }
+    .howto h2 { color: #1a2330; }
+    .howto ol { margin-left: 1.15rem; font-weight: 700; line-height: 1.5; }
+    .traps { background: #fff8e8; border: 2px solid #f0d48a; }
+    .traps h2 { color: #8a5a00; }
+    .trap-list { list-style: none; display: grid; gap: 0.35rem; margin-top: 0.45rem; }
+    .trap-list li {
+      background: white; border-radius: 10px; padding: 0.38rem 0.65rem; font-weight: 800;
+      display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: baseline;
+    }
+    .filter-row, .search-row { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; margin-bottom: 0.7rem; }
+    .chip {
+      font-weight: 800; font-size: 0.8rem; border: 2px solid transparent; border-radius: 999px;
+      padding: 0.38rem 0.8rem; background: white; color: var(--ink);
+    }
+    .chip.active { background: #1a2330; color: white; }
+    #search {
+      width: min(440px, 92vw); font: inherit; font-weight: 700;
+      padding: 0.65rem 1rem; border-radius: 999px; border: 2px solid #d5e0ea; background: white; outline: none;
+    }
+    .hint, .count-label, .voice-note, footer { text-align: center; font-weight: 700; color: #3a4654; margin-bottom: 0.7rem; }
+    .voice-note, footer { margin-top: 1rem; font-size: 0.9rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.85rem; }
+    .grid.cover .card { cursor: pointer; }
+    .card {
+      position: relative; background: white; border-radius: 18px; border: 3px solid #e4ebf2;
+      padding: 1rem 0.85rem 0.9rem; box-shadow: var(--shadow); text-align: center;
+    }
+    .card::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; border-radius: 14px 14px 0 0;
+    }
+    .card.g-m { border-color: var(--blue-line); }
+    .card.g-f { border-color: var(--red-line); }
+    .card.g-pl { border-color: var(--purple-line); }
+    .card.g-m::before { background: var(--blue-line); }
+    .card.g-f::before { background: var(--red-line); }
+    .card.g-pl::before { background: var(--purple-line); }
+    .grid.cover-fr .card:not(.open) .only-fr,
+    .grid.cover-fr .card:not(.open) .only-extra,
+    .grid.cover-de .card:not(.open) .only-de,
+    .grid.cover-de .card:not(.open) .only-extra { display: none; }
+    .pic svg, .big-pic svg, .bild-svg svg { width: 100%; height: auto; display: block; }
+    .card .pic { width: 112px; margin: 0.15rem auto 0.25rem; }
+    .fr { font-family: var(--font-display); font-size: 1.32rem; line-height: 1.15; color: #1a2330; }
+    .art.m, .mark.m { color: var(--blue); }
+    .art.f, .mark.f { color: var(--red); }
+    .art.pl, .mark.pl { color: var(--purple); }
+    .mark { font-family: var(--font-body); font-size: 0.72rem; margin-left: 0.2rem; }
+    .ipa { font-size: 0.8rem; color: #6a7886; font-weight: 700; margin-top: 0.12rem; }
+    .de { font-weight: 800; margin-top: 0.25rem; }
+    .pair { font-size: 0.84rem; font-weight: 800; color: #3a5568; margin-top: 0.15rem; }
+    .falle {
+      position: absolute; top: 0.7rem; right: 0.55rem; font-size: 0.65rem; font-weight: 800;
+      letter-spacing: 0.04em; text-transform: uppercase; background: #ffe08a; color: #7a5600;
+      border-radius: 999px; padding: 0.16rem 0.42rem;
+    }
+    .lang-row { display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: center; margin-top: 0.5rem; }
+    .speak-btn { font-weight: 800; font-size: 0.74rem; border: none; border-radius: 999px; padding: 0.32rem 0.62rem; }
+    .speak-btn.fr-btn { background: #ffd4cc; color: #a32a1d; }
+    .speak-btn.slow-btn { background: #ffe2a8; color: #7a4a00; }
+    .speak-btn.de-btn { background: #d4e8ff; color: #1a4f7a; }
+    .speak-btn.ex-btn { background: #d8f5e0; color: #1c6b3a; }
+    .ex-box {
+      margin-top: 0.55rem; text-align: left; padding: 0.5rem 0.6rem; border-radius: 12px;
+      background: #f4f8fb; font-weight: 700; font-size: 0.88rem; line-height: 1.35;
+    }
+    .ex-box .de-ex { display: block; margin-top: 0.25rem; color: #3a5568; }
+    .note { margin-top: 0.4rem; font-size: 0.8rem; font-weight: 800; color: #8a5a00; text-align: left; }
+    .stage {
+      background: white; border-radius: 22px; padding: 1.2rem 1.1rem 1.35rem;
+      box-shadow: var(--shadow); border: 3px solid white; max-width: 680px; margin: 0 auto; text-align: center;
+    }
+    .progress-bar { height: 12px; background: #e7eef5; border-radius: 999px; overflow: hidden; margin: 0.7rem 0 0.9rem; }
+    .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--leaf), #7ed957); transition: width 0.3s ease; }
+    .q-meta { font-weight: 800; color: #5a6b7c; }
+    .q-prompt, .q-de {
+      font-family: var(--font-display); font-size: clamp(1.45rem, 4.5vw, 2rem);
+      color: #1a2330; margin: 0.35rem 0; line-height: 1.15;
+    }
+    .big-pic {
+      width: 168px; height: 132px; margin: 0.35rem auto 0.2rem; display: grid; place-items: center;
+      background: #fff; border-radius: 18px; border: 3px solid #e1e8ef; padding: 0.35rem;
+    }
+    .big-pic svg { width: 120px; }
+    .big-pic.g-m { border-color: var(--blue-line); }
+    .big-pic.g-f { border-color: var(--red-line); }
+    .big-pic.g-pl { border-color: var(--purple-line); }
+    .write-mode-pic #write-de { display: none; }
+    .write-mode-de #write-pic { display: none; }
+    .write-form { margin-top: 0.35rem; }
+    .write-input {
+      width: min(480px, 100%); font: inherit; font-weight: 800; font-size: 1.2rem;
+      padding: 0.75rem 0.9rem; border-radius: 14px; border: 3px solid #d5e2ee;
+      text-align: center; color: #1a2330; background: #f8fbfe;
+    }
+    .write-input:focus { border-color: var(--blue-line); outline: none; background: white; }
+    .write-input.shake { animation: shake 0.35s linear; }
+    .choices, .pic-choices { display: grid; gap: 0.55rem; margin-top: 0.85rem; }
+    .pic-choices { grid-template-columns: 1fr 1fr; }
+    .choice {
+      font-weight: 800; font-size: 1.02rem; padding: 0.8rem 0.85rem; border-radius: 14px;
+      border: 3px solid transparent; background: #f3f7fb; color: var(--ink); text-align: left;
+    }
+    .pic-choice {
+      background: white; border: 3px solid #e1e8ef; border-radius: 16px; padding: 0.4rem 0.4rem 0.55rem;
+    }
+    .pic-choice svg { height: 78px; }
+    .pic-choice .pic-label { display: none; font-weight: 800; font-size: 0.82rem; margin-top: 0.15rem; }
+    .pic-choices.show-labels .pic-label { display: block; }
+    .choice.correct, .pic-choice.correct { background: #e5f8ec; border-color: var(--leaf); }
+    .choice.wrong, .pic-choice.wrong { background: #ffe8e4; border-color: #e85d4c; }
+    .choice:disabled, .pic-choice:disabled { cursor: default; }
+    .feedback { min-height: 1.5rem; margin-top: 0.75rem; font-weight: 800; }
+    .feedback.good { color: #1c6b3a; }
+    .feedback.bad { color: #a32a1d; }
+    .feedback.tip { color: #8a5a00; }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-top: 0.9rem; }
+    .btn {
+      font-family: var(--font-display); font-size: 1.05rem; border: none; border-radius: 999px;
+      padding: 0.62rem 1.15rem; color: white;
+      background: linear-gradient(180deg, var(--leaf), var(--leaf-deep)); box-shadow: 0 5px 0 #145c3c;
+    }
+    .btn.secondary { background: linear-gradient(180deg, var(--sky), var(--sky-deep)); box-shadow: 0 5px 0 #1e5f85; }
+    .btn.coral { background: linear-gradient(180deg, #f07a6a, #d6456a); box-shadow: 0 5px 0 #9a2f42; }
+    .btn.mango { background: linear-gradient(180deg, var(--mango), var(--mango-deep)); box-shadow: 0 5px 0 #b86200; color: #2a1a00; }
+    .text-btn { border: none; background: transparent; color: var(--purple); font-weight: 800; text-decoration: underline; padding: 0.35rem; }
+    .listen-big {
+      width: 70px; height: 70px; border-radius: 50%; border: none; margin: 0.45rem auto;
+      background: linear-gradient(180deg, #f07a6a, #d6456a); color: white; font-size: 1.7rem;
+      box-shadow: 0 6px 0 #9a2f42; display: inline-flex; align-items: center; justify-content: center;
+    }
+    .score-big {
+      font-family: var(--font-display); font-size: clamp(2.3rem, 7vw, 3.4rem);
+      color: var(--red); line-height: 1; margin: 0.35rem 0;
+    }
+    .stars { font-size: 1.5rem; letter-spacing: 0.12rem; margin-bottom: 0.4rem; }
+    .miss-list { list-style: none; text-align: left; margin: 0.6rem auto 0; max-width: 420px; }
+    .miss-list li { padding: 0.28rem 0; border-bottom: 1px dashed #e1e8ef; font-weight: 800; }
+    .print-controls {
+      background: white; border-radius: 18px; padding: 1rem 1.1rem; box-shadow: var(--shadow);
+      max-width: 760px; margin: 0 auto 1rem; text-align: center;
+    }
+    .print-controls h2 { font-family: var(--font-display); font-size: 1.35rem; }
+    .print-controls p { font-weight: 700; color: #3a5568; margin: 0.35rem 0 0.75rem; }
+    .worksheet {
+      background: white; border-radius: 12px; padding: 1.15rem 1.2rem 1.4rem;
+      box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; color: #111;
+    }
+    .worksheet-header { border-bottom: 2px solid #222; padding-bottom: 0.5rem; margin-bottom: 0.55rem; }
+    .worksheet-header h1 { font-family: var(--font-display); font-size: 1.35rem; }
+    .worksheet-header .sub { font-weight: 700; color: #333; margin-top: 0.12rem; }
+    .ws-meta { display: flex; flex-wrap: wrap; gap: 1rem; font-weight: 800; margin: 0.5rem 0; }
+    .ws-meta span { border-bottom: 1px solid #999; min-width: 8rem; }
+    .ws-legend { font-weight: 700; font-size: 0.9rem; color: #333; margin-bottom: 0.45rem; }
+    .bild-grid { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 1rem; }
+    .bild-row { display: flex; gap: 0.45rem; align-items: center; page-break-inside: avoid; }
+    .bild-svg { width: 52px; flex: none; }
+    .bild-de { font-weight: 800; }
+    .write-line { display: block; border-bottom: 1.5px solid #222; height: 1.25rem; margin-top: 0.12rem; }
+    .ws-section-title { font-family: var(--font-display); font-size: 1.12rem; margin: 0.8rem 0 0.35rem; }
+    .ws-list { list-style: none; counter-reset: ws; }
+    .ws-item {
+      counter-increment: ws; display: grid; grid-template-columns: 1.5rem 1fr; gap: 0.3rem;
+      padding: 0.32rem 0; border-bottom: 1px dotted #ccc; font-weight: 800; page-break-inside: avoid;
+    }
+    .ws-item::before { content: counter(ws) "."; }
+    .dir-pill {
+      display: inline-block; font-size: 0.68rem; font-weight: 800; padding: 0.1rem 0.38rem;
+      border-radius: 999px; background: #dce9f8; color: #16486a; margin-right: 0.3rem;
+    }
+    .dir-pill.frde { background: #ffe2a8; color: #7a4a00; }
+    .answer-key { margin-top: 1.2rem; padding-top: 0.8rem; border-top: 2px dashed #999; }
+    .answer-key h2 { font-family: var(--font-display); font-size: 1.25rem; }
+    .answer-key ol { margin: 0.4rem 0 0 1.15rem; font-weight: 700; line-height: 1.45; }
+    .key-grid { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; margin-top: 0.4rem; }
+    .key-grid li { font-weight: 800; font-size: 0.92rem; }
+    .sr {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); border: 0;
+    }
+    #confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 20; }
+    :focus-visible { outline: 3px solid var(--blue-line); outline-offset: 2px; }
+    @media screen {
+      .worksheet:not(.show-key) .answer-key { display: none; }
+    }
+    @media (max-width: 640px) {
+      .bild-grid, .key-grid { grid-template-columns: 1fr; }
+      .pic-choices { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: white !important; }
+      .top-nav, nav.tabs, header.hero, .howto, .traps, .filter-row, .search-row,
+      .hint, .count-label, .voice-note, footer, .print-controls, #confetti,
+      #panel-learn, #panel-write, #panel-listen, #panel-quiz { display: none !important; }
+      #panel-print { display: block !important; }
+      .wrap { width: auto; padding: 0; }
+      .worksheet { box-shadow: none; max-width: none; padding: 0; }
+      .answer-key { break-before: page; page-break-before: always; border-top: none; margin-top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="confetti" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="top-nav">
+      <a href="index.html">← Alle Seiten</a>
+      <a href="rentree.html">La rentrée →</a>
+    </div>
+
+    <header class="hero">
+      <h1 class="brand">Mes mots<span>Vokabeln mit Bildern · Klasse 7</span></h1>
+      <p class="tagline">Vokabeltest: Donnerstag, 12.11.2026 · Lerne jedes Wort immer MIT Artikel!</p>
+      <div class="legend" aria-label="Artikel-Farben">
+        <span class="leg m"><i class="dot m"></i>le / un = masculin (blau)</span>
+        <span class="leg f"><i class="dot f"></i>la / une = féminin (rot)</span>
+        <span class="leg pl"><i class="dot pl"></i>les = pluriel (lila)</span>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Übungen">
+      <button class="tab-btn active" data-tab="learn" type="button">📚 Lernen</button>
+      <button class="tab-btn" data-tab="write" type="button">✏️ Schreiben</button>
+      <button class="tab-btn" data-tab="listen" type="button">🎧 Hören</button>
+      <button class="tab-btn" data-tab="quiz" type="button">⭐ Quiz</button>
+      <button class="tab-btn" data-tab="print" type="button">🖨️ Test</button>
+    </nav>
+
+    <section id="panel-learn" class="panel active">
+      <div class="howto">
+        <h2>So übst du für Donnerstag</h2>
+        <ol>
+          <li>Die Farbe ist der Artikel: blau le/un, rot la/une, lila les.</li>
+          <li>Bei den 7 Fallen hat das Französische ein anderes Geschlecht als das Deutsche.</li>
+          <li>Beim Schreiben zählen le und un, la und une, les und des — das Geschlecht muss stimmen.</li>
+          <li>l'assiette ist feminin: l'assiette oder une assiette.</li>
+        </ol>
+      </div>
+      <div class="traps">
+        <h2>7 Fallen</h2>
+        <ul class="trap-list" id="trap-list"></ul>
+      </div>
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Suche: Teller, craie, gomme…" autocomplete="off" />
+      </div>
+      <div class="filter-row" id="filters"></div>
+      <div class="filter-row" id="covers" role="group" aria-label="Abdecken">
+        <button class="chip active" type="button" data-cover="all">Alles zeigen</button>
+        <button class="chip" type="button" data-cover="fr">Französisch zu</button>
+        <button class="chip" type="button" data-cover="de">Deutsch zu</button>
+      </div>
+      <p class="count-label" id="count-label"></p>
+      <p class="hint" id="cover-hint">Tipp: FR langsam antippen, dann den Beispielsatz.</p>
+      <div class="grid" id="grid"></div>
+      <p class="voice-note" id="voice-status">Stimmen werden geladen…</p>
+    </section>
+
+    <section id="panel-write" class="panel">
+      <div class="filter-row">
+        <button class="chip active" type="button" data-write-view="both">Bild + Deutsch</button>
+        <button class="chip" type="button" data-write-view="pic">Nur Bild</button>
+        <button class="chip" type="button" data-write-view="de">Nur Deutsch</button>
+      </div>
+      <div class="stage" id="write-play">
+        <p class="q-meta" id="write-meta">Schreibtraining</p>
+        <div class="progress-bar"><div class="progress-fill" id="write-progress"></div></div>
+        <div class="big-pic" id="write-pic"></div>
+        <p class="q-de" id="write-de"></p>
+        <form class="write-form" id="write-form">
+          <label class="sr" for="write-input">Französisch mit Artikel</label>
+          <input class="write-input" id="write-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="done" placeholder="Französisch mit Artikel…" />
+          <div class="cta-row">
+            <button class="btn" type="submit">Prüfen</button>
+            <button class="btn secondary" type="button" id="write-show">Lösung</button>
+          </div>
+        </form>
+        <p class="feedback" id="write-feedback" aria-live="polite"></p>
+        <div class="cta-row" id="write-next-row" hidden>
+          <button class="btn" type="button" id="write-next">Weiter →</button>
+        </div>
+        <button class="text-btn" type="button" id="write-traps">Nur die 7 Fallen üben</button>
+      </div>
+      <div class="stage" id="write-done" hidden>
+        <p class="q-meta">Geschafft</p>
+        <div class="score-big" id="write-score"></div>
+        <div class="stars" id="write-stars"></div>
+        <p id="write-summary" style="font-weight:800;"></p>
+        <ul class="miss-list" id="write-misses"></ul>
+        <div class="cta-row">
+          <button class="btn" type="button" id="write-again">Nochmal alle 16</button>
+          <button class="btn mango" type="button" id="write-retry" hidden>Nur die Fehler</button>
+          <button class="btn secondary" type="button" id="write-traps-done">Nur die 7 Fallen</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-listen" class="panel">
+      <div class="stage" id="listen-play">
+        <p class="q-meta" id="listen-meta">Hör zu und such das Bild</p>
+        <div class="progress-bar"><div class="progress-fill" id="listen-progress"></div></div>
+        <button class="listen-big" id="listen-play-btn" type="button" aria-label="Nochmal auf Französisch">🔊</button>
+        <p class="q-prompt" id="listen-prompt">Welches Bild passt?</p>
+        <div class="pic-choices" id="listen-choices"></div>
+        <p class="feedback" id="listen-feedback" aria-live="polite"></p>
+        <div class="cta-row">
+          <button class="btn" type="button" id="listen-next" disabled>Weiter →</button>
+        </div>
+      </div>
+      <div class="stage" id="listen-done" hidden>
+        <p class="q-meta">Hören fertig</p>
+        <div class="score-big" id="listen-score"></div>
+        <div class="stars" id="listen-stars"></div>
+        <div class="cta-row">
+          <button class="btn" type="button" id="listen-again">Nochmal</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-quiz" class="panel">
+      <div class="stage" id="quiz-intro">
+        <p class="q-meta">16 Fragen</p>
+        <p class="q-prompt">Artikel wählen und Deutsch erkennen</p>
+        <div class="cta-row">
+          <button class="btn mango" type="button" id="quiz-start">Quiz starten</button>
+        </div>
+      </div>
+      <div class="stage" id="quiz-play" hidden>
+        <p class="q-meta" id="quiz-meta"></p>
+        <div class="progress-bar"><div class="progress-fill" id="quiz-progress"></div></div>
+        <div class="big-pic" id="quiz-pic" hidden></div>
+        <p class="q-prompt" id="quiz-prompt"></p>
+        <button class="listen-big" id="quiz-listen" type="button" hidden aria-label="Französisch hören">🔊</button>
+        <div class="choices" id="quiz-choices"></div>
+        <p class="feedback" id="quiz-feedback" aria-live="polite"></p>
+        <div class="cta-row">
+          <button class="btn" type="button" id="quiz-next" disabled>Weiter →</button>
+        </div>
+      </div>
+      <div class="stage" id="quiz-done" hidden>
+        <p class="q-meta">Quiz fertig</p>
+        <div class="score-big" id="quiz-score"></div>
+        <div class="stars" id="quiz-stars"></div>
+        <ul class="miss-list" id="quiz-misses"></ul>
+        <div class="cta-row">
+          <button class="btn" type="button" id="quiz-again">Nochmal</button>
+          <button class="btn mango" type="button" id="quiz-to-write" hidden>Fehler schreiben</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="panel-print" class="panel">
+      <div class="print-controls">
+        <h2>Übungsblatt für den Test</h2>
+        <p>Bild-Test: 16 Bilder, Französisch mit Artikel daneben schreiben. Oder gemischt DE ↔ FR. Lösungen auf Seite 2.</p>
+        <div class="print-actions cta-row">
+          <button class="btn mango" type="button" id="ws-bild">Bild-Test</button>
+          <button class="btn secondary" type="button" id="ws-mix">Gemischt</button>
+          <button class="btn secondary" type="button" id="ws-key">Lösungen zeigen</button>
+          <button class="btn coral" type="button" id="ws-print">Drucken</button>
+        </div>
+      </div>
+      <div id="worksheet" class="worksheet" aria-live="polite"></div>
+    </section>
+
+    <footer>Französisch Klasse 7 · Mes mots · Viel Erfolg am Donnerstag, Maya!</footer>
+  </div>
+  <noscript><p class="howto">Bitte JavaScript einschalten — die Übungen laufen im Browser.</p></noscript>
+
+  <script>
+    function svg(body) {
+      return `<svg viewBox="0 0 80 64" aria-hidden="true">${body}</svg>`;
+    }
+
+    const ICONS = {
+      assiette: svg(`<ellipse cx="40" cy="36" rx="28" ry="16" fill="#f4f7fb" stroke="#5b93c4" stroke-width="3"/><ellipse cx="40" cy="36" rx="15" ry="8" fill="#fff" stroke="#d5e4f2" stroke-width="2"/>`),
+      craie: svg(`<rect x="6" y="14" width="68" height="40" rx="8" fill="#eef6ea"/><g transform="rotate(-12 30 36)"><rect x="12" y="30" width="32" height="11" rx="5.5" fill="#fbfaf6" stroke="#c8c2b6" stroke-width="1.5"/></g><g transform="rotate(8 52 28)"><rect x="36" y="20" width="30" height="11" rx="5.5" fill="#fff" stroke="#d0cbc0" stroke-width="1.5"/></g><rect x="22" y="42" width="24" height="9" rx="4.5" fill="#f4f0e6" stroke="#d0c8b8" stroke-width="1.2"/><circle cx="16" cy="48" r="1.7" fill="#d9d3c6"/><circle cx="58" cy="46" r="1.5" fill="#e4dfd4"/><circle cx="64" cy="40" r="1.3" fill="#ddd6c8"/>`),
+      mouchoir: svg(`<rect x="14" y="30" width="52" height="26" rx="6" fill="#f7b4ce" stroke="#d87aa3" stroke-width="2"/><path d="M28 32c2-18 22-18 24 0" fill="#fff" stroke="#e4e4e4" stroke-width="1.4"/><ellipse cx="40" cy="32" rx="9" ry="4" fill="#fff" stroke="#e4e4e4"/><rect x="22" y="38" width="36" height="5" rx="2" fill="#ee8eb4"/>`),
+      chignon: svg(`<circle cx="40" cy="40" r="16" fill="#8d5a3a"/><circle cx="40" cy="15" r="8" fill="#8d5a3a" stroke="#6e4128" stroke-width="1.5"/><circle cx="40" cy="15" r="3" fill="#a56b48"/>`),
+      stylo: svg(`<g transform="rotate(-42 40 32)"><rect x="34" y="6" width="12" height="32" rx="4" fill="#4aa3e8" stroke="#2171b5" stroke-width="2"/><rect x="34" y="28" width="12" height="8" fill="#2171b5"/><polygon points="34,38 46,38 40,56" fill="#3c4654"/></g>`),
+      sol: svg(`<polygon points="40,4 48,14 32,14" fill="#e23b5a"/><rect x="14" y="18" width="52" height="36" rx="3" fill="#f0d2a0" stroke="#c4924e" stroke-width="2"/><path d="M40 18v36M14 36h52M27 18v18M53 36v18" stroke="#c4924e" stroke-width="1.6"/>`),
+      surligneur: svg(`<g transform="rotate(-40 44 30)"><rect x="36" y="4" width="16" height="34" rx="3" fill="#ffd84a" stroke="#e0b000" stroke-width="2"/><rect x="36" y="30" width="16" height="7" fill="#e6b423"/><polygon points="36,37 52,37 44,52" fill="#ffe98a" stroke="#e0b000" stroke-width="2"/></g><g transform="rotate(-40 24 50)"><rect x="12" y="46" width="16" height="8" rx="2" fill="#ffd84a" stroke="#e0b000"/></g>`),
+      gomme: svg(`<rect x="16" y="16" width="48" height="18" rx="6" fill="#f6b3c9" stroke="#e58aa6" stroke-width="2"/><rect x="16" y="32" width="48" height="14" rx="6" fill="#8ecaf0" stroke="#6eb0dd" stroke-width="2"/><rect x="18" y="30" width="44" height="6" fill="#f6b3c9"/><circle cx="22" cy="54" r="2.1" fill="#f6b3c9"/><circle cx="31" cy="57" r="1.5" fill="#8ecaf0"/><circle cx="40" cy="54" r="1.8" fill="#f6b3c9"/>`),
+      ciseaux: svg(`<path d="M31 40 L52 12" stroke="#e85d8c" stroke-width="4" stroke-linecap="round"/><path d="M49 40 L28 12" stroke="#5aa6e6" stroke-width="4" stroke-linecap="round"/><circle cx="26" cy="46" r="9" fill="#fff" stroke="#e85d8c" stroke-width="3"/><circle cx="54" cy="46" r="9" fill="#fff" stroke="#5aa6e6" stroke-width="3"/><circle cx="40" cy="27" r="2.5" fill="#5c6770"/>`),
+      barre: svg(`<path d="M50 22 h8 l12 10 v10 l-12 10 h-8 z" fill="#8d5a32"/><rect x="10" y="22" width="44" height="30" rx="3" fill="#e39a45" stroke="#c47a28" stroke-width="2"/><path d="M22 22 v30 M32 22 v30 M42 22 v30" stroke="#c47a28" stroke-width="1.5"/>`),
+      portefeuille: svg(`<rect x="10" y="22" width="60" height="32" rx="5" fill="#a56b3c" stroke="#7a4a22" stroke-width="2"/><path d="M10 34 h60" stroke="#7a4a22" stroke-width="2"/><rect x="18" y="12" width="22" height="16" rx="2" fill="#b7e2c4" stroke="#6aaa80"/><circle cx="54" cy="44" r="6" fill="#f0c14a" stroke="#d09a20"/>`),
+      fourchette: svg(`<path d="M26 8 v16 M36 6 v18 M46 6 v18 M56 8 v16" stroke="#b7c3ce" stroke-width="4" stroke-linecap="round"/><path d="M24 22 h34 v6 c0 6 -6 8 -17 8 s-17 -2 -17 -8 z" fill="#c5d0da"/><rect x="36" y="34" width="8" height="24" rx="3" fill="#c5d0da"/>`),
+      cuillere: svg(`<ellipse cx="40" cy="20" rx="14" ry="16" fill="#d5dee6" stroke="#aeb8c4" stroke-width="2"/><ellipse cx="40" cy="20" rx="8" ry="10" fill="#eef3f7"/><rect x="36" y="32" width="8" height="26" rx="4" fill="#c5d0da"/>`),
+      couteau: svg(`<path d="M30 42 V12 h8 c11 0 16 7 16 16 v14 z" fill="#d5dee8" stroke="#7f93a6" stroke-width="2"/><rect x="28" y="40" width="16" height="16" rx="4" fill="#7eb6f0" stroke="#3d86c4" stroke-width="1.5"/>`),
+      feutre: svg(`<rect x="14" y="6" width="12" height="40" rx="3" fill="#e85d4c"/><polygon points="14,46 26,46 20,58" fill="#f7f7f7" stroke="#ddd"/><rect x="34" y="6" width="12" height="40" rx="3" fill="#3cb878"/><polygon points="34,46 46,46 40,58" fill="#f7f7f7" stroke="#ddd"/><rect x="54" y="6" width="12" height="40" rx="3" fill="#3d8fd4"/><polygon points="54,46 66,46 60,58" fill="#f7f7f7" stroke="#ddd"/>`),
+      pince: svg(`<line x1="4" y1="16" x2="76" y2="16" stroke="#9aa7b2" stroke-width="2.5"/><rect x="33" y="12" width="14" height="20" rx="2" fill="#f0d2a8" stroke="#c4a074" stroke-width="1.5"/><path d="M40 15 v14" stroke="#c4a074"/><ellipse cx="40" cy="46" rx="10" ry="13" fill="#f4b6c8" stroke="#e594ab" stroke-width="1.5"/><path d="M32 40 h16" stroke="#e594ab"/>`)
+    };
+
+    const RAW = [
+      { id: "assiette", gender: "f", group: "essen", trap: true, article: "l'", pair: "une", noun: "assiette", mark: "(f)", de: "der Teller", ipa: "[lasjɛt]",
+        note: "Feminin, mit Apostroph: l'assiette oder une assiette.",
+        ex: "L'assiette est sur la table.", exDe: "Der Teller ist auf dem Tisch." },
+      { id: "craie", gender: "f", group: "schule", article: "la", pair: "une", noun: "craie", de: "die Kreide", ipa: "[la kʁɛ]",
+        ex: "Le prof écrit avec la craie.", exDe: "Der Lehrer schreibt mit der Kreide." },
+      { id: "mouchoir", gender: "m", group: "alltag", trap: true, article: "le", pair: "un", noun: "mouchoir", de: "das Taschentuch", ipa: "[lə muʃwaʁ]",
+        note: "Maskulin: le mouchoir.",
+        ex: "J'ai le mouchoir dans le sac.", exDe: "Ich habe das Taschentuch in der Tasche." },
+      { id: "chignon", gender: "m", group: "alltag", article: "le", pair: "un", noun: "chignon", de: "der Dutt", ipa: "[lə ʃiɲɔ̃]",
+        ex: "Léa a un chignon.", exDe: "Léa hat einen Dutt." },
+      { id: "stylo", gender: "m", group: "schule", article: "le", pair: "un", noun: "stylo à plume", de: "der Füller", ipa: "[lə stilo a plym]",
+        ex: "J'écris avec le stylo à plume.", exDe: "Ich schreibe mit dem Füller." },
+      { id: "sol", gender: "m", group: "alltag", article: "le", pair: "un", noun: "sol", de: "der Boden", ipa: "[lə sɔl]",
+        ex: "Le sac est sur le sol.", exDe: "Die Tasche ist auf dem Boden." },
+      { id: "surligneur", gender: "m", group: "schule", article: "le", pair: "un", noun: "surligneur", de: "der Textmarker", ipa: "[lə syʁliɲœʁ]",
+        ex: "Je souligne avec le surligneur.", exDe: "Ich markiere mit dem Textmarker." },
+      { id: "gomme", gender: "f", group: "schule", trap: true, article: "la", pair: "une", noun: "gomme", de: "der Radiergummi", ipa: "[la gɔm]",
+        note: "Feminin: la gomme.",
+        ex: "J'efface avec la gomme.", exDe: "Ich radiere mit dem Radiergummi." },
+      { id: "ciseaux", gender: "pl", group: "schule", trap: true, article: "les", pair: "des", noun: "ciseaux", mark: "(pl m)", de: "die Schere", ipa: "[le sizo]",
+        note: "Plural und maskulin: les ciseaux. Das Verb steht auch im Plural: sont.",
+        ex: "Les ciseaux sont dans la trousse.", exDe: "Die Schere ist im Mäppchen." },
+      { id: "barre", gender: "f", group: "essen", trap: true, article: "une", pair: "la", noun: "barre de chocolat", de: "ein Schokoriegel", ipa: "[yn baʁ də ʃɔkɔla]",
+        note: "Feminin: une barre de chocolat.",
+        ex: "Je mange une barre de chocolat.", exDe: "Ich esse einen Schokoriegel." },
+      { id: "portefeuille", gender: "m", group: "alltag", article: "le", pair: "un", noun: "portefeuille", de: "der Geldbeutel", ipa: "[lə pɔʁtəfœj]",
+        ex: "Le portefeuille est dans la poche.", exDe: "Der Geldbeutel ist in der Tasche." },
+      { id: "fourchette", gender: "f", group: "essen", article: "la", pair: "une", noun: "fourchette", de: "die Gabel", ipa: "[la fuʁʃɛt]",
+        ex: "La fourchette est à côté de l'assiette.", exDe: "Die Gabel liegt neben dem Teller." },
+      { id: "cuillere", gender: "f", group: "essen", trap: true, article: "la", pair: "une", noun: "cuillère", extra: ["la cuiller", "une cuiller"], de: "der Löffel", ipa: "[la kɥijɛʁ]",
+        note: "Feminin, mit è: la cuillère.",
+        ex: "La cuillère est dans le bol.", exDe: "Der Löffel ist in der Schüssel." },
+      { id: "couteau", gender: "m", group: "essen", trap: true, article: "le", pair: "un", noun: "couteau", de: "das Messer", ipa: "[lə kuto]",
+        note: "Maskulin: le couteau.",
+        ex: "Le couteau est à droite.", exDe: "Das Messer liegt rechts." },
+      { id: "feutre", gender: "m", group: "schule", article: "le", pair: "un", noun: "feutre", de: "der Filzstift", ipa: "[lə føtʁ]",
+        note: "Singular: le feutre.",
+        ex: "Je dessine avec le feutre.", exDe: "Ich zeichne mit dem Filzstift." },
+      { id: "pince", gender: "f", group: "alltag", article: "la", pair: "une", noun: "pince", de: "die Klammer", ipa: "[la pɛ̃s]",
+        note: "Die Wäscheklammer von der Leine.",
+        ex: "La pince tient la chaussette.", exDe: "Die Klammer hält die Socke." }
+    ];
+
+    function spoken(article, noun) {
+      return article.endsWith("'") ? article + noun : article + " " + noun;
+    }
+    function capFirst(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+    function displayFr(w) {
+      return capFirst(spoken(w.article, w.noun));
+    }
+    function altFr(w) {
+      return capFirst(spoken(w.pair, w.noun));
+    }
+
+    const VOCAB = RAW.map(w => {
+      const primary = spoken(w.article, w.noun);
+      const alt = spoken(w.pair, w.noun);
+      const forms = [primary, alt, ...(w.extra || [])];
+      const tip = w.note || (w.gender === "m"
+        ? `Maskulin: ${capFirst(primary)} oder ${capFirst(alt)}.`
+        : w.gender === "f"
+          ? `Feminin: ${capFirst(primary)} oder ${capFirst(alt)}.`
+          : `Plural: ${capFirst(primary)} oder ${capFirst(alt)}.`);
+      return { ...w, forms, speak: primary, tip };
+    });
+
+    const FILTERS = [
+      { id: "all", label: "Alle 16" },
+      { id: "trap", label: "⚠️ Fallen" },
+      { id: "m", label: "🔵 le / un" },
+      { id: "f", label: "🔴 la / une" },
+      { id: "pl", label: "🟣 les" },
+      { id: "schule", label: "✏️ Schule" },
+      { id: "essen", label: "🍽️ Tisch" },
+      { id: "alltag", label: "🎒 Alltag" }
+    ];
+
+    let filter = "all";
+    let search = "";
+    let cover = "all";
+    let voices = [];
+
+    function norm(s) {
+      return String(s || "")
+        .toLowerCase()
+        .normalize("NFC")
+        .replace(/[’ʼ`´]/g, "'")
+        .replace(/\([^)]*\)/g, " ")
+        .replace(/[.…!?,;:]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+    function fold(s) {
+      return norm(s).normalize("NFD").replace(/\p{M}/gu, "").replace(/œ/g, "oe").replace(/æ/g, "ae");
+    }
+    function tight(s) {
+      return fold(s).replace(/-/g, "").replace(/'/g, "").replace(/\s+/g, "");
+    }
+    function judge(word, raw) {
+      const n = norm(raw);
+      if (!n) return { ok: false, kind: "empty" };
+      if (word.forms.some(f => norm(f) === n)) return { ok: true, kind: "exact" };
+      const t = tight(raw);
+      if (word.forms.some(f => tight(f) === t)) {
+        return { ok: false, kind: "tip", msg: `Fast! Genau so: ${displayFr(word)}` };
+      }
+      if (word.forms.some(f => t.includes(tight(f)))) {
+        return { ok: false, kind: "tip", msg: `Nur das Wort mit Artikel: ${displayFr(word)}` };
+      }
+      if (/^(le|la|les|un|une|des|l')$/i.test(n)) {
+        return { ok: false, kind: "tip", msg: "Artikel allein reicht nicht. Schreib Artikel und Wort." };
+      }
+      const nounT = tight(word.noun);
+      const head = tight(word.noun.split(/\s+/)[0]);
+      const mentions = t.includes(nounT) || (head.length > 3 && t.includes(head));
+      if (mentions) {
+        const hasArt = /^(le|la|les|un|une|des)(\s|$)/.test(n) || n.startsWith("l'");
+        const prefix = hasArt ? "" : "Artikel fehlt. ";
+        return { ok: false, kind: "tip", msg: prefix + word.tip };
+      }
+      return { ok: false, kind: "miss" };
+    }
+    function trapsFor(w) {
+      const n = w.noun;
+      let raw;
+      if (w.gender === "pl") raw = [`le ${n}`, `la ${n}`, `une ${n}`];
+      else if (w.article === "l'") raw = [`le ${n}`, `la ${n}`, `un ${n}`];
+      else if (w.gender === "f") raw = [`le ${n}`, `un ${n}`, `les ${n}`];
+      else raw = [`la ${n}`, `une ${n}`, `les ${n}`];
+      const banned = new Set(w.forms.map(norm));
+      return raw.filter(x => !banned.has(norm(x))).slice(0, 3).map(capFirst);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function escapeAttr(s) { return escapeHtml(s).replace(/'/g, "&#39;"); }
+    function frHtml(w) {
+      const space = w.article.endsWith("'") ? "" : " ";
+      const mark = w.mark ? ` <span class="mark ${w.gender}">${escapeHtml(w.mark)}</span>` : "";
+      return `<span class="art ${w.gender}">${escapeHtml(capFirst(w.article))}</span>${space}${escapeHtml(w.noun)}${mark}`;
+    }
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+    function stars(score, total) {
+      const p = total ? score / total : 0;
+      if (p === 1) return "⭐⭐⭐⭐⭐";
+      if (p >= 0.8) return "⭐⭐⭐⭐";
+      if (p >= 0.6) return "⭐⭐⭐";
+      if (p >= 0.4) return "⭐⭐";
+      return "⭐";
+    }
+    function burst() {
+      const layer = document.getElementById("confetti");
+      const colors = ["#e23b5a", "#2f6fdb", "#8a4ad4", "#ffd84a", "#3cb878", "#fff"];
+      for (let i = 0; i < 42; i++) {
+        const bit = document.createElement("div");
+        bit.style.cssText = `position:absolute;top:-10px;left:${Math.random() * 100}vw;width:10px;height:14px;border-radius:2px;background:${colors[i % colors.length]};animation:confetti-fall ${2.2 + Math.random()}s linear forwards;`;
+        layer.appendChild(bit);
+        setTimeout(() => bit.remove(), 3800);
+      }
+    }
+
+    function loadVoices() {
+      voices = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+      const el = document.getElementById("voice-status");
+      if (!window.speechSynthesis) {
+        el.textContent = "Sprache geht hier nicht — Chrome, Edge oder Safari nehmen.";
+        return;
+      }
+      const fr = pickVoice("fr");
+      const de = pickVoice("de");
+      el.textContent = voices.length
+        ? `Aussprache bereit · FR: ${fr?.name || "Standard"} · DE: ${de?.name || "Standard"}`
+        : "Einmal auf 🔊 tippen, dann kommen die Stimmen.";
+    }
+    if (window.speechSynthesis) {
+      loadVoices();
+      speechSynthesis.onvoiceschanged = loadVoices;
+    } else loadVoices();
+
+    function pickVoice(prefix) {
+      const list = voices.filter(v => v.lang.toLowerCase().startsWith(prefix));
+      if (!list.length) return null;
+      const rank = (name) => {
+        const n = name.toLowerCase();
+        if (/google français|google french|thomas|amélie|aurelie|marie|paul|natural|enhanced|premium|neural/i.test(n)) return 3;
+        if (/google|apple|microsoft|anna|helena/i.test(n)) return 2;
+        return 1;
+      };
+      return [...list].sort((a, b) => rank(b.name) - rank(a.name))[0];
+    }
+    function speak(text, lang, { slow = false } = {}) {
+      if (!window.speechSynthesis || !text) return;
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = lang === "de" ? "de-DE" : "fr-FR";
+      const voice = pickVoice(lang === "de" ? "de" : "fr");
+      if (voice) u.voice = voice;
+      u.rate = lang === "fr" ? (slow ? 0.62 : 0.84) : 0.92;
+      speechSynthesis.speak(u);
+    }
+
+    function filtered() {
+      const q = search.trim().toLowerCase();
+      return VOCAB.filter(v => {
+        if (filter === "trap") {
+          if (!v.trap) return false;
+        } else if (filter === "m" || filter === "f" || filter === "pl") {
+          if (v.gender !== filter) return false;
+        } else if (filter !== "all" && v.group !== filter) return false;
+        if (!q) return true;
+        return [v.noun, v.de, v.forms.join(" "), v.ex, v.exDe, v.ipa].join(" ").toLowerCase().includes(q);
+      });
+    }
+
+    function renderFilters() {
+      document.getElementById("filters").innerHTML = FILTERS.map(c =>
+        `<button type="button" class="chip ${filter === c.id ? "active" : ""}" data-filter="${c.id}">${c.label}</button>`
+      ).join("");
+    }
+    function renderTraps() {
+      document.getElementById("trap-list").innerHTML = VOCAB.filter(v => v.trap).map(v =>
+        `<li><span>${escapeHtml(v.de)}</span> → ${frHtml(v)}</li>`
+      ).join("");
+    }
+    function renderGrid() {
+      const list = filtered();
+      document.getElementById("count-label").textContent = `${list.length} von ${VOCAB.length}`;
+      const grid = document.getElementById("grid");
+      grid.className = "grid" + (cover === "fr" ? " cover cover-fr" : cover === "de" ? " cover cover-de" : "");
+      grid.innerHTML = list.map(v => `
+        <article class="card g-${v.gender}" data-id="${v.id}">
+          ${v.trap ? `<span class="falle">Falle</span>` : ""}
+          <div class="pic">${ICONS[v.id]}</div>
+          <div class="fr only-fr">${frHtml(v)}</div>
+          <div class="ipa only-extra">${escapeHtml(v.ipa)}</div>
+          <div class="de only-de">${escapeHtml(v.de)}</div>
+          <div class="pair only-extra">auch: ${escapeHtml(altFr(v))}</div>
+          <div class="lang-row only-extra">
+            <button type="button" class="speak-btn fr-btn" data-speak="fr" data-text="${escapeAttr(v.speak)}">🔊 FR</button>
+            <button type="button" class="speak-btn slow-btn" data-speak="fr" data-slow="1" data-text="${escapeAttr(v.speak)}">🐢 langsam</button>
+            <button type="button" class="speak-btn de-btn" data-speak="de" data-text="${escapeAttr(v.de)}">🔊 DE</button>
+            <button type="button" class="speak-btn ex-btn" data-speak="fr" data-text="${escapeAttr(v.ex)}">Beispiel</button>
+          </div>
+          <div class="ex-box only-extra">
+            <div>${escapeHtml(v.ex)}</div>
+            <span class="de-ex">${escapeHtml(v.exDe)}</span>
+          </div>
+          ${v.note ? `<div class="note only-extra">${escapeHtml(v.note)}</div>` : ""}
+        </article>
+      `).join("");
+    }
+
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-filter]");
+      if (!b) return;
+      filter = b.dataset.filter;
+      renderFilters();
+      renderGrid();
+    });
+    document.getElementById("covers").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-cover]");
+      if (!b) return;
+      cover = b.dataset.cover;
+      document.querySelectorAll("#covers .chip").forEach(c => c.classList.toggle("active", c === b));
+      document.getElementById("cover-hint").textContent = cover === "all"
+        ? "Tipp: FR langsam antippen, dann den Beispielsatz."
+        : "Tippe eine Karte an, um sie aufzudecken.";
+      renderGrid();
+    });
+    document.getElementById("search").addEventListener("input", (e) => {
+      search = e.target.value;
+      renderGrid();
+    });
+    document.getElementById("grid").addEventListener("click", (e) => {
+      if (e.target.closest("[data-speak]")) return;
+      if (cover === "all") return;
+      const card = e.target.closest(".card");
+      if (card) card.classList.toggle("open");
+    });
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-speak]");
+      if (!btn) return;
+      speak(btn.dataset.text, btn.dataset.speak, { slow: btn.dataset.slow === "1" });
+    });
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        const name = btn.dataset.tab;
+        document.getElementById("panel-" + name).classList.add("active");
+        if (window.speechSynthesis) speechSynthesis.cancel();
+        if (writeState === "correct") {
+          clearTimeout(writeTimer);
+          writeIdx++;
+          showWrite();
+        }
+        if (name === "write" && !writeBoot) startWrite(VOCAB);
+        if (name === "listen" && !listenBoot) startListen();
+        if (name === "print" && !document.getElementById("worksheet").dataset.ready) generateWorksheet("bild");
+      });
+    });
+
+    /* ---------- Schreiben ---------- */
+    let writeQueue = [];
+    let writeIdx = 0;
+    let writeScore = 0;
+    let writeHints = 0;
+    let writeMisses = [];
+    let writeState = "open";
+    let writeHinted = false;
+    let writeTimer = 0;
+    let writeBoot = false;
+    const writeInput = document.getElementById("write-input");
+    const writeFb = document.getElementById("write-feedback");
+    const writePic = document.getElementById("write-pic");
+
+    function startWrite(list) {
+      clearTimeout(writeTimer);
+      writeBoot = true;
+      writeQueue = shuffle(list && list.length ? list : VOCAB);
+      writeIdx = 0;
+      writeScore = 0;
+      writeHints = 0;
+      writeMisses = [];
+      document.getElementById("write-done").hidden = true;
+      document.getElementById("write-play").hidden = false;
+      showWrite();
+    }
+    function showWrite() {
+      clearTimeout(writeTimer);
+      const w = writeQueue[writeIdx];
+      if (!w) { showWriteDone(); return; }
+      writeState = "open";
+      writeHinted = false;
+      document.getElementById("write-meta").textContent = `Wort ${writeIdx + 1} von ${writeQueue.length}`;
+      document.getElementById("write-progress").style.width = `${(writeIdx / writeQueue.length) * 100}%`;
+      writePic.className = "big-pic";
+      writePic.innerHTML = ICONS[w.id];
+      document.getElementById("write-de").textContent = w.de;
+      writeInput.disabled = false;
+      writeInput.value = "";
+      writeInput.classList.remove("shake");
+      writeFb.textContent = "";
+      writeFb.className = "feedback";
+      document.getElementById("write-next-row").hidden = true;
+      if (document.getElementById("panel-write").classList.contains("active")) writeInput.focus();
+    }
+    function showWriteDone() {
+      writeState = "done";
+      document.getElementById("write-play").hidden = true;
+      document.getElementById("write-done").hidden = false;
+      const total = writeQueue.length;
+      document.getElementById("write-score").textContent = `${writeScore} / ${total}`;
+      document.getElementById("write-stars").textContent = stars(writeScore, total);
+      const hintNote = writeHints ? ` · ${writeHints} davon nach einem Tipp` : "";
+      document.getElementById("write-summary").textContent = writeMisses.length
+        ? `Diese Wörter noch einmal.${hintNote}`
+        : `Alles mit Artikel. Super.${hintNote}`;
+      document.getElementById("write-misses").innerHTML = writeMisses.map(w =>
+        `<li>${frHtml(w)} — ${escapeHtml(w.de)}</li>`
+      ).join("");
+      document.getElementById("write-retry").hidden = writeMisses.length === 0;
+      if (writeScore === total && total > 0) burst();
+    }
+    function checkWrite() {
+      const w = writeQueue[writeIdx];
+      if (!w || writeState !== "open") return;
+      const result = judge(w, writeInput.value);
+      if (result.ok) {
+        writeState = "correct";
+        writeScore++;
+        if (writeHinted) writeHints++;
+        writePic.classList.add("g-" + w.gender);
+        writeFb.className = "feedback good";
+        writeFb.innerHTML = `Super! ${frHtml(w)}`;
+        speak(w.speak, "fr");
+        writeTimer = setTimeout(() => { writeIdx++; showWrite(); }, 650);
+        return;
+      }
+      writeInput.classList.remove("shake");
+      void writeInput.offsetWidth;
+      writeInput.classList.add("shake");
+      if (result.kind === "empty") {
+        writeFb.className = "feedback tip";
+        writeFb.textContent = "Schreib das Wort mit Artikel.";
+        return;
+      }
+      if (result.kind === "tip") {
+        writeHinted = true;
+        writeFb.className = "feedback tip";
+        writeFb.textContent = result.msg;
+        return;
+      }
+      writeState = "failed";
+      writeMisses.push(w);
+      writeInput.disabled = true;
+      writePic.classList.add("g-" + w.gender);
+      writeFb.className = "feedback bad";
+      writeFb.innerHTML = `Richtig: ${frHtml(w)} — ${escapeHtml(w.de)}`;
+      document.getElementById("write-next-row").hidden = false;
+      speak(w.speak, "fr");
+    }
+    document.getElementById("write-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      checkWrite();
+    });
+    document.getElementById("write-show").addEventListener("click", () => {
+      const w = writeQueue[writeIdx];
+      if (!w || writeState !== "open") return;
+      writeState = "failed";
+      writeMisses.push(w);
+      writeInput.disabled = true;
+      writePic.classList.add("g-" + w.gender);
+      writeFb.className = "feedback bad";
+      writeFb.innerHTML = `${frHtml(w)} — ${escapeHtml(w.de)}. ${escapeHtml(w.tip)}`;
+      document.getElementById("write-next-row").hidden = false;
+      speak(w.speak, "fr");
+    });
+    document.getElementById("write-next").addEventListener("click", () => {
+      writeIdx++;
+      showWrite();
+    });
+    document.getElementById("write-again").addEventListener("click", () => startWrite(VOCAB));
+    document.getElementById("write-traps").addEventListener("click", () => startWrite(VOCAB.filter(v => v.trap)));
+    document.getElementById("write-traps-done").addEventListener("click", () => startWrite(VOCAB.filter(v => v.trap)));
+    document.getElementById("write-retry").addEventListener("click", () => startWrite(writeMisses));
+    document.querySelectorAll("[data-write-view]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-write-view]").forEach(b => b.classList.toggle("active", b === btn));
+        const stage = document.getElementById("write-play");
+        stage.classList.remove("write-mode-pic", "write-mode-de");
+        if (btn.dataset.writeView === "pic") stage.classList.add("write-mode-pic");
+        if (btn.dataset.writeView === "de") stage.classList.add("write-mode-de");
+      });
+    });
+
+    /* ---------- Hören ---------- */
+    let listenList = [];
+    let listenIdx = 0;
+    let listenScore = 0;
+    let listenLocked = false;
+    let listenBoot = false;
+
+    function startListen() {
+      listenBoot = true;
+      listenList = shuffle(VOCAB);
+      listenIdx = 0;
+      listenScore = 0;
+      document.getElementById("listen-done").hidden = true;
+      document.getElementById("listen-play").hidden = false;
+      showListen();
+    }
+    function showListen() {
+      const w = listenList[listenIdx];
+      if (!w) { showListenDone(); return; }
+      listenLocked = false;
+      document.getElementById("listen-meta").textContent = `Wort ${listenIdx + 1} von ${listenList.length}`;
+      document.getElementById("listen-progress").style.width = `${(listenIdx / listenList.length) * 100}%`;
+      document.getElementById("listen-prompt").textContent = "Welches Bild passt?";
+      document.getElementById("listen-feedback").textContent = "";
+      document.getElementById("listen-feedback").className = "feedback";
+      document.getElementById("listen-next").disabled = true;
+      const opts = shuffle([w, ...shuffle(VOCAB.filter(v => v.id !== w.id)).slice(0, 3)]);
+      const box = document.getElementById("listen-choices");
+      box.className = "pic-choices";
+      box.innerHTML = opts.map((o, i) => `
+        <button type="button" class="pic-choice" data-id="${o.id}" aria-label="Bild ${i + 1}">
+          ${ICONS[o.id]}
+          <span class="pic-label">${escapeHtml(o.de)}</span>
+        </button>
+      `).join("");
+      const play = () => speak(w.speak, "fr");
+      document.getElementById("listen-play-btn").onclick = play;
+      setTimeout(play, 180);
+    }
+    function showListenDone() {
+      document.getElementById("listen-play").hidden = true;
+      document.getElementById("listen-done").hidden = false;
+      document.getElementById("listen-score").textContent = `${listenScore} / ${listenList.length}`;
+      document.getElementById("listen-stars").textContent = stars(listenScore, listenList.length);
+      if (listenScore === listenList.length) burst();
+    }
+    document.getElementById("listen-choices").addEventListener("click", (e) => {
+      const b = e.target.closest(".pic-choice");
+      if (!b || listenLocked) return;
+      const w = listenList[listenIdx];
+      listenLocked = true;
+      document.getElementById("listen-choices").classList.add("show-labels");
+      document.querySelectorAll("#listen-choices .pic-choice").forEach(c => {
+        c.disabled = true;
+        if (c.dataset.id === w.id) c.classList.add("correct");
+      });
+      const fb = document.getElementById("listen-feedback");
+      if (b.dataset.id === w.id) {
+        listenScore++;
+        fb.className = "feedback good";
+        fb.innerHTML = `Oui ! ${frHtml(w)}`;
+      } else {
+        b.classList.add("wrong");
+        fb.className = "feedback bad";
+        fb.innerHTML = `${frHtml(w)} — ${escapeHtml(w.de)}`;
+        speak(w.speak, "fr", { slow: true });
+      }
+      document.getElementById("listen-prompt").innerHTML = frHtml(w);
+      document.getElementById("listen-next").disabled = false;
+    });
+    document.getElementById("listen-next").addEventListener("click", () => {
+      listenIdx++;
+      showListen();
+    });
+    document.getElementById("listen-again").addEventListener("click", startListen);
+
+    /* ---------- Quiz ---------- */
+    let quizItems = [];
+    let quizIdx = 0;
+    let quizScore = 0;
+    let quizMisses = [];
+    let quizLocked = false;
+
+    function startQuiz() {
+      quizItems = shuffle(VOCAB).map((w, i) => ({ w, style: i % 2 ? "fr" : "art" }));
+      quizIdx = 0;
+      quizScore = 0;
+      quizMisses = [];
+      document.getElementById("quiz-intro").hidden = true;
+      document.getElementById("quiz-done").hidden = true;
+      document.getElementById("quiz-play").hidden = false;
+      showQuiz();
+    }
+    function showQuiz() {
+      const q = quizItems[quizIdx];
+      if (!q) { showQuizDone(); return; }
+      quizLocked = false;
+      const w = q.w;
+      document.getElementById("quiz-meta").textContent = `Frage ${quizIdx + 1} von ${quizItems.length}`;
+      document.getElementById("quiz-progress").style.width = `${(quizIdx / quizItems.length) * 100}%`;
+      document.getElementById("quiz-feedback").textContent = "";
+      document.getElementById("quiz-feedback").className = "feedback";
+      document.getElementById("quiz-next").disabled = true;
+      const pic = document.getElementById("quiz-pic");
+      const listen = document.getElementById("quiz-listen");
+      let choices;
+      if (q.style === "art") {
+        pic.hidden = false;
+        pic.className = "big-pic";
+        pic.innerHTML = ICONS[w.id];
+        document.getElementById("quiz-prompt").textContent = w.de + " — welcher Artikel?";
+        listen.hidden = true;
+        choices = shuffle([
+          { ok: true, label: displayFr(w) },
+          ...trapsFor(w).map(label => ({ ok: false, label }))
+        ]);
+      } else {
+        pic.hidden = true;
+        document.getElementById("quiz-prompt").innerHTML = frHtml(w);
+        listen.hidden = false;
+        listen.onclick = () => speak(w.speak, "fr", { slow: true });
+        setTimeout(() => speak(w.speak, "fr"), 160);
+        const opts = shuffle([w, ...shuffle(VOCAB.filter(v => v.id !== w.id)).slice(0, 3)]);
+        choices = opts.map(o => ({ ok: o.id === w.id, label: o.de }));
+      }
+      document.getElementById("quiz-choices").innerHTML = choices.map(c =>
+        `<button type="button" class="choice" data-ok="${c.ok ? "1" : "0"}">${escapeHtml(c.label)}</button>`
+      ).join("");
+    }
+    function showQuizDone() {
+      document.getElementById("quiz-play").hidden = true;
+      document.getElementById("quiz-done").hidden = false;
+      document.getElementById("quiz-score").textContent = `${quizScore} / ${quizItems.length}`;
+      document.getElementById("quiz-stars").textContent = stars(quizScore, quizItems.length);
+      document.getElementById("quiz-misses").innerHTML = quizMisses.map(w =>
+        `<li>${frHtml(w)} — ${escapeHtml(w.de)}</li>`
+      ).join("");
+      document.getElementById("quiz-to-write").hidden = quizMisses.length === 0;
+      if (quizScore === quizItems.length) burst();
+    }
+    document.getElementById("quiz-choices").addEventListener("click", (e) => {
+      const b = e.target.closest(".choice");
+      if (!b || quizLocked) return;
+      quizLocked = true;
+      const q = quizItems[quizIdx];
+      document.querySelectorAll("#quiz-choices .choice").forEach(c => {
+        c.disabled = true;
+        if (c.dataset.ok === "1") c.classList.add("correct");
+      });
+      const fb = document.getElementById("quiz-feedback");
+      const pic = document.getElementById("quiz-pic");
+      if (!pic.hidden) pic.classList.add("g-" + q.w.gender);
+      if (b.dataset.ok === "1") {
+        quizScore++;
+        fb.className = "feedback good";
+        fb.innerHTML = `Super! ${frHtml(q.w)}`;
+      } else {
+        b.classList.add("wrong");
+        quizMisses.push(q.w);
+        fb.className = "feedback bad";
+        fb.innerHTML = `${frHtml(q.w)} — ${escapeHtml(q.w.tip)}`;
+      }
+      speak(q.w.speak, "fr");
+      document.getElementById("quiz-next").disabled = false;
+    });
+    document.getElementById("quiz-next").addEventListener("click", () => { quizIdx++; showQuiz(); });
+    document.getElementById("quiz-start").addEventListener("click", startQuiz);
+    document.getElementById("quiz-again").addEventListener("click", startQuiz);
+    document.getElementById("quiz-to-write").addEventListener("click", () => {
+      writeBoot = true;
+      document.querySelector('[data-tab="write"]').click();
+      startWrite(quizMisses);
+    });
+
+    /* ---------- Druck ---------- */
+    function generateWorksheet(mode) {
+      const sheet = document.getElementById("worksheet");
+      sheet.classList.remove("show-key");
+      const keyBtn = document.getElementById("ws-key");
+      if (keyBtn) keyBtn.textContent = "Lösungen zeigen";
+      const words = shuffle(VOCAB);
+      const today = "Donnerstag, 12.11.2026";
+      let body;
+      let key;
+      if (mode === "mix") {
+        const a = words.slice(0, 8);
+        const b = words.slice(8);
+        const items = (list, dir) => list.map(w => {
+          const prompt = dir === "de" ? w.de : displayFr(w);
+          const pill = dir === "de"
+            ? `<span class="dir-pill">DE → FR</span>`
+            : `<span class="dir-pill frde">FR → DE</span>`;
+          return `<li class="ws-item"><div>${pill}${escapeHtml(prompt)}<span class="write-line"></span></div></li>`;
+        }).join("");
+        body = `
+          <h2 class="ws-section-title">A) Deutsch → Französisch, mit Artikel</h2>
+          <ol class="ws-list">${items(a, "de")}</ol>
+          <h2 class="ws-section-title">B) Französisch → Deutsch</h2>
+          <ol class="ws-list">${items(b, "fr")}</ol>`;
+        key = `
+          <h2>Lösungen</h2>
+          <p class="ws-legend">Fett ist die Form vom Blatt. le/un, la/une und les/des gelten beide.</p>
+          <h3 class="ws-section-title">A</h3>
+          <ol>${a.map(w => `<li><strong>${escapeHtml(displayFr(w))}</strong> <span style="font-weight:700;color:#444">(${escapeHtml(w.de)}, auch ${escapeHtml(altFr(w))})</span></li>`).join("")}</ol>
+          <h3 class="ws-section-title">B</h3>
+          <ol>${b.map(w => `<li><strong>${escapeHtml(w.de)}</strong> <span style="font-weight:700;color:#444">(${escapeHtml(displayFr(w))})</span></li>`).join("")}</ol>`;
+      } else {
+        body = `
+          <p class="ws-legend">Schreib unter jedes Bild das französische Wort mit Artikel.</p>
+          <ol class="bild-grid">${words.map(w => `
+            <li><div class="bild-row">
+              <div class="bild-svg">${ICONS[w.id]}</div>
+              <div style="flex:1"><div class="bild-de">${escapeHtml(w.de)}</div><span class="write-line"></span></div>
+            </div></li>`).join("")}
+          </ol>`;
+        key = `
+          <h2>Lösungen</h2>
+          <p class="ws-legend">Fett = Form vom Blatt. Auch richtig: der andere Artikel mit demselben Geschlecht.</p>
+          <ul class="key-grid">${words.map(w => `<li>${escapeHtml(w.de)} → <strong>${frHtml(w)}</strong> <span style="font-weight:700;color:#555">/ ${escapeHtml(altFr(w))}</span></li>`).join("")}</ul>`;
+      }
+      const el = document.getElementById("worksheet");
+      el.dataset.ready = "1";
+      el.innerHTML = `
+        <header class="worksheet-header">
+          <h1>Mes mots — Vokabeltest</h1>
+          <div class="sub">Klasse 7 · mit Artikel · ${mode === "mix" ? "gemischt DE ↔ FR" : "Bild → Französisch"}</div>
+        </header>
+        <div class="ws-meta">
+          <div>Name: <span></span></div>
+          <div>Datum: <span style="border:none">${today}</span></div>
+          <div>Punkte: ____ / 16</div>
+        </div>
+        <p class="ws-legend"><span class="art m">le / un</span> · <span class="art f">la / une</span> · <span class="art pl">les</span> · l'assiette ist feminin.</p>
+        ${body}
+        <section class="answer-key">${key}</section>`;
+    }
+    document.getElementById("ws-bild").addEventListener("click", () => generateWorksheet("bild"));
+    document.getElementById("ws-mix").addEventListener("click", () => generateWorksheet("mix"));
+    document.getElementById("ws-key").addEventListener("click", () => {
+      const sheet = document.getElementById("worksheet");
+      sheet.classList.toggle("show-key");
+      document.getElementById("ws-key").textContent = sheet.classList.contains("show-key")
+        ? "Lösungen verbergen"
+        : "Lösungen zeigen";
+    });
+    document.getElementById("ws-print").addEventListener("click", () => {
+      if (!document.getElementById("worksheet").dataset.ready) generateWorksheet("bild");
+      window.print();
+    });
+
+    renderFilters();
+    renderTraps();
+    renderGrid();
+    generateWorksheet("bild");
+  </script>
+</body>
+</html>

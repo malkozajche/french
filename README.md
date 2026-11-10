@@ -2,6 +2,13 @@
 
 Interactive French vocabulary pages for **Unité 6: Trois jours à Nice!** — plus a dedicated adjectives page for the Tuesday test.
 
+## This week
+
+### Mes mots — Vokabeltest Donnerstag, 12.11.2026 🖼️
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/mes-mots.html
+
+**16 Wörter mit Bildern** from the Klasse 7 sheet. Every word **with the article** — blue le/un, red la/une, purple les. Picture cards, a typing drill (German gender is often a trap), listen-and-pick, quiz, and a printable picture test with the answer key on page 2.
+
 ## Send these to Maya
 
 ### 1) Cute starter (15 words)
@@ -46,6 +53,7 @@ This week’s French vocab (review + Atelier DE 1 + *la sixième*): FR pronuncia
 
 ## Files
 
+- [`mes-mots.html`](mes-mots.html) — Klasse 7 picture vocab for the Thursday 12.11. test
 - [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
 - [`vocabulaire-6.html`](vocabulaire-6.html) — full textbook coverage
 - [`adjectifs.html`](adjectifs.html) — adjectives for the Tuesday test
