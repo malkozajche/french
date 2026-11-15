@@ -44,6 +44,11 @@ https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/r
 
 This week’s French vocab (review + Atelier DE 1 + *la sixième*): FR pronunciation, German, examples with back-translations. Printable test = **5 words both directions** + **1 sentence German → French**.
 
+### 8) Geschichte · Klassenarbeit Montag 16.11. 📜
+https://htmlpreview.github.io/?https://github.com/malkozajche/french/blob/main/geschichte.html
+
+Nine short answers from Maya’s own worksheets, with pictures, a write-it-yourself round, picture games (Alt/Jung, who the land feeds, source detective, epochs, Ötzi), the full study sheet, a picture quiz, and the practice test from the Lernzettel. Printable page with an optional answer key.
+
 ## Files
 
 - [`index.html`](index.html) — cute 15-word starter (unchanged vibe)
@@ -54,5 +59,6 @@ This week’s French vocab (review + Atelier DE 1 + *la sixième*): FR pronuncia
 - [`clarinda-106-vocab.html`](clarinda-106-vocab.html) — pronunciation + DE/EN translations
 - [`english-london.html`](english-london.html) — English Unit 1 London vocab + printable test
 - [`rentree.html`](rentree.html) — Unité 1 La rentrée this-week vocab + printable test
+- [`geschichte.html`](geschichte.html) — Geschichte Klassenarbeit 16.11., pictures and practice test
 
 Works best in **Chrome, Edge, or Safari** (browser speech voices).
